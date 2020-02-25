@@ -24,6 +24,6 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "components/ApplicationMainBar.jsx", "pages/_app.tsx"
+    "**/*.tsx", "components/ApplicationMainBar.jsx", "pages/_app.tsx", "components/datasources/AddDatasource.jsx"
   ]
 }

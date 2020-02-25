@@ -607,7 +607,7 @@ function SideMenu() {
     }
   }, {
     key: 'datasources',
-    text: 'Datasources',
+    text: 'Data Sources',
     route: '/datasources',
     icon: function icon() {
       return __jsx(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_10___default.a, {

@@ -24,7 +24,7 @@ export default function SideMenu() {
   const classes = useStyles();
   const routes = [
     { key: 'dashboards', text: 'Dashboards', route: '/dashboards', icon: () => (<DashboardIcon />) },
-    { key: 'datasources', text: 'Datasources', route: '/datasources', icon: () => (<StorageIcon />) },
+    { key: 'datasources', text: 'Data Sources', route: '/datasources', icon: () => (<StorageIcon />) },
     { key: 'widgets', text: 'Widgets', route: '/widgets', icon: () => (<AssessmentIcon />) },
   ]
 
