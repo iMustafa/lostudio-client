@@ -1154,7 +1154,7 @@ class LoStudio extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
     if (Component.getInitialProps) pageProps = await Component.getInitialProps(ctx);
 
     if (typeof c.id == 'undefined') {
-      if (ctx.pathname == "/login" || ctx.pathname == "/forgot-password") return {
+      if (ctx.pathname == "/login" || ctx.pathname == "/forgot-password" || ctx.pathname == '/signup') return {
         pageProps
       };else Object(_components_redirectTo__WEBPACK_IMPORTED_MODULE_6__["default"])('/login', {
         res: ctx.res,

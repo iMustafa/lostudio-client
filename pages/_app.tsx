@@ -22,7 +22,7 @@ export default class LoStudio extends App {
       pageProps = await Component.getInitialProps(ctx)
 
     if (typeof c.id == 'undefined') {
-      if (ctx.pathname == "/login" || ctx.pathname == "/forgot-password") return { pageProps }
+      if (ctx.pathname == "/login" || ctx.pathname == "/forgot-password" || ctx.pathname == '/signup') return { pageProps }
       else redirectTo('/login', { res: ctx.res, status: 301 })
     } else {
       // SHOULD CHECK FOR AUTH TOKEN VALIDITY
