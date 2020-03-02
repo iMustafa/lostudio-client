@@ -7,6 +7,6 @@ module.exports = withImages({
     return config;
   },
   publicRuntimeConfig: {
-    API_URL: 'http://localhost:3001/api',
+    API_URL: 'http://173.249.14.149/:3001/api'
   }
 });
