@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -128,7 +128,7 @@ class DatasourceActions {
       headers: {
         Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
       }
-    }).then(res => res.data).catch(err => err.response);
+    }).then(res => res.data).catch(err => err);
   } // TODO
 
 
@@ -310,16 +310,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Paper */ "@material-ui/core/Paper");
-/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _SearchInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../SearchInput */ "./components/SearchInput.jsx");
-/* harmony import */ var _AddDatasourceItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AddDatasourceItem */ "./components/datasources/AddDatasourceItem.jsx");
-/* harmony import */ var _datasources__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./datasources */ "./components/datasources/datasources.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _SearchInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../SearchInput */ "./components/SearchInput.jsx");
+/* harmony import */ var _AddDatasourceItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddDatasourceItem */ "./components/datasources/AddDatasourceItem.jsx");
+/* harmony import */ var _datasources__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./datasources */ "./components/datasources/datasources.js");
+/* harmony import */ var _material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Modal */ "@material-ui/core/Modal");
+/* harmony import */ var _material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Backdrop__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Backdrop */ "@material-ui/core/Backdrop");
+/* harmony import */ var _material_ui_core_Backdrop__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Backdrop__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Fade__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Fade */ "@material-ui/core/Fade");
+/* harmony import */ var _material_ui_core_Fade__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Fade__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _add_mongodb__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./add/mongodb */ "./components/datasources/add/mongodb.tsx");
+/* harmony import */ var _add_postgresql__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./add/postgresql */ "./components/datasources/add/postgresql.jsx");
+/* harmony import */ var _add_mssql__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./add/mssql */ "./components/datasources/add/mssql.jsx");
+/* harmony import */ var _add_mysql__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./add/mysql */ "./components/datasources/add/mysql.jsx");
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\datasources\\AddDatasource.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
 
 
 
@@ -344,65 +359,162 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
   gridStyles: {
     margin: '10px 0 5px 0',
     width: '100%'
+  },
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3)
   }
 }));
 
 const AddDatasource = () => {
   const classes = useStyles();
+  const {
+    0: open,
+    1: setOpen
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: type,
+    1: setType
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
+
+  const handleOpen = type => {
+    setType(type);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const onClick = (type, _) => {
+    handleOpen(type);
+  };
+
+  const returnDialog = $type => {
+    switch ($type) {
+      case 'mongodb':
+        return __jsx(_add_mongodb__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 70
+          },
+          __self: undefined
+        });
+
+      case 'mssql':
+        return __jsx(_add_mssql__WEBPACK_IMPORTED_MODULE_12__["default"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 72
+          },
+          __self: undefined
+        });
+
+      case 'postgresql':
+        return __jsx(_add_postgresql__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 74
+          },
+          __self: undefined
+        });
+
+      case 'mysql':
+        return __jsx(_add_mysql__WEBPACK_IMPORTED_MODULE_13__["default"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 76
+          },
+          __self: undefined
+        });
+    }
+  };
+
   return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
     className: classes.root,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 81
     },
     __self: undefined
   }, __jsx("div", {
     className: classes.cardTitle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 82
     },
     __self: undefined
   }, "Add a New Data Source"), __jsx("div", {
     className: classes.cardBody,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 85
     },
     __self: undefined
-  }, __jsx(_SearchInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, __jsx(_SearchInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 86
     },
     __self: undefined
-  }), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default.a, {
+  }), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
     container: true,
     spacing: 2,
     className: classes.gridStyles,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 87
     },
     __self: undefined
-  }, _datasources__WEBPACK_IMPORTED_MODULE_7__["default"].map(datasource => __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default.a, {
+  }, _datasources__WEBPACK_IMPORTED_MODULE_6__["default"].map(datasource => __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
     item: true,
     xs: 3,
     key: datasource.name,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 89
     },
     __self: undefined
-  }, __jsx(_AddDatasourceItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, __jsx(_AddDatasourceItem__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    onClick: onClick,
     name: datasource.name,
     type: datasource.type || datasource.name.toLowerCase().replace(/\s/g, '-'),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 90
     },
     __self: undefined
-  }))))));
+  })))), __jsx(_material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    "aria-labelledby": "transition-modal-title",
+    "aria-describedby": "transition-modal-description",
+    className: classes.modal,
+    open: open,
+    onClose: handleClose,
+    closeAfterTransition: true,
+    BackdropComponent: _material_ui_core_Backdrop__WEBPACK_IMPORTED_MODULE_8___default.a,
+    BackdropProps: {
+      timeout: 500
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Fade__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    in: open,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107
+    },
+    __self: undefined
+  }, returnDialog(type)))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AddDatasource);
@@ -422,11 +534,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
-/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\datasources\\AddDatasourceItem.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
@@ -434,7 +549,8 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
     display: 'flex',
     padding: '10px 20px',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    cursor: 'pointer'
   },
   image: {
     width: '30px'
@@ -447,27 +563,29 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
 const AddDatasource = ({
   type,
   func,
-  name
+  name,
+  onClick
 }) => {
   const classes = useStyles();
-  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3___default.a, {
     className: classes.root,
+    onClick: onClick.bind(undefined, type),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 15
     },
     __self: undefined
   }, __jsx("div", {
     className: classes.text,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 16
     },
     __self: undefined
   }, name), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 17
     },
     __self: undefined
   }, __jsx("img", {
@@ -475,7 +593,7 @@ const AddDatasource = ({
     src: __webpack_require__("./static sync recursive ^\\.\\/.*\\.png$")(`./${type}.png`),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 18
     },
     __self: undefined
   })));
@@ -502,12 +620,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var material_table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! material-table */ "material-table");
 /* harmony import */ var material_table__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(material_table__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _SearchInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../SearchInput */ "./components/SearchInput.jsx");
+/* harmony import */ var _material_ui_icons_Details__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/icons/Details */ "@material-ui/icons/Details");
+/* harmony import */ var _material_ui_icons_Details__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Details__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/icons/Edit */ "@material-ui/icons/Edit");
+/* harmony import */ var _material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_5__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\datasources\\ListDatasources.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 
 
 
@@ -533,73 +655,2154 @@ const ListDatasource = ({
   datasources
 }) => {
   const classes = useStyles();
+  const props = {
+    options: {
+      search: true
+    }
+  };
   return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
     className: classes.root,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 33
     },
     __self: undefined
   }, __jsx("div", {
     className: classes.cardTitle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 34
     },
     __self: undefined
   }, "My Data sources"), __jsx("div", {
     className: classes.cardBody,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 35
     },
     __self: undefined
-  }, __jsx(material_table__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    title: "Basic Search Preview",
+  }, __jsx(material_table__WEBPACK_IMPORTED_MODULE_3___default.a, _extends({
+    title: "",
     style: {
       boxShadow: 'none'
     },
     columns: [{
       title: 'Name',
-      field: 'name'
+      field: 'title'
     }, {
-      title: 'Surname',
-      field: 'surname'
+      title: 'Type',
+      field: 'type'
     }, {
-      title: 'Birth Year',
-      field: 'birthYear',
-      type: 'numeric'
-    }, {
-      title: 'Birth Place',
-      field: 'birthCity',
-      lookup: {
-        34: 'İstanbul',
-        63: 'Şanlıurfa'
-      }
+      title: 'Description',
+      field: 'description'
     }],
-    data: [{
-      name: 'Mehmet',
-      surname: 'Baran',
-      birthYear: 1987,
-      birthCity: 63
+    data: Object.values(datasources)
+  }, props, {
+    actions: [{
+      icon: () => __jsx(_material_ui_icons_Details__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 48
+        },
+        __self: undefined
+      }),
+      tooltip: 'Info',
+      onClick: (event, rowData) => alert("You saved " + rowData.title)
     }, {
-      name: 'Zerya Betül',
-      surname: 'Baran',
-      birthYear: 2017,
-      birthCity: 34
+      icon: () => __jsx(_material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_5___default.a, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 53
+        },
+        __self: undefined
+      }),
+      tooltip: 'Edit',
+      onClick: (event, rowData) => alert("You saved " + rowData.title)
     }],
-    options: {
-      search: true
-    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 36
     },
     __self: undefined
-  })));
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ListDatasource);
+
+/***/ }),
+
+/***/ "./components/datasources/add/mongodb.tsx":
+/*!************************************************!*\
+  !*** ./components/datasources/add/mongodb.tsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/IconButton */ "@material-ui/core/IconButton");
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_InputAdornment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/InputAdornment */ "@material-ui/core/InputAdornment");
+/* harmony import */ var _material_ui_core_InputAdornment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputAdornment__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_icons_Visibility__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/icons/Visibility */ "@material-ui/icons/Visibility");
+/* harmony import */ var _material_ui_icons_Visibility__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Visibility__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _material_ui_icons_VisibilityOff__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/icons/VisibilityOff */ "@material-ui/icons/VisibilityOff");
+/* harmony import */ var _material_ui_icons_VisibilityOff__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_VisibilityOff__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "@material-ui/core/CircularProgress");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_16__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\datasources\\add\\mongodb.tsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  root: {
+    padding: '30px 15px 15px 15px'
+  },
+  cardBody: {
+    padding: '10px'
+  },
+  cardTitle: {
+    fontSize: '12px',
+    backgroundColor: '#3F51B5',
+    padding: '3px 3px 3px 6px',
+    color: '#FFF',
+    fontFamily: "Roboto"
+  },
+  gridStyles: {
+    margin: '10px 0 5px 0',
+    width: '100%'
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    margin: '10px 0 20px',
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  card: {
+    padding: '10px 15px 20px 15px',
+    marginBottom: '20px'
+  }
+}));
+
+const AddMongoDBDataSource = () => {
+  const classes = useStyles();
+  const {
+    0: values,
+    1: setValues
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    showPassword: false,
+    useAuth: 0,
+    isLoading: false
+  });
+  const {
+    0: attempts,
+    1: setAttempts
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
+  const {
+    0: state,
+    1: setState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    title: '',
+    type: 'mongodb',
+    force: false,
+    description: '',
+    config: {
+      port: 27017,
+      server: '',
+      db: '',
+      user: '',
+      password: ''
+    }
+  });
+
+  const handleClickShowPassword = () => {
+    setValues(_objectSpread({}, values, {
+      showPassword: !values.showPassword
+    }));
+  };
+
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
+
+  const handleInputChange = event => {
+    const {
+      value,
+      name
+    } = event.target;
+    setState(_objectSpread({}, state, {
+      [name]: value
+    }));
+    setAttempts(0);
+  };
+
+  const handleAuthChange = event => {
+    const {
+      value,
+      name
+    } = event.target;
+    setState(_objectSpread({}, state, {
+      config: _objectSpread({}, state.config, {
+        [name]: value
+      })
+    }));
+  };
+
+  const renderSubmitButtons = () => {
+    return values.isLoading ? __jsx("div", {
+      style: {
+        display: 'flex',
+        justifyContent: 'center'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 96
+      },
+      __self: undefined
+    }, __jsx(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_16___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 97
+      },
+      __self: undefined
+    })) : attempts >= 1 ? __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 100
+      },
+      __self: undefined
+    }, __jsx("div", {
+      className: "alert alert-info",
+      style: {
+        display: 'flex',
+        justifyContent: 'center'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 101
+      },
+      __self: undefined
+    }, __jsx("p", {
+      style: {
+        fontFamily: 'Roboto',
+        margin: '0'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 102
+      },
+      __self: undefined
+    }, "Connection failed to this database, would you like to save it anyway?")), __jsx("div", {
+      style: {
+        display: 'flex',
+        justifyContent: 'center'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 104
+      },
+      __self: undefined
+    }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__["Button"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 105
+      },
+      __self: undefined
+    }, "Cancel"), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__["Button"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 106
+      },
+      __self: undefined
+    }, "Save"))) : __jsx("div", {
+      style: {
+        display: 'flex',
+        justifyContent: 'center'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 110
+      },
+      __self: undefined
+    }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__["Button"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 111
+      },
+      __self: undefined
+    }, "Cancel"), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__["Button"], {
+      onClick: handleSubmitData,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 112
+      },
+      __self: undefined
+    }, "Save"));
+  };
+
+  const handleSubmitData = async () => {
+    try {
+      setValues(_objectSpread({}, values, {
+        isLoading: true
+      }));
+      const res = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_15__["default"].createDatasource(state);
+      console.log(res.response);
+      setValues(_objectSpread({}, values, {
+        isLoading: false
+      }));
+    } catch (e) {
+      console.log(e);
+      console.log(Object.keys(e));
+
+      if (e.error.message == 'Connection Failed') {
+        setState(_objectSpread({}, state, {
+          force: true
+        }));
+        setAttempts(1);
+      }
+    }
+  };
+
+  const renderAuth = () => {
+    return values.useAuth ? __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      container: true,
+      spacing: 2,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 135
+      },
+      __self: undefined
+    }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      item: true,
+      xs: 6,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 136
+      },
+      __self: undefined
+    }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      fullWidth: true,
+      onChange: handleAuthChange.bind(undefined),
+      required: true,
+      value: state.config.user,
+      name: "user",
+      label: "Username",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 137
+      },
+      __self: undefined
+    })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      item: true,
+      xs: 6,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 139
+      },
+      __self: undefined
+    }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_10___default.a, {
+      fullWidth: true,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 140
+      },
+      __self: undefined
+    }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+      htmlFor: "password",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 141
+      },
+      __self: undefined
+    }, "Password"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_5___default.a, {
+      required: true,
+      name: "password",
+      type: values.showPassword ? 'text' : 'password',
+      onChange: handleAuthChange.bind(undefined),
+      value: state.config.password,
+      endAdornment: __jsx(_material_ui_core_InputAdornment__WEBPACK_IMPORTED_MODULE_7___default.a, {
+        position: "end",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 149
+        },
+        __self: undefined
+      }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_6___default.a, {
+        "aria-label": "toggle password visibility",
+        onClick: handleClickShowPassword,
+        onMouseDown: handleMouseDownPassword,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 150
+        },
+        __self: undefined
+      }, values.showPassword ? __jsx(_material_ui_icons_Visibility__WEBPACK_IMPORTED_MODULE_12___default.a, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 155
+        },
+        __self: undefined
+      }) : __jsx(_material_ui_icons_VisibilityOff__WEBPACK_IMPORTED_MODULE_13___default.a, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 155
+        },
+        __self: undefined
+      }))),
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 142
+      },
+      __self: undefined
+    })))) : __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      container: true,
+      spacing: 2,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 163
+      },
+      __self: undefined
+    });
+  };
+
+  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 167
+    },
+    __self: undefined
+  }, __jsx("div", {
+    className: classes.cardTitle,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 168
+    },
+    __self: undefined
+  }, "Add a New Data Source - MongoDB"), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.root,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 171
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 173
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 174
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 175
+    },
+    __self: undefined
+  }, "Properties")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 177
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 178
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    onChange: handleInputChange.bind(undefined),
+    fullWidth: true,
+    required: true,
+    value: state.title,
+    name: "title",
+    label: "Name",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 179
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 181
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    onChange: handleInputChange.bind(undefined),
+    fullWidth: true,
+    id: "description",
+    value: state.description,
+    name: "description",
+    label: "Description",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 182
+    },
+    __self: undefined
+  })))), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 187
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 188
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 189
+    },
+    __self: undefined
+  }, "Database Properties")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 191
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 8,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 192
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    onChange: handleAuthChange.bind(undefined),
+    required: true,
+    value: state.config.server,
+    name: "server",
+    label: "Server",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 193
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 4,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 195
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    onChange: handleAuthChange.bind(undefined),
+    required: true,
+    value: state.config.port,
+    name: "port",
+    label: "Port",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 196
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 4,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 198
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    onChange: handleAuthChange.bind(undefined),
+    required: true,
+    value: state.config.db,
+    name: "db",
+    label: "Database",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 199
+    },
+    __self: undefined
+  })))), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 204
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 205
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 206
+    },
+    __self: undefined
+  }, "Authentication")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 208
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 6,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 209
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    fullWidth: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 210
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    id: "mechanism",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 211
+    },
+    __self: undefined
+  }, "Mechanism"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    labelId: "mechanism",
+    onChange: e => {
+      setValues(_objectSpread({}, values, {
+        useAuth: e.target.value
+      }));
+    },
+    value: values.useAuth,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 212
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    value: 0,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 217
+    },
+    __self: undefined
+  }, "No Authentication"), __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    value: 1,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 218
+    },
+    __self: undefined
+  }, "Username and Password")))), renderAuth())), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 226
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 227
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 228
+    },
+    __self: undefined
+  }, "Miscellaneous")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 230
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 6,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 231
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "timeout",
+    name: "timeout",
+    label: "Query Timeout",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 232
+    },
+    __self: undefined
+  })))), renderSubmitButtons()));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AddMongoDBDataSource);
+
+/***/ }),
+
+/***/ "./components/datasources/add/mssql.jsx":
+/*!**********************************************!*\
+  !*** ./components/datasources/add/mssql.jsx ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormHelperText */ "@material-ui/core/FormHelperText");
+/* harmony import */ var _material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/FormLabel */ "@material-ui/core/FormLabel");
+/* harmony import */ var _material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_12__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\datasources\\add\\mssql.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  root: {
+    padding: '30px 15px 15px 15px'
+  },
+  cardBody: {
+    padding: '10px'
+  },
+  cardTitle: {
+    fontSize: '12px',
+    backgroundColor: '#3F51B5',
+    padding: '3px 3px 3px 6px',
+    color: '#FFF',
+    fontFamily: "Roboto"
+  },
+  gridStyles: {
+    margin: '10px 0 5px 0',
+    width: '100%'
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    margin: '10px 0 20px',
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  card: {
+    padding: '10px 15px 20px 15px',
+    marginBottom: '20px'
+  }
+}));
+
+const AddMsSQLDataSource = () => {
+  const classes = useStyles();
+  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, __jsx("div", {
+    className: classes.cardTitle,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58
+    },
+    __self: undefined
+  }, "Add a New Data Source - Microsoft SQL Server"), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.root,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 63
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, "Database Properties")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 8,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "server",
+    name: "server",
+    label: "Server",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 4,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "port",
+    name: "port",
+    label: "Port",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 4,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "database",
+    name: "database",
+    label: "Database",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    value: "start",
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      color: "primary",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 82
+      },
+      __self: undefined
+    }),
+    label: "Encrypt",
+    labelPlacement: "end",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  })), __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 88
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "ca_certificate",
+    name: "ca_certificate",
+    label: "CA Certificate",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    value: "start",
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      color: "primary",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 94
+      },
+      __self: undefined
+    }),
+    label: "Trust Server Certificate",
+    labelPlacement: "end",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 92
+    },
+    __self: undefined
+  }))))), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105
+    },
+    __self: undefined
+  }, "Authentication")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 6,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 108
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "username",
+    name: "username",
+    label: "Username",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 109
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 6,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 111
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "password",
+    name: "password",
+    label: "Password",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 112
+    },
+    __self: undefined
+  })))), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 119
+    },
+    __self: undefined
+  }, "Miscellaneous")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 121
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 6,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 122
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "timeout",
+    name: "timeout",
+    label: "Query Timeout",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 123
+    },
+    __self: undefined
+  })))), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 128
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 129
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 130
+    },
+    __self: undefined
+  }, "Advanced")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 132
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 133
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "name",
+    name: "name",
+    label: "Name",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 134
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 136
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "description",
+    name: "description",
+    label: "Description",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 137
+    },
+    __self: undefined
+  }))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AddMsSQLDataSource);
+
+/***/ }),
+
+/***/ "./components/datasources/add/mysql.jsx":
+/*!**********************************************!*\
+  !*** ./components/datasources/add/mysql.jsx ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormHelperText */ "@material-ui/core/FormHelperText");
+/* harmony import */ var _material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/FormLabel */ "@material-ui/core/FormLabel");
+/* harmony import */ var _material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_12__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\datasources\\add\\mysql.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  root: {
+    padding: '30px 15px 15px 15px'
+  },
+  cardBody: {
+    padding: '10px'
+  },
+  cardTitle: {
+    fontSize: '12px',
+    backgroundColor: '#3F51B5',
+    padding: '3px 3px 3px 6px',
+    color: '#FFF',
+    fontFamily: "Roboto"
+  },
+  gridStyles: {
+    margin: '10px 0 5px 0',
+    width: '100%'
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    margin: '10px 0 20px',
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  card: {
+    padding: '10px 15px 20px 15px',
+    marginBottom: '20px'
+  }
+}));
+
+const AddMsSQLDataSource = () => {
+  const classes = useStyles();
+  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, __jsx("div", {
+    className: classes.cardTitle,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58
+    },
+    __self: undefined
+  }, "Add a New Data Source - MySQL"), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.root,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 63
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, "Database Properties")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 8,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "server",
+    name: "server",
+    label: "Server",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 4,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "port",
+    name: "port",
+    label: "Port",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 4,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "database",
+    name: "database",
+    label: "Database",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    value: "start",
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      color: "primary",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 82
+      },
+      __self: undefined
+    }),
+    label: "Encrypt",
+    labelPlacement: "end",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  })), __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 88
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "ca_certificate",
+    name: "ca_certificate",
+    label: "CA Certificate",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    value: "start",
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      color: "primary",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 94
+      },
+      __self: undefined
+    }),
+    label: "Trust Server Certificate",
+    labelPlacement: "end",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 92
+    },
+    __self: undefined
+  }))))), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105
+    },
+    __self: undefined
+  }, "Authentication")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 6,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 108
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "username",
+    name: "username",
+    label: "Username",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 109
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 6,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 111
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "password",
+    name: "password",
+    label: "Password",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 112
+    },
+    __self: undefined
+  })))), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 119
+    },
+    __self: undefined
+  }, "Miscellaneous")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 121
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 6,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 122
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "timeout",
+    name: "timeout",
+    label: "Query Timeout",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 123
+    },
+    __self: undefined
+  })))), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 128
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 129
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 130
+    },
+    __self: undefined
+  }, "Advanced")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 132
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 133
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "name",
+    name: "name",
+    label: "Name",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 134
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 136
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "description",
+    name: "description",
+    label: "Description",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 137
+    },
+    __self: undefined
+  }))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AddMsSQLDataSource);
+
+/***/ }),
+
+/***/ "./components/datasources/add/postgresql.jsx":
+/*!***************************************************!*\
+  !*** ./components/datasources/add/postgresql.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormHelperText */ "@material-ui/core/FormHelperText");
+/* harmony import */ var _material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/FormLabel */ "@material-ui/core/FormLabel");
+/* harmony import */ var _material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_12__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\datasources\\add\\postgresql.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  root: {
+    padding: '30px 15px 15px 15px'
+  },
+  cardBody: {
+    padding: '10px'
+  },
+  cardTitle: {
+    fontSize: '12px',
+    backgroundColor: '#3F51B5',
+    padding: '3px 3px 3px 6px',
+    color: '#FFF',
+    fontFamily: "Roboto"
+  },
+  gridStyles: {
+    margin: '10px 0 5px 0',
+    width: '100%'
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    margin: '10px 0 20px',
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  card: {
+    padding: '10px 15px 20px 15px',
+    marginBottom: '20px'
+  }
+}));
+
+const AddMsSQLDataSource = () => {
+  const classes = useStyles();
+  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, __jsx("div", {
+    className: classes.cardTitle,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58
+    },
+    __self: undefined
+  }, "Add a New Data Source - PostgreSQL"), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.root,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 63
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, "Database Properties")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 8,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "server",
+    name: "server",
+    label: "Server",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 4,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "port",
+    name: "port",
+    label: "Port",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 4,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "database",
+    name: "database",
+    label: "Database",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    value: "start",
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      color: "primary",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 82
+      },
+      __self: undefined
+    }),
+    label: "Encrypt",
+    labelPlacement: "end",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  })), __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 88
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "ca_certificate",
+    name: "ca_certificate",
+    label: "CA Certificate",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    value: "start",
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      color: "primary",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 94
+      },
+      __self: undefined
+    }),
+    label: "Trust Server Certificate",
+    labelPlacement: "end",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 92
+    },
+    __self: undefined
+  }))))), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105
+    },
+    __self: undefined
+  }, "Authentication")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 6,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 108
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "username",
+    name: "username",
+    label: "Username",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 109
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 6,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 111
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "password",
+    name: "password",
+    label: "Password",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 112
+    },
+    __self: undefined
+  })))), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 119
+    },
+    __self: undefined
+  }, "Miscellaneous")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 121
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 6,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 122
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "timeout",
+    name: "timeout",
+    label: "Query Timeout",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 123
+    },
+    __self: undefined
+  })))), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: classes.card,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 128
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 129
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 130
+    },
+    __self: undefined
+  }, "Advanced")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 132
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 133
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "name",
+    name: "name",
+    label: "Name",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 134
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 136
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    id: "description",
+    name: "description",
+    label: "Description",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 137
+    },
+    __self: undefined
+  }))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AddMsSQLDataSource);
 
 /***/ }),
 
@@ -612,14 +2815,22 @@ const ListDatasource = ({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ([// { name: 'Apache Hive' },
-// { name: 'Apache Phoenix' },
-// { name: 'Apache Spark' },
-// { name: 'Azure SQL' },
-// { name: 'Drill' },
-// { name: 'Google Big Query', type: 'gbq' },
-// { name: 'Impala' },
-{
+/* harmony default export */ __webpack_exports__["default"] = ([{
+  name: 'Apache Hive'
+}, {
+  name: 'Apache Phoenix'
+}, {
+  name: 'Apache Spark'
+}, {
+  name: 'Azure SQL'
+}, {
+  name: 'Drill'
+}, {
+  name: 'Google Big Query',
+  type: 'gbq'
+}, {
+  name: 'Impala'
+}, {
   name: 'MongoDB'
 }, {
   name: 'Microsoft SQL Server',
@@ -627,12 +2838,16 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: 'MySQL Enterprise Edition',
   type: 'mysql'
-}, // { name: 'Oracle SQL', type: 'oracle' },
-{
+}, {
+  name: 'Oracle SQL',
+  type: 'oracle'
+}, {
   name: 'Postgre SQL',
   type: 'postgresql'
-} // { name: 'Amazon Redshift', type: 'redshift' }
-]);
+}, {
+  name: 'Amazon Redshift',
+  type: 'redshift'
+}]);
 
 /***/ }),
 
@@ -920,7 +3135,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADY
 
 /***/ }),
 
-/***/ 7:
+/***/ 5:
 /*!*******************************************!*\
   !*** multi ./pages/datasources/index.tsx ***!
   \*******************************************/
@@ -929,6 +3144,28 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADY
 
 module.exports = __webpack_require__(/*! F:\Projects\LoStudio\client\pages\datasources\index.tsx */"./pages/datasources/index.tsx");
 
+
+/***/ }),
+
+/***/ "@material-ui/core":
+/*!************************************!*\
+  !*** external "@material-ui/core" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core");
+
+/***/ }),
+
+/***/ "@material-ui/core/Backdrop":
+/*!*********************************************!*\
+  !*** external "@material-ui/core/Backdrop" ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Backdrop");
 
 /***/ }),
 
@@ -943,6 +3180,83 @@ module.exports = require("@material-ui/core/Card");
 
 /***/ }),
 
+/***/ "@material-ui/core/Checkbox":
+/*!*********************************************!*\
+  !*** external "@material-ui/core/Checkbox" ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Checkbox");
+
+/***/ }),
+
+/***/ "@material-ui/core/CircularProgress":
+/*!*****************************************************!*\
+  !*** external "@material-ui/core/CircularProgress" ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/CircularProgress");
+
+/***/ }),
+
+/***/ "@material-ui/core/Fade":
+/*!*****************************************!*\
+  !*** external "@material-ui/core/Fade" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Fade");
+
+/***/ }),
+
+/***/ "@material-ui/core/FormControl":
+/*!************************************************!*\
+  !*** external "@material-ui/core/FormControl" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/FormControl");
+
+/***/ }),
+
+/***/ "@material-ui/core/FormControlLabel":
+/*!*****************************************************!*\
+  !*** external "@material-ui/core/FormControlLabel" ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/FormControlLabel");
+
+/***/ }),
+
+/***/ "@material-ui/core/FormHelperText":
+/*!***************************************************!*\
+  !*** external "@material-ui/core/FormHelperText" ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/FormHelperText");
+
+/***/ }),
+
+/***/ "@material-ui/core/FormLabel":
+/*!**********************************************!*\
+  !*** external "@material-ui/core/FormLabel" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/FormLabel");
+
+/***/ }),
+
 /***/ "@material-ui/core/Grid":
 /*!*****************************************!*\
   !*** external "@material-ui/core/Grid" ***!
@@ -951,6 +3265,39 @@ module.exports = require("@material-ui/core/Card");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/core/Grid");
+
+/***/ }),
+
+/***/ "@material-ui/core/IconButton":
+/*!***********************************************!*\
+  !*** external "@material-ui/core/IconButton" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/IconButton");
+
+/***/ }),
+
+/***/ "@material-ui/core/Input":
+/*!******************************************!*\
+  !*** external "@material-ui/core/Input" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Input");
+
+/***/ }),
+
+/***/ "@material-ui/core/InputAdornment":
+/*!***************************************************!*\
+  !*** external "@material-ui/core/InputAdornment" ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/InputAdornment");
 
 /***/ }),
 
@@ -965,14 +3312,58 @@ module.exports = require("@material-ui/core/InputBase");
 
 /***/ }),
 
-/***/ "@material-ui/core/Paper":
+/***/ "@material-ui/core/InputLabel":
+/*!***********************************************!*\
+  !*** external "@material-ui/core/InputLabel" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/InputLabel");
+
+/***/ }),
+
+/***/ "@material-ui/core/MenuItem":
+/*!*********************************************!*\
+  !*** external "@material-ui/core/MenuItem" ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/MenuItem");
+
+/***/ }),
+
+/***/ "@material-ui/core/Modal":
 /*!******************************************!*\
-  !*** external "@material-ui/core/Paper" ***!
+  !*** external "@material-ui/core/Modal" ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("@material-ui/core/Paper");
+module.exports = require("@material-ui/core/Modal");
+
+/***/ }),
+
+/***/ "@material-ui/core/Select":
+/*!*******************************************!*\
+  !*** external "@material-ui/core/Select" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Select");
+
+/***/ }),
+
+/***/ "@material-ui/core/TextField":
+/*!**********************************************!*\
+  !*** external "@material-ui/core/TextField" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/TextField");
 
 /***/ }),
 
@@ -987,6 +3378,28 @@ module.exports = require("@material-ui/core/styles");
 
 /***/ }),
 
+/***/ "@material-ui/icons/Details":
+/*!*********************************************!*\
+  !*** external "@material-ui/icons/Details" ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Details");
+
+/***/ }),
+
+/***/ "@material-ui/icons/Edit":
+/*!******************************************!*\
+  !*** external "@material-ui/icons/Edit" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Edit");
+
+/***/ }),
+
 /***/ "@material-ui/icons/Search":
 /*!********************************************!*\
   !*** external "@material-ui/icons/Search" ***!
@@ -995,6 +3408,28 @@ module.exports = require("@material-ui/core/styles");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/icons/Search");
+
+/***/ }),
+
+/***/ "@material-ui/icons/Visibility":
+/*!************************************************!*\
+  !*** external "@material-ui/icons/Visibility" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Visibility");
+
+/***/ }),
+
+/***/ "@material-ui/icons/VisibilityOff":
+/*!***************************************************!*\
+  !*** external "@material-ui/icons/VisibilityOff" ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/VisibilityOff");
 
 /***/ }),
 
@@ -1050,6 +3485,17 @@ module.exports = require("next-cookies");
 /***/ (function(module, exports) {
 
 module.exports = require("next/config");
+
+/***/ }),
+
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
 
 /***/ }),
 

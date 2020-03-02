@@ -5,6 +5,8 @@ import ApplicationMainBar from '../components/ApplicationMainBar';
 import { ThemeProvider } from 'styled-components'
 import cookies from 'next-cookies'
 import redirectTo from '../components/redirectTo'
+import 'react-grid-layout/css/styles.css'
+import 'react-resizable/css/styles.css'
 
 const theme = {
   primary: 'green'

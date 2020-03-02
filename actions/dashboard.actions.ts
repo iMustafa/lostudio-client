@@ -20,11 +20,11 @@ export default class DashboardActions {
   }
 
   // TODO
-  public static async getUserDashboards(data: Datasource): Promise<Dashboard> {
+  public static async getDashboards({ Authorization, query }: { Authorization?: string, query?: any }): Promise<Array<Dashboard>> {
     return axios
-      .post('', {})
+      .get(`${API_URL}/Dashboards`, { headers: { Authorization: Authorization || Cookie.get('id') } })
       .then(res => res.data)
-      .catch(err => err.response)
+      .catch(err => err)
   }
 
   // TODO

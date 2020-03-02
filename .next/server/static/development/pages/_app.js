@@ -1078,6 +1078,28 @@ function createUrl(router) {
 
 /***/ }),
 
+/***/ "./node_modules/react-grid-layout/css/styles.css":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-grid-layout/css/styles.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./node_modules/react-resizable/css/styles.css":
+/*!*****************************************************!*\
+  !*** ./node_modules/react-resizable/css/styles.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "./pages/_app.tsx":
 /*!************************!*\
   !*** ./pages/_app.tsx ***!
@@ -1100,10 +1122,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next-cookies */ "next-cookies");
 /* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_cookies__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _components_redirectTo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/redirectTo */ "./components/redirectTo.js");
+/* harmony import */ var react_grid_layout_css_styles_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-grid-layout/css/styles.css */ "./node_modules/react-grid-layout/css/styles.css");
+/* harmony import */ var react_grid_layout_css_styles_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_grid_layout_css_styles_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react_resizable_css_styles_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-resizable/css/styles.css */ "./node_modules/react-resizable/css/styles.css");
+/* harmony import */ var react_resizable_css_styles_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_resizable_css_styles_css__WEBPACK_IMPORTED_MODULE_8__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\pages\\_app.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
 
 
 
@@ -1161,19 +1189,19 @@ class LoStudio extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
       theme: theme,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 47
       },
       __self: this
     }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 48
       },
       __self: this
     }, __jsx("title", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
+        lineNumber: 49
       },
       __self: this
     }, "LoStudio"), __jsx("link", {
@@ -1181,7 +1209,7 @@ class LoStudio extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
       href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 50
       },
       __self: this
     }), __jsx("link", {
@@ -1189,7 +1217,7 @@ class LoStudio extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
       href: "https://fonts.googleapis.com/icon?family=Material+Icons",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 51
       },
       __self: this
     }), __jsx("link", {
@@ -1199,19 +1227,19 @@ class LoStudio extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
       crossOrigin: "anonymous",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 52
       },
       __self: this
     })), __jsx(_components_ApplicationMainBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57
+        lineNumber: 59
       },
       __self: this
     }), __jsx(Component, _extends({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58
+        lineNumber: 60
       },
       __self: this
     })));

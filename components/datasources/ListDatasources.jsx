@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
-import MaterialTable from 'material-table';
-import Grid from '@material-ui/core/Grid'
-import SearchInput from '../SearchInput'
+import MaterialTable from 'material-table'
+import Details from '@material-ui/icons/Details'
+import Edit from '@material-ui/icons/Edit'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,32 +21,40 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const ListDatasource = ({ datasources }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
+  const props = {
+    options: {
+      search: true
+    }
+  }
+  
   return (
     <Card className={classes.root}>
       <div className={classes.cardTitle}>My Data sources</div>
       <div className={classes.cardBody}>
         <MaterialTable
-          title="Basic Search Preview"
+          title=""
           style={{ boxShadow: 'none' }}
           columns={[
-            { title: 'Name', field: 'name' },
-            { title: 'Surname', field: 'surname' },
-            { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
+            { title: 'Name', field: 'title' },
+            { title: 'Type', field: 'type' },
+            { title: 'Description', field: 'description' }
+          ]}
+          data={Object.values(datasources)}
+          {...props}
+          actions={[
             {
-              title: 'Birth Place',
-              field: 'birthCity',
-              lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
+              icon: () => <Details />,
+              tooltip: 'Info',
+              onClick: (event, rowData) => alert("You saved " + rowData.title)
             },
+            {
+              icon: () => <Edit />,
+              tooltip: 'Edit',
+              onClick: (event, rowData) => alert("You saved " + rowData.title)
+            }
           ]}
-          data={[
-            { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-            { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
-          ]}
-          options={{
-            search: true
-          }}
         />
       </div>
     </Card>

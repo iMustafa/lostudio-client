@@ -24,6 +24,6 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "components/ApplicationMainBar.jsx", "pages/_app.tsx", "components/datasources/AddDatasource.jsx"
+    "**/*.tsx", "components/ApplicationMainBar.jsx", "pages/_app.tsx", "components/datasources/AddDatasource.jsx", "components/datasources/add/mssql.jsx", "components/datasources/add/mongodb.tsx", "components/datasources/add/postgresql.jsx", "components/datasources/add/mysql.jsx", "components/widgets/table-widget.jsx"
   ]
 }

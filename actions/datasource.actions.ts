@@ -1,11 +1,7 @@
 import axios from 'axios'
 import config from 'next/config'
 import Cookie from 'js-cookie'
-import User from '../types/users.types'
-import Dashboard from '../types/dashboard.types'
 import Datasource from '../types/datasource.types'
-import Widget from '../types/widget.types'
-import WidgetSettings from '../types/widgetSettings.type'
 
 const { API_URL } = config().publicRuntimeConfig
 
@@ -16,7 +12,7 @@ export default class DatasourceActions {
     return axios
       .post(`${API_URL}/DataSources`, data, { headers: { Authorization: Cookie.get('id') } })
       .then(res => res.data)
-      .catch(err => err.response)
+      .catch(err => err)
   }
 
   // TODO

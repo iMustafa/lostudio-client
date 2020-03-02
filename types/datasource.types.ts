@@ -1,10 +1,16 @@
 import User from './users.types'
 
 export default interface Datasource {
-  _id: string;
+  _id?: string;
   type: string;
   description: string;
-  config: any;
-  userId: string;
-  user: User;
+  config: {
+    user?: string
+    password?: string
+    port: number
+    db: string
+    server: string
+  };
+  userId?: string;
+  user?: User;
 }
