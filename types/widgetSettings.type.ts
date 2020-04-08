@@ -3,13 +3,13 @@ import User from './users.types'
 import Widget from './widget.types'
 
 export default interface WidgetSettings {
-  _id: string;
-  title: string;
-  description: string;
-  config: any;
-  widgetId: string;
-  userId: string;
-  datasourceId: string;
+  id?: string;
+  title?: string;
+  description?: string;
+  config?: any;
+  widgetId?: string;
+  userId?: string;
+  datasourceId?: string;
   datasource?: Datasource;
   widget?: Widget;
   user?: User;

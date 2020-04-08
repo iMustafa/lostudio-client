@@ -15,7 +15,7 @@ const AddDatasource = ({ type, func, name, onClick }) => {
     <Card className={classes.root} onClick={onClick.bind(this, type)}>
       <div className={classes.text}>{name}</div>
       <div>
-        <img className={classes.image} src={require(`../../static/${type}.png`)} />
+        <img className={classes.image} src={require(`../../public/${type}.png`)} />
       </div>
     </Card>
   )

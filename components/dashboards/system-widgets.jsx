@@ -7,13 +7,14 @@ import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Grid from '@material-ui/core/Grid'
 import WidgetIcon from '../widgets/widget-icon'
-
+import { v4 as uuidv4 } from 'uuid'
 import TableChartIcon from '@material-ui/icons/TableChart'
 import TimelineIcon from '@material-ui/icons/Timeline'
 import BubbleChartIcon from '@material-ui/icons/BubbleChart'
 import DonutLargeIcon from '@material-ui/icons/DonutLarge'
 import PieChartIcon from '@material-ui/icons/PieChart'
 import BarChartIcon from '@material-ui/icons/BarChart'
+import ListAltIcon from '@material-ui/icons/ListAlt'
 
 const useStyles = makeStyles(() => ({
 
@@ -30,7 +31,8 @@ const SystemWidgets = (props) => {
     { title: 'Bar Chart', icon: <BarChartIcon /> },
     { title: 'Bubble Chart', icon: <BubbleChartIcon /> },
     { title: 'Pie Chart', icon: <PieChartIcon /> },
-    { title: 'Donut Chart', icon: <DonutLargeIcon /> }
+    { title: 'Donut Chart', icon: <DonutLargeIcon /> },
+    { title: 'Gantt Chart', icon: <ListAltIcon /> }
   ]
 
   return (
@@ -45,7 +47,7 @@ const SystemWidgets = (props) => {
         <ExpansionPanelDetails>
           <Grid container spacing={2}>
             {TableWidgets.map(chart => (
-              <Grid item xs={4}>
+              <Grid item xs={4} key={uuidv4()}>
                 <WidgetIcon onWidgetClick={props.onWidgetClick} icon={chart.icon} title={chart.title} />
               </Grid>
             ))}
@@ -62,7 +64,7 @@ const SystemWidgets = (props) => {
         <ExpansionPanelDetails>
           <Grid container spacing={2}>
             {ChartWidgets.map(chart => (
-              <Grid item xs={4}>
+              <Grid item xs={4} key={uuidv4()}>
                 <WidgetIcon onWidgetClick={props.onWidgetClick} icon={chart.icon} title={chart.title} />
               </Grid>
             ))}

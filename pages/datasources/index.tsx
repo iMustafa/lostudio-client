@@ -6,6 +6,8 @@ import DatasourceActions from '../../actions/datasource.actions'
 import Datasource from '../../types/datasource.types';
 import AddDataSource from '../../components/datasources/AddDatasource'
 import ListDatasource from '../../components/datasources/ListDatasources'
+import Grid from '@material-ui/core/Grid'
+import SideMenu from '../../components/SideMenu'
 
 const useStyles = makeStyles(theme => ({
 
@@ -19,10 +21,17 @@ const Datasources: NextPage<Array<Datasource>> = (Datasources: Array<Datasource>
   })
 
   return (
-    <div className={'container'}>
-      <AddDataSource />
-      <ListDatasource datasources={Datasources} />
-    </div>
+    <Grid container spacing={2}>
+      <Grid item xs={2} style={{ position: 'relative' }}>
+        <SideMenu />
+      </Grid>
+      <Grid item xs={10}>
+        <div className={'container'} style={{ margin: "25px auto 0 auto" }}>
+          <AddDataSource />
+          <ListDatasource datasources={Datasources} />
+        </div>
+      </Grid>
+    </Grid>
   )
 }
 

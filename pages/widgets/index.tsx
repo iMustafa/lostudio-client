@@ -1,12 +1,27 @@
-import { NextPage } from 'next';
+import { NextPage } from 'next'
+import Cookies from 'next-cookies'
+import dynamic from 'next/dynamic'
+import WidgetSettingsActions from '../../actions/widgetSettings.actions'
 
-const Widgets: NextPage<{ userAgent: string }> = ({ userAgent }) => (
-  <h1>Hello world! - user agent: {userAgent}</h1>
-);
+const Gantt = dynamic(() => import('../../components/widgets/gantt-chart'), {
+  ssr: false
+})
 
-Widgets.getInitialProps = async ({ req }) => {
-  const userAgent = req ? req.headers['user-agent'] || '' : navigator.userAgent;
-  return { userAgent };
-};
+const Widgets: NextPage<{ WidgetSettings: any, Result: any }> = ({ WidgetSettings, Result }) => {
+  return (
+    <div>
+      <div className="gantt-container">
+        <Gantt />
+      </div>
+    </div>
+  )
+}
 
-export default Widgets;
+Widgets.getInitialProps = async (req) => {
+  const Authorization = Cookies(req).id
+  const WidgetSettings = await WidgetSettingsActions.getWidgetSettingsById("5e78a808f2c42d5a58cc2cdc", Authorization)
+  const Result = await WidgetSettingsActions.executeWidgetQuery("5e78a808f2c42d5a58cc2cdc", Authorization)
+  return { WidgetSettings, Result }
+}
+
+export default Widgets

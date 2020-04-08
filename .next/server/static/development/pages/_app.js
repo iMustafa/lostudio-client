@@ -93,6 +93,75 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./actions/notifications.actions.ts":
+/*!******************************************!*\
+  !*** ./actions/notifications.actions.ts ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NotificationsActions; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/config */ "next/config");
+/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_config__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-cookie */ "js-cookie");
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const {
+  API_URL
+} = next_config__WEBPACK_IMPORTED_MODULE_1___default()().publicRuntimeConfig;
+class NotificationsActions {
+  static async getMyNotificationsCount({
+    Authorization,
+    userId
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/users/${userId || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('userId')}/notifications/count`, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      },
+      params: {
+        filter: {
+          where: {
+            seen: false
+          }
+        }
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async getMyNotifications({
+    Authorization,
+    userId
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/users/${userId || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('userId')}/notifications`, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async markAsSeen({
+    Authorization,
+    id
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch(`${API_URL}/Notifications/${id}`, {
+      seen: true
+    }, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+}
+
+/***/ }),
+
 /***/ "./components/ApplicationMainBar.jsx":
 /*!*******************************************!*\
   !*** ./components/ApplicationMainBar.jsx ***!
@@ -138,7 +207,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/core/Drawer */ "@material-ui/core/Drawer");
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_16__);
 /* harmony import */ var _SideMenu__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./SideMenu */ "./components/SideMenu.jsx");
+/* harmony import */ var _actions_notifications_actions__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../actions/notifications.actions */ "./actions/notifications.actions.ts");
+/* harmony import */ var _notifications_NotificationsMenu__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./notifications/NotificationsMenu */ "./components/notifications/NotificationsMenu.jsx");
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\ApplicationMainBar.jsx";
+
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -146,6 +218,8 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -228,13 +302,48 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
 }));
 function PrimarySearchAppBar() {
   const classes = useStyles();
-  const [state, setState] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState({
+  const {
+    0: state,
+    1: setState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
     left: false
   });
-  const [anchorEl, setAnchorEl] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(null);
+  const {
+    0: anchorEl,
+    1: setAnchorEl
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: mobileMoreAnchorEl,
+    1: setMobileMoreAnchorEl
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: notificationsCount,
+    1: setNotificationsCount
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
+  const [notificationsMenuState, setNotificationsMenuState] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(null);
+
+  const openNotificationsMenu = event => {
+    setNotificationsMenuState(event.currentTarget);
+  };
+
+  const closeNotificationsMenu = () => {
+    setNotificationsMenuState(null);
+  };
+
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getNotificationsCount = async () => {
+      try {
+        const $notificationsCount = await _actions_notifications_actions__WEBPACK_IMPORTED_MODULE_18__["default"].getMyNotificationsCount({});
+        setNotificationsCount($notificationsCount.count);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getNotificationsCount();
+  }, []);
 
   const toggleDrawer = (side, open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -281,21 +390,21 @@ function PrimarySearchAppBar() {
     onClose: handleMenuClose,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 120
+      lineNumber: 139
     },
     __self: this
   }, __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
     onClick: handleMenuClose,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129
+      lineNumber: 148
     },
     __self: this
   }, "Profile"), __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
     onClick: handleMenuClose,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130
+      lineNumber: 149
     },
     __self: this
   }, "My account"));
@@ -318,13 +427,13 @@ function PrimarySearchAppBar() {
     onClose: handleMobileMenuClose,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 136
+      lineNumber: 155
     },
     __self: this
   }, __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 145
+      lineNumber: 164
     },
     __self: this
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -332,7 +441,7 @@ function PrimarySearchAppBar() {
     color: "inherit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 146
+      lineNumber: 165
     },
     __self: this
   }, __jsx(_material_ui_core_Badge__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -340,60 +449,59 @@ function PrimarySearchAppBar() {
     color: "secondary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 147
+      lineNumber: 166
     },
     __self: this
   }, __jsx(_material_ui_icons_Mail__WEBPACK_IMPORTED_MODULE_13___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148
+      lineNumber: 167
     },
     __self: this
   }))), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151
+      lineNumber: 170
     },
     __self: this
   }, "Messages")), __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 153
+      lineNumber: 173
     },
     __self: this
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    "aria-label": "show 11 new notifications",
     color: "inherit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154
+      lineNumber: 174
     },
     __self: this
-  }, __jsx(_material_ui_core_Badge__WEBPACK_IMPORTED_MODULE_7___default.a, {
-    badgeContent: 11,
+  }, notificationsCount ? __jsx(_material_ui_core_Badge__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    badgeContent: notificationsCount,
     color: "secondary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155
+      lineNumber: 176
     },
     __self: this
   }, __jsx(_material_ui_icons_Notifications__WEBPACK_IMPORTED_MODULE_14___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156
+      lineNumber: 177
     },
     __self: this
-  }))), __jsx("p", {
+  })) : null), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159
+      lineNumber: 181
     },
     __self: this
   }, "Notifications")), __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
     onClick: handleProfileMenuOpen,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 161
+      lineNumber: 184
     },
     __self: this
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -403,19 +511,19 @@ function PrimarySearchAppBar() {
     color: "inherit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 162
+      lineNumber: 185
     },
     __self: this
   }, __jsx(_material_ui_icons_AccountCircle__WEBPACK_IMPORTED_MODULE_12___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 168
+      lineNumber: 191
     },
     __self: this
   })), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 170
+      lineNumber: 193
     },
     __self: this
   }, "Profile")));
@@ -424,66 +532,49 @@ function PrimarySearchAppBar() {
     className: classes.grow,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 176
+      lineNumber: 199
     },
     __self: this
   }, __jsx(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2___default.a, {
     position: "static",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 177
+      lineNumber: 200
     },
     __self: this
   }, __jsx(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_3___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 178
+      lineNumber: 201
     },
     __self: this
-  }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    edge: "start",
-    className: classes.menuButton,
-    color: "inherit",
-    "aria-label": "open drawer",
-    onClick: toggleDrawer('left', true),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 179
-    },
-    __self: this
-  }, __jsx(_material_ui_icons_Menu__WEBPACK_IMPORTED_MODULE_10___default.a, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 186
-    },
-    __self: this
-  })), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
     className: classes.title,
     variant: "h6",
     noWrap: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 188
+      lineNumber: 211
     },
     __self: this
   }, "LoStudio"), __jsx("div", {
     className: classes.search,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 191
+      lineNumber: 214
     },
     __self: this
   }, __jsx("div", {
     className: classes.searchIcon,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 192
+      lineNumber: 215
     },
     __self: this
   }, __jsx(_material_ui_icons_Search__WEBPACK_IMPORTED_MODULE_11___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 193
+      lineNumber: 216
     },
     __self: this
   })), __jsx(_material_ui_core_InputBase__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -497,29 +588,28 @@ function PrimarySearchAppBar() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 195
+      lineNumber: 218
     },
     __self: this
   })), __jsx("div", {
     className: classes.grow,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 204
+      lineNumber: 227
     },
     __self: this
   }), __jsx("div", {
     className: classes.sectionDesktop,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 205
+      lineNumber: 228
     },
     __self: this
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    "aria-label": "show 4 new mails",
     color: "inherit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 206
+      lineNumber: 230
     },
     __self: this
   }, __jsx(_material_ui_core_Badge__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -527,38 +617,63 @@ function PrimarySearchAppBar() {
     color: "secondary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 207
+      lineNumber: 231
     },
     __self: this
   }, __jsx(_material_ui_icons_Mail__WEBPACK_IMPORTED_MODULE_13___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 208
+      lineNumber: 232
     },
     __self: this
-  }))), __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    "aria-label": "show 17 new notifications",
-    color: "inherit",
+  }))), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 211
+      lineNumber: 236
     },
     __self: this
-  }, __jsx(_material_ui_core_Badge__WEBPACK_IMPORTED_MODULE_7___default.a, {
-    badgeContent: 17,
+  }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    color: "inherit",
+    onClick: openNotificationsMenu,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 237
+    },
+    __self: this
+  }, notificationsCount ? __jsx(_material_ui_core_Badge__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    badgeContent: notificationsCount,
     color: "secondary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 212
+      lineNumber: 240
     },
     __self: this
   }, __jsx(_material_ui_icons_Notifications__WEBPACK_IMPORTED_MODULE_14___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 213
+      lineNumber: 241
     },
     __self: this
-  }))), __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
+  })) : __jsx(_material_ui_icons_Notifications__WEBPACK_IMPORTED_MODULE_14___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 245
+    },
+    __self: this
+  })), __jsx(_notifications_NotificationsMenu__WEBPACK_IMPORTED_MODULE_19__["default"], {
+    anchorEl: notificationsMenuState,
+    keepMounted: true,
+    style: {
+      top: 50
+    },
+    open: Boolean(notificationsMenuState),
+    onClose: closeNotificationsMenu,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 249
+    },
+    __self: this
+  })), __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
     edge: "end",
     "aria-label": "account of current user",
     "aria-controls": menuId,
@@ -567,20 +682,20 @@ function PrimarySearchAppBar() {
     color: "inherit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 216
+      lineNumber: 258
     },
     __self: this
   }, __jsx(_material_ui_icons_AccountCircle__WEBPACK_IMPORTED_MODULE_12___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 224
+      lineNumber: 266
     },
     __self: this
   }))), __jsx("div", {
     className: classes.sectionMobile,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 227
+      lineNumber: 270
     },
     __self: this
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -591,13 +706,13 @@ function PrimarySearchAppBar() {
     color: "inherit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 228
+      lineNumber: 271
     },
     __self: this
   }, __jsx(_material_ui_icons_MoreVert__WEBPACK_IMPORTED_MODULE_15___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 235
+      lineNumber: 278
     },
     __self: this
   })))), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_16___default.a, {
@@ -605,7 +720,7 @@ function PrimarySearchAppBar() {
     onClose: toggleDrawer('left', false),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 239
+      lineNumber: 282
     },
     __self: this
   }, Object(_SideMenu__WEBPACK_IMPORTED_MODULE_17__["default"])())), renderMobileMenu, renderMenu);
@@ -637,16 +752,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/ListItemText */ "@material-ui/core/ListItemText");
 /* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Divider */ "@material-ui/core/Divider");
-/* harmony import */ var _material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _material_ui_icons_Notifications__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/icons/Notifications */ "@material-ui/icons/Notifications");
-/* harmony import */ var _material_ui_icons_Notifications__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Notifications__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/Dashboard */ "@material-ui/icons/Dashboard");
-/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/icons/Storage */ "@material-ui/icons/Storage");
-/* harmony import */ var _material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/icons/Assessment */ "@material-ui/icons/Assessment");
-/* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/icons/Dashboard */ "@material-ui/icons/Dashboard");
+/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/icons/Storage */ "@material-ui/icons/Storage");
+/* harmony import */ var _material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/Assessment */ "@material-ui/icons/Assessment");
+/* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\SideMenu.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -660,25 +773,24 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])({
   list: {
-    width: 250
-  },
-  fullList: {
-    width: 'auto'
+    position: 'absolute',
+    width: '100%',
+    height: 'calc(100vh - 82px)',
+    borderRadius: 'none'
   }
 });
 function SideMenu() {
   const classes = useStyles();
   const routes = [{
     key: 'dashboards',
-    text: 'Dashboards',
+    text: 'Projects',
     route: '/dashboards',
-    icon: () => __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    icon: () => __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 25
       },
       __self: this
     })
@@ -686,10 +798,10 @@ function SideMenu() {
     key: 'datasources',
     text: 'Data Sources',
     route: '/datasources',
-    icon: () => __jsx(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    icon: () => __jsx(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 26
       },
       __self: this
     })
@@ -697,26 +809,25 @@ function SideMenu() {
     key: 'widgets',
     text: 'Widgets',
     route: '/widgets',
-    icon: () => __jsx(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    icon: () => __jsx(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 27
       },
       __self: this
     })
   }];
-  return __jsx("div", {
+  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10___default.a, {
     className: classes.list,
-    role: "presentation",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 31
     },
     __self: this
   }, __jsx(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_3___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 32
     },
     __self: this
   }, routes.map((item, index) => __jsx(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -727,24 +838,289 @@ function SideMenu() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 34
     },
     __self: this
   }, __jsx(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 35
     },
     __self: this
   }, item.icon()), __jsx(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6___default.a, {
     primary: item.text,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 36
     },
     __self: this
   })))));
 }
+
+/***/ }),
+
+/***/ "./components/notifications/NotificationsItem.jsx":
+/*!********************************************************!*\
+  !*** ./components/notifications/NotificationsItem.jsx ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/IconButton */ "@material-ui/core/IconButton");
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _actions_notifications_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/notifications.actions */ "./actions/notifications.actions.ts");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/icons/Dashboard */ "@material-ui/icons/Dashboard");
+/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_icons_RadioButtonUnchecked__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/RadioButtonUnchecked */ "@material-ui/icons/RadioButtonUnchecked");
+/* harmony import */ var _material_ui_icons_RadioButtonUnchecked__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_RadioButtonUnchecked__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\notifications\\NotificationsItem.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(theme => ({
+  gridItem: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center'
+  },
+  message: {
+    alignSelf: 'flex-start',
+    justifySelf: 'flex-start',
+    fontSize: 14
+  },
+  date: {
+    alignSelf: 'flex-start',
+    fontSize: 12,
+    color: "#555"
+  }
+}));
+
+const NotificationItem = ({
+  notification
+}) => {
+  const classes = useStyles();
+  const {
+    0: isSeen,
+    1: setIsSeen
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(notification.seen);
+
+  const decideNotificationIcon = () => {
+    switch (notification.type) {
+      case "Dashboard Collaboration":
+        return __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_8___default.a, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 39
+          },
+          __self: undefined
+        });
+    }
+  };
+
+  const markSeen = async () => {
+    if (!notification.seen) {
+      try {
+        await _actions_notifications_actions__WEBPACK_IMPORTED_MODULE_6__["default"].markAsSeen({
+          id: notification.id
+        });
+        setIsSeen(true);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  };
+
+  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    onClick: markSeen,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    spacing: 0,
+    container: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    item: true,
+    xs: 2,
+    className: classes.gridItem,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, decideNotificationIcon()), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    item: true,
+    xs: 8,
+    className: classes.gridItem,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    className: classes.message,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, notification.message), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    className: classes.date,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: undefined
+  }, moment__WEBPACK_IMPORTED_MODULE_1___default()(notification.createdAt).format('YYYY/MM/DD HH:mm'))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    item: true,
+    xs: 2,
+    className: classes.gridItem,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    style: {
+      outline: 'none'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, __jsx(_material_ui_icons_RadioButtonUnchecked__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    fontSize: "small",
+    style: {
+      color: "#3F51B5"
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  })))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NotificationItem);
+
+/***/ }),
+
+/***/ "./components/notifications/NotificationsMenu.jsx":
+/*!********************************************************!*\
+  !*** ./components/notifications/NotificationsMenu.jsx ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_notifications_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/notifications.actions */ "./actions/notifications.actions.ts");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Menu */ "@material-ui/core/Menu");
+/* harmony import */ var _material_ui_core_Menu__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Menu__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _NotificationsItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NotificationsItem */ "./components/notifications/NotificationsItem.jsx");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\notifications\\NotificationsMenu.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+const NotificationMenu = ({
+  anchorEl,
+  style,
+  open,
+  onClose
+}) => {
+  const {
+    0: notifications,
+    1: setNotifications
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const $getNotifications = async () => {
+      try {
+        const $notifications = await _actions_notifications_actions__WEBPACK_IMPORTED_MODULE_1__["default"].getMyNotifications({});
+        setNotifications([...$notifications]);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    $getNotifications();
+  }, []);
+
+  const renderNotificationItem = notification => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    key: notification.id,
+    style: {
+      padding: 0,
+      marginBottom: 10
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: undefined
+  }, __jsx(_NotificationsItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    notification: notification,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: undefined
+  }));
+
+  return __jsx(_material_ui_core_Menu__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    anchorEl: anchorEl,
+    keepMounted: true,
+    style: style,
+    open: open,
+    onClose: onClose,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  }, notifications.map(notification => renderNotificationItem(notification)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NotificationMenu);
 
 /***/ }),
 
@@ -795,6 +1171,17 @@ function _interopRequireDefault(obj) {
 }
 
 module.exports = _interopRequireDefault;
+
+/***/ }),
+
+/***/ "./node_modules/dhtmlx-gantt/codebase/dhtmlxgantt.css":
+/*!************************************************************!*\
+  !*** ./node_modules/dhtmlx-gantt/codebase/dhtmlxgantt.css ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
@@ -1126,10 +1513,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_grid_layout_css_styles_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_grid_layout_css_styles_css__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var react_resizable_css_styles_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-resizable/css/styles.css */ "./node_modules/react-resizable/css/styles.css");
 /* harmony import */ var react_resizable_css_styles_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_resizable_css_styles_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var dhtmlx_gantt_codebase_dhtmlxgantt_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! dhtmlx-gantt/codebase/dhtmlxgantt.css */ "./node_modules/dhtmlx-gantt/codebase/dhtmlxgantt.css");
+/* harmony import */ var dhtmlx_gantt_codebase_dhtmlxgantt_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(dhtmlx_gantt_codebase_dhtmlxgantt_css__WEBPACK_IMPORTED_MODULE_9__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\pages\\_app.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 
 
 
@@ -1161,7 +1551,6 @@ class LoStudio extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
         status: 301
       });
     } else {
-      // SHOULD CHECK FOR AUTH TOKEN VALIDITY
       if (ctx.pathname == "/") {
         Object(_components_redirectTo__WEBPACK_IMPORTED_MODULE_6__["default"])('/dashboards', {
           res: ctx.res,
@@ -1283,14 +1672,14 @@ module.exports = require("@material-ui/core/Badge");
 
 /***/ }),
 
-/***/ "@material-ui/core/Divider":
-/*!********************************************!*\
-  !*** external "@material-ui/core/Divider" ***!
-  \********************************************/
+/***/ "@material-ui/core/Card":
+/*!*****************************************!*\
+  !*** external "@material-ui/core/Card" ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("@material-ui/core/Divider");
+module.exports = require("@material-ui/core/Card");
 
 /***/ }),
 
@@ -1302,6 +1691,17 @@ module.exports = require("@material-ui/core/Divider");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/core/Drawer");
+
+/***/ }),
+
+/***/ "@material-ui/core/Grid":
+/*!*****************************************!*\
+  !*** external "@material-ui/core/Grid" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Grid");
 
 /***/ }),
 
@@ -1503,6 +1903,17 @@ module.exports = require("@material-ui/icons/Notifications");
 
 /***/ }),
 
+/***/ "@material-ui/icons/RadioButtonUnchecked":
+/*!**********************************************************!*\
+  !*** external "@material-ui/icons/RadioButtonUnchecked" ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/RadioButtonUnchecked");
+
+/***/ }),
+
 /***/ "@material-ui/icons/Search":
 /*!********************************************!*\
   !*** external "@material-ui/icons/Search" ***!
@@ -1525,6 +1936,39 @@ module.exports = require("@material-ui/icons/Storage");
 
 /***/ }),
 
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
+
+/***/ }),
+
+/***/ "js-cookie":
+/*!****************************!*\
+  !*** external "js-cookie" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("js-cookie");
+
+/***/ }),
+
+/***/ "moment":
+/*!*************************!*\
+  !*** external "moment" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("moment");
+
+/***/ }),
+
 /***/ "next-cookies":
 /*!*******************************!*\
   !*** external "next-cookies" ***!
@@ -1533,6 +1977,17 @@ module.exports = require("@material-ui/icons/Storage");
 /***/ (function(module, exports) {
 
 module.exports = require("next-cookies");
+
+/***/ }),
+
+/***/ "next/config":
+/*!******************************!*\
+  !*** external "next/config" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/config");
 
 /***/ }),
 

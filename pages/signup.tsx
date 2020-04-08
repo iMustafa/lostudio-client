@@ -2,21 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { NextPage } from 'next';
 import Router from 'next/router'
-import Swal from 'sweetalert2'
 import Card from '@material-ui/core/Card';
 import Box from '@material-ui/core/Box';
-import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
-import { register } from '../actions/auth.actions';
-import countries from '../helpers/countries'
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import { TextField } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import PersonIcon from '@material-ui/icons/Person';
+import BusinessIcon from '@material-ui/icons/Business';
+import PersonalSignUp from '../components/signup/personal'
+import BusinessSignUp from '../components/signup/business'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,72 +31,58 @@ const useStyles = makeStyles(theme => ({
   headerHolder: {
     borderRight: '1px solid #DEDEDE'
   },
-  formHolder: {
-
-  },
-  textField: {
-    width: '90%'
-  },
-  fieldsGrid: {
-    marginTop: theme.spacing(4)
-  },
-  signupButtonHolder: {
-    display: 'flex',
-    marginTop: theme.spacing(4),
-    justifyContent: 'center'
-  },
-  signupButton: {
-    width: '50%'
-  },
   loginHolder: {
     textAlign: 'center',
     marginTop: theme.spacing(3)
   },
   loginText: {
     marginRight: theme.spacing(2)
-  },
-  loginButton: {
   }
 }));
 
-function countryToFlag(isoCode) {
-  return typeof String.fromCodePoint !== 'undefined'
-    ? isoCode.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397))
-    : isoCode;
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box p={3}>{children}</Box>}
+    </Typography>
+  );
+}
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
 }
 
 const SignupPage: NextPage<{}> = () => {
-  const classes = useStyles();
-  const [data, setData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    countryCode: '',
-    phoneNumber: '',
-    country: '',
-    city: '',
-    password: '',
-    confirmPassword: ''
-  });
+  const classes = useStyles()
+  const [value, setValue] = React.useState(0);
 
-  const handleChange = e => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
-  const submitSignup = async () => {
-    try {
-      const user = await register(data)
-      console.log(user)
-    } catch (e) {
-      switch (e.status) {
-        case 422:
-          Swal.fire('Error', 'Email already exists', 'error')
-          break
-      }
-    }
+  const renderLeftSection = () => {
+    if (value == 0)
+      return (
+        <div>Personal Account</div>
+      )
+
+    return (
+      <div>
+        Business Account
+      </div>
+    )
   }
 
   return (
@@ -109,139 +92,24 @@ const SignupPage: NextPage<{}> = () => {
 
           <Grid container>
             <Grid item md={5} className={classes.headerHolder}>
-
+              {renderLeftSection()}
             </Grid>
 
-            <Grid item md={7} className={classes.formHolder}>
+            <Grid item md={7}>
 
-              <Grid container>
-                <Grid item md={6} xs={12} style={{ textAlign: 'center' }}>
-                  <FormControl className={classes.textField}>
-                    <TextField
-                      name="firstName"
-                      label={'First Name'}
-                      required
-                      onChange={handleChange}
-                      value={data.firstName}
-                    />
-                  </FormControl>
-                </Grid>
+              <AppBar position="static" style={{ backgroundColor: "transparent" }}>
+                <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+                  <Tab label="Personal Account" icon={<PersonIcon />} {...a11yProps(0)} style={{ color: "#333" }} />
+                  <Tab label="Business Account" icon={<BusinessIcon />} {...a11yProps(1)} style={{ color: "#333" }} />
+                </Tabs>
 
-                <Grid item md={6} xs={12} style={{ textAlign: 'center' }}>
-                  <FormControl className={classes.textField}>
-                    <TextField
-                      name="lastName"
-                      label={'Last Name'}
-                      required
-                      onChange={handleChange}
-                      value={data.lastName}
-                    />
-                  </FormControl>
-                </Grid>
-              </Grid>
-
-              <Grid container className={classes.fieldsGrid}>
-                <Grid item md={6} xs={12} style={{ textAlign: 'center' }}>
-                  <FormControl className={classes.textField}>
-                    <TextField
-                      name="email"
-                      label={'Email'}
-                      type={'email'}
-                      required
-                      onChange={handleChange}
-                      value={data.email}
-                    />
-                  </FormControl>
-                </Grid>
-
-                <Grid item md={6} xs={12} style={{ textAlign: 'center' }}>
-                  <Grid container spacing={1}>
-                    <Grid item xs={4}>
-                      <Autocomplete
-                        options={countries}
-                        getOptionLabel={option => `+${option.phone}`}
-                        renderOption={option => (
-                          <React.Fragment>
-                            <span>{countryToFlag(option.code)}</span>
-                            <span style={{ fontSize: '10px' }}>+{option.phone}</span>
-                          </React.Fragment>
-                        )}
-                        renderInput={params => (
-                          <TextField {...params} name={'countryCode'} label="Country Code" />
-                        )}
-                      />
-                    </Grid>
-                    <Grid item xs={8}>
-                      <FormControl className={classes.textField}>
-                        <TextField
-                          name="phoneNumber"
-                          label={'Phone Number'}
-                          onChange={handleChange}
-                          value={data.phoneNumber}
-                        />
-                      </FormControl>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Grid>
-
-              <Grid container className={classes.fieldsGrid}>
-                <Grid item md={6} xs={12} style={{ textAlign: 'center' }}>
-                  <FormControl className={classes.textField}>
-                    <Autocomplete
-                      options={countries}
-                      getOptionLabel={option => option.label}
-                      renderInput={params => (
-                        <TextField {...params} name={'country'} label="Country" fullWidth required />
-                      )}
-                    />
-                  </FormControl>
-                </Grid>
-
-                <Grid item md={6} xs={12} style={{ textAlign: 'center' }}>
-                  <FormControl className={classes.textField}>
-                    <TextField
-                      name="city"
-                      label={'City'}
-                      required
-                      onChange={handleChange}
-                      value={data.city}
-                    />
-                  </FormControl>
-                </Grid>
-              </Grid>
-
-              <Grid container className={classes.fieldsGrid}>
-                <Grid item md={6} xs={12} style={{ textAlign: 'center' }}>
-                  <FormControl className={classes.textField}>
-                    <TextField
-                      name="password"
-                      label={'Password'}
-                      required
-                      onChange={handleChange}
-                      value={data.password}
-                      type={'password'}
-                    />
-                  </FormControl>
-                </Grid>
-
-                <Grid item md={6} xs={12} style={{ textAlign: 'center' }}>
-                  <FormControl className={classes.textField}>
-                    <TextField
-                      name="confirmPassword"
-                      label={'Confirm Password'}
-                      required
-                      onChange={handleChange}
-                      value={data.confirmPassword}
-                      type={'password'}
-                    />
-                  </FormControl>
-                </Grid>
-              </Grid>
-
-              <Grid item xs={12} className={classes.signupButtonHolder}>
-                <Button className={classes.signupButton} onClick={submitSignup}>Signup</Button>
-              </Grid>
+              </AppBar>
+              <TabPanel value={value} index={0}>
+                <PersonalSignUp />
+              </TabPanel>
+              <TabPanel value={value} index={1}>
+                <BusinessSignUp />
+              </TabPanel>
 
             </Grid>
           </Grid>
@@ -249,7 +117,7 @@ const SignupPage: NextPage<{}> = () => {
 
         <Box className={classes.loginHolder}>
           <span className={classes.loginText}>Already have an account?</span>
-          <Button className={classes.loginButton} onClick={() => { Router.push('/login') }}>Login</Button>
+          <Button onClick={() => { Router.push('/login') }}>Login</Button>
         </Box>
 
       </Grid>

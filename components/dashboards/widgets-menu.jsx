@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
@@ -6,6 +6,7 @@ import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import SystemWidgets from './system-widgets'
+import MyWidgets from './my-widgets'
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props
@@ -35,16 +36,12 @@ const useStyles = makeStyles(() => ({
 
 }))
 
-const WidgetSidemenu = (props) => {
+const WidgetSidemenu = ({ onWidgetClick, widgetSettings, addPredefinedWidget }) => {
   const classes = useStyles()
   const [value, setValue] = useState(0)
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
-  }
-
-  const handleChangeIndex = index => {
-    setValue(index)
   }
 
   return (
@@ -64,13 +61,12 @@ const WidgetSidemenu = (props) => {
       </AppBar>
       <div
         index={value}
-        onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0}>
-          <SystemWidgets onWidgetClick={props.onWidgetClick} />
+          <SystemWidgets onWidgetClick={onWidgetClick} />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two
+          <MyWidgets addPredefinedWidget={addPredefinedWidget} widgetSettings={widgetSettings} />
         </TabPanel>
       </div>
     </div>

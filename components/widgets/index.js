@@ -1,9 +1,9 @@
-import TableWidget from './table-widget'
-import LineChartWidget from './line-chart-widget'
-import BarChartWidget from './bar-chart-widget'
-import PieChartWidget from './pie-chart-widget'
-import DonutChartWidget from './donut-chart-widget'
-import AreaChartWidget from './area-chart.widget'
+import { TableWidget, TableWidgetSettings } from './table'
+import { LineChartWidget, LineChartWidgetSettings } from './line-chart'
+import { BarChartWidget, BarChartWidgetSettings } from './bar-chart'
+import { PieChartWidget, PieChartWidgetSettings } from './pie-chart'
+import { DonutChartWidget, DonutChartWidgetSettings } from './donut-chart'
+import { AreaChartWidget, AreaChartWidgetSettings } from './area-chart'
 
 export {
   LineChartWidget,
@@ -11,5 +11,11 @@ export {
   BarChartWidget,
   PieChartWidget,
   DonutChartWidget,
-  AreaChartWidget
+  AreaChartWidget,
+  TableWidgetSettings,
+  LineChartWidgetSettings,
+  BarChartWidgetSettings,
+  PieChartWidgetSettings,
+  DonutChartWidgetSettings,
+  AreaChartWidgetSettings
 }

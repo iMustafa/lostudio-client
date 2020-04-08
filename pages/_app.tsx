@@ -1,12 +1,13 @@
-import React from 'react';
-import App from 'next/app';
-import Head from 'next/head';
-import ApplicationMainBar from '../components/ApplicationMainBar';
+import React from 'react'
+import App from 'next/app'
+import Head from 'next/head'
+import ApplicationMainBar from '../components/ApplicationMainBar'
 import { ThemeProvider } from 'styled-components'
 import cookies from 'next-cookies'
 import redirectTo from '../components/redirectTo'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
+import 'dhtmlx-gantt/codebase/dhtmlxgantt.css'
 
 const theme = {
   primary: 'green'
@@ -25,7 +26,6 @@ export default class LoStudio extends App {
       if (ctx.pathname == "/login" || ctx.pathname == "/forgot-password" || ctx.pathname == '/signup') return { pageProps }
       else redirectTo('/login', { res: ctx.res, status: 301 })
     } else {
-      // SHOULD CHECK FOR AUTH TOKEN VALIDITY
       if (ctx.pathname == "/") {
         redirectTo('/dashboards', { res: ctx.res, status: 301 })
       }

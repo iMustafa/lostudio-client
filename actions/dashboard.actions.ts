@@ -11,7 +11,6 @@ const { API_URL } = config().publicRuntimeConfig
 
 export default class DashboardActions {
 
-  // TODO
   public static async createDashboard(dashborad: Dashboard): Promise<Dashboard> {
     return axios
       .post('', {})
@@ -19,15 +18,14 @@ export default class DashboardActions {
       .catch(err => err.response)
   }
 
-  // TODO
   public static async getDashboards({ Authorization, query }: { Authorization?: string, query?: any }): Promise<Array<Dashboard>> {
+    console.log(Authorization)
     return axios
       .get(`${API_URL}/Dashboards`, { headers: { Authorization: Authorization || Cookie.get('id') } })
       .then(res => res.data)
       .catch(err => err)
   }
 
-  // TODO
   public static async getDashboardById(data: Datasource): Promise<Dashboard> {
     return axios
       .post('', {})
@@ -35,15 +33,13 @@ export default class DashboardActions {
       .catch(err => err.response)
   }
 
-  // TODO
-  public static async updateDashboard(data: Datasource): Promise<Dashboard> {
+  public static async updateDashboard(id: string, data): Promise<Dashboard> {
     return axios
-      .post('', {})
+      .patch(`${API_URL}/Dashboards/${id}`, data)
       .then(res => res.data)
       .catch(err => err.response)
   }
 
-  // TODO
   public static async deleteDashboard(data: Datasource): Promise<Dashboard> {
     return axios
       .post('', {})
@@ -51,16 +47,43 @@ export default class DashboardActions {
       .catch(err => err.response)
   }
 
-  public static async getWidgetSettings(id: string): Promise<Array<WidgetSettings>> {
+  public static async getWidgetSettings({ Authorization, id }: { Authorization?: string, id: string }): Promise<Array<WidgetSettings>> {
     return axios
-      .post('', {})
+      .get(`${API_URL}/Dashboards/${id}/widgetSettings`, { headers: { Authorization: Authorization || Cookie.get('id') } })
       .then(res => res.data)
       .catch(err => err.response)
   }
 
-  public static async addWidgetToDashboard(data: Datasource): Promise<Dashboard> {
+  public static async getCollaborators({ Authorization, id }: { Authorization?: string, id: string }): Promise<Array<User>> {
     return axios
-      .post('', {})
+      .get(`${API_URL}/Dashboards/${id}/collaborators`, { headers: { Authorization: Authorization || Cookie.get('id') } })
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
+  public static async getCollaboratorations({ Authorization }: { Authorization?: string }): Promise<Array<Dashboard>> {
+    return axios
+      .get(`${API_URL}/Dashboards/collaborations`, { headers: { Authorization: Authorization || Cookie.get('id') } })
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
+  public static async addCollaborator(
+    { Authorization, email, id, editor, viewer }: { Authorization?: string, email: string, id: string, editor: boolean, viewer: boolean }
+  ): Promise<any> {
+    return axios
+      .post(
+        `${API_URL}/Dashboards/${id}/dashboardRoleMappings`,
+        { email, editor, viewer },
+        { headers: { Authorization: Authorization || Cookie.get('id') } }
+      )
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
+  public static async addWidgetToDashboard(id: string, fk: string): Promise<Dashboard> {
+    return axios
+      .put(`${API_URL}/Dashboards/${id}/widgetSettings/rel/${fk}`, { dashboardId: id, widgetSettingsId: fk }, { headers: { Authorization: Cookie.get('id') } })
       .then(res => res.data)
       .catch(err => err.response)
   }

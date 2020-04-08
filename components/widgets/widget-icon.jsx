@@ -21,11 +21,11 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const TableWidget = ({ title, icon, onWidgetClick }) => {
+const TableWidget = ({ title, widget, icon, onWidgetClick, addPredefinedWidget }) => {
   const classes = useStyles()
 
   return (
-    <ButtonBase className={classes.root} onClick={onWidgetClick.bind(this, title)}>
+    <ButtonBase className={classes.root} onClick={widget ? addPredefinedWidget.bind(this, widget) : onWidgetClick.bind(this, title)}>
       <Card className={classes.card}>
         {icon}
         <Typography style={{ marginTop: 10 }}>{title}</Typography>

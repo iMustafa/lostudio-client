@@ -118,11 +118,8 @@ const AddMongoDBDataSource = () => {
     try {
       setValues({ ...values, isLoading: true })
       const res: any = await DatasourceActions.createDatasource(state)
-      console.log(res.response)
       setValues({ ...values, isLoading: false })
     } catch (e) {
-      console.log(e)
-      console.log(Object.keys(e))
       if (e.error.message == 'Connection Failed') {
         setState({ ...state, force: true })
         setAttempts(1)

@@ -5,34 +5,30 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import Divider from '@material-ui/core/Divider'
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import StorageIcon from '@material-ui/icons/Storage';
-import AssessmentIcon from '@material-ui/icons/Assessment';
+import DashboardIcon from '@material-ui/icons/Dashboard'
+import StorageIcon from '@material-ui/icons/Storage'
+import AssessmentIcon from '@material-ui/icons/Assessment'
+import Card from '@material-ui/core/Card'
 
 const useStyles = makeStyles({
   list: {
-    width: 250,
-  },
-  fullList: {
-    width: 'auto',
-  },
+    position: 'absolute',
+    width: '100%',
+    height: 'calc(100vh - 82px)',
+    borderRadius: 'none'
+  }
 });
 
 export default function SideMenu() {
   const classes = useStyles();
   const routes = [
-    { key: 'dashboards', text: 'Dashboards', route: '/dashboards', icon: () => (<DashboardIcon />) },
+    { key: 'dashboards', text: 'Projects', route: '/dashboards', icon: () => (<DashboardIcon />) },
     { key: 'datasources', text: 'Data Sources', route: '/datasources', icon: () => (<StorageIcon />) },
     { key: 'widgets', text: 'Widgets', route: '/widgets', icon: () => (<AssessmentIcon />) },
   ]
 
   return (
-    <div
-      className={classes.list}
-      role="presentation"
-    >
+    <Card className={classes.list}>
       <List>
         {routes.map((item, index) => (
           <ListItem button key={item.key} onClick={() => { Router.push(item.route) }}>
@@ -41,6 +37,6 @@ export default function SideMenu() {
           </ListItem>
         ))}
       </List>
-    </div>
+    </Card>
   )
 }
