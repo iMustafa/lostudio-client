@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1636,8 +1636,65 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_BarChart__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_BarChart__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var _material_ui_icons_ListAlt__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/icons/ListAlt */ "@material-ui/icons/ListAlt");
 /* harmony import */ var _material_ui_icons_ListAlt__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ListAlt__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _material_ui_icons_TextRotationNone__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @material-ui/icons/TextRotationNone */ "@material-ui/icons/TextRotationNone");
+/* harmony import */ var _material_ui_icons_TextRotationNone__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_TextRotationNone__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _material_ui_icons_TouchApp__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @material-ui/icons/TouchApp */ "@material-ui/icons/TouchApp");
+/* harmony import */ var _material_ui_icons_TouchApp__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_TouchApp__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _material_ui_icons_CheckBox__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @material-ui/icons/CheckBox */ "@material-ui/icons/CheckBox");
+/* harmony import */ var _material_ui_icons_CheckBox__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_CheckBox__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _material_ui_icons_DateRange__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @material-ui/icons/DateRange */ "@material-ui/icons/DateRange");
+/* harmony import */ var _material_ui_icons_DateRange__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_DateRange__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _material_ui_icons_FileCopy__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @material-ui/icons/FileCopy */ "@material-ui/icons/FileCopy");
+/* harmony import */ var _material_ui_icons_FileCopy__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_FileCopy__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var _material_ui_icons_Dialpad__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @material-ui/icons/Dialpad */ "@material-ui/icons/Dialpad");
+/* harmony import */ var _material_ui_icons_Dialpad__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Dialpad__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var _material_ui_icons_VisibilityOff__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @material-ui/icons/VisibilityOff */ "@material-ui/icons/VisibilityOff");
+/* harmony import */ var _material_ui_icons_VisibilityOff__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_VisibilityOff__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _material_ui_icons_RadioButtonChecked__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @material-ui/icons/RadioButtonChecked */ "@material-ui/icons/RadioButtonChecked");
+/* harmony import */ var _material_ui_icons_RadioButtonChecked__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_RadioButtonChecked__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var _material_ui_icons_SelectAll__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @material-ui/icons/SelectAll */ "@material-ui/icons/SelectAll");
+/* harmony import */ var _material_ui_icons_SelectAll__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_SelectAll__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var _material_ui_icons_TextFormat__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @material-ui/icons/TextFormat */ "@material-ui/icons/TextFormat");
+/* harmony import */ var _material_ui_icons_TextFormat__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_TextFormat__WEBPACK_IMPORTED_MODULE_26__);
+/* harmony import */ var _material_ui_icons_TextFields__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @material-ui/icons/TextFields */ "@material-ui/icons/TextFields");
+/* harmony import */ var _material_ui_icons_TextFields__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_TextFields__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var _material_ui_icons_GridOn__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @material-ui/icons/GridOn */ "@material-ui/icons/GridOn");
+/* harmony import */ var _material_ui_icons_GridOn__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_GridOn__WEBPACK_IMPORTED_MODULE_28__);
+/* harmony import */ var _material_ui_icons_Receipt__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @material-ui/icons/Receipt */ "@material-ui/icons/Receipt");
+/* harmony import */ var _material_ui_icons_Receipt__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Receipt__WEBPACK_IMPORTED_MODULE_29__);
+/* harmony import */ var _material_ui_icons_Image__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @material-ui/icons/Image */ "@material-ui/icons/Image");
+/* harmony import */ var _material_ui_icons_Image__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Image__WEBPACK_IMPORTED_MODULE_30__);
+/* harmony import */ var _material_ui_icons_List__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @material-ui/icons/List */ "@material-ui/icons/List");
+/* harmony import */ var _material_ui_icons_List__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_List__WEBPACK_IMPORTED_MODULE_31__);
+/* harmony import */ var _material_ui_icons_Subject__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @material-ui/icons/Subject */ "@material-ui/icons/Subject");
+/* harmony import */ var _material_ui_icons_Subject__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Subject__WEBPACK_IMPORTED_MODULE_32__);
+/* harmony import */ var _material_ui_icons_Autorenew__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @material-ui/icons/Autorenew */ "@material-ui/icons/Autorenew");
+/* harmony import */ var _material_ui_icons_Autorenew__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Autorenew__WEBPACK_IMPORTED_MODULE_33__);
+/* harmony import */ var _material_ui_icons_Title__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @material-ui/icons/Title */ "@material-ui/icons/Title");
+/* harmony import */ var _material_ui_icons_Title__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Title__WEBPACK_IMPORTED_MODULE_34__);
+/* harmony import */ var _material_ui_icons_ViewList__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @material-ui/icons/ViewList */ "@material-ui/icons/ViewList");
+/* harmony import */ var _material_ui_icons_ViewList__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ViewList__WEBPACK_IMPORTED_MODULE_35__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\dashboards\\system-widgets.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1664,7 +1721,7 @@ const SystemWidgets = props => {
     icon: __jsx(_material_ui_icons_TableChart__WEBPACK_IMPORTED_MODULE_10___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 46
       },
       __self: undefined
     })
@@ -1674,7 +1731,7 @@ const SystemWidgets = props => {
     icon: __jsx(_material_ui_icons_Timeline__WEBPACK_IMPORTED_MODULE_11___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 49
       },
       __self: undefined
     })
@@ -1683,7 +1740,7 @@ const SystemWidgets = props => {
     icon: __jsx(_material_ui_icons_BarChart__WEBPACK_IMPORTED_MODULE_15___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 50
       },
       __self: undefined
     })
@@ -1692,7 +1749,7 @@ const SystemWidgets = props => {
     icon: __jsx(_material_ui_icons_BubbleChart__WEBPACK_IMPORTED_MODULE_12___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 51
       },
       __self: undefined
     })
@@ -1701,7 +1758,7 @@ const SystemWidgets = props => {
     icon: __jsx(_material_ui_icons_PieChart__WEBPACK_IMPORTED_MODULE_14___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 52
       },
       __self: undefined
     })
@@ -1710,7 +1767,7 @@ const SystemWidgets = props => {
     icon: __jsx(_material_ui_icons_DonutLarge__WEBPACK_IMPORTED_MODULE_13___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 53
       },
       __self: undefined
     })
@@ -1719,7 +1776,189 @@ const SystemWidgets = props => {
     icon: __jsx(_material_ui_icons_ListAlt__WEBPACK_IMPORTED_MODULE_16___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 54
+      },
+      __self: undefined
+    })
+  }];
+  const FormControlsWidgets = [{
+    title: 'Auto Complete',
+    icon: __jsx(_material_ui_icons_TextRotationNone__WEBPACK_IMPORTED_MODULE_17___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 57
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Button',
+    icon: __jsx(_material_ui_icons_TouchApp__WEBPACK_IMPORTED_MODULE_18___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 58
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Checkbox',
+    icon: __jsx(_material_ui_icons_CheckBox__WEBPACK_IMPORTED_MODULE_19___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 59
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Date Time',
+    icon: __jsx(_material_ui_icons_DateRange__WEBPACK_IMPORTED_MODULE_20___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 60
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'File',
+    icon: __jsx(_material_ui_icons_FileCopy__WEBPACK_IMPORTED_MODULE_21___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 61
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Number',
+    icon: __jsx(_material_ui_icons_Dialpad__WEBPACK_IMPORTED_MODULE_22___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 62
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Password',
+    icon: __jsx(_material_ui_icons_VisibilityOff__WEBPACK_IMPORTED_MODULE_23___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 63
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Radio',
+    icon: __jsx(_material_ui_icons_RadioButtonChecked__WEBPACK_IMPORTED_MODULE_24___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 64
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Select',
+    icon: __jsx(_material_ui_icons_SelectAll__WEBPACK_IMPORTED_MODULE_25___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 65
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Text Area',
+    icon: __jsx(_material_ui_icons_TextFormat__WEBPACK_IMPORTED_MODULE_26___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 66
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Text Field',
+    icon: __jsx(_material_ui_icons_TextFields__WEBPACK_IMPORTED_MODULE_27___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 67
+      },
+      __self: undefined
+    })
+  }];
+  const HtmlElementWidgets = [{
+    title: 'Accordion',
+    icon: __jsx(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 70
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Data Grid',
+    icon: __jsx(_material_ui_icons_GridOn__WEBPACK_IMPORTED_MODULE_28___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 71
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Div',
+    icon: __jsx(_material_ui_icons_Receipt__WEBPACK_IMPORTED_MODULE_29___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 72
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Image',
+    icon: __jsx(_material_ui_icons_Image__WEBPACK_IMPORTED_MODULE_30___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 73
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'List',
+    icon: __jsx(_material_ui_icons_List__WEBPACK_IMPORTED_MODULE_31___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 74
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Paragraph',
+    icon: __jsx(_material_ui_icons_Subject__WEBPACK_IMPORTED_MODULE_32___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 75
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Progress Bar',
+    icon: __jsx(_material_ui_icons_Autorenew__WEBPACK_IMPORTED_MODULE_33___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 76
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Span',
+    icon: __jsx(_material_ui_icons_Title__WEBPACK_IMPORTED_MODULE_34___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 77
+      },
+      __self: undefined
+    })
+  }, {
+    title: 'Tabs',
+    icon: __jsx(_material_ui_icons_ViewList__WEBPACK_IMPORTED_MODULE_35___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 78
       },
       __self: undefined
     })
@@ -1728,39 +1967,39 @@ const SystemWidgets = props => {
     className: classes.root,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 82
     },
     __self: undefined
   }, __jsx(_material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 84
     },
     __self: undefined
   }, __jsx(_material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_3___default.a, {
     expandIcon: __jsx(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 86
       },
       __self: undefined
     }),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 85
     },
     __self: undefined
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
     className: classes.heading,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 88
     },
     __self: undefined
   }, "Tables")), __jsx(_material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 90
     },
     __self: undefined
   }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -1768,7 +2007,7 @@ const SystemWidgets = props => {
     spacing: 2,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 91
     },
     __self: undefined
   }, TableWidgets.map(chart => __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -1777,7 +2016,7 @@ const SystemWidgets = props => {
     key: Object(uuid__WEBPACK_IMPORTED_MODULE_9__["v4"])(),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 93
     },
     __self: undefined
   }, __jsx(_widgets_widget_icon__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -1786,39 +2025,39 @@ const SystemWidgets = props => {
     title: chart.title,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 94
     },
     __self: undefined
   })))))), __jsx(_material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58
+      lineNumber: 101
     },
     __self: undefined
   }, __jsx(_material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_3___default.a, {
     expandIcon: __jsx(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60
+        lineNumber: 103
       },
       __self: undefined
     }),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 102
     },
     __self: undefined
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
     className: classes.heading,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 105
     },
     __self: undefined
   }, "Charts")), __jsx(_material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 107
     },
     __self: undefined
   }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -1826,7 +2065,7 @@ const SystemWidgets = props => {
     spacing: 2,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 108
     },
     __self: undefined
   }, ChartWidgets.map(chart => __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -1835,7 +2074,7 @@ const SystemWidgets = props => {
     key: Object(uuid__WEBPACK_IMPORTED_MODULE_9__["v4"])(),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67
+      lineNumber: 110
     },
     __self: undefined
   }, __jsx(_widgets_widget_icon__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -1844,7 +2083,123 @@ const SystemWidgets = props => {
     title: chart.title,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68
+      lineNumber: 111
+    },
+    __self: undefined
+  })))))), __jsx(_material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    expandIcon: __jsx(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 120
+      },
+      __self: undefined
+    }),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 119
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    className: classes.heading,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 122
+    },
+    __self: undefined
+  }, "HTML Elements")), __jsx(_material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 124
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 125
+    },
+    __self: undefined
+  }, HtmlElementWidgets.map(element => __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    item: true,
+    xs: 4,
+    key: Object(uuid__WEBPACK_IMPORTED_MODULE_9__["v4"])(),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 127
+    },
+    __self: undefined
+  }, __jsx(_widgets_widget_icon__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    onWidgetClick: props.onWidgetClick,
+    icon: element.icon,
+    title: element.title,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 128
+    },
+    __self: undefined
+  })))))), __jsx(_material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 135
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    expandIcon: __jsx(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 137
+      },
+      __self: undefined
+    }),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 136
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    className: classes.heading,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 139
+    },
+    __self: undefined
+  }, "Form Controls")), __jsx(_material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 141
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    container: true,
+    spacing: 2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 142
+    },
+    __self: undefined
+  }, FormControlsWidgets.map(control => __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    item: true,
+    xs: 4,
+    key: Object(uuid__WEBPACK_IMPORTED_MODULE_9__["v4"])(),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 144
+    },
+    __self: undefined
+  }, __jsx(_widgets_widget_icon__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    onWidgetClick: props.onWidgetClick,
+    icon: control.icon,
+    title: control.title,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 145
     },
     __self: undefined
   })))))));
@@ -2040,10 +2395,10 @@ const WidgetSidemenu = ({
 
 /***/ }),
 
-/***/ "./components/widgets/area-chart/area-chart-widget-settings.jsx":
-/*!**********************************************************************!*\
-  !*** ./components/widgets/area-chart/area-chart-widget-settings.jsx ***!
-  \**********************************************************************/
+/***/ "./components/widgets/charts/area-chart/area-chart-widget-settings.jsx":
+/*!*****************************************************************************!*\
+  !*** ./components/widgets/charts/area-chart/area-chart-widget-settings.jsx ***!
+  \*****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2069,11 +2424,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\area-chart\\area-chart-widget-settings.jsx";
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\area-chart\\area-chart-widget-settings.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2472,10 +2827,10 @@ const AreaChartWidgetSettings = ({
 
 /***/ }),
 
-/***/ "./components/widgets/area-chart/area-chart-widget.jsx":
-/*!*************************************************************!*\
-  !*** ./components/widgets/area-chart/area-chart-widget.jsx ***!
-  \*************************************************************/
+/***/ "./components/widgets/charts/area-chart/area-chart-widget.jsx":
+/*!********************************************************************!*\
+  !*** ./components/widgets/charts/area-chart/area-chart-widget.jsx ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2494,7 +2849,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var d3_scale__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(d3_scale__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\area-chart\\area-chart-widget.jsx";
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\area-chart\\area-chart-widget.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -2720,19 +3075,19 @@ class Demo extends react__WEBPACK_IMPORTED_MODULE_0__["PureComponent"] {
 
 /***/ }),
 
-/***/ "./components/widgets/area-chart/index.js":
-/*!************************************************!*\
-  !*** ./components/widgets/area-chart/index.js ***!
-  \************************************************/
+/***/ "./components/widgets/charts/area-chart/index.js":
+/*!*******************************************************!*\
+  !*** ./components/widgets/charts/area-chart/index.js ***!
+  \*******************************************************/
 /*! exports provided: AreaChartWidget, AreaChartWidgetSettings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _area_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./area-chart-widget */ "./components/widgets/area-chart/area-chart-widget.jsx");
+/* harmony import */ var _area_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./area-chart-widget */ "./components/widgets/charts/area-chart/area-chart-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AreaChartWidget", function() { return _area_chart_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
-/* harmony import */ var _area_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./area-chart-widget-settings */ "./components/widgets/area-chart/area-chart-widget-settings.jsx");
+/* harmony import */ var _area_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./area-chart-widget-settings */ "./components/widgets/charts/area-chart/area-chart-widget-settings.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AreaChartWidgetSettings", function() { return _area_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
 
@@ -2741,10 +3096,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./components/widgets/bar-chart/bar-chart-widget-settings.jsx":
-/*!********************************************************************!*\
-  !*** ./components/widgets/bar-chart/bar-chart-widget-settings.jsx ***!
-  \********************************************************************/
+/***/ "./components/widgets/charts/bar-chart/bar-chart-widget-settings.jsx":
+/*!***************************************************************************!*\
+  !*** ./components/widgets/charts/bar-chart/bar-chart-widget-settings.jsx ***!
+  \***************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2770,11 +3125,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\bar-chart\\bar-chart-widget-settings.jsx";
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\bar-chart\\bar-chart-widget-settings.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -3173,10 +3528,10 @@ const BarChartWidgetSettings = ({
 
 /***/ }),
 
-/***/ "./components/widgets/bar-chart/bar-chart-widget.jsx":
-/*!***********************************************************!*\
-  !*** ./components/widgets/bar-chart/bar-chart-widget.jsx ***!
-  \***********************************************************/
+/***/ "./components/widgets/charts/bar-chart/bar-chart-widget.jsx":
+/*!******************************************************************!*\
+  !*** ./components/widgets/charts/bar-chart/bar-chart-widget.jsx ***!
+  \******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3204,9 +3559,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Drawer */ "@material-ui/core/Drawer");
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
-/* harmony import */ var _bar_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./bar-chart-widget-settings */ "./components/widgets/bar-chart/bar-chart-widget-settings.jsx");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\bar-chart\\bar-chart-widget.jsx";
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _bar_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./bar-chart-widget-settings */ "./components/widgets/charts/bar-chart/bar-chart-widget-settings.jsx");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\bar-chart\\bar-chart-widget.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -3483,19 +3838,19 @@ const BarChartWidget = ({
 
 /***/ }),
 
-/***/ "./components/widgets/bar-chart/index.js":
-/*!***********************************************!*\
-  !*** ./components/widgets/bar-chart/index.js ***!
-  \***********************************************/
+/***/ "./components/widgets/charts/bar-chart/index.js":
+/*!******************************************************!*\
+  !*** ./components/widgets/charts/bar-chart/index.js ***!
+  \******************************************************/
 /*! exports provided: BarChartWidget, BarChartWidgetSettings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _bar_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bar-chart-widget */ "./components/widgets/bar-chart/bar-chart-widget.jsx");
+/* harmony import */ var _bar_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bar-chart-widget */ "./components/widgets/charts/bar-chart/bar-chart-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarChartWidget", function() { return _bar_chart_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
-/* harmony import */ var _bar_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bar-chart-widget-settings */ "./components/widgets/bar-chart/bar-chart-widget-settings.jsx");
+/* harmony import */ var _bar_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bar-chart-widget-settings */ "./components/widgets/charts/bar-chart/bar-chart-widget-settings.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarChartWidgetSettings", function() { return _bar_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
 
@@ -3504,10 +3859,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./components/widgets/donut-chart/donut-chart-widget-settings.jsx":
-/*!************************************************************************!*\
-  !*** ./components/widgets/donut-chart/donut-chart-widget-settings.jsx ***!
-  \************************************************************************/
+/***/ "./components/widgets/charts/donut-chart/donut-chart-widget-settings.jsx":
+/*!*******************************************************************************!*\
+  !*** ./components/widgets/charts/donut-chart/donut-chart-widget-settings.jsx ***!
+  \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3533,11 +3888,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\donut-chart\\donut-chart-widget-settings.jsx";
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\donut-chart\\donut-chart-widget-settings.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -3936,10 +4291,10 @@ const DonutChartWidgetSettings = ({
 
 /***/ }),
 
-/***/ "./components/widgets/donut-chart/donut-chart-widget.jsx":
-/*!***************************************************************!*\
-  !*** ./components/widgets/donut-chart/donut-chart-widget.jsx ***!
-  \***************************************************************/
+/***/ "./components/widgets/charts/donut-chart/donut-chart-widget.jsx":
+/*!**********************************************************************!*\
+  !*** ./components/widgets/charts/donut-chart/donut-chart-widget.jsx ***!
+  \**********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3967,9 +4322,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Drawer */ "@material-ui/core/Drawer");
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
-/* harmony import */ var _donut_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./donut-chart-widget-settings */ "./components/widgets/donut-chart/donut-chart-widget-settings.jsx");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\donut-chart\\donut-chart-widget.jsx";
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _donut_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./donut-chart-widget-settings */ "./components/widgets/charts/donut-chart/donut-chart-widget-settings.jsx");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\donut-chart\\donut-chart-widget.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -4234,19 +4589,19 @@ const DonutChartWidget = ({
 
 /***/ }),
 
-/***/ "./components/widgets/donut-chart/index.js":
-/*!*************************************************!*\
-  !*** ./components/widgets/donut-chart/index.js ***!
-  \*************************************************/
+/***/ "./components/widgets/charts/donut-chart/index.js":
+/*!********************************************************!*\
+  !*** ./components/widgets/charts/donut-chart/index.js ***!
+  \********************************************************/
 /*! exports provided: DonutChartWidget, DonutChartWidgetSettings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _donut_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./donut-chart-widget */ "./components/widgets/donut-chart/donut-chart-widget.jsx");
+/* harmony import */ var _donut_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./donut-chart-widget */ "./components/widgets/charts/donut-chart/donut-chart-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DonutChartWidget", function() { return _donut_chart_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
-/* harmony import */ var _donut_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./donut-chart-widget-settings */ "./components/widgets/donut-chart/donut-chart-widget-settings.jsx");
+/* harmony import */ var _donut_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./donut-chart-widget-settings */ "./components/widgets/charts/donut-chart/donut-chart-widget-settings.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DonutChartWidgetSettings", function() { return _donut_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
 
@@ -4255,68 +4610,62 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./components/widgets/index.js":
-/*!*************************************!*\
-  !*** ./components/widgets/index.js ***!
-  \*************************************/
-/*! exports provided: LineChartWidget, TableWidget, BarChartWidget, PieChartWidget, DonutChartWidget, AreaChartWidget, TableWidgetSettings, LineChartWidgetSettings, BarChartWidgetSettings, PieChartWidgetSettings, DonutChartWidgetSettings, AreaChartWidgetSettings */
+/***/ "./components/widgets/charts/index.js":
+/*!********************************************!*\
+  !*** ./components/widgets/charts/index.js ***!
+  \********************************************/
+/*! exports provided: AreaChartWidget, AreaChartWidgetSettings, BarChartWidget, BarChartWidgetSettings, DonutChartWidget, DonutChartWidgetSettings, LineChartWidget, LineChartWidgetSettings, PieChartWidget, PieChartWidgetSettings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./table */ "./components/widgets/table/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TableWidget", function() { return _table__WEBPACK_IMPORTED_MODULE_0__["TableWidget"]; });
+/* harmony import */ var _area_chart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./area-chart */ "./components/widgets/charts/area-chart/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AreaChartWidget", function() { return _area_chart__WEBPACK_IMPORTED_MODULE_0__["AreaChartWidget"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TableWidgetSettings", function() { return _table__WEBPACK_IMPORTED_MODULE_0__["TableWidgetSettings"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AreaChartWidgetSettings", function() { return _area_chart__WEBPACK_IMPORTED_MODULE_0__["AreaChartWidgetSettings"]; });
 
-/* harmony import */ var _line_chart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./line-chart */ "./components/widgets/line-chart/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidget", function() { return _line_chart__WEBPACK_IMPORTED_MODULE_1__["LineChartWidget"]; });
+/* harmony import */ var _bar_chart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bar-chart */ "./components/widgets/charts/bar-chart/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarChartWidget", function() { return _bar_chart__WEBPACK_IMPORTED_MODULE_1__["BarChartWidget"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidgetSettings", function() { return _line_chart__WEBPACK_IMPORTED_MODULE_1__["LineChartWidgetSettings"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarChartWidgetSettings", function() { return _bar_chart__WEBPACK_IMPORTED_MODULE_1__["BarChartWidgetSettings"]; });
 
-/* harmony import */ var _bar_chart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bar-chart */ "./components/widgets/bar-chart/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarChartWidget", function() { return _bar_chart__WEBPACK_IMPORTED_MODULE_2__["BarChartWidget"]; });
+/* harmony import */ var _donut_chart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./donut-chart */ "./components/widgets/charts/donut-chart/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DonutChartWidget", function() { return _donut_chart__WEBPACK_IMPORTED_MODULE_2__["DonutChartWidget"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarChartWidgetSettings", function() { return _bar_chart__WEBPACK_IMPORTED_MODULE_2__["BarChartWidgetSettings"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DonutChartWidgetSettings", function() { return _donut_chart__WEBPACK_IMPORTED_MODULE_2__["DonutChartWidgetSettings"]; });
 
-/* harmony import */ var _pie_chart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pie-chart */ "./components/widgets/pie-chart/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PieChartWidget", function() { return _pie_chart__WEBPACK_IMPORTED_MODULE_3__["PieChartWidget"]; });
+/* harmony import */ var _line_chart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./line-chart */ "./components/widgets/charts/line-chart/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidget", function() { return _line_chart__WEBPACK_IMPORTED_MODULE_3__["LineChartWidget"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PieChartWidgetSettings", function() { return _pie_chart__WEBPACK_IMPORTED_MODULE_3__["PieChartWidgetSettings"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidgetSettings", function() { return _line_chart__WEBPACK_IMPORTED_MODULE_3__["LineChartWidgetSettings"]; });
 
-/* harmony import */ var _donut_chart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./donut-chart */ "./components/widgets/donut-chart/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DonutChartWidget", function() { return _donut_chart__WEBPACK_IMPORTED_MODULE_4__["DonutChartWidget"]; });
+/* harmony import */ var _pie_chart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pie-chart */ "./components/widgets/charts/pie-chart/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PieChartWidget", function() { return _pie_chart__WEBPACK_IMPORTED_MODULE_4__["PieChartWidget"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DonutChartWidgetSettings", function() { return _donut_chart__WEBPACK_IMPORTED_MODULE_4__["DonutChartWidgetSettings"]; });
-
-/* harmony import */ var _area_chart__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./area-chart */ "./components/widgets/area-chart/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AreaChartWidget", function() { return _area_chart__WEBPACK_IMPORTED_MODULE_5__["AreaChartWidget"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AreaChartWidgetSettings", function() { return _area_chart__WEBPACK_IMPORTED_MODULE_5__["AreaChartWidgetSettings"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PieChartWidgetSettings", function() { return _pie_chart__WEBPACK_IMPORTED_MODULE_4__["PieChartWidgetSettings"]; });
 
 
 
-
-
+ // export * from './gantt-chart'
 
 
 
 
 /***/ }),
 
-/***/ "./components/widgets/line-chart/index.js":
-/*!************************************************!*\
-  !*** ./components/widgets/line-chart/index.js ***!
-  \************************************************/
+/***/ "./components/widgets/charts/line-chart/index.js":
+/*!*******************************************************!*\
+  !*** ./components/widgets/charts/line-chart/index.js ***!
+  \*******************************************************/
 /*! exports provided: LineChartWidget, LineChartWidgetSettings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _line_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./line-chart-widget */ "./components/widgets/line-chart/line-chart-widget.jsx");
+/* harmony import */ var _line_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./line-chart-widget */ "./components/widgets/charts/line-chart/line-chart-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidget", function() { return _line_chart_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
-/* harmony import */ var _line_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./line-chart-widget-settings */ "./components/widgets/line-chart/line-chart-widget-settings.jsx");
+/* harmony import */ var _line_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./line-chart-widget-settings */ "./components/widgets/charts/line-chart/line-chart-widget-settings.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidgetSettings", function() { return _line_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
 
@@ -4325,10 +4674,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./components/widgets/line-chart/line-chart-widget-settings.jsx":
-/*!**********************************************************************!*\
-  !*** ./components/widgets/line-chart/line-chart-widget-settings.jsx ***!
-  \**********************************************************************/
+/***/ "./components/widgets/charts/line-chart/line-chart-widget-settings.jsx":
+/*!*****************************************************************************!*\
+  !*** ./components/widgets/charts/line-chart/line-chart-widget-settings.jsx ***!
+  \*****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4354,11 +4703,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\line-chart\\line-chart-widget-settings.jsx";
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\line-chart\\line-chart-widget-settings.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -4757,10 +5106,10 @@ const LineChartWidgetSettings = ({
 
 /***/ }),
 
-/***/ "./components/widgets/line-chart/line-chart-widget.jsx":
-/*!*************************************************************!*\
-  !*** ./components/widgets/line-chart/line-chart-widget.jsx ***!
-  \*************************************************************/
+/***/ "./components/widgets/charts/line-chart/line-chart-widget.jsx":
+/*!********************************************************************!*\
+  !*** ./components/widgets/charts/line-chart/line-chart-widget.jsx ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4788,9 +5137,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Drawer */ "@material-ui/core/Drawer");
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
-/* harmony import */ var _line_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./line-chart-widget-settings */ "./components/widgets/line-chart/line-chart-widget-settings.jsx");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\line-chart\\line-chart-widget.jsx";
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _line_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./line-chart-widget-settings */ "./components/widgets/charts/line-chart/line-chart-widget-settings.jsx");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\line-chart\\line-chart-widget.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -5071,19 +5420,19 @@ const LineChartWidget = ({
 
 /***/ }),
 
-/***/ "./components/widgets/pie-chart/index.js":
-/*!***********************************************!*\
-  !*** ./components/widgets/pie-chart/index.js ***!
-  \***********************************************/
+/***/ "./components/widgets/charts/pie-chart/index.js":
+/*!******************************************************!*\
+  !*** ./components/widgets/charts/pie-chart/index.js ***!
+  \******************************************************/
 /*! exports provided: PieChartWidget, PieChartWidgetSettings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pie_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pie-chart-widget */ "./components/widgets/pie-chart/pie-chart-widget.jsx");
+/* harmony import */ var _pie_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pie-chart-widget */ "./components/widgets/charts/pie-chart/pie-chart-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PieChartWidget", function() { return _pie_chart_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
-/* harmony import */ var _pie_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pie-chart-widget-settings */ "./components/widgets/pie-chart/pie-chart-widget-settings.jsx");
+/* harmony import */ var _pie_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pie-chart-widget-settings */ "./components/widgets/charts/pie-chart/pie-chart-widget-settings.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PieChartWidgetSettings", function() { return _pie_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
 
@@ -5092,10 +5441,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./components/widgets/pie-chart/pie-chart-widget-settings.jsx":
-/*!********************************************************************!*\
-  !*** ./components/widgets/pie-chart/pie-chart-widget-settings.jsx ***!
-  \********************************************************************/
+/***/ "./components/widgets/charts/pie-chart/pie-chart-widget-settings.jsx":
+/*!***************************************************************************!*\
+  !*** ./components/widgets/charts/pie-chart/pie-chart-widget-settings.jsx ***!
+  \***************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5121,11 +5470,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\pie-chart\\pie-chart-widget-settings.jsx";
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\pie-chart\\pie-chart-widget-settings.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -5387,24 +5736,18 @@ const PieChartWidgetSettings = ({
       lineNumber: 162
     },
     __self: undefined
-  }, __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 163
-    },
-    __self: undefined
   }, __jsx("h2", {
     className: classes.h2,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 164
+      lineNumber: 163
     },
     __self: undefined
   }, __jsx("span", {
     className: classes.span,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 165
+      lineNumber: 164
     },
     __self: undefined
   }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -5412,34 +5755,34 @@ const PieChartWidgetSettings = ({
     className: classes.formControl,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 167
+      lineNumber: 166
     },
     __self: undefined
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default.a, {
     id: "title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 168
+      lineNumber: 167
     },
     __self: undefined
   }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_6___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 169
+      lineNumber: 168
     },
     __self: undefined
   })), __jsx("h2", {
     className: classes.h2,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 171
+      lineNumber: 170
     },
     __self: undefined
   }, __jsx("span", {
     className: classes.span,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 172
+      lineNumber: 171
     },
     __self: undefined
   }, "Connection Settings")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -5447,14 +5790,14 @@ const PieChartWidgetSettings = ({
     className: classes.formControl,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 174
+      lineNumber: 173
     },
     __self: undefined
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default.a, {
     id: "data-source",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 175
+      lineNumber: 174
     },
     __self: undefined
   }, "Data Source"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -5464,7 +5807,7 @@ const PieChartWidgetSettings = ({
     onChange: handleDatasourceChange,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 176
+      lineNumber: 175
     },
     __self: undefined
   }, datasources.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -5472,7 +5815,7 @@ const PieChartWidgetSettings = ({
     value: item.id,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 182
+      lineNumber: 181
     },
     __self: undefined
   }, item.title)))), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -5481,14 +5824,14 @@ const PieChartWidgetSettings = ({
     disabled: datasource ? false : true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 186
+      lineNumber: 185
     },
     __self: undefined
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default.a, {
     id: "doc-list",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 187
+      lineNumber: 186
     },
     __self: undefined
   }, "Table/Collection"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -5498,7 +5841,7 @@ const PieChartWidgetSettings = ({
     onChange: handleDocChange,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 188
+      lineNumber: 187
     },
     __self: undefined
   }, docList.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -5506,7 +5849,7 @@ const PieChartWidgetSettings = ({
     value: item,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 194
+      lineNumber: 193
     },
     __self: undefined
   }, item)))), renderFieldSettings(), renderQuerySettings(), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -5514,20 +5857,20 @@ const PieChartWidgetSettings = ({
     onClick: saveConfigSettings,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 202
+      lineNumber: 201
     },
     __self: undefined
-  }, isAdding ? 'Add' : 'Save')));
+  }, isAdding ? 'Add' : 'Save'));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PieChartWidgetSettings);
 
 /***/ }),
 
-/***/ "./components/widgets/pie-chart/pie-chart-widget.jsx":
-/*!***********************************************************!*\
-  !*** ./components/widgets/pie-chart/pie-chart-widget.jsx ***!
-  \***********************************************************/
+/***/ "./components/widgets/charts/pie-chart/pie-chart-widget.jsx":
+/*!******************************************************************!*\
+  !*** ./components/widgets/charts/pie-chart/pie-chart-widget.jsx ***!
+  \******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5555,9 +5898,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Drawer */ "@material-ui/core/Drawer");
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
-/* harmony import */ var _pie_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pie-chart-widget-settings */ "./components/widgets/pie-chart/pie-chart-widget-settings.jsx");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\pie-chart\\pie-chart-widget.jsx";
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _pie_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pie-chart-widget-settings */ "./components/widgets/charts/pie-chart/pie-chart-widget-settings.jsx");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\pie-chart\\pie-chart-widget.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -5818,6 +6161,6847 @@ const PieChartWidget = ({
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PieChartWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/autocomplete/autocomplete-widget-settings.jsx":
+/*!****************************************************************************************!*\
+  !*** ./components/widgets/form-controls/autocomplete/autocomplete-widget-settings.jsx ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormGroup */ "@material-ui/core/FormGroup");
+/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Radio */ "@material-ui/core/Radio");
+/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/RadioGroup */ "@material-ui/core/RadioGroup");
+/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_15__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\autocomplete\\autocomplete-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const AutoCompleteWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  const {
+    0: datasources,
+    1: setDatasources
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: datasource,
+    1: setDatasource
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.dataSourceId : '');
+  const {
+    0: docList,
+    1: setDocList
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: doc,
+    1: setDoc
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.docId : '');
+  const {
+    0: fieldList,
+    1: setFieldList
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: fields,
+    1: setFields
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.fields : []);
+
+  const getDatasources = async () => {
+    try {
+      const $datasources = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDatasources({});
+
+      if (!isAdding) {
+        const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDocList(datasource);
+        const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getFieldList(datasource, doc);
+        setDocList($docList);
+        setFieldList($fieldList);
+      }
+
+      setDatasources($datasources);
+      return $datasources;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getDocList = async id => {
+    try {
+      setDatasource(id);
+      const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDocList(id);
+      setDocList($docList);
+      return $docList;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getFieldList = async (id, docId) => {
+    try {
+      setDoc(docId);
+      const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getFieldList(id, docId);
+      setFieldList($fieldList);
+      return $fieldList;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleDatasourceChange = async event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setFieldList([]);
+    setFields([]);
+    await getDocList(value);
+  };
+
+  const handleDocChange = async event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setFieldList([]);
+    setFields([]);
+    await getFieldList(datasource, value);
+  };
+
+  const handleFieldChange = name => event => {
+    const {
+      checked
+    } = event.target;
+    checked ? setFields([...fields, name]) : setFields(fields.filter(field => field != name));
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    getDatasources();
+  }, []);
+
+  const renderFieldSettings = () => fieldList.length ? __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 116
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118
+    },
+    __self: undefined
+  }, "Fields Settings")), fieldList.map(field => __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    key: field,
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default.a, {
+      checked: fields.includes(field),
+      onChange: handleFieldChange(field),
+      value: field,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 124
+      },
+      __self: undefined
+    }),
+    label: field,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 121
+    },
+    __self: undefined
+  }))) : __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 128
+    },
+    __self: undefined
+  });
+
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 131
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 132
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 133
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 135
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 136
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 137
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 140
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 141
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 143
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 144
+    },
+    __self: undefined
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 145
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 148
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 149
+    },
+    __self: undefined
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 150
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 153
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 154
+    },
+    __self: undefined
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 155
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 158
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 159
+    },
+    __self: undefined
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 160
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 163
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 164
+    },
+    __self: undefined
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 165
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 168
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 169
+    },
+    __self: undefined
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 170
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 173
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 174
+    },
+    __self: undefined
+  }, "Unique Properties")), __jsx(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    row: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 176
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    style: {
+      justifyContent: 'space-evenly',
+      width: '100%',
+      flexDirection: 'row'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 177
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    value: "female",
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 178
+      },
+      __self: undefined
+    }),
+    label: "From Data Source",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 178
+    },
+    __self: undefined
+  }), __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    value: "male",
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 179
+      },
+      __self: undefined
+    }),
+    label: "Fixed Values",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 179
+    },
+    __self: undefined
+  }))), __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 182
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 183
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    id: "data-source",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 184
+    },
+    __self: undefined
+  }, "Data Source"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    name: "datasource",
+    labelId: "data-source",
+    value: datasource,
+    onChange: handleDatasourceChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 185
+    },
+    __self: undefined
+  }, datasources.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    key: item.id,
+    value: item.id,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 191
+    },
+    __self: undefined
+  }, item.title)))), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    disabled: datasource ? false : true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 195
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    id: "doc-list",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 196
+    },
+    __self: undefined
+  }, "Table/Collection"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    name: "docList",
+    labelId: "doc-list",
+    value: doc,
+    onChange: handleDocChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 197
+    },
+    __self: undefined
+  }, docList.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    key: item,
+    value: item,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 203
+    },
+    __self: undefined
+  }, item)))), renderFieldSettings()), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 210
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AutoCompleteWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/autocomplete/autocomplete-widget.jsx":
+/*!*******************************************************************************!*\
+  !*** ./components/widgets/form-controls/autocomplete/autocomplete-widget.jsx ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\autocomplete\\autocomplete-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const AutoCompleteWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        console.log($widget);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
+  // id={widget.config.id || ''}
+  // placeholder={widget.config.placeholder || ''}
+  // className={widget.config.className || ''}
+  // styles={widget.config.styles || {}}
+  // name={widget.config.name || ''}
+  // value={widget.config.value || ''}
+  // type={widget.config.type || 'text'}
+  , {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AutoCompleteWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/autocomplete/index.js":
+/*!****************************************************************!*\
+  !*** ./components/widgets/form-controls/autocomplete/index.js ***!
+  \****************************************************************/
+/*! exports provided: AutoCompleteWidget, AutoCompleteWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _autocomplete_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./autocomplete-widget */ "./components/widgets/form-controls/autocomplete/autocomplete-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidget", function() { return _autocomplete_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _autocomplete_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./autocomplete-widget-settings */ "./components/widgets/form-controls/autocomplete/autocomplete-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidgetSettings", function() { return _autocomplete_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/button/button-widget-settings.jsx":
+/*!****************************************************************************!*\
+  !*** ./components/widgets/form-controls/button/button-widget-settings.jsx ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\button\\button-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const ButtonWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: undefined
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: undefined
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: undefined
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86
+    },
+    __self: undefined
+  }, "Type"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ButtonWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/button/button-widget.jsx":
+/*!*******************************************************************!*\
+  !*** ./components/widgets/form-controls/button/button-widget.jsx ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\button\\button-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const ButtonWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        console.log($widget);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
+  // id={widget.config.id || ''}
+  // placeholder={widget.config.placeholder || ''}
+  // className={widget.config.className || ''}
+  // styles={widget.config.styles || {}}
+  // name={widget.config.name || ''}
+  // value={widget.config.value || ''}
+  // type={widget.config.type || 'text'}
+  , {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ButtonWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/button/index.js":
+/*!**********************************************************!*\
+  !*** ./components/widgets/form-controls/button/index.js ***!
+  \**********************************************************/
+/*! exports provided: ButtonWidget, ButtonWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _button_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button-widget */ "./components/widgets/form-controls/button/button-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidget", function() { return _button_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _button_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./button-widget-settings */ "./components/widgets/form-controls/button/button-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidgetSettings", function() { return _button_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/checkbox/checkbox-widget-settings.jsx":
+/*!********************************************************************************!*\
+  !*** ./components/widgets/form-controls/checkbox/checkbox-widget-settings.jsx ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\checkbox\\checkbox-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const CheckboxWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: undefined
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: undefined
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: undefined
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86
+    },
+    __self: undefined
+  }, "Type"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CheckboxWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/checkbox/checkbox-widget.jsx":
+/*!***********************************************************************!*\
+  !*** ./components/widgets/form-controls/checkbox/checkbox-widget.jsx ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\checkbox\\checkbox-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const CheckboxWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        console.log($widget);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
+  // id={widget.config.id || ''}
+  // placeholder={widget.config.placeholder || ''}
+  // className={widget.config.className || ''}
+  // styles={widget.config.styles || {}}
+  // name={widget.config.name || ''}
+  // value={widget.config.value || ''}
+  // type={widget.config.type || 'text'}
+  , {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CheckboxWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/checkbox/index.js":
+/*!************************************************************!*\
+  !*** ./components/widgets/form-controls/checkbox/index.js ***!
+  \************************************************************/
+/*! exports provided: CheckboxWidget, CheckboxWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _checkbox_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./checkbox-widget */ "./components/widgets/form-controls/checkbox/checkbox-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckboxWidget", function() { return _checkbox_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _checkbox_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./checkbox-widget-settings */ "./components/widgets/form-controls/checkbox/checkbox-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckboxWidgetSettings", function() { return _checkbox_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/date-time/datetime-widget-settings.jsx":
+/*!*********************************************************************************!*\
+  !*** ./components/widgets/form-controls/date-time/datetime-widget-settings.jsx ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\date-time\\datetime-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const DateTimeWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: undefined
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: undefined
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: undefined
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86
+    },
+    __self: undefined
+  }, "Type"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DateTimeWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/date-time/datetime-widget.jsx":
+/*!************************************************************************!*\
+  !*** ./components/widgets/form-controls/date-time/datetime-widget.jsx ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/date-time/index.js":
+/*!*************************************************************!*\
+  !*** ./components/widgets/form-controls/date-time/index.js ***!
+  \*************************************************************/
+/*! exports provided: DateTimeWidget, DateTimeWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _datetime_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datetime-widget */ "./components/widgets/form-controls/date-time/datetime-widget.jsx");
+/* harmony import */ var _datetime_widget__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_datetime_widget__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (default from non-harmony) */ __webpack_require__.d(__webpack_exports__, "DateTimeWidget", function() { return _datetime_widget__WEBPACK_IMPORTED_MODULE_0___default.a; });
+/* harmony import */ var _datetime_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datetime-widget-settings */ "./components/widgets/form-controls/date-time/datetime-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DateTimeWidgetSettings", function() { return _datetime_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/file/file-widget-settings.jsx":
+/*!************************************************************************!*\
+  !*** ./components/widgets/form-controls/file/file-widget-settings.jsx ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\file\\file-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const FileWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: undefined
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: undefined
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: undefined
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86
+    },
+    __self: undefined
+  }, "Type"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FileWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/file/file-widget.jsx":
+/*!***************************************************************!*\
+  !*** ./components/widgets/form-controls/file/file-widget.jsx ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\file\\file-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const FileWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        console.log($widget);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
+  // id={widget.config.id || ''}
+  // placeholder={widget.config.placeholder || ''}
+  // className={widget.config.className || ''}
+  // styles={widget.config.styles || {}}
+  // name={widget.config.name || ''}
+  // value={widget.config.value || ''}
+  // type={widget.config.type || 'text'}
+  , {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FileWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/file/index.js":
+/*!********************************************************!*\
+  !*** ./components/widgets/form-controls/file/index.js ***!
+  \********************************************************/
+/*! exports provided: FileWidget, FileWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _file_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./file-widget */ "./components/widgets/form-controls/file/file-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileWidget", function() { return _file_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _file_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./file-widget-settings */ "./components/widgets/form-controls/file/file-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileWidgetSettings", function() { return _file_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/index.js":
+/*!***************************************************!*\
+  !*** ./components/widgets/form-controls/index.js ***!
+  \***************************************************/
+/*! exports provided: AutoCompleteWidget, AutoCompleteWidgetSettings, ButtonWidget, ButtonWidgetSettings, CheckboxWidget, CheckboxWidgetSettings, DateTimeWidget, DateTimeWidgetSettings, FileWidget, FileWidgetSettings, NumberWidget, NumberWidgetSettings, PasswordWidget, PasswordWidgetSettings, RadioWidget, RadioWidgetSettings, SelectWidget, SelectWidgetSettings, TextAreaWidget, TextAreaWidgetSettings, TextFieldWidget, TextFieldWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _autocomplete__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./autocomplete */ "./components/widgets/form-controls/autocomplete/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidget", function() { return _autocomplete__WEBPACK_IMPORTED_MODULE_0__["AutoCompleteWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidgetSettings", function() { return _autocomplete__WEBPACK_IMPORTED_MODULE_0__["AutoCompleteWidgetSettings"]; });
+
+/* harmony import */ var _button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./button */ "./components/widgets/form-controls/button/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidget", function() { return _button__WEBPACK_IMPORTED_MODULE_1__["ButtonWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidgetSettings", function() { return _button__WEBPACK_IMPORTED_MODULE_1__["ButtonWidgetSettings"]; });
+
+/* harmony import */ var _checkbox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./checkbox */ "./components/widgets/form-controls/checkbox/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckboxWidget", function() { return _checkbox__WEBPACK_IMPORTED_MODULE_2__["CheckboxWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckboxWidgetSettings", function() { return _checkbox__WEBPACK_IMPORTED_MODULE_2__["CheckboxWidgetSettings"]; });
+
+/* harmony import */ var _date_time__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./date-time */ "./components/widgets/form-controls/date-time/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DateTimeWidget", function() { return _date_time__WEBPACK_IMPORTED_MODULE_3__["DateTimeWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DateTimeWidgetSettings", function() { return _date_time__WEBPACK_IMPORTED_MODULE_3__["DateTimeWidgetSettings"]; });
+
+/* harmony import */ var _file__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./file */ "./components/widgets/form-controls/file/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileWidget", function() { return _file__WEBPACK_IMPORTED_MODULE_4__["FileWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileWidgetSettings", function() { return _file__WEBPACK_IMPORTED_MODULE_4__["FileWidgetSettings"]; });
+
+/* harmony import */ var _number__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./number */ "./components/widgets/form-controls/number/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NumberWidget", function() { return _number__WEBPACK_IMPORTED_MODULE_5__["NumberWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NumberWidgetSettings", function() { return _number__WEBPACK_IMPORTED_MODULE_5__["NumberWidgetSettings"]; });
+
+/* harmony import */ var _password__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./password */ "./components/widgets/form-controls/password/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PasswordWidget", function() { return _password__WEBPACK_IMPORTED_MODULE_6__["PasswordWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PasswordWidgetSettings", function() { return _password__WEBPACK_IMPORTED_MODULE_6__["PasswordWidgetSettings"]; });
+
+/* harmony import */ var _radio__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./radio */ "./components/widgets/form-controls/radio/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioWidget", function() { return _radio__WEBPACK_IMPORTED_MODULE_7__["RadioWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioWidgetSettings", function() { return _radio__WEBPACK_IMPORTED_MODULE_7__["RadioWidgetSettings"]; });
+
+/* harmony import */ var _select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./select */ "./components/widgets/form-controls/select/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectWidget", function() { return _select__WEBPACK_IMPORTED_MODULE_8__["SelectWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectWidgetSettings", function() { return _select__WEBPACK_IMPORTED_MODULE_8__["SelectWidgetSettings"]; });
+
+/* harmony import */ var _textarea__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./textarea */ "./components/widgets/form-controls/textarea/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextAreaWidget", function() { return _textarea__WEBPACK_IMPORTED_MODULE_9__["TextAreaWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextAreaWidgetSettings", function() { return _textarea__WEBPACK_IMPORTED_MODULE_9__["TextAreaWidgetSettings"]; });
+
+/* harmony import */ var _textfield__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./textfield */ "./components/widgets/form-controls/textfield/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextFieldWidget", function() { return _textfield__WEBPACK_IMPORTED_MODULE_10__["TextFieldWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextFieldWidgetSettings", function() { return _textfield__WEBPACK_IMPORTED_MODULE_10__["TextFieldWidgetSettings"]; });
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/number/index.js":
+/*!**********************************************************!*\
+  !*** ./components/widgets/form-controls/number/index.js ***!
+  \**********************************************************/
+/*! exports provided: NumberWidget, NumberWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _number_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./number-widget */ "./components/widgets/form-controls/number/number-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NumberWidget", function() { return _number_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _number_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./number-widget-settings */ "./components/widgets/form-controls/number/number-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NumberWidgetSettings", function() { return _number_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/number/number-widget-settings.jsx":
+/*!****************************************************************************!*\
+  !*** ./components/widgets/form-controls/number/number-widget-settings.jsx ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\number\\number-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const NumberWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: undefined
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: undefined
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: undefined
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86
+    },
+    __self: undefined
+  }, "Type"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NumberWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/number/number-widget.jsx":
+/*!*******************************************************************!*\
+  !*** ./components/widgets/form-controls/number/number-widget.jsx ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\number\\number-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const NumberWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        console.log($widget);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
+  // id={widget.config.id || ''}
+  // placeholder={widget.config.placeholder || ''}
+  // className={widget.config.className || ''}
+  // styles={widget.config.styles || {}}
+  // name={widget.config.name || ''}
+  // value={widget.config.value || ''}
+  // type={widget.config.type || 'text'}
+  , {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NumberWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/password/index.js":
+/*!************************************************************!*\
+  !*** ./components/widgets/form-controls/password/index.js ***!
+  \************************************************************/
+/*! exports provided: PasswordWidget, PasswordWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _password_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./password-widget */ "./components/widgets/form-controls/password/password-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PasswordWidget", function() { return _password_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _password_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./password-widget-settings */ "./components/widgets/form-controls/password/password-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PasswordWidgetSettings", function() { return _password_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/password/password-widget-settings.jsx":
+/*!********************************************************************************!*\
+  !*** ./components/widgets/form-controls/password/password-widget-settings.jsx ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\password\\password-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const PasswordWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: undefined
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: undefined
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: undefined
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86
+    },
+    __self: undefined
+  }, "Type"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PasswordWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/password/password-widget.jsx":
+/*!***********************************************************************!*\
+  !*** ./components/widgets/form-controls/password/password-widget.jsx ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\password\\password-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const PasswordWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        console.log($widget);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
+  // id={widget.config.id || ''}
+  // placeholder={widget.config.placeholder || ''}
+  // className={widget.config.className || ''}
+  // styles={widget.config.styles || {}}
+  // name={widget.config.name || ''}
+  // value={widget.config.value || ''}
+  // type={widget.config.type || 'text'}
+  , {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PasswordWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/radio/index.js":
+/*!*********************************************************!*\
+  !*** ./components/widgets/form-controls/radio/index.js ***!
+  \*********************************************************/
+/*! exports provided: RadioWidget, RadioWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _radio_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./radio-widget */ "./components/widgets/form-controls/radio/radio-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioWidget", function() { return _radio_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _radio_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./radio-widget-settings */ "./components/widgets/form-controls/radio/radio-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioWidgetSettings", function() { return _radio_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/radio/radio-widget-settings.jsx":
+/*!**************************************************************************!*\
+  !*** ./components/widgets/form-controls/radio/radio-widget-settings.jsx ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\radio\\radio-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const RadioWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: undefined
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: undefined
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: undefined
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86
+    },
+    __self: undefined
+  }, "Type"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RadioWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/radio/radio-widget.jsx":
+/*!*****************************************************************!*\
+  !*** ./components/widgets/form-controls/radio/radio-widget.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\radio\\radio-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const RadioWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        console.log($widget);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
+  // id={widget.config.id || ''}
+  // placeholder={widget.config.placeholder || ''}
+  // className={widget.config.className || ''}
+  // styles={widget.config.styles || {}}
+  // name={widget.config.name || ''}
+  // value={widget.config.value || ''}
+  // type={widget.config.type || 'text'}
+  , {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RadioWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/select/index.js":
+/*!**********************************************************!*\
+  !*** ./components/widgets/form-controls/select/index.js ***!
+  \**********************************************************/
+/*! exports provided: SelectWidget, SelectWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _select_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./select-widget */ "./components/widgets/form-controls/select/select-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectWidget", function() { return _select_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _select_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./select-widget-settings */ "./components/widgets/form-controls/select/select-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectWidgetSettings", function() { return _select_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/select/select-widget-settings.jsx":
+/*!****************************************************************************!*\
+  !*** ./components/widgets/form-controls/select/select-widget-settings.jsx ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\select\\select-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const SelectWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: undefined
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: undefined
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: undefined
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86
+    },
+    __self: undefined
+  }, "Type"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SelectWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/select/select-widget.jsx":
+/*!*******************************************************************!*\
+  !*** ./components/widgets/form-controls/select/select-widget.jsx ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\select\\select-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const SelectWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        console.log($widget);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
+  // id={widget.config.id || ''}
+  // placeholder={widget.config.placeholder || ''}
+  // className={widget.config.className || ''}
+  // styles={widget.config.styles || {}}
+  // name={widget.config.name || ''}
+  // value={widget.config.value || ''}
+  // type={widget.config.type || 'text'}
+  , {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SelectWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/textarea/index.js":
+/*!************************************************************!*\
+  !*** ./components/widgets/form-controls/textarea/index.js ***!
+  \************************************************************/
+/*! exports provided: TextAreaWidget, TextAreaWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _textarea_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./textarea-widget */ "./components/widgets/form-controls/textarea/textarea-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextAreaWidget", function() { return _textarea_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _textarea_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./textarea-widget-settings */ "./components/widgets/form-controls/textarea/textarea-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextAreaWidgetSettings", function() { return _textarea_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/textarea/textarea-widget-settings.jsx":
+/*!********************************************************************************!*\
+  !*** ./components/widgets/form-controls/textarea/textarea-widget-settings.jsx ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\textarea\\textarea-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const TextAreaWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: undefined
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: undefined
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: undefined
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86
+    },
+    __self: undefined
+  }, "Type"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91
+    },
+    __self: undefined
+  }, "Unique Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 93
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94
+    },
+    __self: undefined
+  }, "Rows"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    type: "number",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 98
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 99
+    },
+    __self: undefined
+  }, "Columns"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    type: "number",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 100
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TextAreaWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/textarea/textarea-widget.jsx":
+/*!***********************************************************************!*\
+  !*** ./components/widgets/form-controls/textarea/textarea-widget.jsx ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\textarea\\textarea-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const TextAreaWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        console.log($widget);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
+  // id={widget.config.id || ''}
+  // placeholder={widget.config.placeholder || ''}
+  // className={widget.config.className || ''}
+  // styles={widget.config.styles || {}}
+  // name={widget.config.name || ''}
+  // value={widget.config.value || ''}
+  // type={widget.config.type || 'text'}
+  , {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TextAreaWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/textfield/index.js":
+/*!*************************************************************!*\
+  !*** ./components/widgets/form-controls/textfield/index.js ***!
+  \*************************************************************/
+/*! exports provided: TextFieldWidget, TextFieldWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _text_field_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./text-field-widget */ "./components/widgets/form-controls/textfield/text-field-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextFieldWidget", function() { return _text_field_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _text_field_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./text-field-widget-settings */ "./components/widgets/form-controls/textfield/text-field-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextFieldWidgetSettings", function() { return _text_field_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/textfield/text-field-widget-settings.jsx":
+/*!***********************************************************************************!*\
+  !*** ./components/widgets/form-controls/textfield/text-field-widget-settings.jsx ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\textfield\\text-field-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const TextFieldWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: undefined
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: undefined
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: undefined
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86
+    },
+    __self: undefined
+  }, "Type"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: undefined
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TextFieldWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/textfield/text-field-widget.jsx":
+/*!**************************************************************************!*\
+  !*** ./components/widgets/form-controls/textfield/text-field-widget.jsx ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\textfield\\text-field-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const TextFieldWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        console.log($widget);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
+  // id={widget.config.id || ''}
+  // placeholder={widget.config.placeholder || ''}
+  // className={widget.config.className || ''}
+  // styles={widget.config.styles || {}}
+  // name={widget.config.name || ''}
+  // value={widget.config.value || ''}
+  // type={widget.config.type || 'text'}
+  , {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TextFieldWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/accordion/accordion-widget-settings.jsx":
+/*!**********************************************************************************!*\
+  !*** ./components/widgets/html-elements/accordion/accordion-widget-settings.jsx ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\accordion\\accordion-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const AccordionWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AccordionWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/accordion/accordion-widget.jsx":
+/*!*************************************************************************!*\
+  !*** ./components/widgets/html-elements/accordion/accordion-widget.jsx ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/ExpansionPanel */ "@material-ui/core/ExpansionPanel");
+/* harmony import */ var _material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/ExpansionPanelDetails */ "@material-ui/core/ExpansionPanelDetails");
+/* harmony import */ var _material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/ExpansionPanelSummary */ "@material-ui/core/ExpansionPanelSummary");
+/* harmony import */ var _material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/icons/ExpandMore */ "@material-ui/icons/ExpandMore");
+/* harmony import */ var _material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\accordion\\accordion-widget.jsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  root: {
+    width: '100%'
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    flexBasis: '33.33%',
+    flexShrink: 0
+  },
+  secondaryHeading: {
+    fontSize: theme.typography.pxToRem(15),
+    color: theme.palette.text.secondary
+  }
+}));
+
+const AccordionWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const [expanded, setExpanded] = useState(false);
+  const [widget, setWidget] = useState(null);
+  const [menuState, setMenuState] = useState({
+    right: false
+  });
+
+  const handleChange = panel => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+
+  const expansionPanelItem = ({
+    id,
+    title,
+    description,
+    innerHTML,
+    text
+  }) => {
+    return __jsx(_material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      expanded: expanded === id,
+      onChange: handleChange(id),
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 49
+      },
+      __self: undefined
+    }, __jsx(_material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      expandIcon: __jsx(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default.a, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 50
+        },
+        __self: undefined
+      }),
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 50
+      },
+      __self: undefined
+    }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+      className: classes.heading,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
+      },
+      __self: undefined
+    }, title), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+      className: classes.secondaryHeading,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 52
+      },
+      __self: undefined
+    }, description)), __jsx(_material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 54
+      },
+      __self: undefined
+    }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 55
+      },
+      __self: undefined
+    }, text)));
+  };
+
+  return __jsx("div", {
+    className: classes.root,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
+    },
+    __self: undefined
+  }, expansionPanelItem({
+    id: 1,
+    title: 'Test',
+    description: 'Description',
+    text: "Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue."
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AccordionWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/accordion/index.js":
+/*!*************************************************************!*\
+  !*** ./components/widgets/html-elements/accordion/index.js ***!
+  \*************************************************************/
+/*! exports provided: AccordionWidget, AccordionWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _accordion_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./accordion-widget */ "./components/widgets/html-elements/accordion/accordion-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccordionWidget", function() { return _accordion_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _accordion_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./accordion-widget-settings */ "./components/widgets/html-elements/accordion/accordion-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccordionWidgetSettings", function() { return _accordion_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/data-grid/data-grid-widget-settings.jsx":
+/*!**********************************************************************************!*\
+  !*** ./components/widgets/html-elements/data-grid/data-grid-widget-settings.jsx ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\data-grid\\data-grid-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const DataGridWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DataGridWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/data-grid/data-grid-widget.jsx":
+/*!*************************************************************************!*\
+  !*** ./components/widgets/html-elements/data-grid/data-grid-widget.jsx ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\data-grid\\data-grid-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const DataGridWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DataGridWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/data-grid/index.js":
+/*!*************************************************************!*\
+  !*** ./components/widgets/html-elements/data-grid/index.js ***!
+  \*************************************************************/
+/*! exports provided: DataGridWidget, DataGridWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _data_grid_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data-grid-widget */ "./components/widgets/html-elements/data-grid/data-grid-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataGridWidget", function() { return _data_grid_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _data_grid_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data-grid-widget-settings */ "./components/widgets/html-elements/data-grid/data-grid-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataGridWidgetSettings", function() { return _data_grid_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/div/div-widget-settings.jsx":
+/*!**********************************************************************!*\
+  !*** ./components/widgets/html-elements/div/div-widget-settings.jsx ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\div\\div-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const DivWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DivWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/div/div-widget.jsx":
+/*!*************************************************************!*\
+  !*** ./components/widgets/html-elements/div/div-widget.jsx ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\div\\div-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const DivWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DivWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/div/index.js":
+/*!*******************************************************!*\
+  !*** ./components/widgets/html-elements/div/index.js ***!
+  \*******************************************************/
+/*! exports provided: DivWidget, DivWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _div_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./div-widget */ "./components/widgets/html-elements/div/div-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DivWidget", function() { return _div_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _div_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./div-widget-settings */ "./components/widgets/html-elements/div/div-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DivWidgetSettings", function() { return _div_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/image/image-widget-settings.jsx":
+/*!**************************************************************************!*\
+  !*** ./components/widgets/html-elements/image/image-widget-settings.jsx ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\image\\image-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const ImageWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ImageWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/image/image-widget.jsx":
+/*!*****************************************************************!*\
+  !*** ./components/widgets/html-elements/image/image-widget.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\image\\image-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const ImageWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ImageWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/image/index.js":
+/*!*********************************************************!*\
+  !*** ./components/widgets/html-elements/image/index.js ***!
+  \*********************************************************/
+/*! exports provided: ImageWidget, ImageWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _image_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./image-widget */ "./components/widgets/html-elements/image/image-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ImageWidget", function() { return _image_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _image_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./image-widget-settings */ "./components/widgets/html-elements/image/image-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ImageWidgetSettings", function() { return _image_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/index.js":
+/*!***************************************************!*\
+  !*** ./components/widgets/html-elements/index.js ***!
+  \***************************************************/
+/*! exports provided: AccordionWidget, AccordionWidgetSettings, DataGridWidget, DataGridWidgetSettings, DivWidget, DivWidgetSettings, ImageWidget, ImageWidgetSettings, ListWidget, ListWidgetSettings, ParagraphWidget, ParagraphWidgetSettings, ProgressBarWidget, ProgressBarWidgetSettings, SpanWidget, SpanWidgetSettings, TabsWidget, TabsWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./accordion */ "./components/widgets/html-elements/accordion/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccordionWidget", function() { return _accordion__WEBPACK_IMPORTED_MODULE_0__["AccordionWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccordionWidgetSettings", function() { return _accordion__WEBPACK_IMPORTED_MODULE_0__["AccordionWidgetSettings"]; });
+
+/* harmony import */ var _data_grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data-grid */ "./components/widgets/html-elements/data-grid/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataGridWidget", function() { return _data_grid__WEBPACK_IMPORTED_MODULE_1__["DataGridWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataGridWidgetSettings", function() { return _data_grid__WEBPACK_IMPORTED_MODULE_1__["DataGridWidgetSettings"]; });
+
+/* harmony import */ var _div__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./div */ "./components/widgets/html-elements/div/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DivWidget", function() { return _div__WEBPACK_IMPORTED_MODULE_2__["DivWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DivWidgetSettings", function() { return _div__WEBPACK_IMPORTED_MODULE_2__["DivWidgetSettings"]; });
+
+/* harmony import */ var _image__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./image */ "./components/widgets/html-elements/image/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ImageWidget", function() { return _image__WEBPACK_IMPORTED_MODULE_3__["ImageWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ImageWidgetSettings", function() { return _image__WEBPACK_IMPORTED_MODULE_3__["ImageWidgetSettings"]; });
+
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./list */ "./components/widgets/html-elements/list/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ListWidget", function() { return _list__WEBPACK_IMPORTED_MODULE_4__["ListWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ListWidgetSettings", function() { return _list__WEBPACK_IMPORTED_MODULE_4__["ListWidgetSettings"]; });
+
+/* harmony import */ var _paragraph__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./paragraph */ "./components/widgets/html-elements/paragraph/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ParagraphWidget", function() { return _paragraph__WEBPACK_IMPORTED_MODULE_5__["ParagraphWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ParagraphWidgetSettings", function() { return _paragraph__WEBPACK_IMPORTED_MODULE_5__["ParagraphWidgetSettings"]; });
+
+/* harmony import */ var _progress_bar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./progress-bar */ "./components/widgets/html-elements/progress-bar/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProgressBarWidget", function() { return _progress_bar__WEBPACK_IMPORTED_MODULE_6__["ProgressBarWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProgressBarWidgetSettings", function() { return _progress_bar__WEBPACK_IMPORTED_MODULE_6__["ProgressBarWidgetSettings"]; });
+
+/* harmony import */ var _span__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./span */ "./components/widgets/html-elements/span/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SpanWidget", function() { return _span__WEBPACK_IMPORTED_MODULE_7__["SpanWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SpanWidgetSettings", function() { return _span__WEBPACK_IMPORTED_MODULE_7__["SpanWidgetSettings"]; });
+
+/* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./tabs */ "./components/widgets/html-elements/tabs/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TabsWidget", function() { return _tabs__WEBPACK_IMPORTED_MODULE_8__["TabsWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TabsWidgetSettings", function() { return _tabs__WEBPACK_IMPORTED_MODULE_8__["TabsWidgetSettings"]; });
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/list/index.js":
+/*!********************************************************!*\
+  !*** ./components/widgets/html-elements/list/index.js ***!
+  \********************************************************/
+/*! exports provided: ListWidget, ListWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _list_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list-widget */ "./components/widgets/html-elements/list/list-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ListWidget", function() { return _list_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _list_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list-widget-settings */ "./components/widgets/html-elements/list/list-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ListWidgetSettings", function() { return _list_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/list/list-widget-settings.jsx":
+/*!************************************************************************!*\
+  !*** ./components/widgets/html-elements/list/list-widget-settings.jsx ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\list\\list-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const ListWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ListWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/list/list-widget.jsx":
+/*!***************************************************************!*\
+  !*** ./components/widgets/html-elements/list/list-widget.jsx ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\list\\list-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const ListWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ListWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/paragraph/index.js":
+/*!*************************************************************!*\
+  !*** ./components/widgets/html-elements/paragraph/index.js ***!
+  \*************************************************************/
+/*! exports provided: ParagraphWidget, ParagraphWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _paragraph_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./paragraph-widget */ "./components/widgets/html-elements/paragraph/paragraph-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ParagraphWidget", function() { return _paragraph_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _paragraph_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./paragraph-widget-settings */ "./components/widgets/html-elements/paragraph/paragraph-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ParagraphWidgetSettings", function() { return _paragraph_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/paragraph/paragraph-widget-settings.jsx":
+/*!**********************************************************************************!*\
+  !*** ./components/widgets/html-elements/paragraph/paragraph-widget-settings.jsx ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\paragraph\\paragraph-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const ParagraphWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ParagraphWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/paragraph/paragraph-widget.jsx":
+/*!*************************************************************************!*\
+  !*** ./components/widgets/html-elements/paragraph/paragraph-widget.jsx ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\paragraph\\paragraph-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const ParagraphWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ParagraphWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/progress-bar/index.js":
+/*!****************************************************************!*\
+  !*** ./components/widgets/html-elements/progress-bar/index.js ***!
+  \****************************************************************/
+/*! exports provided: ProgressBarWidget, ProgressBarWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _progress_bar_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./progress-bar-widget */ "./components/widgets/html-elements/progress-bar/progress-bar-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProgressBarWidget", function() { return _progress_bar_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _progress_bar_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./progress-bar-widget-settings */ "./components/widgets/html-elements/progress-bar/progress-bar-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProgressBarWidgetSettings", function() { return _progress_bar_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/progress-bar/progress-bar-widget-settings.jsx":
+/*!****************************************************************************************!*\
+  !*** ./components/widgets/html-elements/progress-bar/progress-bar-widget-settings.jsx ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\progress-bar\\progress-bar-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const ProgressBarWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ProgressBarWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/progress-bar/progress-bar-widget.jsx":
+/*!*******************************************************************************!*\
+  !*** ./components/widgets/html-elements/progress-bar/progress-bar-widget.jsx ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\progress-bar\\progress-bar-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const ProgressBarWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ProgressBarWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/span/index.js":
+/*!********************************************************!*\
+  !*** ./components/widgets/html-elements/span/index.js ***!
+  \********************************************************/
+/*! exports provided: SpanWidget, SpanWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _span_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./span-widget */ "./components/widgets/html-elements/span/span-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SpanWidget", function() { return _span_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _span_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./span-widget-settings */ "./components/widgets/html-elements/span/span-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SpanWidgetSettings", function() { return _span_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/span/span-widget-settings.jsx":
+/*!************************************************************************!*\
+  !*** ./components/widgets/html-elements/span/span-widget-settings.jsx ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\span\\span-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const SpanWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SpanWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/span/span-widget.jsx":
+/*!***************************************************************!*\
+  !*** ./components/widgets/html-elements/span/span-widget.jsx ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\span\\span-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const SpanWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SpanWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/tabs/index.js":
+/*!********************************************************!*\
+  !*** ./components/widgets/html-elements/tabs/index.js ***!
+  \********************************************************/
+/*! exports provided: TabsWidget, TabsWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _tabs_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tabs-widget */ "./components/widgets/html-elements/tabs/tabs-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TabsWidget", function() { return _tabs_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _tabs_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tabs-widget-settings */ "./components/widgets/html-elements/tabs/tabs-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TabsWidgetSettings", function() { return _tabs_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/tabs/tabs-widget-settings.jsx":
+/*!************************************************************************!*\
+  !*** ./components/widgets/html-elements/tabs/tabs-widget-settings.jsx ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\tabs\\tabs-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const TabsWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  })), __jsx("h2", {
+    className: classes.h2,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("span", {
+    className: classes.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, "Widget Properties")), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TabsWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/html-elements/tabs/tabs-widget.jsx":
+/*!***************************************************************!*\
+  !*** ./components/widgets/html-elements/tabs/tabs-widget.jsx ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\tabs\\tabs-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const TabsWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: undefined
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TabsWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/index.js":
+/*!*************************************!*\
+  !*** ./components/widgets/index.js ***!
+  \*************************************/
+/*! exports provided: TableWidget, TableWidgetSettings, AreaChartWidget, AreaChartWidgetSettings, BarChartWidget, BarChartWidgetSettings, DonutChartWidget, DonutChartWidgetSettings, LineChartWidget, LineChartWidgetSettings, PieChartWidget, PieChartWidgetSettings, AutoCompleteWidget, AutoCompleteWidgetSettings, ButtonWidget, ButtonWidgetSettings, CheckboxWidget, CheckboxWidgetSettings, DateTimeWidget, DateTimeWidgetSettings, FileWidget, FileWidgetSettings, NumberWidget, NumberWidgetSettings, PasswordWidget, PasswordWidgetSettings, RadioWidget, RadioWidgetSettings, SelectWidget, SelectWidgetSettings, TextAreaWidget, TextAreaWidgetSettings, TextFieldWidget, TextFieldWidgetSettings, AccordionWidget, AccordionWidgetSettings, DataGridWidget, DataGridWidgetSettings, DivWidget, DivWidgetSettings, ImageWidget, ImageWidgetSettings, ListWidget, ListWidgetSettings, ParagraphWidget, ParagraphWidgetSettings, ProgressBarWidget, ProgressBarWidgetSettings, SpanWidget, SpanWidgetSettings, TabsWidget, TabsWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./table */ "./components/widgets/table/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TableWidget", function() { return _table__WEBPACK_IMPORTED_MODULE_0__["TableWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TableWidgetSettings", function() { return _table__WEBPACK_IMPORTED_MODULE_0__["TableWidgetSettings"]; });
+
+/* harmony import */ var _charts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./charts */ "./components/widgets/charts/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AreaChartWidget", function() { return _charts__WEBPACK_IMPORTED_MODULE_1__["AreaChartWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AreaChartWidgetSettings", function() { return _charts__WEBPACK_IMPORTED_MODULE_1__["AreaChartWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarChartWidget", function() { return _charts__WEBPACK_IMPORTED_MODULE_1__["BarChartWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarChartWidgetSettings", function() { return _charts__WEBPACK_IMPORTED_MODULE_1__["BarChartWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DonutChartWidget", function() { return _charts__WEBPACK_IMPORTED_MODULE_1__["DonutChartWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DonutChartWidgetSettings", function() { return _charts__WEBPACK_IMPORTED_MODULE_1__["DonutChartWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidget", function() { return _charts__WEBPACK_IMPORTED_MODULE_1__["LineChartWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidgetSettings", function() { return _charts__WEBPACK_IMPORTED_MODULE_1__["LineChartWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PieChartWidget", function() { return _charts__WEBPACK_IMPORTED_MODULE_1__["PieChartWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PieChartWidgetSettings", function() { return _charts__WEBPACK_IMPORTED_MODULE_1__["PieChartWidgetSettings"]; });
+
+/* harmony import */ var _form_controls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form-controls */ "./components/widgets/form-controls/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidget", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["AutoCompleteWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidgetSettings", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["AutoCompleteWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidget", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["ButtonWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidgetSettings", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["ButtonWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckboxWidget", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["CheckboxWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckboxWidgetSettings", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["CheckboxWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DateTimeWidget", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["DateTimeWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DateTimeWidgetSettings", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["DateTimeWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileWidget", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["FileWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileWidgetSettings", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["FileWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NumberWidget", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["NumberWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NumberWidgetSettings", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["NumberWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PasswordWidget", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["PasswordWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PasswordWidgetSettings", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["PasswordWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioWidget", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["RadioWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioWidgetSettings", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["RadioWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectWidget", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["SelectWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectWidgetSettings", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["SelectWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextAreaWidget", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["TextAreaWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextAreaWidgetSettings", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["TextAreaWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextFieldWidget", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["TextFieldWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextFieldWidgetSettings", function() { return _form_controls__WEBPACK_IMPORTED_MODULE_2__["TextFieldWidgetSettings"]; });
+
+/* harmony import */ var _html_elements__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./html-elements */ "./components/widgets/html-elements/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccordionWidget", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["AccordionWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccordionWidgetSettings", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["AccordionWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataGridWidget", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["DataGridWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataGridWidgetSettings", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["DataGridWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DivWidget", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["DivWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DivWidgetSettings", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["DivWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ImageWidget", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["ImageWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ImageWidgetSettings", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["ImageWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ListWidget", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["ListWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ListWidgetSettings", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["ListWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ParagraphWidget", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["ParagraphWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ParagraphWidgetSettings", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["ParagraphWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProgressBarWidget", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["ProgressBarWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProgressBarWidgetSettings", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["ProgressBarWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SpanWidget", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["SpanWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SpanWidgetSettings", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["SpanWidgetSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TabsWidget", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["TabsWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TabsWidgetSettings", function() { return _html_elements__WEBPACK_IMPORTED_MODULE_3__["TabsWidgetSettings"]; });
+
+
+
+
+
 
 /***/ }),
 
@@ -6624,6 +13808,602 @@ const TableWidget = ({
 
 /***/ }),
 
+/***/ "./helpers/decide-widgets.jsx":
+/*!************************************!*\
+  !*** ./helpers/decide-widgets.jsx ***!
+  \************************************/
+/*! exports provided: decideWidgetSettings, decideWidget */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decideWidgetSettings", function() { return decideWidgetSettings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decideWidget", function() { return decideWidget; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_widgets__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/widgets */ "./components/widgets/index.js");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\helpers\\decide-widgets.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const decideWidgetSettings = (addType, onWidgetAdd) => {
+  switch (addType) {
+    case 'Table':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["TableWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 33
+        },
+        __self: undefined
+      });
+
+    case 'Line Chart':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["LineChartWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 35
+        },
+        __self: undefined
+      });
+
+    case 'Bar Chart':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["BarChartWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        },
+        __self: undefined
+      });
+
+    case 'Pie Chart':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["PieChartWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39
+        },
+        __self: undefined
+      });
+
+    case 'Donut Chart':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["DonutChartWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41
+        },
+        __self: undefined
+      });
+
+    case 'Area Chart':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["AreaChartWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 43
+        },
+        __self: undefined
+      });
+
+    case 'Auto Complete':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["AutoCompleteWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 45
+        },
+        __self: undefined
+      });
+
+    case 'Button':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["ButtonWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 47
+        },
+        __self: undefined
+      });
+
+    case 'Checkbox':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["CheckboxWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 49
+        },
+        __self: undefined
+      });
+
+    case 'Date Time':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["DateTimeWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 51
+        },
+        __self: undefined
+      });
+
+    case 'File':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["FileWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 53
+        },
+        __self: undefined
+      });
+
+    case 'Number':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["NumberWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 55
+        },
+        __self: undefined
+      });
+
+    case 'Password':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["PasswordWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 57
+        },
+        __self: undefined
+      });
+
+    case 'Radio':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["RadioWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 59
+        },
+        __self: undefined
+      });
+
+    case 'Select':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["SelectWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 61
+        },
+        __self: undefined
+      });
+
+    case 'Text Area':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["TextAreaWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 63
+        },
+        __self: undefined
+      });
+
+    case 'Text Field':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["TextFieldWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65
+        },
+        __self: undefined
+      });
+
+    case 'Accordion':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["AccordionWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 67
+        },
+        __self: undefined
+      });
+
+    case 'Data Grid':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["DataGridWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 69
+        },
+        __self: undefined
+      });
+
+    case 'Div':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["DivWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 71
+        },
+        __self: undefined
+      });
+
+    case 'Image':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["ImageWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 73
+        },
+        __self: undefined
+      });
+
+    case 'List':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["ListWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 75
+        },
+        __self: undefined
+      });
+
+    case 'Paragraph':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["ParagraphWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 77
+        },
+        __self: undefined
+      });
+
+    case 'Progress Bar':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["ProgressBarWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 79
+        },
+        __self: undefined
+      });
+
+    case 'Span':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["SpanWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 81
+        },
+        __self: undefined
+      });
+
+    case 'Tabs':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["TabsWidgetSettings"], {
+        isAdding: true,
+        onWidgetAdd: onWidgetAdd,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 83
+        },
+        __self: undefined
+      });
+
+    default:
+      return __jsx("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 85
+        },
+        __self: undefined
+      });
+  }
+};
+
+const decideWidget = widget => {
+  switch (widget.type) {
+    case 'Table':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["TableWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 92
+        },
+        __self: undefined
+      });
+
+    case 'Line Chart':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["LineChartWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 94
+        },
+        __self: undefined
+      });
+
+    case 'Bar Chart':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["BarChartWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 96
+        },
+        __self: undefined
+      });
+
+    case 'Pie Chart':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["PieChartWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 98
+        },
+        __self: undefined
+      });
+
+    case 'Donut Chart':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["DonutChartWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 100
+        },
+        __self: undefined
+      });
+
+    case 'Area Chart':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["AreaChartWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 102
+        },
+        __self: undefined
+      });
+
+    case 'TextField':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["TextFieldWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 104
+        },
+        __self: undefined
+      });
+
+    case 'Auto Complete':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["AutoCompleteWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 106
+        },
+        __self: undefined
+      });
+
+    case 'Button':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["ButtonWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 108
+        },
+        __self: undefined
+      });
+
+    case 'Checkbox':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["CheckboxWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 110
+        },
+        __self: undefined
+      });
+
+    case 'Date Time':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["DateTimeWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 112
+        },
+        __self: undefined
+      });
+
+    case 'File':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["FileWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 114
+        },
+        __self: undefined
+      });
+
+    case 'Number':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["NumberWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 116
+        },
+        __self: undefined
+      });
+
+    case 'Password':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["PasswordWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 118
+        },
+        __self: undefined
+      });
+
+    case 'Radio':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["RadioWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 120
+        },
+        __self: undefined
+      });
+
+    case 'Select':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["SelectWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 122
+        },
+        __self: undefined
+      });
+
+    case 'Text Area':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["TextAreaWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 124
+        },
+        __self: undefined
+      });
+
+    case 'Text Field':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["TextFieldWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 126
+        },
+        __self: undefined
+      });
+
+    case 'Accordion':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["AccordionWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 128
+        },
+        __self: undefined
+      });
+
+    case 'Data Grid':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["DataGridWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 130
+        },
+        __self: undefined
+      });
+
+    case 'Div':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["DivWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 132
+        },
+        __self: undefined
+      });
+
+    case 'Image':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["ImageWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 134
+        },
+        __self: undefined
+      });
+
+    case 'List':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["ListWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 136
+        },
+        __self: undefined
+      });
+
+    case 'Paragraph':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["ParagraphWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 138
+        },
+        __self: undefined
+      });
+
+    case 'Progress Bar':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["ProgressBarWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 140
+        },
+        __self: undefined
+      });
+
+    case 'Span':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["SpanWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 142
+        },
+        __self: undefined
+      });
+
+    case 'Tabs':
+      return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_1__["TabsWidget"], {
+        widgetId: widget.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 144
+        },
+        __self: undefined
+      });
+  }
+};
+
+
+
+/***/ }),
+
 /***/ "./pages/dashboards/[id]/edit.jsx":
 /*!****************************************!*\
   !*** ./pages/dashboards/[id]/edit.jsx ***!
@@ -6663,9 +14443,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var _components_dashboards_widgets_menu__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../components/dashboards/widgets-menu */ "./components/dashboards/widgets-menu.jsx");
 /* harmony import */ var _components_dashboards_settings_dashboard_settings__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../components/dashboards/settings/dashboard-settings */ "./components/dashboards/settings/dashboard-settings.jsx");
-/* harmony import */ var _components_widgets__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../components/widgets */ "./components/widgets/index.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _helpers_decide_widgets__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../../helpers/decide-widgets */ "./helpers/decide-widgets.jsx");
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\pages\\dashboards\\[id]\\edit.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -6706,7 +14486,7 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["
 
 const EditDashboard = WidgetSettings => {
   const classes = useStyles();
-  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_18__["useRouter"])();
+  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_17__["useRouter"])();
   const {
     id
   } = router.query;
@@ -6746,149 +14526,6 @@ const EditDashboard = WidgetSettings => {
     setMenuState(_objectSpread({}, menuState, {
       [side]: open
     }));
-  };
-
-  const decideWidget = widget => {
-    switch (widget.type) {
-      case 'Table':
-        return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_17__["TableWidget"], {
-          widgetId: widget.id,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 74
-          },
-          __self: undefined
-        });
-
-      case 'Line Chart':
-        return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_17__["LineChartWidget"], {
-          widgetId: widget.id,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 76
-          },
-          __self: undefined
-        });
-
-      case 'Bar Chart':
-        return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_17__["BarChartWidget"], {
-          widgetId: widget.id,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 78
-          },
-          __self: undefined
-        });
-
-      case 'Pie Chart':
-        return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_17__["PieChartWidget"], {
-          widgetId: widget.id,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 80
-          },
-          __self: undefined
-        });
-
-      case 'Donut Chart':
-        return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_17__["DonutChartWidget"], {
-          widgetId: widget.id,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 82
-          },
-          __self: undefined
-        });
-
-      case 'Area Chart':
-        return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_17__["AreaChartWidget"], {
-          widgetId: widget.id,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 84
-          },
-          __self: undefined
-        });
-    }
-  };
-
-  const decideWidgetSettings = () => {
-    switch (addType) {
-      case 'Table':
-        return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_17__["TableWidgetSettings"], {
-          isAdding: true,
-          onWidgetAdd: onWidgetAdd,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 91
-          },
-          __self: undefined
-        });
-
-      case 'Line Chart':
-        return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_17__["LineChartWidgetSettings"], {
-          isAdding: true,
-          onWidgetAdd: onWidgetAdd,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 93
-          },
-          __self: undefined
-        });
-
-      case 'Bar Chart':
-        return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_17__["BarChartWidgetSettings"], {
-          isAdding: true,
-          onWidgetAdd: onWidgetAdd,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 95
-          },
-          __self: undefined
-        });
-
-      case 'Pie Chart':
-        return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_17__["PieChartWidgetSettings"], {
-          isAdding: true,
-          onWidgetAdd: onWidgetAdd,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 97
-          },
-          __self: undefined
-        });
-
-      case 'Donut Chart':
-        return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_17__["DonutChartWidgetSettings"], {
-          isAdding: true,
-          onWidgetAdd: onWidgetAdd,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 99
-          },
-          __self: undefined
-        });
-
-      case 'Area Chart':
-        return __jsx(_components_widgets__WEBPACK_IMPORTED_MODULE_17__["AreaChartWidgetSettings"], {
-          isAdding: true,
-          onWidgetAdd: onWidgetAdd,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 101
-          },
-          __self: undefined
-        });
-
-      default:
-        return __jsx("div", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 103
-          },
-          __self: undefined
-        });
-    }
   };
 
   const addPredefinedWidget = async (widget, _) => {
@@ -6957,7 +14594,7 @@ const EditDashboard = WidgetSettings => {
     role: "presentation",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 153
+      lineNumber: 103
     },
     __self: undefined
   }, __jsx(_components_dashboards_widgets_menu__WEBPACK_IMPORTED_MODULE_15__["default"], {
@@ -6966,7 +14603,7 @@ const EditDashboard = WidgetSettings => {
     widgetSettings: Object.values(WidgetSettings),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154
+      lineNumber: 104
     },
     __self: undefined
   }));
@@ -6975,15 +14612,15 @@ const EditDashboard = WidgetSettings => {
     key: item.layout.i,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159
+      lineNumber: 109
     },
     __self: undefined
-  }, decideWidget(item)));
+  }, Object(_helpers_decide_widgets__WEBPACK_IMPORTED_MODULE_18__["decideWidget"])(item)));
 
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 165
+      lineNumber: 115
     },
     __self: undefined
   }, __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_12___default.a, {
@@ -6992,7 +14629,7 @@ const EditDashboard = WidgetSettings => {
     onClose: toggleDrawer('right', false),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 166
+      lineNumber: 116
     },
     __self: undefined
   }, sideList()), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_12___default.a, {
@@ -7001,23 +14638,23 @@ const EditDashboard = WidgetSettings => {
     onClose: toggleDrawer('addWidget', false),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 170
+      lineNumber: 120
     },
     __self: undefined
-  }, decideWidgetSettings()), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_12___default.a, {
+  }, Object(_helpers_decide_widgets__WEBPACK_IMPORTED_MODULE_18__["decideWidgetSettings"])(addType, onWidgetAdd)), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_12___default.a, {
     anchor: "right",
     open: menuState.settings,
     onClose: toggleDrawer('settings', false),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 174
+      lineNumber: 124
     },
     __self: undefined
   }, __jsx(_components_dashboards_settings_dashboard_settings__WEBPACK_IMPORTED_MODULE_16__["default"], {
     id: id,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 175
+      lineNumber: 125
     },
     __self: undefined
   })), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -7027,7 +14664,7 @@ const EditDashboard = WidgetSettings => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 178
+      lineNumber: 128
     },
     __self: undefined
   }, __jsx("div", {
@@ -7038,7 +14675,7 @@ const EditDashboard = WidgetSettings => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 179
+      lineNumber: 129
     },
     __self: undefined
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -7049,14 +14686,14 @@ const EditDashboard = WidgetSettings => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 180
+      lineNumber: 130
     },
     __self: undefined
   }, __jsx(_material_ui_icons_ArrowLeft__WEBPACK_IMPORTED_MODULE_8___default.a, {
     fontSize: "default",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 181
+      lineNumber: 131
     },
     __self: undefined
   }))), __jsx("div", {
@@ -7069,7 +14706,7 @@ const EditDashboard = WidgetSettings => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 184
+      lineNumber: 134
     },
     __self: undefined
   }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -7080,13 +14717,13 @@ const EditDashboard = WidgetSettings => {
     startIcon: __jsx(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_9___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 185
+        lineNumber: 135
       },
       __self: undefined
     }),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 185
+      lineNumber: 135
     },
     __self: undefined
   }, "Save"), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -7099,13 +14736,13 @@ const EditDashboard = WidgetSettings => {
     startIcon: __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_10___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 188
+        lineNumber: 138
       },
       __self: undefined
     }),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 188
+      lineNumber: 138
     },
     __self: undefined
   }, "Widgets"), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -7118,13 +14755,13 @@ const EditDashboard = WidgetSettings => {
     startIcon: __jsx(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_11___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 191
+        lineNumber: 141
       },
       __self: undefined
     }),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 191
+      lineNumber: 141
     },
     __self: undefined
   }, "Settings"))), __jsx("div", {
@@ -7133,7 +14770,7 @@ const EditDashboard = WidgetSettings => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 197
+      lineNumber: 147
     },
     __self: undefined
   }, __jsx(react_grid_layout__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -7145,7 +14782,7 @@ const EditDashboard = WidgetSettings => {
     onLayoutChange: onLayoutChange,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 198
+      lineNumber: 148
     },
     __self: undefined
   }, renderWidgets())));
@@ -7164,7 +14801,7 @@ EditDashboard.getInitialProps = async req => {
 
 /***/ }),
 
-/***/ 7:
+/***/ 6:
 /*!**********************************************!*\
   !*** multi ./pages/dashboards/[id]/edit.jsx ***!
   \**********************************************/
@@ -7341,6 +14978,17 @@ module.exports = require("@material-ui/core/FormControlLabel");
 
 /***/ }),
 
+/***/ "@material-ui/core/FormGroup":
+/*!**********************************************!*\
+  !*** external "@material-ui/core/FormGroup" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/FormGroup");
+
+/***/ }),
+
 /***/ "@material-ui/core/Grid":
 /*!*****************************************!*\
   !*** external "@material-ui/core/Grid" ***!
@@ -7404,6 +15052,28 @@ module.exports = require("@material-ui/core/MenuItem");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/core/Paper");
+
+/***/ }),
+
+/***/ "@material-ui/core/Radio":
+/*!******************************************!*\
+  !*** external "@material-ui/core/Radio" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Radio");
+
+/***/ }),
+
+/***/ "@material-ui/core/RadioGroup":
+/*!***********************************************!*\
+  !*** external "@material-ui/core/RadioGroup" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/RadioGroup");
 
 /***/ }),
 
@@ -7484,6 +15154,17 @@ module.exports = require("@material-ui/icons/ArrowLeft");
 
 /***/ }),
 
+/***/ "@material-ui/icons/Autorenew":
+/*!***********************************************!*\
+  !*** external "@material-ui/icons/Autorenew" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Autorenew");
+
+/***/ }),
+
 /***/ "@material-ui/icons/BarChart":
 /*!**********************************************!*\
   !*** external "@material-ui/icons/BarChart" ***!
@@ -7506,6 +15187,17 @@ module.exports = require("@material-ui/icons/BubbleChart");
 
 /***/ }),
 
+/***/ "@material-ui/icons/CheckBox":
+/*!**********************************************!*\
+  !*** external "@material-ui/icons/CheckBox" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/CheckBox");
+
+/***/ }),
+
 /***/ "@material-ui/icons/Dashboard":
 /*!***********************************************!*\
   !*** external "@material-ui/icons/Dashboard" ***!
@@ -7517,6 +15209,17 @@ module.exports = require("@material-ui/icons/Dashboard");
 
 /***/ }),
 
+/***/ "@material-ui/icons/DateRange":
+/*!***********************************************!*\
+  !*** external "@material-ui/icons/DateRange" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/DateRange");
+
+/***/ }),
+
 /***/ "@material-ui/icons/Delete":
 /*!********************************************!*\
   !*** external "@material-ui/icons/Delete" ***!
@@ -7525,6 +15228,17 @@ module.exports = require("@material-ui/icons/Dashboard");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/icons/Delete");
+
+/***/ }),
+
+/***/ "@material-ui/icons/Dialpad":
+/*!*********************************************!*\
+  !*** external "@material-ui/icons/Dialpad" ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Dialpad");
 
 /***/ }),
 
@@ -7547,6 +15261,50 @@ module.exports = require("@material-ui/icons/DonutLarge");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/icons/ExpandMore");
+
+/***/ }),
+
+/***/ "@material-ui/icons/FileCopy":
+/*!**********************************************!*\
+  !*** external "@material-ui/icons/FileCopy" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/FileCopy");
+
+/***/ }),
+
+/***/ "@material-ui/icons/GridOn":
+/*!********************************************!*\
+  !*** external "@material-ui/icons/GridOn" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/GridOn");
+
+/***/ }),
+
+/***/ "@material-ui/icons/Image":
+/*!*******************************************!*\
+  !*** external "@material-ui/icons/Image" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Image");
+
+/***/ }),
+
+/***/ "@material-ui/icons/List":
+/*!******************************************!*\
+  !*** external "@material-ui/icons/List" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/List");
 
 /***/ }),
 
@@ -7583,6 +15341,28 @@ module.exports = require("@material-ui/icons/PieChart");
 
 /***/ }),
 
+/***/ "@material-ui/icons/RadioButtonChecked":
+/*!********************************************************!*\
+  !*** external "@material-ui/icons/RadioButtonChecked" ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/RadioButtonChecked");
+
+/***/ }),
+
+/***/ "@material-ui/icons/Receipt":
+/*!*********************************************!*\
+  !*** external "@material-ui/icons/Receipt" ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Receipt");
+
+/***/ }),
+
 /***/ "@material-ui/icons/Refresh":
 /*!*********************************************!*\
   !*** external "@material-ui/icons/Refresh" ***!
@@ -7605,6 +15385,17 @@ module.exports = require("@material-ui/icons/Save");
 
 /***/ }),
 
+/***/ "@material-ui/icons/SelectAll":
+/*!***********************************************!*\
+  !*** external "@material-ui/icons/SelectAll" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/SelectAll");
+
+/***/ }),
+
 /***/ "@material-ui/icons/Settings":
 /*!**********************************************!*\
   !*** external "@material-ui/icons/Settings" ***!
@@ -7613,6 +15404,17 @@ module.exports = require("@material-ui/icons/Save");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/icons/Settings");
+
+/***/ }),
+
+/***/ "@material-ui/icons/Subject":
+/*!*********************************************!*\
+  !*** external "@material-ui/icons/Subject" ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Subject");
 
 /***/ }),
 
@@ -7627,6 +15429,39 @@ module.exports = require("@material-ui/icons/TableChart");
 
 /***/ }),
 
+/***/ "@material-ui/icons/TextFields":
+/*!************************************************!*\
+  !*** external "@material-ui/icons/TextFields" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/TextFields");
+
+/***/ }),
+
+/***/ "@material-ui/icons/TextFormat":
+/*!************************************************!*\
+  !*** external "@material-ui/icons/TextFormat" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/TextFormat");
+
+/***/ }),
+
+/***/ "@material-ui/icons/TextRotationNone":
+/*!******************************************************!*\
+  !*** external "@material-ui/icons/TextRotationNone" ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/TextRotationNone");
+
+/***/ }),
+
 /***/ "@material-ui/icons/Timeline":
 /*!**********************************************!*\
   !*** external "@material-ui/icons/Timeline" ***!
@@ -7635,6 +15470,50 @@ module.exports = require("@material-ui/icons/TableChart");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/icons/Timeline");
+
+/***/ }),
+
+/***/ "@material-ui/icons/Title":
+/*!*******************************************!*\
+  !*** external "@material-ui/icons/Title" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Title");
+
+/***/ }),
+
+/***/ "@material-ui/icons/TouchApp":
+/*!**********************************************!*\
+  !*** external "@material-ui/icons/TouchApp" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/TouchApp");
+
+/***/ }),
+
+/***/ "@material-ui/icons/ViewList":
+/*!**********************************************!*\
+  !*** external "@material-ui/icons/ViewList" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/ViewList");
+
+/***/ }),
+
+/***/ "@material-ui/icons/VisibilityOff":
+/*!***************************************************!*\
+  !*** external "@material-ui/icons/VisibilityOff" ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/VisibilityOff");
 
 /***/ }),
 

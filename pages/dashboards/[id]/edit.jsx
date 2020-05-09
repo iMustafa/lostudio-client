@@ -15,22 +15,8 @@ import DashboardActions from '../../../actions/dashboard.actions'
 import WidgetSettingsActions from '../../../actions/widgetSettings.actions'
 import WidgetSidemenu from '../../../components/dashboards/widgets-menu'
 import DashboardSettings from '../../../components/dashboards/settings/dashboard-settings'
-import {
-  TableWidget,
-  LineChartWidget,
-  PieChartWidget,
-  DonutChartWidget,
-  BarChartWidget,
-  AreaChartWidget,
-  TableWidgetSettings,
-  LineChartWidgetSettings,
-  PieChartWidgetSettings,
-  DonutChartWidgetSettings,
-  BarChartWidgetSettings,
-  AreaChartWidgetSettings
-} from '../../../components/widgets'
 import { useRouter } from 'next/router'
-
+import { decideWidgetSettings, decideWidget } from '../../../helpers/decide-widgets'
 
 const useStyles = makeStyles({
   list: {
@@ -66,42 +52,6 @@ const EditDashboard = (WidgetSettings) => {
       return
 
     setMenuState({ ...menuState, [side]: open })
-  }
-
-  const decideWidget = (widget) => {
-    switch (widget.type) {
-      case 'Table':
-        return <TableWidget widgetId={widget.id} />
-      case 'Line Chart':
-        return <LineChartWidget widgetId={widget.id} />
-      case 'Bar Chart':
-        return <BarChartWidget widgetId={widget.id} />
-      case 'Pie Chart':
-        return <PieChartWidget widgetId={widget.id} />
-      case 'Donut Chart':
-        return <DonutChartWidget widgetId={widget.id} />
-      case 'Area Chart':
-        return <AreaChartWidget widgetId={widget.id} />
-    }
-  }
-
-  const decideWidgetSettings = () => {
-    switch (addType) {
-      case 'Table':
-        return <TableWidgetSettings isAdding={true} onWidgetAdd={onWidgetAdd} />
-      case 'Line Chart':
-        return <LineChartWidgetSettings isAdding={true} onWidgetAdd={onWidgetAdd} />
-      case 'Bar Chart':
-        return <BarChartWidgetSettings isAdding={true} onWidgetAdd={onWidgetAdd} />
-      case 'Pie Chart':
-        return <PieChartWidgetSettings isAdding={true} onWidgetAdd={onWidgetAdd} />
-      case 'Donut Chart':
-        return <DonutChartWidgetSettings isAdding={true} onWidgetAdd={onWidgetAdd} />
-      case 'Area Chart':
-        return <AreaChartWidgetSettings isAdding={true} onWidgetAdd={onWidgetAdd} />
-      default:
-        return <div></div>
-    }
   }
 
   const addPredefinedWidget = async (widget, _) => {
@@ -168,7 +118,7 @@ const EditDashboard = (WidgetSettings) => {
       </Drawer>
 
       <Drawer anchor="right" open={menuState.addWidget} onClose={toggleDrawer('addWidget', false)}>
-        {decideWidgetSettings()}
+        {decideWidgetSettings(addType, onWidgetAdd)}
       </Drawer>
 
       <Drawer anchor="right" open={menuState.settings} onClose={toggleDrawer('settings', false)}>

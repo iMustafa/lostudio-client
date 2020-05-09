@@ -3,7 +3,7 @@ import Cookies from 'next-cookies'
 import dynamic from 'next/dynamic'
 import WidgetSettingsActions from '../../actions/widgetSettings.actions'
 
-const Gantt = dynamic(() => import('../../components/widgets/gantt-chart'), {
+const Gantt = dynamic(() => import('../../components/widgets/charts/gantt-chart'), {
   ssr: false
 })
 
@@ -11,7 +11,7 @@ const Widgets: NextPage<{ WidgetSettings: any, Result: any }> = ({ WidgetSetting
   return (
     <div>
       <div className="gantt-container">
-        <Gantt />
+        {/* <Gantt /> */}
       </div>
     </div>
   )
