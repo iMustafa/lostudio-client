@@ -209,7 +209,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SideMenu__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./SideMenu */ "./components/SideMenu.jsx");
 /* harmony import */ var _actions_notifications_actions__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../actions/notifications.actions */ "./actions/notifications.actions.ts");
 /* harmony import */ var _notifications_NotificationsMenu__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./notifications/NotificationsMenu */ "./components/notifications/NotificationsMenu.jsx");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\ApplicationMainBar.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/ApplicationMainBar.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -760,7 +760,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\SideMenu.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/SideMenu.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -887,7 +887,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _material_ui_icons_RadioButtonUnchecked__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/RadioButtonUnchecked */ "@material-ui/icons/RadioButtonUnchecked");
 /* harmony import */ var _material_ui_icons_RadioButtonUnchecked__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_RadioButtonUnchecked__WEBPACK_IMPORTED_MODULE_9__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\notifications\\NotificationsItem.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/notifications/NotificationsItem.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -1054,7 +1054,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Menu */ "@material-ui/core/Menu");
 /* harmony import */ var _material_ui_core_Menu__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Menu__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _NotificationsItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NotificationsItem */ "./components/notifications/NotificationsItem.jsx");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\notifications\\NotificationsMenu.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/notifications/NotificationsMenu.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -1515,7 +1515,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_resizable_css_styles_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_resizable_css_styles_css__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var dhtmlx_gantt_codebase_dhtmlxgantt_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! dhtmlx-gantt/codebase/dhtmlxgantt.css */ "./node_modules/dhtmlx-gantt/codebase/dhtmlxgantt.css");
 /* harmony import */ var dhtmlx_gantt_codebase_dhtmlxgantt_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(dhtmlx_gantt_codebase_dhtmlxgantt_css__WEBPACK_IMPORTED_MODULE_9__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\pages\\_app.tsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/pages/_app.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }

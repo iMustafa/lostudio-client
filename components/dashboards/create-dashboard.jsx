@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import DatasourceActions from '../../actions/datasource.actions'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
@@ -7,6 +8,13 @@ import Step from '@material-ui/core/Step'
 import StepLabel from '@material-ui/core/StepLabel'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import FormGroup from '@material-ui/core/FormGroup'
+import FormControl from '@material-ui/core/FormControl'
+import TextField from '@material-ui/core/TextField'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
+import InputLabel from '@material-ui/core/InputLabel'
+import DashboardActions from '../../actions/dashboard.actions'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,26 +38,71 @@ const useStyles = makeStyles(theme => ({
 
 const getSteps = () => ['Dashboard Settings', 'Datasource Settings', 'Add Collaborators', 'Confirmation']
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return 'Dashboard Settings';
-    case 1:
-      return 'Datasource Settings';
-    case 2:
-      return 'Allow people to help you build your dashboard!';
-    case 3:
-      return 'Confirm your data';
-    default:
-      return 'Unknown step';
-  }
-}
-
 const CreateDashboard = () => {
   const classes = useStyles()
+  const [state, setState] = useState({
+    title: '',
+    description: '',
+    datasourceId: '',
+    collaborators: []
+  })
   const [activeStep, setActiveStep] = useState(0)
+  const [datasources, setDatasources] = useState([])
   const [skipped, setSkipped] = useState(new Set())
   const steps = getSteps()
+
+  useEffect(() => {
+    const getDataSources = async () => {
+      try {
+        const data = await DatasourceActions.getDatasources({})
+        console.log(data)
+        setDatasources(data)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    getDataSources()
+  }, [])
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setState({ ...state, [name]: value })
+  }
+
+  const getStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return (
+          <FormGroup row style={{ marginBottom: 15 }}>
+            <TextField onChange={handleChange} fullWidth label="Title" type='text' name='title' />
+            <TextField onChange={handleChange} fullWidth label="Description" multiline={true} type='text' name='description' />
+          </FormGroup>
+        );
+      case 1:
+        return (
+          <FormGroup row style={{ marginBottom: 15 }}>
+            <InputLabel id='datasource-label'>Default DataSource</InputLabel>
+            <Select value={state.datasourceId} onChange={handleChange} name='datasourceId' fullWidth labelId='datasource-label'>
+              {datasources.map(datasource => (
+                <MenuItem value={datasource.id}>{datasource.title}</MenuItem>
+              ))}
+            </Select>
+          </FormGroup>
+        );
+      case 2:
+        return 'Allow people to help you build your dashboard!';
+      case 3:
+        return (
+          <div>
+            <p>Name: {state.title}</p>
+            <p>Description: {state.description}</p>
+            <p>Datasource: {state.datasourceId}</p>
+          </div>
+        );
+      default:
+        return 'Unknown step';
+    }
+  }
 
   const isStepOptional = step => step === 2
   const isStepSkipped = step => skipped.has(step)
@@ -65,6 +118,14 @@ const CreateDashboard = () => {
   const handleBack = () => { setActiveStep((prevActiveStep) => prevActiveStep - 1) }
   const handleReset = () => { setActiveStep(0) }
 
+  const submitData = async () => {
+    try {
+      const dashboard = await DashboardActions.createDashboard({ dashboard: state })
+      console.log(dashboard)
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   return (
     <Card className={classes.root}>
@@ -109,15 +170,28 @@ const CreateDashboard = () => {
                       <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                         Back
                       </Button>
-
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={handleNext}
-                        className={classes.button}
-                      >
-                        {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                      </Button>
+                      {
+                        activeStep === steps.length - 1 ?
+                          (
+                            <Button
+                              variant="contained"
+                              color="primary"
+                              onClick={submitData}
+                              className={classes.button}
+                            >
+                              Finish
+                            </Button>
+                          ) : (
+                            <Button
+                              variant="contained"
+                              color="primary"
+                              onClick={handleNext}
+                              className={classes.button}
+                            >
+                              Next
+                            </Button>
+                          )
+                      }
                     </div>
                   </div>
                 )

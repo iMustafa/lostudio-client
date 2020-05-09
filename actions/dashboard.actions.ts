@@ -11,9 +11,9 @@ const { API_URL } = config().publicRuntimeConfig
 
 export default class DashboardActions {
 
-  public static async createDashboard(dashborad: Dashboard): Promise<Dashboard> {
+  public static async createDashboard({ Authorization, dashboard }: { dashboard: Dashboard, Authorization: string }): Promise<Dashboard> {
     return axios
-      .post('', {})
+      .post(`${API_URL}/Dashboards`, dashboard, { headers: { Authorization: Authorization || Cookie.get('id') } })
       .then(res => res.data)
       .catch(err => err.response)
   }
