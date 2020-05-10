@@ -85,18 +85,6 @@ const EditDashboard = (WidgetSettings) => {
   const addWidget = async (type, _) => {
     setAddType(type)
     setMenuState({ ...menuState, addWidget: true, right: false })
-    // try {
-    //   const layoutItem = {
-    //     layout: { i: uuidv4(), x: 0, y: 0, w: 6, h: 11, maxW: 16, isDraggable: true, isResizable: true },
-    //     type
-    //   }
-    //   const saveWidget = await WidgetSettingsActions.createWidgetSettings(layoutItem)
-    //   await DashboardActions.addWidgetToDashboard(id, saveWidget.id)
-    //   layoutItem.id = saveWidget.id
-    //   setLayout([...layout, layoutItem])
-    // } catch (e) {
-    //   console.log(e)
-    // }
   }
 
   const sideList = () => (
@@ -155,7 +143,8 @@ const EditDashboard = (WidgetSettings) => {
 
 EditDashboard.getInitialProps = async (req) => {
   const Authorization = Cookies(req).id
-  const WidgetSettings = await DashboardActions.getWidgetSettings({ Authorization, id: "5e413f33f6af6d17b44df269" })
+  const { id } = req.query
+  const WidgetSettings = await DashboardActions.getWidgetSettings({ Authorization, id })
   return WidgetSettings
 }
 

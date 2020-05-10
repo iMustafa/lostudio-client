@@ -1,1 +1,1 @@
-{"/_app":"static/development/pages/_app.js","/_document":"static/development/pages/_document.js","/_error":"static/development/pages/_error.js","/dashboards":"static/development/pages/dashboards.js","/datasources":"static/development/pages/datasources.js"}
+{"/_app":"static/development/pages/_app.js","/_document":"static/development/pages/_document.js","/_error":"static/development/pages/_error.js","/dashboards/[id]/edit":"static/development/pages/dashboards/[id]/edit.js"}

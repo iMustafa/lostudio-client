@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
+import WidgetSettingsActions from '../../../../actions/widgetSettings.actions'
 
 const useStyles = makeStyles(theme => ({
 
@@ -8,14 +9,13 @@ const useStyles = makeStyles(theme => ({
 
 const FileWidget = ({ widgetId }) => {
   const classes = useStyles()
-  const [widget, setWidget] = useState(null)
+  const [widget, setWidget] = useState({ properties: { acceptedFileFormats: [] } })
   const [menuState, setMenuState] = useState({ right: false })
 
   useEffect(() => {
     const getData = async () => {
       try {
         const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId)
-        console.log($widget)
         setWidget($widget)
         return $widget
       } catch (e) {
@@ -26,15 +26,12 @@ const FileWidget = ({ widgetId }) => {
   }, [])
 
   return (
-    <TextField
-    // label={widget.config.label || ''}
-    // id={widget.config.id || ''}
-    // placeholder={widget.config.placeholder || ''}
-    // className={widget.config.className || ''}
-    // styles={widget.config.styles || {}}
-    // name={widget.config.name || ''}
-    // value={widget.config.value || ''}
-    // type={widget.config.type || 'text'}
+    <input
+      type='file'
+      id={widget.properties.id}
+      name={widget.properties.name}
+      className={widget.properties.className}
+      accept={widget.properties.acceptedFileFormats.join(',')}
     />
   )
 }

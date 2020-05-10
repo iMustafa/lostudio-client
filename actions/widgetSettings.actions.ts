@@ -52,7 +52,7 @@ export default class WidgetSettingsActions {
       .catch(err => err.response)
   }
 
-  public static async executeWidgetQuery(id: string, Authorization: string): Promise<any> {
+  public static async executeWidgetQuery(id: string, Authorization?: string): Promise<any> {
     return axios
       .get(`${API_URL}/WidgetSettings/${id}/execute-query`, { headers: { Authorization: Authorization || Cookie.get('id') } })
       .then(res => res.data)

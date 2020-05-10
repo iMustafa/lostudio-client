@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import WidgetSettingsActions from '../../../../actions/widgetSettings.actions'
 import TextField from '@material-ui/core/TextField'
 
 const useStyles = makeStyles(theme => ({
@@ -8,14 +9,13 @@ const useStyles = makeStyles(theme => ({
 
 const NumberWidget = ({ widgetId }) => {
   const classes = useStyles()
-  const [widget, setWidget] = useState(null)
+  const [widget, setWidget] = useState({ properties: {} })
   const [menuState, setMenuState] = useState({ right: false })
 
   useEffect(() => {
     const getData = async () => {
       try {
         const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId)
-        console.log($widget)
         setWidget($widget)
         return $widget
       } catch (e) {
@@ -27,14 +27,13 @@ const NumberWidget = ({ widgetId }) => {
 
   return (
     <TextField
-    // label={widget.config.label || ''}
-    // id={widget.config.id || ''}
-    // placeholder={widget.config.placeholder || ''}
-    // className={widget.config.className || ''}
-    // styles={widget.config.styles || {}}
-    // name={widget.config.name || ''}
-    // value={widget.config.value || ''}
-    // type={widget.config.type || 'text'}
+      fullWidth
+      type="number"
+      label={widget.properties.label}
+      id={widget.properties.id}
+      placeholder={widget.properties.placeholder}
+      className={widget.properties.className}
+      value={widget.properties.value}
     />
   )
 }

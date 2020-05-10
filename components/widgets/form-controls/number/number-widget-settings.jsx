@@ -38,6 +38,31 @@ const useStyles = makeStyles(theme => ({
 
 const NumberWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd }) => {
   const classes = useStyles()
+  const [properties, setProperties] = useState({
+    label: '', id: '', name: '', placeholder: '', className: '', value: ''
+  })
+
+  const saveConfigData = async () => {
+    try {
+      const data = {
+        properties,
+        type: 'Number'
+      }
+      if (isAdding) {
+        onWidgetAdd(data)
+      } else {
+        const update = await WidgetSettingsActions.updateWidgetSettings(widget.id, data)
+        handleSettingsClose(update)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const handlePropertiesChange = (event) => {
+    const { name, value } = event.target
+    setProperties({ ...properties, [name]: value })
+  }
 
   return (
     <div className={classes.list} role="presentation">
@@ -54,40 +79,35 @@ const NumberWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetA
       </h2>
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Label</InputLabel>
-        <Input />
+        <Input name='label' onChange={handlePropertiesChange} value={properties.label} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>ID</InputLabel>
-        <Input />
+        <Input name='id' onChange={handlePropertiesChange} value={properties.id} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Name</InputLabel>
-        <Input />
+        <Input name='name' onChange={handlePropertiesChange} value={properties.name} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Placeholder</InputLabel>
-        <Input />
+        <Input name='placeholder' onChange={handlePropertiesChange} value={properties.placeholder} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Class name</InputLabel>
-        <Input />
+        <Input name='className' onChange={handlePropertiesChange} value={properties.className} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Value</InputLabel>
-        <Input />
+        <Input name='value' onChange={handlePropertiesChange} value={properties.value} />
       </FormControl>
 
-      <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Type</InputLabel>
-        <Input />
-      </FormControl>
-
-      <Button fullWidth color="primary" className={classes.formControl}>Save</Button>
+      <Button onClick={saveConfigData} fullWidth color="primary" className={classes.formControl}>Save</Button>
     </div>
   )
 }

@@ -4,10 +4,15 @@ import Button from '@material-ui/core/Button'
 import Input from '@material-ui/core/Input'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
+import Typography from '@material-ui/core/Typography'
 import Select from '@material-ui/core/Select'
 import DataSourceActions from '../../../../actions/datasource.actions'
 import WidgetSettingsActions from '../../../../actions/widgetSettings.actions'
 import Swal from 'sweetalert2'
+import Editor from 'react-simple-code-editor'
+import { highlight, languages } from 'prismjs/components/prism-core'
+import 'prismjs/components/prism-clike'
+import 'prismjs/components/prism-javascript'
 
 const useStyles = makeStyles(theme => ({
   list: {
@@ -38,7 +43,38 @@ const useStyles = makeStyles(theme => ({
 
 const ButtonWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd }) => {
   const classes = useStyles()
+  const [properties, setProperties] = useState({
+    label: '', id: '', className: '',
+  })
+  const [code, setCode] = useState(`function (a, b) {
+    alert(a + b)
+  }`)
 
+  const handlePropertiesChange = (event) => {
+    const { name, value } = event.target
+    setProperties({ ...properties, [name]: value })
+  }
+
+  const saveConfigData = async () => {
+    try {
+      const data = {
+        properties: {
+          ...properties,
+          code
+        },
+        type: 'Button'
+      }
+      if (isAdding) {
+        onWidgetAdd(data)
+      } else {
+        const update = await WidgetSettingsActions.updateWidgetSettings(widget.id, data)
+        handleSettingsClose(update)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+  
   return (
     <div className={classes.list} role="presentation">
       <h2 className={classes.h2}>
@@ -54,40 +90,36 @@ const ButtonWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetA
       </h2>
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Label</InputLabel>
-        <Input />
+        <Input name='label' onChange={handlePropertiesChange} value={properties.label} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>ID</InputLabel>
-        <Input />
-      </FormControl>
-
-      <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Name</InputLabel>
-        <Input />
-      </FormControl>
-
-      <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Placeholder</InputLabel>
-        <Input />
+        <Input name='id' onChange={handlePropertiesChange} value={properties.id} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Class name</InputLabel>
-        <Input />
+        <Input name='className' onChange={handlePropertiesChange} value={properties.className} />
       </FormControl>
 
-      <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Value</InputLabel>
-        <Input />
-      </FormControl>
+      <h2 className={classes.h2}>
+        <span className={classes.span}>Unique Properties</span>
+      </h2>
+      <Typography>OnClick Event</Typography>
+      <Editor
+        value={code}
+        onValueChange={code => setCode(code)}
+        highlight={code => highlight(code, languages.javascript)}
+        padding={10}
+        style={{
+          fontFamily: '"Fira code", "Fira Mono", monospace',
+          fontSize: 12,
+          border: '1px solid #DEDEDE'
+        }}
+      />
 
-      <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Type</InputLabel>
-        <Input />
-      </FormControl>
-
-      <Button fullWidth color="primary" className={classes.formControl}>Save</Button>
+      <Button onClick={saveConfigData} fullWidth color="primary" className={classes.formControl}>Save</Button>
     </div>
   )
 }

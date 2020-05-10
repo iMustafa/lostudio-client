@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
+import FormControl from '@material-ui/core/FormControl'
+import InputLabel from '@material-ui/core/InputLabel'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
+import WidgetSettingsActions from '../../../../actions/widgetSettings.actions'
+import { v4 as uuidv4 } from 'uuid'
 
 const useStyles = makeStyles(theme => ({
 
@@ -8,15 +13,23 @@ const useStyles = makeStyles(theme => ({
 
 const SelectWidget = ({ widgetId }) => {
   const classes = useStyles()
-  const [widget, setWidget] = useState(null)
+  const labelId = uuidv4()
+  const [widget, setWidget] = useState({ config: {}, properties: {} })
+  const [data, setData] = useState([])
   const [menuState, setMenuState] = useState({ right: false })
+  const [value, setValue] = useState()
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
 
   useEffect(() => {
     const getData = async () => {
       try {
         const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId)
-        console.log($widget)
+        const $data = await WidgetSettingsActions.executeWidgetQuery(widgetId)
         setWidget($widget)
+        setData($data)
         return $widget
       } catch (e) {
         console.log(e)
@@ -26,16 +39,24 @@ const SelectWidget = ({ widgetId }) => {
   }, [])
 
   return (
-    <TextField
-    // label={widget.config.label || ''}
-    // id={widget.config.id || ''}
-    // placeholder={widget.config.placeholder || ''}
-    // className={widget.config.className || ''}
-    // styles={widget.config.styles || {}}
-    // name={widget.config.name || ''}
-    // value={widget.config.value || ''}
-    // type={widget.config.type || 'text'}
-    />
+    <FormControl fullWidth className={classes.formControl}>
+      <InputLabel id={labelId}>{widget.properties.label}</InputLabel>
+      <Select
+        fullWidth
+        labelId={labelId}
+        id={widget.properties.id}
+        name={widget.properties.name}
+        value={value}
+        onChange={handleChange}
+        className={widget.properties.className}
+      >
+        {
+          data.map(option => (
+            <MenuItem value={option[widget.config.fields[0]]}>{option[widget.config.fields[0]]}</MenuItem>
+          ))
+        }
+      </Select>
+    </FormControl>
   )
 }
 

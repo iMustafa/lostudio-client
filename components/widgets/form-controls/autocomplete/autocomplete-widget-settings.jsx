@@ -14,6 +14,7 @@ import Select from '@material-ui/core/Select'
 import DataSourceActions from '../../../../actions/datasource.actions'
 import WidgetSettingsActions from '../../../../actions/widgetSettings.actions'
 import Swal from 'sweetalert2'
+import { Typography } from '@material-ui/core'
 
 
 const useStyles = makeStyles(theme => ({
@@ -45,12 +46,16 @@ const useStyles = makeStyles(theme => ({
 
 const AutoCompleteWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd }) => {
   const classes = useStyles()
+  const [selectionOption, setSelectionOption] = useState('datasource')
+  const [properties, setProperties] = useState({
+    label: '', id: '', name: '', placeholder: '', className: '', value: ''
+  })
   const [datasources, setDatasources] = useState([])
   const [datasource, setDatasource] = useState(!isAdding ? widget.dataSourceId : '')
   const [docList, setDocList] = useState([])
   const [doc, setDoc] = useState(!isAdding ? widget.config.docId : '')
   const [fieldList, setFieldList] = useState([])
-  const [fields, setFields] = useState(!isAdding ? widget.config.fields : [])
+  const [fields, setFields] = useState(!isAdding ? widget.config.fields : '')
 
   const getDatasources = async () => {
     try {
@@ -104,28 +109,76 @@ const AutoCompleteWidgetSettings = ({ widget, handleSettingsClose, isAdding, onW
     await getFieldList(datasource, value)
   }
 
-  const handleFieldChange = name => event => {
-    const { checked } = event.target
-    checked ? setFields([...fields, name]) : setFields(fields.filter(field => field != name))
+  const handleFieldChange = event => {
+    const { value } = event.target
+    setFields(value)
+  }
+
+  const handlePropertiesChange = (event) => {
+    const { name, value } = event.target
+    setProperties({ ...properties, [name]: value })
   }
 
   useEffect(() => {
     getDatasources()
   }, [])
 
-  const renderFieldSettings = () => fieldList.length ? (<div>
-    <h2 className={classes.h2}>
-      <span className={classes.span}>Fields Settings</span>
-    </h2>
+  const handleSourceChange = (event) => {
+    const { value } = event.target
+    setSelectionOption(value)
+  }
 
-    {fieldList.map(field => (<FormControlLabel
-      key={field}
-      control={
-        <Checkbox checked={fields.includes(field)} onChange={handleFieldChange(field)} value={field} />
+  const saveConfigData = async () => {
+    try {
+      const data = {
+        dataSourceId: datasource,
+        config: {
+          docId: doc,
+          fields: [fields],
+          type: selectionOption == 'datasource' ? 'simple' : 'constant',
+          func: 'find',
+          query: {},
+          values: selectionOption == 'datasource' ? [] : []
+        },
+        properties,
+        type: 'Auto Complete'
       }
-      label={field}
-    />))}
-  </div>) : <div></div>
+      if (isAdding) {
+        onWidgetAdd(data)
+      } else {
+        const update = await WidgetSettingsActions.updateWidgetSettings(widget.id, data)
+        handleSettingsClose(update)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const renderFieldSettings = () => fieldList.length ?
+    (
+      <div>
+        <h2 className={classes.h2}>
+          <span className={classes.span}>Fields Settings</span>
+        </h2>
+        <RadioGroup onChange={handleFieldChange}>
+          {
+            fieldList.map(field => (
+              <FormControlLabel
+                key={field}
+                control={<Radio value={field} />}
+                label={field}
+              />))
+          }
+        </RadioGroup>
+        <Typography style={{ fontSize: 12, color: '#F00', marginTop: 10 }}>
+          * You can only select one field in an autocomplete textfield.
+    </Typography>
+      </div>
+    ) : (
+      <div>
+
+      </div>
+    )
 
   return (
     <div className={classes.list} role="presentation">
@@ -142,72 +195,78 @@ const AutoCompleteWidgetSettings = ({ widget, handleSettingsClose, isAdding, onW
       </h2>
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Label</InputLabel>
-        <Input />
+        <Input name='label' onChange={handlePropertiesChange} value={properties.label} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>ID</InputLabel>
-        <Input />
+        <Input name='id' onChange={handlePropertiesChange} value={properties.id} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Name</InputLabel>
-        <Input />
+        <Input name='name' onChange={handlePropertiesChange} value={properties.name} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Placeholder</InputLabel>
-        <Input />
+        <Input name='placeholder' onChange={handlePropertiesChange} value={properties.placeholder} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Class name</InputLabel>
-        <Input />
+        <Input name='className' onChange={handlePropertiesChange} value={properties.className} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Value</InputLabel>
-        <Input />
+        <Input name='value' onChange={handlePropertiesChange} value={properties.value} />
       </FormControl>
 
       <h2 className={classes.h2}>
         <span className={classes.span}>Unique Properties</span>
       </h2>
       <FormGroup row>
-        <RadioGroup style={{ justifyContent: 'space-evenly', width: '100%', flexDirection: 'row' }}>
-          <FormControlLabel value="female" control={<Radio />} label="From Data Source" />
-          <FormControlLabel value="male" control={<Radio />} label="Fixed Values" />
+        <RadioGroup onChange={handleSourceChange} value={selectionOption} style={{ justifyContent: 'space-evenly', width: '100%', flexDirection: 'row' }}>
+          <FormControlLabel value="datasource" control={<Radio />} label="From Data Source" />
+          <FormControlLabel value="fixed" control={<Radio />} label="Fixed Values" />
         </RadioGroup>
       </FormGroup>
-      <div>
-        <FormControl fullWidth className={classes.formControl}>
-          <InputLabel id="data-source">Data Source</InputLabel>
-          <Select
-            name="datasource"
-            labelId="data-source"
-            value={datasource}
-            onChange={handleDatasourceChange}
-          >
-            {datasources.map(item => (<MenuItem key={item.id} value={item.id}>{item.title}</MenuItem>))}
-          </Select>
-        </FormControl>
+      {
+        selectionOption == 'datasource' ? (
+          <div>
+            <FormControl fullWidth className={classes.formControl}>
+              <InputLabel id="data-source">Data Source</InputLabel>
+              <Select
+                name="datasource"
+                labelId="data-source"
+                value={datasource}
+                onChange={handleDatasourceChange}
+              >
+                {datasources.map(item => (<MenuItem key={item.id} value={item.id}>{item.title}</MenuItem>))}
+              </Select>
+            </FormControl>
 
-        <FormControl fullWidth className={classes.formControl} disabled={datasource ? false : true}>
-          <InputLabel id="doc-list">Table/Collection</InputLabel>
-          <Select
-            name="docList"
-            labelId="doc-list"
-            value={doc}
-            onChange={handleDocChange}
-          >
-            {docList.map(item => (<MenuItem key={item} value={item}>{item}</MenuItem>))}
-          </Select>
-        </FormControl>
+            <FormControl fullWidth className={classes.formControl} disabled={datasource ? false : true}>
+              <InputLabel id="doc-list">Table/Collection</InputLabel>
+              <Select
+                name="docList"
+                labelId="doc-list"
+                value={doc}
+                onChange={handleDocChange}
+              >
+                {docList.map(item => (<MenuItem key={item} value={item}>{item}</MenuItem>))}
+              </Select>
+            </FormControl>
+            {renderFieldSettings()}
+          </div>
+        ) : (
+            <div>
 
-        {renderFieldSettings()}
-      </div>
-
-      <Button fullWidth color="primary" className={classes.formControl}>Save</Button>
+            </div>
+          )
+      }
+      <Button onClick={saveConfigData} fullWidth color="primary" className={classes.formControl} style={{ marginBottom: 10 }}>Save</Button>
     </div>
   )
 }

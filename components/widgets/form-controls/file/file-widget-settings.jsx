@@ -4,10 +4,11 @@ import Button from '@material-ui/core/Button'
 import Input from '@material-ui/core/Input'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import DataSourceActions from '../../../../actions/datasource.actions'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox'
 import WidgetSettingsActions from '../../../../actions/widgetSettings.actions'
 import Swal from 'sweetalert2'
+import { Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   list: {
@@ -36,8 +37,48 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+const acceptedFileFormats = [
+  "text/plain", "application/pdf", "image/png", "image/tiff", "image/webp", "image/gif", "image/jpeg",
+  "application/json", "audio/mpeg", "audio/wav", "audio/webm", "video/mpeg", "video/ogg", "video/mp2t",
+  "video/webm", "video/3gpp", "video/3gpp2", "application/xml", "text/csv"
+]
+
 const FileWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd }) => {
   const classes = useStyles()
+  const [properties, setProperties] = useState({
+    id: '', name: '', className: ''
+  })
+  const [selectedFileFormats, setSelectedFileFormats] = useState([])
+
+  const handlePropertiesChange = (event) => {
+    const { name, value } = event.target
+    setProperties({ ...properties, [name]: value })
+  }
+
+  const handleFieldChange = name => event => {
+    const { checked } = event.target
+    checked ? setSelectedFileFormats([...selectedFileFormats, name]) : setSelectedFileFormats(selectedFileFormats.filter(format => format != name))
+  }
+
+  const saveConfigData = async () => {
+    try {
+      const data = {
+        properties: {
+          ...properties,
+          acceptedFileFormats: selectedFileFormats
+        },
+        type: 'File'
+      }
+      if (isAdding) {
+        onWidgetAdd(data)
+      } else {
+        const update = await WidgetSettingsActions.updateWidgetSettings(widget.id, data)
+        handleSettingsClose(update)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   return (
     <div className={classes.list} role="presentation">
@@ -53,41 +94,34 @@ const FileWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd
         <span className={classes.span}>Widget Properties</span>
       </h2>
       <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Label</InputLabel>
-        <Input />
-      </FormControl>
-
-      <FormControl fullWidth className={classes.formControl}>
         <InputLabel>ID</InputLabel>
-        <Input />
+        <Input name='id' onChange={handlePropertiesChange} value={properties.id} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Name</InputLabel>
-        <Input />
-      </FormControl>
-
-      <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Placeholder</InputLabel>
-        <Input />
+        <Input name='name' onChange={handlePropertiesChange} value={properties.name} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Class name</InputLabel>
-        <Input />
+        <Input name='className' onChange={handlePropertiesChange} value={properties.className} />
       </FormControl>
 
-      <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Value</InputLabel>
-        <Input />
-      </FormControl>
+      <h2 className={classes.h2}>
+        <span className={classes.span}>Unique Properties</span>
+      </h2>
+      <Typography>Accepted File Formats</Typography>
+      <Typography style={{ color: "#F00", fontSize: 10 }}>*Leave blank to accept all file types.</Typography>
+      {acceptedFileFormats.map(format => (<FormControlLabel
+        key={format}
+        control={
+          <Checkbox checked={selectedFileFormats.includes(format)} onChange={handleFieldChange(format)} value={format} />
+        }
+        label={format}
+      />))}
 
-      <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Type</InputLabel>
-        <Input />
-      </FormControl>
-
-      <Button fullWidth color="primary" className={classes.formControl}>Save</Button>
+      <Button onClick={saveConfigData} fullWidth color="primary" className={classes.formControl}>Save</Button>
     </div>
   )
 }

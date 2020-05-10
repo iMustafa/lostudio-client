@@ -93,6 +93,17 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "../next-server/lib/utils":
+/*!*****************************************************!*\
+  !*** external "next/dist/next-server/lib/utils.js" ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/dist/next-server/lib/utils.js");
+
+/***/ }),
+
 /***/ "./actions/notifications.actions.ts":
 /*!******************************************!*\
   !*** ./actions/notifications.actions.ts ***!
@@ -388,25 +399,28 @@ function PrimarySearchAppBar() {
     },
     open: isMenuOpen,
     onClose: handleMenuClose,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139
-    },
-    __self: this
+      lineNumber: 139,
+      columnNumber: 5
+    }
   }, __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
     onClick: handleMenuClose,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148
-    },
-    __self: this
+      lineNumber: 148,
+      columnNumber: 7
+    }
   }, "Profile"), __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
     onClick: handleMenuClose,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 149
-    },
-    __self: this
+      lineNumber: 149,
+      columnNumber: 7
+    }
   }, "My account"));
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
@@ -425,158 +439,180 @@ function PrimarySearchAppBar() {
     },
     open: isMobileMenuOpen,
     onClose: handleMobileMenuClose,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155
-    },
-    __self: this
+      lineNumber: 155,
+      columnNumber: 5
+    }
   }, __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 164
-    },
-    __self: this
+      lineNumber: 164,
+      columnNumber: 7
+    }
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
     "aria-label": "show 4 new mails",
     color: "inherit",
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 165
-    },
-    __self: this
+      lineNumber: 165,
+      columnNumber: 9
+    }
   }, __jsx(_material_ui_core_Badge__WEBPACK_IMPORTED_MODULE_7___default.a, {
     badgeContent: 4,
     color: "secondary",
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 166
-    },
-    __self: this
+      lineNumber: 166,
+      columnNumber: 11
+    }
   }, __jsx(_material_ui_icons_Mail__WEBPACK_IMPORTED_MODULE_13___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 167
-    },
-    __self: this
+      lineNumber: 167,
+      columnNumber: 13
+    }
   }))), __jsx("p", {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 170
-    },
-    __self: this
+      lineNumber: 170,
+      columnNumber: 9
+    }
   }, "Messages")), __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 173
-    },
-    __self: this
+      lineNumber: 173,
+      columnNumber: 7
+    }
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
     color: "inherit",
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 174
-    },
-    __self: this
+      lineNumber: 174,
+      columnNumber: 9
+    }
   }, notificationsCount ? __jsx(_material_ui_core_Badge__WEBPACK_IMPORTED_MODULE_7___default.a, {
     badgeContent: notificationsCount,
     color: "secondary",
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 176
-    },
-    __self: this
+      lineNumber: 176,
+      columnNumber: 13
+    }
   }, __jsx(_material_ui_icons_Notifications__WEBPACK_IMPORTED_MODULE_14___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 177
-    },
-    __self: this
+      lineNumber: 177,
+      columnNumber: 15
+    }
   })) : null), __jsx("p", {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 181
-    },
-    __self: this
+      lineNumber: 181,
+      columnNumber: 9
+    }
   }, "Notifications")), __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
     onClick: handleProfileMenuOpen,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 184
-    },
-    __self: this
+      lineNumber: 184,
+      columnNumber: 7
+    }
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
     "aria-label": "account of current user",
     "aria-controls": "primary-search-account-menu",
     "aria-haspopup": "true",
     color: "inherit",
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 185
-    },
-    __self: this
+      lineNumber: 185,
+      columnNumber: 9
+    }
   }, __jsx(_material_ui_icons_AccountCircle__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 191
-    },
-    __self: this
+      lineNumber: 191,
+      columnNumber: 11
+    }
   })), __jsx("p", {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 193
-    },
-    __self: this
+      lineNumber: 193,
+      columnNumber: 9
+    }
   }, "Profile")));
 
   return __jsx("div", {
     className: classes.grow,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 199
-    },
-    __self: this
+      lineNumber: 199,
+      columnNumber: 5
+    }
   }, __jsx(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2___default.a, {
     position: "static",
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 200
-    },
-    __self: this
+      lineNumber: 200,
+      columnNumber: 7
+    }
   }, __jsx(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 201
-    },
-    __self: this
+      lineNumber: 201,
+      columnNumber: 9
+    }
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
     className: classes.title,
     variant: "h6",
     noWrap: true,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 211
-    },
-    __self: this
+      lineNumber: 211,
+      columnNumber: 11
+    }
   }, "LoStudio"), __jsx("div", {
     className: classes.search,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 214
-    },
-    __self: this
+      lineNumber: 214,
+      columnNumber: 11
+    }
   }, __jsx("div", {
     className: classes.searchIcon,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 215
-    },
-    __self: this
+      lineNumber: 215,
+      columnNumber: 13
+    }
   }, __jsx(_material_ui_icons_Search__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 216
-    },
-    __self: this
+      lineNumber: 216,
+      columnNumber: 15
+    }
   })), __jsx(_material_ui_core_InputBase__WEBPACK_IMPORTED_MODULE_6___default.a, {
     placeholder: "Search\u2026",
     classes: {
@@ -586,80 +622,91 @@ function PrimarySearchAppBar() {
     inputProps: {
       'aria-label': 'search'
     },
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 218
-    },
-    __self: this
+      lineNumber: 218,
+      columnNumber: 13
+    }
   })), __jsx("div", {
     className: classes.grow,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 227
-    },
-    __self: this
+      lineNumber: 227,
+      columnNumber: 11
+    }
   }), __jsx("div", {
     className: classes.sectionDesktop,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 228
-    },
-    __self: this
+      lineNumber: 228,
+      columnNumber: 11
+    }
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
     color: "inherit",
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 230
-    },
-    __self: this
+      lineNumber: 230,
+      columnNumber: 13
+    }
   }, __jsx(_material_ui_core_Badge__WEBPACK_IMPORTED_MODULE_7___default.a, {
     badgeContent: 4,
     color: "secondary",
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 231
-    },
-    __self: this
+      lineNumber: 231,
+      columnNumber: 15
+    }
   }, __jsx(_material_ui_icons_Mail__WEBPACK_IMPORTED_MODULE_13___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 232
-    },
-    __self: this
+      lineNumber: 232,
+      columnNumber: 17
+    }
   }))), __jsx("div", {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 236
-    },
-    __self: this
+      lineNumber: 236,
+      columnNumber: 13
+    }
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
     color: "inherit",
     onClick: openNotificationsMenu,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 237
-    },
-    __self: this
+      lineNumber: 237,
+      columnNumber: 15
+    }
   }, notificationsCount ? __jsx(_material_ui_core_Badge__WEBPACK_IMPORTED_MODULE_7___default.a, {
     badgeContent: notificationsCount,
     color: "secondary",
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 240
-    },
-    __self: this
+      lineNumber: 240,
+      columnNumber: 21
+    }
   }, __jsx(_material_ui_icons_Notifications__WEBPACK_IMPORTED_MODULE_14___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 241
-    },
-    __self: this
+      lineNumber: 241,
+      columnNumber: 23
+    }
   })) : __jsx(_material_ui_icons_Notifications__WEBPACK_IMPORTED_MODULE_14___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 245
-    },
-    __self: this
+      lineNumber: 245,
+      columnNumber: 21
+    }
   })), __jsx(_notifications_NotificationsMenu__WEBPACK_IMPORTED_MODULE_19__["default"], {
     anchorEl: notificationsMenuState,
     keepMounted: true,
@@ -668,11 +715,12 @@ function PrimarySearchAppBar() {
     },
     open: Boolean(notificationsMenuState),
     onClose: closeNotificationsMenu,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 249
-    },
-    __self: this
+      lineNumber: 249,
+      columnNumber: 15
+    }
   })), __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
     edge: "end",
     "aria-label": "account of current user",
@@ -680,49 +728,55 @@ function PrimarySearchAppBar() {
     "aria-haspopup": "true",
     onClick: handleProfileMenuOpen,
     color: "inherit",
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 258
-    },
-    __self: this
+      lineNumber: 258,
+      columnNumber: 13
+    }
   }, __jsx(_material_ui_icons_AccountCircle__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 266
-    },
-    __self: this
+      lineNumber: 266,
+      columnNumber: 15
+    }
   }))), __jsx("div", {
     className: classes.sectionMobile,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 270
-    },
-    __self: this
+      lineNumber: 270,
+      columnNumber: 11
+    }
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
     "aria-label": "show more",
     "aria-controls": mobileMenuId,
     "aria-haspopup": "true",
     onClick: handleMobileMenuOpen,
     color: "inherit",
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 271
-    },
-    __self: this
+      lineNumber: 271,
+      columnNumber: 13
+    }
   }, __jsx(_material_ui_icons_MoreVert__WEBPACK_IMPORTED_MODULE_15___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 278
-    },
-    __self: this
+      lineNumber: 278,
+      columnNumber: 15
+    }
   })))), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_16___default.a, {
     open: state.left,
     onClose: toggleDrawer('left', false),
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 282
-    },
-    __self: this
+      lineNumber: 282,
+      columnNumber: 9
+    }
   }, Object(_SideMenu__WEBPACK_IMPORTED_MODULE_17__["default"])())), renderMobileMenu, renderMenu);
 }
 
@@ -788,72 +842,80 @@ function SideMenu() {
     text: 'Projects',
     route: '/dashboards',
     icon: () => __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7___default.a, {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
-      },
-      __self: this
+        lineNumber: 25,
+        columnNumber: 79
+      }
     })
   }, {
     key: 'datasources',
     text: 'Data Sources',
     route: '/datasources',
     icon: () => __jsx(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8___default.a, {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
-      },
-      __self: this
+        lineNumber: 26,
+        columnNumber: 85
+      }
     })
   }, {
     key: 'widgets',
     text: 'Widgets',
     route: '/widgets',
     icon: () => __jsx(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
-      },
-      __self: this
+        lineNumber: 27,
+        columnNumber: 72
+      }
     })
   }];
   return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10___default.a, {
     className: classes.list,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
-    },
-    __self: this
+      lineNumber: 31,
+      columnNumber: 5
+    }
   }, __jsx(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
-    },
-    __self: this
+      lineNumber: 32,
+      columnNumber: 7
+    }
   }, routes.map((item, index) => __jsx(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4___default.a, {
     button: true,
     key: item.key,
     onClick: () => {
       next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push(item.route);
     },
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
-    },
-    __self: this
+      lineNumber: 34,
+      columnNumber: 11
+    }
   }, __jsx(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
-    },
-    __self: this
+      lineNumber: 35,
+      columnNumber: 13
+    }
   }, item.icon()), __jsx(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6___default.a, {
     primary: item.text,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: this
+      lineNumber: 36,
+      columnNumber: 13
+    }
   })))));
 }
 
@@ -933,11 +995,12 @@ const NotificationItem = ({
     switch (notification.type) {
       case "Dashboard Collaboration":
         return __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_8___default.a, {
+          __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 39
-          },
-          __self: undefined
+            lineNumber: 39,
+            columnNumber: 17
+          }
         });
     }
   };
@@ -957,79 +1020,88 @@ const NotificationItem = ({
 
   return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3___default.a, {
     onClick: markSeen,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
-    },
-    __self: undefined
+      lineNumber: 55,
+      columnNumber: 5
+    }
   }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default.a, {
     spacing: 0,
     container: true,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
-    },
-    __self: undefined
+      lineNumber: 56,
+      columnNumber: 7
+    }
   }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default.a, {
     item: true,
     xs: 2,
     className: classes.gridItem,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
-    },
-    __self: undefined
+      lineNumber: 57,
+      columnNumber: 9
+    }
   }, decideNotificationIcon()), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default.a, {
     item: true,
     xs: 8,
     className: classes.gridItem,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
-    },
-    __self: undefined
+      lineNumber: 60,
+      columnNumber: 9
+    }
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7___default.a, {
     className: classes.message,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
-    },
-    __self: undefined
+      lineNumber: 61,
+      columnNumber: 11
+    }
   }, notification.message), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7___default.a, {
     className: classes.date,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
-    },
-    __self: undefined
+      lineNumber: 62,
+      columnNumber: 11
+    }
   }, moment__WEBPACK_IMPORTED_MODULE_1___default()(notification.createdAt).format('YYYY/MM/DD HH:mm'))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default.a, {
     item: true,
     xs: 2,
     className: classes.gridItem,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
-    },
-    __self: undefined
+      lineNumber: 64,
+      columnNumber: 9
+    }
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
     style: {
       outline: 'none'
     },
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
-    },
-    __self: undefined
+      lineNumber: 65,
+      columnNumber: 11
+    }
   }, __jsx(_material_ui_icons_RadioButtonUnchecked__WEBPACK_IMPORTED_MODULE_9___default.a, {
     fontSize: "small",
     style: {
       color: "#3F51B5"
     },
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
-    },
-    __self: undefined
+      lineNumber: 66,
+      columnNumber: 13
+    }
   })))));
 };
 
@@ -1092,18 +1164,20 @@ const NotificationMenu = ({
       padding: 0,
       marginBottom: 10
     },
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
-    },
-    __self: undefined
+      lineNumber: 23,
+      columnNumber: 5
+    }
   }, __jsx(_NotificationsItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
     notification: notification,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
-    },
-    __self: undefined
+      lineNumber: 24,
+      columnNumber: 7
+    }
   }));
 
   return __jsx(_material_ui_core_Menu__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -1112,11 +1186,12 @@ const NotificationMenu = ({
     style: style,
     open: open,
     onClose: onClose,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
-    },
-    __self: undefined
+      lineNumber: 29,
+      columnNumber: 5
+    }
   }, notifications.map(notification => renderNotificationItem(notification)));
 };
 
@@ -1157,23 +1232,6 @@ function redirectTo(destination, {
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js ***!
-  \******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-
-module.exports = _interopRequireDefault;
-
-/***/ }),
-
 /***/ "./node_modules/dhtmlx-gantt/codebase/dhtmlxgantt.css":
 /*!************************************************************!*\
   !*** ./node_modules/dhtmlx-gantt/codebase/dhtmlxgantt.css ***!
@@ -1197,141 +1255,6 @@ module.exports = __webpack_require__(/*! ./dist/pages/_app */ "./node_modules/ne
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/next-server/lib/utils.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/next/dist/next-server/lib/utils.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-const url_1 = __webpack_require__(/*! url */ "url");
-/**
- * Utils
- */
-
-
-function execOnce(fn) {
-  let used = false;
-  let result = null;
-  return (...args) => {
-    if (!used) {
-      used = true;
-      result = fn.apply(this, args);
-    }
-
-    return result;
-  };
-}
-
-exports.execOnce = execOnce;
-
-function getLocationOrigin() {
-  const {
-    protocol,
-    hostname,
-    port
-  } = window.location;
-  return `${protocol}//${hostname}${port ? ':' + port : ''}`;
-}
-
-exports.getLocationOrigin = getLocationOrigin;
-
-function getURL() {
-  const {
-    href
-  } = window.location;
-  const origin = getLocationOrigin();
-  return href.substring(origin.length);
-}
-
-exports.getURL = getURL;
-
-function getDisplayName(Component) {
-  return typeof Component === 'string' ? Component : Component.displayName || Component.name || 'Unknown';
-}
-
-exports.getDisplayName = getDisplayName;
-
-function isResSent(res) {
-  return res.finished || res.headersSent;
-}
-
-exports.isResSent = isResSent;
-
-async function loadGetInitialProps(App, ctx) {
-  var _a;
-
-  if (true) {
-    if ((_a = App.prototype) === null || _a === void 0 ? void 0 : _a.getInitialProps) {
-      const message = `"${getDisplayName(App)}.getInitialProps()" is defined as an instance method - visit https://err.sh/zeit/next.js/get-initial-props-as-an-instance-method for more information.`;
-      throw new Error(message);
-    }
-  } // when called from _app `ctx` is nested in `ctx`
-
-
-  const res = ctx.res || ctx.ctx && ctx.ctx.res;
-
-  if (!App.getInitialProps) {
-    if (ctx.ctx && ctx.Component) {
-      // @ts-ignore pageProps default
-      return {
-        pageProps: await loadGetInitialProps(ctx.Component, ctx.ctx)
-      };
-    }
-
-    return {};
-  }
-
-  const props = await App.getInitialProps(ctx);
-
-  if (res && isResSent(res)) {
-    return props;
-  }
-
-  if (!props) {
-    const message = `"${getDisplayName(App)}.getInitialProps()" should resolve to an object. But found "${props}" instead.`;
-    throw new Error(message);
-  }
-
-  if (true) {
-    if (Object.keys(props).length === 0 && !ctx.ctx) {
-      console.warn(`${getDisplayName(App)} returned an empty object from \`getInitialProps\`. This de-optimizes and prevents automatic static optimization. https://err.sh/zeit/next.js/empty-object-getInitialProps`);
-    }
-  }
-
-  return props;
-}
-
-exports.loadGetInitialProps = loadGetInitialProps;
-exports.urlObjectKeys = ['auth', 'hash', 'host', 'hostname', 'href', 'path', 'pathname', 'port', 'protocol', 'query', 'search', 'slashes'];
-
-function formatWithValidation(url, options) {
-  if (true) {
-    if (url !== null && typeof url === 'object') {
-      Object.keys(url).forEach(key => {
-        if (exports.urlObjectKeys.indexOf(key) === -1) {
-          console.warn(`Unknown key passed via urlObject into url.format: ${key}`);
-        }
-      });
-    }
-  }
-
-  return url_1.format(url, options);
-}
-
-exports.formatWithValidation = formatWithValidation;
-exports.SP = typeof performance !== 'undefined';
-exports.ST = exports.SP && typeof performance.mark === 'function' && typeof performance.measure === 'function';
-
-/***/ }),
-
 /***/ "./node_modules/next/dist/pages/_app.js":
 /*!**********************************************!*\
   !*** ./node_modules/next/dist/pages/_app.js ***!
@@ -1342,7 +1265,7 @@ exports.ST = exports.SP && typeof performance.mark === 'function' && typeof perf
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 exports.__esModule = true;
 exports.Container = Container;
@@ -1351,7 +1274,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
 
-var _utils = __webpack_require__(/*! ../next-server/lib/utils */ "./node_modules/next/dist/next-server/lib/utils.js");
+var _utils = __webpack_require__(/*! ../next-server/lib/utils */ "../next-server/lib/utils");
 
 exports.AppInitialProps = _utils.AppInitialProps;
 /**
@@ -1382,12 +1305,15 @@ class App extends _react.default.Component {
     var {
       router,
       Component,
-      pageProps
+      pageProps,
+      __N_SSG,
+      __N_SSP
     } = this.props;
-    var url = createUrl(router);
-    return _react.default.createElement(Component, Object.assign({}, pageProps, {
-      url: url
-    }));
+    return _react.default.createElement(Component, Object.assign({}, pageProps, // we don't add the legacy URL prop if it's using non-legacy
+    // methods like getStaticProps and getServerSideProps
+    !(__N_SSG || __N_SSP) ? {
+      url: createUrl(router)
+    } : {}));
   }
 
 }
@@ -1462,6 +1388,23 @@ function createUrl(router) {
     }
   };
 }
+
+/***/ }),
+
+/***/ "./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
 
 /***/ }),
 
@@ -1576,61 +1519,69 @@ class LoStudio extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
     } = this.props;
     return __jsx(styled_components__WEBPACK_IMPORTED_MODULE_4__["ThemeProvider"], {
       theme: theme,
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
-      },
-      __self: this
+        lineNumber: 47,
+        columnNumber: 7
+      }
     }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
-      },
-      __self: this
+        lineNumber: 48,
+        columnNumber: 9
+      }
     }, __jsx("title", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
-      },
-      __self: this
+        lineNumber: 49,
+        columnNumber: 11
+      }
     }, "LoStudio"), __jsx("link", {
       rel: "stylesheet",
       href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
-      },
-      __self: this
+        lineNumber: 50,
+        columnNumber: 11
+      }
     }), __jsx("link", {
       rel: "stylesheet",
       href: "https://fonts.googleapis.com/icon?family=Material+Icons",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
-      },
-      __self: this
+        lineNumber: 51,
+        columnNumber: 11
+      }
     }), __jsx("link", {
       rel: "stylesheet",
       href: "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css",
       integrity: "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T",
       crossOrigin: "anonymous",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52
-      },
-      __self: this
+        lineNumber: 52,
+        columnNumber: 11
+      }
     })), __jsx(_components_ApplicationMainBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
-      },
-      __self: this
+        lineNumber: 59,
+        columnNumber: 9
+      }
     }), __jsx(Component, _extends({}, pageProps, {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60
-      },
-      __self: this
+        lineNumber: 60,
+        columnNumber: 9
+      }
     })));
   }
 
@@ -2032,17 +1983,6 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("styled-components");
-
-/***/ }),
-
-/***/ "url":
-/*!**********************!*\
-  !*** external "url" ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("url");
 
 /***/ })
 

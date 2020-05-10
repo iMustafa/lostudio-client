@@ -4,7 +4,6 @@ import Button from '@material-ui/core/Button'
 import Input from '@material-ui/core/Input'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
 import DataSourceActions from '../../../../actions/datasource.actions'
 import WidgetSettingsActions from '../../../../actions/widgetSettings.actions'
 import Swal from 'sweetalert2'
@@ -38,6 +37,31 @@ const useStyles = makeStyles(theme => ({
 
 const DateTimeWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd }) => {
   const classes = useStyles()
+  const [properties, setProperties] = useState({
+    label: '', id: '', name: '', className: ''
+  })
+
+  const handlePropertiesChange = (event) => {
+    const { name, value } = event.target
+    setProperties({ ...properties, [name]: value })
+  }
+
+  const saveConfigData = async () => {
+    try {
+      const data = {
+        properties,
+        type: 'Date Time'
+      }
+      if (isAdding) {
+        onWidgetAdd(data)
+      } else {
+        const update = await WidgetSettingsActions.updateWidgetSettings(widget.id, data)
+        handleSettingsClose(update)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   return (
     <div className={classes.list} role="presentation">
@@ -54,40 +78,25 @@ const DateTimeWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidge
       </h2>
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Label</InputLabel>
-        <Input />
+        <Input name='label' onChange={handlePropertiesChange} value={properties.label} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>ID</InputLabel>
-        <Input />
+        <Input name='id' onChange={handlePropertiesChange} value={properties.id} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Name</InputLabel>
-        <Input />
-      </FormControl>
-
-      <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Placeholder</InputLabel>
-        <Input />
+        <Input name='name' onChange={handlePropertiesChange} value={properties.name} />
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Class name</InputLabel>
-        <Input />
+        <Input name='className' onChange={handlePropertiesChange} value={properties.className} />
       </FormControl>
 
-      <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Value</InputLabel>
-        <Input />
-      </FormControl>
-
-      <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Type</InputLabel>
-        <Input />
-      </FormControl>
-
-      <Button fullWidth color="primary" className={classes.formControl}>Save</Button>
+      <Button onClick={saveConfigData} fullWidth color="primary" className={classes.formControl}>Save</Button>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import WidgetSettingsActions from '../../../../actions/widgetSettings.actions'
 import TextField from '@material-ui/core/TextField'
 
 const useStyles = makeStyles(theme => ({
@@ -8,16 +9,20 @@ const useStyles = makeStyles(theme => ({
 
 const TextAreaWidget = ({ widgetId }) => {
   const classes = useStyles()
-  const [widget, setWidget] = useState(null)
+  const [widget, setWidget] = useState({ properties: {} })
   const [menuState, setMenuState] = useState({ right: false })
+  const [value, setValue] = useState('')
+
+  const handleChange = (event) => {
+    const { value } = event.target
+    setValue(value)
+  }
 
   useEffect(() => {
     const getData = async () => {
       try {
         const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId)
-        console.log($widget)
         setWidget($widget)
-        return $widget
       } catch (e) {
         console.log(e)
       }
@@ -27,14 +32,14 @@ const TextAreaWidget = ({ widgetId }) => {
 
   return (
     <TextField
-    // label={widget.config.label || ''}
-    // id={widget.config.id || ''}
-    // placeholder={widget.config.placeholder || ''}
-    // className={widget.config.className || ''}
-    // styles={widget.config.styles || {}}
-    // name={widget.config.name || ''}
-    // value={widget.config.value || ''}
-    // type={widget.config.type || 'text'}
+      name={widget.properties.name}
+      label={widget.properties.label}
+      id={widget.properties.id}
+      fullWidth
+      onChange={handleChange}
+      className={widget.properties.className}
+      value={value}
+      multiline
     />
   )
 }
