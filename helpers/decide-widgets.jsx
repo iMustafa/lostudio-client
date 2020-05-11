@@ -24,7 +24,8 @@ import {
   ParagraphWidget, ParagraphWidgetSettings,
   ProgressBarWidget, ProgressBarWidgetSettings,
   SpanWidget, SpanWidgetSettings,
-  TabsWidget, TabsWidgetSettings
+  TabsWidget, TabsWidgetSettings,
+  FormGroupWidget, FormGroupWidgetSettings
 } from '../components/widgets'
 
 const decideWidgetSettings = (addType, onWidgetAdd) => {
@@ -81,6 +82,8 @@ const decideWidgetSettings = (addType, onWidgetAdd) => {
       return <SpanWidgetSettings isAdding={true} onWidgetAdd={onWidgetAdd} />
     case 'Tabs':
       return <TabsWidgetSettings isAdding={true} onWidgetAdd={onWidgetAdd} />
+    case 'Form Group':
+      return <FormGroupWidgetSettings isAdding={true} onWidgetAdd={onWidgetAdd} />
     default:
       return <div></div>
   }
@@ -142,6 +145,8 @@ const decideWidget = (widget) => {
       return <SpanWidget widgetId={widget.id} />
     case 'Tabs':
       return <TabsWidget widgetId={widget.id} />
+    case 'Form Group':
+      return <FormGroupWidget widgetId={widget.id} />
   }
 }
 

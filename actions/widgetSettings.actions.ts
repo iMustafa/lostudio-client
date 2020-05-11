@@ -20,6 +20,75 @@ export default class WidgetSettingsActions {
       .catch(err => err.response)
   }
 
+  public static async getSubWidgets(widgetSettingsId: string): Promise<Array<WidgetSettings>> {
+    return axios
+      .get(
+        `${API_URL}/WidgetSettings/${widgetSettingsId}/subWidgetSettings`,
+        {
+          headers: {
+            Authorization: Cookie.get('id')
+          },
+          params: {
+            filter: { include: 'subWidgetSettings' }
+          }
+        }
+      )
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
+  public static async exportWidgetData(widgetSettingsId: string, format: string, method: string, selectedFields: Array<any>): Promise<any> {
+    if (format == 'email') {
+      return axios
+        .get(
+          `${API_URL}/WidgetSettings/${widgetSettingsId}/export-data`,
+          {
+            headers: { Authorization: Cookie.get('id') },
+            params: { format, selectedFields, method }
+          }
+        )
+        .then(res => res.data)
+        .catch(err => err.response)
+    } else {
+      window.open(`${API_URL}/WidgetSettings/${widgetSettingsId}/export-data?format=${format}&method=${method}&selectedFields=${selectedFields}`)
+    }
+  }
+
+  public static async createSubWidget(widgetSettingsId: string, subWidgetSettingsId: string): Promise<any> {
+    return axios
+      .post(
+        `${API_URL}/WidgetSettings/${widgetSettingsId}/subWidgetSettings`,
+        { subWidgetSettingsId },
+        { headers: { Authorization: Cookie.get('id') } }
+      )
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
+  public static async deleteSubWidget(widgetSettingsId: string, subWidgetSettingsId: string): Promise<any> {
+    return axios
+      .delete(`${API_URL}/WidgetSettings/${widgetSettingsId}/subWidgetSettings/${subWidgetSettingsId}`)
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
+  public static async getFormGroupWidgets(): Promise<Array<WidgetSettings>> {
+    return axios
+      .get(
+        `${API_URL}/WidgetSettings`,
+        {
+          headers: {
+            Authorization: Cookie.get('id')
+          },
+          params: {
+            filter: { where: { type: "Form Group" } }
+          }
+        }
+      )
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
   // TODO
   public static async getWidgetSettings(): Promise<Array<WidgetSettings>> {
     return axios

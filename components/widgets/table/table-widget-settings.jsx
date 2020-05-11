@@ -160,48 +160,45 @@ const TableWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAd
 
   return (
     <div className={classes.list} role="presentation">
-      <div>
-        <h2 className={classes.h2}>
-          <span className={classes.span}>Widget Properties</span>
-        </h2>
-        <FormControl fullWidth className={classes.formControl}>
-          <InputLabel id='title'>Title</InputLabel>
-          <Input />
-        </FormControl>
-        <h2 className={classes.h2}>
-          <span className={classes.span}>Connection Settings</span>
-        </h2>
-        <FormControl fullWidth className={classes.formControl}>
-          <InputLabel id="data-source">Data Source</InputLabel>
-          <Select
-            name="datasource"
-            labelId="data-source"
-            value={datasource}
-            onChange={handleDatasourceChange}
-          >
-            {datasources.map(item => (<MenuItem key={item.id} value={item.id}>{item.title}</MenuItem>))}
-          </Select>
-        </FormControl>
+      <h2 className={classes.h2}>
+        <span className={classes.span}>Widget Properties</span>
+      </h2>
+      <FormControl fullWidth className={classes.formControl}>
+        <InputLabel id='title'>Title</InputLabel>
+        <Input />
+      </FormControl>
+      <h2 className={classes.h2}>
+        <span className={classes.span}>Connection Settings</span>
+      </h2>
+      <FormControl fullWidth className={classes.formControl}>
+        <InputLabel id="data-source">Data Source</InputLabel>
+        <Select
+          name="datasource"
+          labelId="data-source"
+          value={datasource}
+          onChange={handleDatasourceChange}
+        >
+          {datasources.map(item => (<MenuItem key={item.id} value={item.id}>{item.title}</MenuItem>))}
+        </Select>
+      </FormControl>
 
-        <FormControl fullWidth className={classes.formControl} disabled={datasource ? false : true}>
-          <InputLabel id="doc-list">Table/Collection</InputLabel>
-          <Select
-            name="docList"
-            labelId="doc-list"
-            value={doc}
-            onChange={handleDocChange}
-          >
-            {docList.map(item => (<MenuItem key={item} value={item}>{item}</MenuItem>))}
-          </Select>
-        </FormControl>
+      <FormControl fullWidth className={classes.formControl} disabled={datasource ? false : true}>
+        <InputLabel id="doc-list">Table/Collection</InputLabel>
+        <Select
+          name="docList"
+          labelId="doc-list"
+          value={doc}
+          onChange={handleDocChange}
+        >
+          {docList.map(item => (<MenuItem key={item} value={item}>{item}</MenuItem>))}
+        </Select>
+      </FormControl>
 
-        {renderFieldSettings()}
+      {renderFieldSettings()}
 
-        {renderQuerySettings()}
+      {renderQuerySettings()}
 
-        <Button fullWidth onClick={saveConfigSettings}>{isAdding ? 'Add' : 'Save'}</Button>
-
-      </div>
+      <Button fullWidth onClick={saveConfigSettings}>{isAdding ? 'Add' : 'Save'}</Button>
     </div>
   )
 }

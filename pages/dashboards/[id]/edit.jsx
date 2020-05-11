@@ -67,16 +67,23 @@ const EditDashboard = (WidgetSettings) => {
     }
   }
 
-  const onWidgetAdd = async (config) => {
+  const onWidgetAdd = async (config, isFormControl = false, widgetSettingsId = null) => {
     try {
       const layoutItem = {
         layout: { i: uuidv4(), x: 0, y: 0, w: 6, h: 11, maxW: 16, isDraggable: true, isResizable: true },
         ...config
       }
-      const saveWidget = await WidgetSettingsActions.createWidgetSettings(layoutItem)
-      await DashboardActions.addWidgetToDashboard(id, saveWidget.id)
-      layoutItem.id = saveWidget.id
-      setLayout([...layout, layoutItem])
+      if (widgetSettingsId) {
+        delete layoutItem.layout
+        const saveWidget = await WidgetSettingsActions.createWidgetSettings(layoutItem)
+        const linkWidget = await WidgetSettingsActions.createSubWidget(widgetSettingsId, saveWidget.id)
+        console.log(linkWidget)
+      } else {
+        const saveWidget = await WidgetSettingsActions.createWidgetSettings(layoutItem)
+        const linkWidget = await DashboardActions.addWidgetToDashboard(id, saveWidget.id)
+        layoutItem.id = saveWidget.id
+        setLayout([...layout, layoutItem])
+      }
     } catch (e) {
       console.log(e)
     }

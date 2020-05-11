@@ -34,6 +34,7 @@ import SubjectIcon from '@material-ui/icons/Subject'
 import AutorenewIcon from '@material-ui/icons/Autorenew'
 import TitleIcon from '@material-ui/icons/Title'
 import ViewListIcon from '@material-ui/icons/ViewList'
+import ReorderIcon from '@material-ui/icons/Reorder'
 
 const useStyles = makeStyles(() => ({
 
@@ -54,6 +55,7 @@ const SystemWidgets = (props) => {
     { title: 'Gantt Chart', icon: <ListAltIcon /> }
   ]
   const FormControlsWidgets = [
+    { title: 'Form Group', icon: <ReorderIcon /> },
     { title: 'Auto Complete', icon: <TextRotationNoneIcon /> },
     { title: 'Button', icon: <TouchAppIcon /> },
     { title: 'Checkbox', icon: <CheckBoxIcon /> },

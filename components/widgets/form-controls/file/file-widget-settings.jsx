@@ -5,6 +5,8 @@ import Input from '@material-ui/core/Input'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
 import Checkbox from '@material-ui/core/Checkbox'
 import WidgetSettingsActions from '../../../../actions/widgetSettings.actions'
 import Swal from 'sweetalert2'
@@ -45,6 +47,9 @@ const acceptedFileFormats = [
 
 const FileWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd }) => {
   const classes = useStyles()
+  const [linkToFormGroup, setLinkToFormGroup] = useState(false)
+  const [formGroups, setFormGroups] = useState([])
+  const [selectedFormGroup, setSelectedFormGroup] = useState(null)
   const [properties, setProperties] = useState({
     id: '', name: '', className: ''
   })
@@ -54,6 +59,50 @@ const FileWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd
     const { name, value } = event.target
     setProperties({ ...properties, [name]: value })
   }
+
+  useEffect(() => {
+    const getFormGroups = async () => {
+      try {
+        const $formGroups = await WidgetSettingsActions.getFormGroupWidgets()
+        setFormGroups($formGroups)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    getFormGroups()
+  }, [])
+
+  const handleSelectFormGroup = event => {
+    const { value } = event.target
+    setSelectedFormGroup(value)
+  }
+
+  const handleLinkToFormGroup = event => {
+    const { checked } = event.target
+    if (!checked)
+      setSelectedFormGroup(null)
+    setLinkToFormGroup(checked)
+  }
+
+  const renderFormGroupSelection = _ => linkToFormGroup ? (
+    <FormControl fullWidth>
+      <InputLabel id="form-group-title">Form Group</InputLabel>
+      <Select
+        fullWidth
+        labelId="form-group-title"
+        value={selectedFormGroup}
+        onChange={handleSelectFormGroup}
+      >
+        {
+          formGroups.map(formGroup => (
+            <MenuItem value={formGroup.id}>{formGroup.properties.name}</MenuItem>
+          ))
+        }
+      </Select>
+    </FormControl>
+  ) : (
+      <div></div>
+    )
 
   const handleFieldChange = name => event => {
     const { checked } = event.target
@@ -70,7 +119,7 @@ const FileWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd
         type: 'File'
       }
       if (isAdding) {
-        onWidgetAdd(data)
+        onWidgetAdd(data, true, selectedFormGroup)
       } else {
         const update = await WidgetSettingsActions.updateWidgetSettings(widget.id, data)
         handleSettingsClose(update)
@@ -107,6 +156,15 @@ const FileWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd
         <InputLabel>Class name</InputLabel>
         <Input name='className' onChange={handlePropertiesChange} value={properties.className} />
       </FormControl>
+
+      <FormControl fullWidth className={classes.formControl}>
+        <FormControlLabel
+          control={<Checkbox checked={linkToFormGroup} onChange={handleLinkToFormGroup} />}
+          label="Link To Form Group?"
+        />
+      </FormControl>
+
+      {renderFormGroupSelection()}
 
       <h2 className={classes.h2}>
         <span className={classes.span}>Unique Properties</span>

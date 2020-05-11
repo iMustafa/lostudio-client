@@ -55,6 +55,9 @@ const SelectWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetA
   const [doc, setDoc] = useState(!isAdding ? widget.config.docId : '')
   const [fieldList, setFieldList] = useState([])
   const [fields, setFields] = useState(!isAdding ? widget.config.fields : '')
+  const [linkToFormGroup, setLinkToFormGroup] = useState(false)
+  const [formGroups, setFormGroups] = useState([])
+  const [selectedFormGroup, setSelectedFormGroup] = useState(null)
 
   const getDatasources = async () => {
     try {
@@ -127,6 +130,50 @@ const SelectWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetA
     setSelectionOption(value)
   }
 
+  useEffect(() => {
+    const getFormGroups = async () => {
+      try {
+        const $formGroups = await WidgetSettingsActions.getFormGroupWidgets()
+        setFormGroups($formGroups)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    getFormGroups()
+  }, [])
+
+  const handleSelectFormGroup = event => {
+    const { value } = event.target
+    setSelectedFormGroup(value)
+  }
+
+  const handleLinkToFormGroup = event => {
+    const { checked } = event.target
+    if (!checked)
+      setSelectedFormGroup(null)
+    setLinkToFormGroup(checked)
+  }
+
+  const renderFormGroupSelection = _ => linkToFormGroup ? (
+    <FormControl fullWidth>
+      <InputLabel id="form-group-title">Form Group</InputLabel>
+      <Select
+        fullWidth
+        labelId="form-group-title"
+        value={selectedFormGroup}
+        onChange={handleSelectFormGroup}
+      >
+        {
+          formGroups.map(formGroup => (
+            <MenuItem value={formGroup.id}>{formGroup.properties.name}</MenuItem>
+          ))
+        }
+      </Select>
+    </FormControl>
+  ) : (
+      <div></div>
+    )
+
   const renderFieldSettings = () => fieldList.length ?
     (
       <div>
@@ -169,7 +216,7 @@ const SelectWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetA
           type: 'Select'
         }
         if (isAdding) {
-          onWidgetAdd(data)
+          onWidgetAdd(data, true, selectedFormGroup)
         } else {
           const update = await WidgetSettingsActions.updateWidgetSettings(widget.id, data)
           handleSettingsClose(update)
@@ -211,6 +258,15 @@ const SelectWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetA
         <InputLabel>Class name</InputLabel>
         <Input name='className' onChange={handlePropertiesChange} value={properties.className} />
       </FormControl>
+
+      <FormControl fullWidth className={classes.formControl}>
+        <FormControlLabel
+          control={<Checkbox checked={linkToFormGroup} onChange={handleLinkToFormGroup} />}
+          label="Link To Form Group?"
+        />
+      </FormControl>
+
+      {renderFormGroupSelection()}
 
       <h2 className={classes.h2}>
         <span className={classes.span}>Unique Properties</span>

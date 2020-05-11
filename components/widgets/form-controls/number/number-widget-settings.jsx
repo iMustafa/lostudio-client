@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import Input from '@material-ui/core/Input'
 import InputLabel from '@material-ui/core/InputLabel'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox'
+import MenuItem from '@material-ui/core/MenuItem'
 import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import DataSourceActions from '../../../../actions/datasource.actions'
@@ -38,9 +41,56 @@ const useStyles = makeStyles(theme => ({
 
 const NumberWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd }) => {
   const classes = useStyles()
+  const [linkToFormGroup, setLinkToFormGroup] = useState(false)
+  const [formGroups, setFormGroups] = useState([])
+  const [selectedFormGroup, setSelectedFormGroup] = useState(null)
   const [properties, setProperties] = useState({
-    label: '', id: '', name: '', placeholder: '', className: '', value: ''
+    label: '', id: '', name: '', placeholder: '', className: ''
   })
+
+  useEffect(() => {
+    const getFormGroups = async () => {
+      try {
+        const $formGroups = await WidgetSettingsActions.getFormGroupWidgets()
+        setFormGroups($formGroups)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    getFormGroups()
+  }, [])
+
+  const handleSelectFormGroup = event => {
+    const { value } = event.target
+    setSelectedFormGroup(value)
+  }
+
+  const handleLinkToFormGroup = event => {
+    const { checked } = event.target
+    if (!checked)
+      setSelectedFormGroup(null)
+    setLinkToFormGroup(checked)
+  }
+
+  const renderFormGroupSelection = _ => linkToFormGroup ? (
+    <FormControl fullWidth>
+      <InputLabel id="form-group-title">Form Group</InputLabel>
+      <Select
+        fullWidth
+        labelId="form-group-title"
+        value={selectedFormGroup}
+        onChange={handleSelectFormGroup}
+      >
+        {
+          formGroups.map(formGroup => (
+            <MenuItem value={formGroup.id}>{formGroup.properties.name}</MenuItem>
+          ))
+        }
+      </Select>
+    </FormControl>
+  ) : (
+      <div></div>
+    )
 
   const saveConfigData = async () => {
     try {
@@ -49,7 +99,7 @@ const NumberWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetA
         type: 'Number'
       }
       if (isAdding) {
-        onWidgetAdd(data)
+        onWidgetAdd(data, true, selectedFormGroup)
       } else {
         const update = await WidgetSettingsActions.updateWidgetSettings(widget.id, data)
         handleSettingsClose(update)
@@ -103,9 +153,13 @@ const NumberWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetA
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Value</InputLabel>
-        <Input name='value' onChange={handlePropertiesChange} value={properties.value} />
+        <FormControlLabel
+          control={<Checkbox checked={linkToFormGroup} onChange={handleLinkToFormGroup} />}
+          label="Link To Form Group?"
+        />
       </FormControl>
+
+      {renderFormGroupSelection()}
 
       <Button onClick={saveConfigData} fullWidth color="primary" className={classes.formControl}>Save</Button>
     </div>

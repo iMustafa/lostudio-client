@@ -46,6 +46,9 @@ const useStyles = makeStyles(theme => ({
 
 const AutoCompleteWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd }) => {
   const classes = useStyles()
+  const [linkToFormGroup, setLinkToFormGroup] = useState(false)
+  const [formGroups, setFormGroups] = useState([])
+  const [selectedFormGroup, setSelectedFormGroup] = useState(null)
   const [selectionOption, setSelectionOption] = useState('datasource')
   const [properties, setProperties] = useState({
     label: '', id: '', name: '', placeholder: '', className: '', value: ''
@@ -56,6 +59,50 @@ const AutoCompleteWidgetSettings = ({ widget, handleSettingsClose, isAdding, onW
   const [doc, setDoc] = useState(!isAdding ? widget.config.docId : '')
   const [fieldList, setFieldList] = useState([])
   const [fields, setFields] = useState(!isAdding ? widget.config.fields : '')
+
+  useEffect(() => {
+    const getFormGroups = async () => {
+      try {
+        const $formGroups = await WidgetSettingsActions.getFormGroupWidgets()
+        setFormGroups($formGroups)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    getFormGroups()
+  }, [])
+
+  const handleSelectFormGroup = event => {
+    const { value } = event.target
+    setSelectedFormGroup(value)
+  }
+
+  const handleLinkToFormGroup = event => {
+    const { checked } = event.target
+    if (!checked)
+      setSelectedFormGroup(null)
+    setLinkToFormGroup(checked)
+  }
+
+  const renderFormGroupSelection = _ => linkToFormGroup ? (
+    <FormControl fullWidth>
+      <InputLabel id="form-group-title">Form Group</InputLabel>
+      <Select
+        fullWidth
+        labelId="form-group-title"
+        value={selectedFormGroup}
+        onChange={handleSelectFormGroup}
+      >
+        {
+          formGroups.map(formGroup => (
+            <MenuItem value={formGroup.id}>{formGroup.properties.name}</MenuItem>
+          ))
+        }
+      </Select>
+    </FormControl>
+  ) : (
+      <div></div>
+    )
 
   const getDatasources = async () => {
     try {
@@ -144,7 +191,7 @@ const AutoCompleteWidgetSettings = ({ widget, handleSettingsClose, isAdding, onW
         type: 'Auto Complete'
       }
       if (isAdding) {
-        onWidgetAdd(data)
+        onWidgetAdd(data, true, selectedFormGroup)
       } else {
         const update = await WidgetSettingsActions.updateWidgetSettings(widget.id, data)
         handleSettingsClose(update)
@@ -219,9 +266,13 @@ const AutoCompleteWidgetSettings = ({ widget, handleSettingsClose, isAdding, onW
       </FormControl>
 
       <FormControl fullWidth className={classes.formControl}>
-        <InputLabel>Value</InputLabel>
-        <Input name='value' onChange={handlePropertiesChange} value={properties.value} />
+        <FormControlLabel
+          control={<Checkbox checked={linkToFormGroup} onChange={handleLinkToFormGroup} />}
+          label="Link To Form Group?"
+        />
       </FormControl>
+
+      {renderFormGroupSelection()}
 
       <h2 className={classes.h2}>
         <span className={classes.span}>Unique Properties</span>

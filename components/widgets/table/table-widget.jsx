@@ -8,7 +8,9 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import IconButton from '@material-ui/core/IconButton'
 import RefreshIcon from '@material-ui/icons/Refresh'
 import SettingsIcon from '@material-ui/icons/Settings'
+import ShareIcon from '@material-ui/icons/Share'
 import TableWidgetSettings from './table-widget-settings'
+import ExportTableData from './export-table-data'
 
 const useStyles = makeStyles(theme => ({
   list: {
@@ -40,7 +42,7 @@ const TableWidget = ({ widgetId }) => {
   const [data, setData] = useState([])
   const [isLoadingData, setIsLoadingData] = useState(false)
   const [refresh, setRefresh] = useState(0)
-  const [menuState, setMenuState] = useState({ right: false })
+  const [menuState, setMenuState] = useState({ right: false, export: false })
 
   const getWidgetData = async () => {
     try {
@@ -100,6 +102,9 @@ const TableWidget = ({ widgetId }) => {
           <Typography style={{ color: "#FFF" }}>Widget Title</Typography>
         </div>
         <div className={classes.actionButtons}>
+          <IconButton onClick={toggleDrawer('export', true)}>
+            <ShareIcon style={{ color: "#FFF" }} fontSize="small" />
+          </IconButton>
           <IconButton onClick={toggleDrawer('right', true)}>
             <SettingsIcon style={{ color: "#FFF" }} fontSize="small" />
           </IconButton>
@@ -113,6 +118,9 @@ const TableWidget = ({ widgetId }) => {
       </div>
       <Drawer anchor="right" open={menuState.right} onClose={toggleDrawer('right', false)}>
         <TableWidgetSettings widget={widget} handleSettingsClose={handleSettingsClose} />
+      </Drawer>
+      <Drawer anchor="right" open={menuState.export} onClose={toggleDrawer('export', false)}>
+        <ExportTableData widget={widget} data={data} />
       </Drawer>
     </div>
   )
