@@ -36,7 +36,7 @@ const AutoCompleteWidget = ({ widgetId }) => {
       value={widget.properties.value}
       options={data}
       getOptionLabel={(option) => option[widget.config.fields[0]]}
-      style={{ width: '100%' }}
+      fullWidth
       renderInput={(params) => (
         <TextField fullWidth name={widget.properties.name} {...params} label={widget.properties.label} />
       )}

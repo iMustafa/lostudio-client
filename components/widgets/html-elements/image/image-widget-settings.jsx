@@ -38,6 +38,28 @@ const useStyles = makeStyles(theme => ({
 
 const ImageWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAdd }) => {
   const classes = useStyles()
+  const [state, setState] = useState({})
+
+  const saveConfigData = async () => {
+    try {
+      const { url, title } = state
+      const data = {
+        title,
+        type: 'Image',
+        config: {
+          url
+        }
+      }
+      if (isAdding) {
+        onWidgetAdd(data)
+      } else {
+        const update = await WidgetSettingsActions.updateWidgetSettings(widget.id, data)
+        handleSettingsClose(update)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   return (
     <div className={classes.list} role="presentation">
@@ -46,15 +68,19 @@ const ImageWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidgetAd
       </h2>
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel>Title</InputLabel>
-        <Input />
+        <Input onChange={event => { setState({ ...state, title: event.target.value }) }} />
       </FormControl>
 
       <h2 className={classes.h2}>
         <span className={classes.span}>Widget Properties</span>
       </h2>
+      <FormControl fullWidth className={classes.formControl}>
+        <InputLabel>Image URL</InputLabel>
+        <Input onChange={event => { setState({ ...state, url: event.target.value }) }} />
+      </FormControl>
 
 
-      <Button fullWidth color="primary" className={classes.formControl}>Save</Button>
+      <Button fullWidth color="primary" onClick={saveConfigData} className={classes.formControl}>Save</Button>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import WidgetSettingsActions from '../../../../actions/widgetSettings.actions'
 
 const useStyles = makeStyles(theme => ({
 
@@ -7,7 +8,7 @@ const useStyles = makeStyles(theme => ({
 
 const ImageWidget = ({ widgetId }) => {
   const classes = useStyles()
-  const [widget, setWidget] = useState(null)
+  const [widget, setWidget] = useState({})
   const [menuState, setMenuState] = useState({ right: false })
 
   useEffect(() => {
@@ -15,6 +16,7 @@ const ImageWidget = ({ widgetId }) => {
       try {
         const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId)
         setWidget($widget)
+        console.log($widget)
         return $widget
       } catch (e) {
         console.log(e)
@@ -24,7 +26,8 @@ const ImageWidget = ({ widgetId }) => {
   }, [])
 
   return (
-    <div></div>
+    <div style={{ backgroundImage: widget.config ? `url('${widget.config.url}')` : '', width: '100%', height: '100%' }}>
+    </div>
   )
 }
 

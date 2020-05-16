@@ -5,6 +5,7 @@ import User from '../types/users.types'
 import Dashboard from '../types/dashboard.types'
 import Datasource from '../types/datasource.types'
 import Widget from '../types/widget.types'
+import MeasureCondition from '../types/measureCondition.types'
 import WidgetSettings from '../types/widgetSettings.type'
 import { promises } from 'dns'
 
@@ -12,7 +13,27 @@ const { API_URL } = config().publicRuntimeConfig
 
 export default class WidgetSettingsActions {
 
-  // TODO
+  public static async addWidgetSettingsDocument(widgetSettingsId: string, data): Promise<any> {
+    return axios
+      .post(`${API_URL}/WidgetSettings/${widgetSettingsId}/add-document`, data, { headers: { Authorization: Cookie.get('id') } })
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
+  public static async editWidgetSettingsDocument(widgetSettingsId: string, data, keyId: string): Promise<any> {
+    return axios
+      .post(`${API_URL}/WidgetSettings/${widgetSettingsId}/edit-document`, data, { headers: { Authorization: Cookie.get('id') }, params: { keyId } })
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
+  public static async deleteWidgetSettingsDocument(widgetSettingsId: string, keyId: string): Promise<any> {
+    return axios
+      .delete(`${API_URL}/WidgetSettings/${widgetSettingsId}/delete-document`, { headers: { Authorization: Cookie.get('id') }, params: { keyId } })
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
   public static async createWidgetSettings(widgetSettings: WidgetSettings): Promise<WidgetSettings> {
     return axios
       .post(`${API_URL}/WidgetSettings`, widgetSettings, { headers: { Authorization: Cookie.get('id') } })
@@ -65,9 +86,40 @@ export default class WidgetSettingsActions {
       .catch(err => err.response)
   }
 
+  public static async getWidgetSettingsMeasureConditions(widgetSettingsId: string): Promise<Array<MeasureCondition>> {
+    return axios
+      .get(`${API_URL}/WidgetSettings/${widgetSettingsId}/measureConditions`, { headers: { Authorization: Cookie.get('id') } })
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
+  public static async createWidgetSettingsMeasureConditions(widgetSettingsId: string, measureCondition: MeasureCondition): Promise<MeasureCondition> {
+    return axios
+      .post(
+        `${API_URL}/WidgetSettings/${widgetSettingsId}/measureConditions`,
+        measureCondition,
+        { headers: { Authorization: Cookie.get('id') } }
+      )
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
+  public static async deleteWidgetSettingsMeasureConditions(widgetSettingsId: string, measureConditionId: string): Promise<any> {
+    return axios
+      .delete(
+        `${API_URL}/WidgetSettings/${widgetSettingsId}/measureConditions/${measureConditionId}`,
+        { headers: { Authorization: Cookie.get('id') } }
+      )
+      .then(res => res.data)
+      .catch(err => err.response)
+  }
+
   public static async deleteSubWidget(widgetSettingsId: string, subWidgetSettingsId: string): Promise<any> {
     return axios
-      .delete(`${API_URL}/WidgetSettings/${widgetSettingsId}/subWidgetSettings/${subWidgetSettingsId}`)
+      .delete(
+        `${API_URL}/WidgetSettings/${widgetSettingsId}/subWidgetSettings/${subWidgetSettingsId}`,
+        { headers: { Authorization: Cookie.get('id') } }
+      )
       .then(res => res.data)
       .catch(err => err.response)
   }

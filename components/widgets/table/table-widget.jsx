@@ -11,6 +11,7 @@ import SettingsIcon from '@material-ui/icons/Settings'
 import ShareIcon from '@material-ui/icons/Share'
 import TableWidgetSettings from './table-widget-settings'
 import ExportTableData from './export-table-data'
+import { measureConditionResult } from '../../../helpers/measure-conditions'
 
 const useStyles = makeStyles(theme => ({
   list: {
@@ -43,6 +44,21 @@ const TableWidget = ({ widgetId }) => {
   const [isLoadingData, setIsLoadingData] = useState(false)
   const [refresh, setRefresh] = useState(0)
   const [menuState, setMenuState] = useState({ right: false, export: false })
+  const [measureConditions, setMeasureConditions] = useState([])
+  const [measureConditionsFields, setMeasureConditionsFields] = useState([])
+
+  useEffect(() => {
+    const getMeasureConditions = async () => {
+      try {
+        const $measureConditions = await WidgetSettingsActions.getWidgetSettingsMeasureConditions(widgetId)
+        setMeasureConditions($measureConditions)
+        setMeasureConditionsFields($measureConditions.map(condition => condition.field))
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    getMeasureConditions()
+  }, [])
 
   const getWidgetData = async () => {
     try {
@@ -81,12 +97,73 @@ const TableWidget = ({ widgetId }) => {
     toggleDrawer('right', false)
   }
 
+  const onRowAdd = async newData => {
+    try {
+      const $data = await WidgetSettingsActions.addWidgetSettingsDocument(widgetId, newData)
+      getWidgetData()
+      return $data
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const onRowUpdate = async (newData, oldData) => {
+    try {
+      const keyId = oldData[widget.config.primaryKey]
+      const $data = await WidgetSettingsActions.editWidgetSettingsDocument(widgetId, newData, keyId)
+      getWidgetData()
+      return $data
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const onRowDelete = async oldData => {
+    try {
+      const keyId = oldData[widget.config.primaryKey]
+      const $data = await WidgetSettingsActions.deleteWidgetSettingsDocument(widgetId, keyId)
+      getWidgetData()
+      return $data
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const editable = () => {
+    const { isEditable, isDeletable, isAddable } = widget.config
+    const obj = {}
+    if (isEditable) obj.onRowUpdate = onRowUpdate
+    if (isDeletable) obj.onRowDelete = onRowDelete
+    if (isAddable) obj.onRowAdd = onRowAdd
+    return obj
+  }
+
   const renderTable = () => {
-    return isLoadingData || !widget ? (<CircularProgress />) : (<MaterialTable
-      columns={widget.config.fields.map(field => ({ field, title: field }))}
-      data={data}
-      title=""
-    />)
+    return isLoadingData || !widget ? (<CircularProgress />) : (
+      <MaterialTable
+        columns={
+          widget.config.fields.map(field => ({
+            field,
+            title: field,
+            render: rowData => {
+              const doesHaveCondition = measureConditionsFields.includes(field)
+              if (doesHaveCondition) {
+                const condition = measureConditions.filter(c => c.field == field)[0]
+                const isConditionMet = measureConditionResult(condition, rowData[field])
+                return isConditionMet ? (
+                  <Typography style={{ backgroundColor: condition.color }}>{rowData[field]}</Typography>
+                ) : <Typography>{rowData[field]}</Typography>
+              } else {
+                return <Typography>{rowData[field]}</Typography>
+              }
+            }
+          }))
+        }
+        data={data}
+        title={widget.title || ''}
+        editable={editable()}
+      />
+    )
   }
 
   const toggleDrawer = (side, open) => event => {

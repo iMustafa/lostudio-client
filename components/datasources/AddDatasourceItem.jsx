@@ -1,5 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
-import Router from 'next/router'
+import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 
 const useStyles = makeStyles(theme => ({
@@ -15,7 +14,7 @@ const AddDatasource = ({ type, func, name, onClick }) => {
     <Card className={classes.root} onClick={onClick.bind(this, type)}>
       <div className={classes.text}>{name}</div>
       <div>
-        <img className={classes.image} src={require(`../../public/${type}.png`)} />
+        {/* <img className={classes.image} src={require(`../../public/${type}.png`)} /> */}
       </div>
     </Card>
   )

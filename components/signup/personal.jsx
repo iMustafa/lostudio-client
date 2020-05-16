@@ -8,6 +8,7 @@ import { register } from '../../actions/auth.actions';
 import countries from '../../helpers/countries'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { TextField } from '@material-ui/core';
+import router from 'next/router';
 
 function countryToFlag(isoCode) {
   return typeof String.fromCodePoint !== 'undefined'
@@ -84,7 +85,7 @@ const personalSignUp = () => {
   const submitSignup = async () => {
     try {
       const user = await register(data)
-      console.log(user)
+      router.push('/login')
     } catch (e) {
       switch (e.status) {
         case 422:

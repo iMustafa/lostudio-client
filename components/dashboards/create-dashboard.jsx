@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 
 const getSteps = () => ['Dashboard Settings', 'Datasource Settings', 'Add Collaborators', 'Confirmation']
 
-const CreateDashboard = () => {
+const CreateDashboard = ({ setRefresh, refresh }) => {
   const classes = useStyles()
   const [state, setState] = useState({
     title: '',
@@ -55,7 +55,6 @@ const CreateDashboard = () => {
     const getDataSources = async () => {
       try {
         const data = await DatasourceActions.getDatasources({})
-        console.log(data)
         setDatasources(data)
       } catch (e) {
         console.log(e)
@@ -121,7 +120,7 @@ const CreateDashboard = () => {
   const submitData = async () => {
     try {
       const dashboard = await DashboardActions.createDashboard({ dashboard: state })
-      console.log(dashboard)
+      setRefresh(refresh + 1)
     } catch (e) {
       console.log(e)
     }

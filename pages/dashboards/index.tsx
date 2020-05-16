@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { NextPage } from 'next'
 import { makeStyles } from '@material-ui/core/styles'
 import Cookies from 'next-cookies'
@@ -11,6 +12,7 @@ import SideMenu from '../../components/SideMenu'
 const Dashboards: NextPage<{ Collaborations, Dashboards }> = ({ Collaborations, Dashboards }) => {
   const dashboards: Array<Dashboard> = Object.values(Dashboards)
   const collaborations: Array<Dashboard> = Object.values(Collaborations)
+  const [refresh, setRefresh] = useState(0)
 
   return (
     <Grid container spacing={2}>
@@ -19,7 +21,7 @@ const Dashboards: NextPage<{ Collaborations, Dashboards }> = ({ Collaborations, 
       </Grid>
       <Grid item xs={10}>
         <div className="container" style={{ margin: "25px auto 25px auto" }}>
-          <CreateDashboard />
+          <CreateDashboard refresh={refresh} setRefresh={setRefresh} />
           <ListDashboards dashboards={dashboards} title="My Dashboards" type="personal"></ListDashboards>
           <ListDashboards dashboards={collaborations} title="My Collaborations" type="collaborations"></ListDashboards>
         </div>
