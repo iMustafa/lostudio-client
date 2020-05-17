@@ -161,7 +161,7 @@ const EditDashboard = () => {
           <ArrowLeft fontSize="default" />
         </IconButton>
         <div style={{ display: 'flex', flex: 1, overflowX: 'scroll', alignItems: 'center' }}>
-          <Button onClick={() => { setId(router.query.id) }} style={{ marginLeft: 10 }}>Main</Button>
+          <Button onClick={() => { setId(router.queFry.id) }} style={{ marginLeft: 10 }}>Main</Button>
           {
             SubDashboards.map(subDashboard => (
               <div key={subDashboard.subDashboardId}>
