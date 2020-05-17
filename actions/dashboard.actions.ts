@@ -11,7 +11,7 @@ const { API_URL } = config().publicRuntimeConfig
 
 export default class DashboardActions {
 
-  public static async createDashboard({ Authorization, dashboard }: { dashboard: Dashboard, Authorization: string }): Promise<Dashboard> {
+  public static async createDashboard({ Authorization, dashboard }: { dashboard: Dashboard, Authorization?: string }): Promise<Dashboard> {
     return axios
       .post(`${API_URL}/Dashboards`, dashboard, { headers: { Authorization: Authorization || Cookie.get('id') } })
       .then(res => res.data)
@@ -19,16 +19,40 @@ export default class DashboardActions {
   }
 
   public static async getDashboards({ Authorization, query }: { Authorization?: string, query?: any }): Promise<Array<Dashboard>> {
-    console.log(Authorization)
     return axios
-      .get(`${API_URL}/Dashboards`, { headers: { Authorization: Authorization || Cookie.get('id') } })
+      .get(`${API_URL}/Dashboards`, { headers: { Authorization: Authorization || Cookie.get('id') }, params: { filter: { where: { isSub: false } } } })
       .then(res => res.data)
       .catch(err => err)
   }
 
-  public static async getDashboardById(data: Datasource): Promise<Dashboard> {
+  public static async linkSubDashboard({ id, subDashboardId }: { id: string, subDashboardId: string }): Promise<any> {
     return axios
-      .post('', {})
+      .post(
+        `${API_URL}/Dashboards/${id}/subDashboards`,
+        { dashboardId: id, subDashboardId },
+        { headers: { Authorization: Cookie.get('id') } }
+      )
+      .then(res => res.data)
+      .catch(err => err)
+  }
+
+  public static async unLinkSubDashboard({ id, subDashboardId }: { id: string, subDashboardId: string }): Promise<any> {
+    return axios
+      .delete(`${API_URL}/Dashboards/${id}/subDashboards/${subDashboardId}`, { headers: { Authorization: Cookie.get('id') } })
+      .then(res => res.data)
+      .catch(err => err)
+  }
+
+  public static async getSubDashboards({ Authorization, id }: { Authorization?: string, id: string }): Promise<any> {
+    return axios
+      .get(`${API_URL}/Dashboards/${id}/subDashboards`, { headers: { Authorization: Authorization || Cookie.get('id') }, params: { filter: { include: 'subDashboard' } } })
+      .then(res => res.data)
+      .catch(err => err)
+  }
+
+  public static async getDashboardById(id: string): Promise<Dashboard> {
+    return axios
+      .get(`${API_URL}/Dashboards/${id}`, { headers: { Authorization: Cookie.get('id') } })
       .then(res => res.data)
       .catch(err => err.response)
   }

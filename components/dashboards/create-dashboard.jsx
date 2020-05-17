@@ -44,6 +44,7 @@ const CreateDashboard = ({ setRefresh, refresh }) => {
     title: '',
     description: '',
     datasourceId: '',
+    isSub: false,
     collaborators: []
   })
   const [activeStep, setActiveStep] = useState(0)

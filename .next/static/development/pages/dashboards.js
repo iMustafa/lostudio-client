@@ -68,10 +68,16 @@ var DashboardActions = /*#__PURE__*/function () {
           switch (_context2.prev = _context2.next) {
             case 0:
               Authorization = _ref2.Authorization, query = _ref2.query;
-              console.log(Authorization);
               return _context2.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("".concat(API_URL, "/Dashboards"), {
                 headers: {
                   Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_5___default.a.get('id')
+                },
+                params: {
+                  filter: {
+                    where: {
+                      isSub: false
+                    }
+                  }
                 }
               }).then(function (res) {
                 return res.data;
@@ -79,7 +85,7 @@ var DashboardActions = /*#__PURE__*/function () {
                 return err;
               }));
 
-            case 3:
+            case 2:
             case "end":
               return _context2.stop();
           }
@@ -87,19 +93,28 @@ var DashboardActions = /*#__PURE__*/function () {
       }, null, null, null, Promise);
     }
   }, {
-    key: "getDashboardById",
-    value: function getDashboardById(data) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getDashboardById$(_context3) {
+    key: "linkSubDashboard",
+    value: function linkSubDashboard(_ref3) {
+      var id, subDashboardId;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function linkSubDashboard$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              return _context3.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('', {}).then(function (res) {
+              id = _ref3.id, subDashboardId = _ref3.subDashboardId;
+              return _context3.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("".concat(API_URL, "/Dashboards/").concat(id, "/subDashboards"), {
+                dashboardId: id,
+                subDashboardId: subDashboardId
+              }, {
+                headers: {
+                  Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_5___default.a.get('id')
+                }
+              }).then(function (res) {
                 return res.data;
               })["catch"](function (err) {
-                return err.response;
+                return err;
               }));
 
-            case 1:
+            case 2:
             case "end":
               return _context3.stop();
           }
@@ -107,19 +122,25 @@ var DashboardActions = /*#__PURE__*/function () {
       }, null, null, null, Promise);
     }
   }, {
-    key: "updateDashboard",
-    value: function updateDashboard(id, data) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function updateDashboard$(_context4) {
+    key: "unLinkSubDashboard",
+    value: function unLinkSubDashboard(_ref4) {
+      var id, subDashboardId;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function unLinkSubDashboard$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              return _context4.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.patch("".concat(API_URL, "/Dashboards/").concat(id), data).then(function (res) {
+              id = _ref4.id, subDashboardId = _ref4.subDashboardId;
+              return _context4.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a["delete"]("".concat(API_URL, "/Dashboards/").concat(id, "/subDashboards/").concat(subDashboardId), {
+                headers: {
+                  Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_5___default.a.get('id')
+                }
+              }).then(function (res) {
                 return res.data;
               })["catch"](function (err) {
-                return err.response;
+                return err;
               }));
 
-            case 1:
+            case 2:
             case "end":
               return _context4.stop();
           }
@@ -127,19 +148,30 @@ var DashboardActions = /*#__PURE__*/function () {
       }, null, null, null, Promise);
     }
   }, {
-    key: "deleteDashboard",
-    value: function deleteDashboard(data) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function deleteDashboard$(_context5) {
+    key: "getSubDashboards",
+    value: function getSubDashboards(_ref5) {
+      var Authorization, id;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getSubDashboards$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
-              return _context5.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('', {}).then(function (res) {
+              Authorization = _ref5.Authorization, id = _ref5.id;
+              return _context5.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("".concat(API_URL, "/Dashboards/").concat(id, "/subDashboards"), {
+                headers: {
+                  Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_5___default.a.get('id')
+                },
+                params: {
+                  filter: {
+                    include: 'subDashboard'
+                  }
+                }
+              }).then(function (res) {
                 return res.data;
               })["catch"](function (err) {
-                return err.response;
+                return err;
               }));
 
-            case 1:
+            case 2:
             case "end":
               return _context5.stop();
           }
@@ -147,17 +179,15 @@ var DashboardActions = /*#__PURE__*/function () {
       }, null, null, null, Promise);
     }
   }, {
-    key: "getWidgetSettings",
-    value: function getWidgetSettings(_ref3) {
-      var Authorization, id;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getWidgetSettings$(_context6) {
+    key: "getDashboardById",
+    value: function getDashboardById(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getDashboardById$(_context6) {
         while (1) {
           switch (_context6.prev = _context6.next) {
             case 0:
-              Authorization = _ref3.Authorization, id = _ref3.id;
-              return _context6.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("".concat(API_URL, "/Dashboards/").concat(id, "/widgetSettings"), {
+              return _context6.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("".concat(API_URL, "/Dashboards/").concat(id), {
                 headers: {
-                  Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_5___default.a.get('id')
+                  Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_5___default.a.get('id')
                 }
               }).then(function (res) {
                 return res.data;
@@ -165,7 +195,7 @@ var DashboardActions = /*#__PURE__*/function () {
                 return err.response;
               }));
 
-            case 2:
+            case 1:
             case "end":
               return _context6.stop();
           }
@@ -173,25 +203,19 @@ var DashboardActions = /*#__PURE__*/function () {
       }, null, null, null, Promise);
     }
   }, {
-    key: "getCollaborators",
-    value: function getCollaborators(_ref4) {
-      var Authorization, id;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getCollaborators$(_context7) {
+    key: "updateDashboard",
+    value: function updateDashboard(id, data) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function updateDashboard$(_context7) {
         while (1) {
           switch (_context7.prev = _context7.next) {
             case 0:
-              Authorization = _ref4.Authorization, id = _ref4.id;
-              return _context7.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("".concat(API_URL, "/Dashboards/").concat(id, "/collaborators"), {
-                headers: {
-                  Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_5___default.a.get('id')
-                }
-              }).then(function (res) {
+              return _context7.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.patch("".concat(API_URL, "/Dashboards/").concat(id), data).then(function (res) {
                 return res.data;
               })["catch"](function (err) {
                 return err.response;
               }));
 
-            case 2:
+            case 1:
             case "end":
               return _context7.stop();
           }
@@ -199,25 +223,19 @@ var DashboardActions = /*#__PURE__*/function () {
       }, null, null, null, Promise);
     }
   }, {
-    key: "getCollaboratorations",
-    value: function getCollaboratorations(_ref5) {
-      var Authorization;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getCollaboratorations$(_context8) {
+    key: "deleteDashboard",
+    value: function deleteDashboard(data) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function deleteDashboard$(_context8) {
         while (1) {
           switch (_context8.prev = _context8.next) {
             case 0:
-              Authorization = _ref5.Authorization;
-              return _context8.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("".concat(API_URL, "/Dashboards/collaborations"), {
-                headers: {
-                  Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_5___default.a.get('id')
-                }
-              }).then(function (res) {
+              return _context8.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('', {}).then(function (res) {
                 return res.data;
               })["catch"](function (err) {
                 return err.response;
               }));
 
-            case 2:
+            case 1:
             case "end":
               return _context8.stop();
           }
@@ -225,19 +243,15 @@ var DashboardActions = /*#__PURE__*/function () {
       }, null, null, null, Promise);
     }
   }, {
-    key: "addCollaborator",
-    value: function addCollaborator(_ref6) {
-      var Authorization, email, id, editor, viewer;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function addCollaborator$(_context9) {
+    key: "getWidgetSettings",
+    value: function getWidgetSettings(_ref6) {
+      var Authorization, id;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getWidgetSettings$(_context9) {
         while (1) {
           switch (_context9.prev = _context9.next) {
             case 0:
-              Authorization = _ref6.Authorization, email = _ref6.email, id = _ref6.id, editor = _ref6.editor, viewer = _ref6.viewer;
-              return _context9.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("".concat(API_URL, "/Dashboards/").concat(id, "/dashboardRoleMappings"), {
-                email: email,
-                editor: editor,
-                viewer: viewer
-              }, {
+              Authorization = _ref6.Authorization, id = _ref6.id;
+              return _context9.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("".concat(API_URL, "/Dashboards/").concat(id, "/widgetSettings"), {
                 headers: {
                   Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_5___default.a.get('id')
                 }
@@ -255,13 +269,95 @@ var DashboardActions = /*#__PURE__*/function () {
       }, null, null, null, Promise);
     }
   }, {
-    key: "addWidgetToDashboard",
-    value: function addWidgetToDashboard(id, fk) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function addWidgetToDashboard$(_context10) {
+    key: "getCollaborators",
+    value: function getCollaborators(_ref7) {
+      var Authorization, id;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getCollaborators$(_context10) {
         while (1) {
           switch (_context10.prev = _context10.next) {
             case 0:
-              return _context10.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.put("".concat(API_URL, "/Dashboards/").concat(id, "/widgetSettings/rel/").concat(fk), {
+              Authorization = _ref7.Authorization, id = _ref7.id;
+              return _context10.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("".concat(API_URL, "/Dashboards/").concat(id, "/collaborators"), {
+                headers: {
+                  Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_5___default.a.get('id')
+                }
+              }).then(function (res) {
+                return res.data;
+              })["catch"](function (err) {
+                return err.response;
+              }));
+
+            case 2:
+            case "end":
+              return _context10.stop();
+          }
+        }
+      }, null, null, null, Promise);
+    }
+  }, {
+    key: "getCollaboratorations",
+    value: function getCollaboratorations(_ref8) {
+      var Authorization;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getCollaboratorations$(_context11) {
+        while (1) {
+          switch (_context11.prev = _context11.next) {
+            case 0:
+              Authorization = _ref8.Authorization;
+              return _context11.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("".concat(API_URL, "/Dashboards/collaborations"), {
+                headers: {
+                  Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_5___default.a.get('id')
+                }
+              }).then(function (res) {
+                return res.data;
+              })["catch"](function (err) {
+                return err.response;
+              }));
+
+            case 2:
+            case "end":
+              return _context11.stop();
+          }
+        }
+      }, null, null, null, Promise);
+    }
+  }, {
+    key: "addCollaborator",
+    value: function addCollaborator(_ref9) {
+      var Authorization, email, id, editor, viewer;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function addCollaborator$(_context12) {
+        while (1) {
+          switch (_context12.prev = _context12.next) {
+            case 0:
+              Authorization = _ref9.Authorization, email = _ref9.email, id = _ref9.id, editor = _ref9.editor, viewer = _ref9.viewer;
+              return _context12.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("".concat(API_URL, "/Dashboards/").concat(id, "/dashboardRoleMappings"), {
+                email: email,
+                editor: editor,
+                viewer: viewer
+              }, {
+                headers: {
+                  Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_5___default.a.get('id')
+                }
+              }).then(function (res) {
+                return res.data;
+              })["catch"](function (err) {
+                return err.response;
+              }));
+
+            case 2:
+            case "end":
+              return _context12.stop();
+          }
+        }
+      }, null, null, null, Promise);
+    }
+  }, {
+    key: "addWidgetToDashboard",
+    value: function addWidgetToDashboard(id, fk) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function addWidgetToDashboard$(_context13) {
+        while (1) {
+          switch (_context13.prev = _context13.next) {
+            case 0:
+              return _context13.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.put("".concat(API_URL, "/Dashboards/").concat(id, "/widgetSettings/rel/").concat(fk), {
                 dashboardId: id,
                 widgetSettingsId: fk
               }, {
@@ -276,7 +372,7 @@ var DashboardActions = /*#__PURE__*/function () {
 
             case 1:
             case "end":
-              return _context10.stop();
+              return _context13.stop();
           }
         }
       }, null, null, null, Promise);
@@ -284,11 +380,11 @@ var DashboardActions = /*#__PURE__*/function () {
   }, {
     key: "removeWidgetFromDashboard",
     value: function removeWidgetFromDashboard(data) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function removeWidgetFromDashboard$(_context11) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function removeWidgetFromDashboard$(_context14) {
         while (1) {
-          switch (_context11.prev = _context11.next) {
+          switch (_context14.prev = _context14.next) {
             case 0:
-              return _context11.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('', {}).then(function (res) {
+              return _context14.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('', {}).then(function (res) {
                 return res.data;
               })["catch"](function (err) {
                 return err.response;
@@ -296,7 +392,7 @@ var DashboardActions = /*#__PURE__*/function () {
 
             case 1:
             case "end":
-              return _context11.stop();
+              return _context14.stop();
           }
         }
       }, null, null, null, Promise);
@@ -602,9 +698,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/Assessment */ "./node_modules/@material-ui/icons/Assessment.js");
 /* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
+/* harmony import */ var _material_ui_icons_Pages__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/icons/Pages */ "./node_modules/@material-ui/icons/Pages.js");
+/* harmony import */ var _material_ui_icons_Pages__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Pages__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
 var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/SideMenu.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -637,8 +736,22 @@ function SideMenu() {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25,
+          lineNumber: 26,
           columnNumber: 79
+        }
+      });
+    }
+  }, {
+    key: 'webpages',
+    text: 'Web Pages',
+    route: '/webpages',
+    icon: function icon() {
+      return __jsx(_material_ui_icons_Pages__WEBPACK_IMPORTED_MODULE_10___default.a, {
+        __self: _this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27,
+          columnNumber: 76
         }
       });
     }
@@ -651,7 +764,7 @@ function SideMenu() {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26,
+          lineNumber: 28,
           columnNumber: 85
         }
       });
@@ -665,25 +778,25 @@ function SideMenu() {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27,
+          lineNumber: 29,
           columnNumber: 72
         }
       });
     }
   }];
-  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11__["default"], {
     className: classes.list,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 33,
       columnNumber: 5
     }
   }, __jsx(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 34,
       columnNumber: 7
     }
   }, routes.map(function (item, index) {
@@ -696,14 +809,14 @@ function SideMenu() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34,
+        lineNumber: 36,
         columnNumber: 11
       }
     }, __jsx(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5__["default"], {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35,
+        lineNumber: 37,
         columnNumber: 13
       }
     }, item.icon()), __jsx(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -711,7 +824,7 @@ function SideMenu() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36,
+        lineNumber: 38,
         columnNumber: 13
       }
     }));
@@ -817,6 +930,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     title: '',
     description: '',
     datasourceId: '',
+    isSub: false,
     collaborators: []
   }),
       state = _useState[0],
@@ -886,7 +1000,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 75,
+            lineNumber: 76,
             columnNumber: 11
           }
         }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_15__["default"], {
@@ -898,7 +1012,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 76,
+            lineNumber: 77,
             columnNumber: 13
           }
         }), __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_15__["default"], {
@@ -911,7 +1025,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 77,
+            lineNumber: 78,
             columnNumber: 13
           }
         }));
@@ -925,7 +1039,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 82,
+            lineNumber: 83,
             columnNumber: 11
           }
         }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_18__["default"], {
@@ -933,7 +1047,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83,
+            lineNumber: 84,
             columnNumber: 13
           }
         }, "Default DataSource"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_16__["default"], {
@@ -945,7 +1059,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 84,
+            lineNumber: 85,
             columnNumber: 13
           }
         }, datasources.map(function (datasource) {
@@ -954,7 +1068,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
             __self: _this,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 86,
+              lineNumber: 87,
               columnNumber: 17
             }
           }, datasource.title);
@@ -968,28 +1082,28 @@ var CreateDashboard = function CreateDashboard(_ref) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 95,
+            lineNumber: 96,
             columnNumber: 11
           }
         }, __jsx("p", {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 96,
+            lineNumber: 97,
             columnNumber: 13
           }
         }, "Name: ", state.title), __jsx("p", {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 97,
+            lineNumber: 98,
             columnNumber: 13
           }
         }, "Description: ", state.description), __jsx("p", {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 98,
+            lineNumber: 99,
             columnNumber: 13
           }
         }, "Datasource: ", state.datasourceId));
@@ -1067,7 +1181,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130,
+      lineNumber: 131,
       columnNumber: 5
     }
   }, __jsx("div", {
@@ -1075,7 +1189,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131,
+      lineNumber: 132,
       columnNumber: 7
     }
   }, "Create new dashboard"), __jsx("div", {
@@ -1083,7 +1197,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132,
+      lineNumber: 133,
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -1091,7 +1205,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
+      lineNumber: 134,
       columnNumber: 9
     }
   }, __jsx(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -1099,7 +1213,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134,
+      lineNumber: 135,
       columnNumber: 11
     }
   }, steps.map(function (label, index) {
@@ -1112,7 +1226,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139,
+          lineNumber: 140,
           columnNumber: 39
         }
       }, "Optional");
@@ -1128,14 +1242,14 @@ var CreateDashboard = function CreateDashboard(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 145,
+        lineNumber: 146,
         columnNumber: 17
       }
     }), __jsx(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_10__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, labelProps, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 146,
+        lineNumber: 147,
         columnNumber: 19
       }
     }), label));
@@ -1143,14 +1257,14 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151,
+      lineNumber: 152,
       columnNumber: 11
     }
   }, activeStep === steps.length ? __jsx("div", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155,
+      lineNumber: 156,
       columnNumber: 19
     }
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12__["default"], {
@@ -1158,7 +1272,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156,
+      lineNumber: 157,
       columnNumber: 21
     }
   }, "All steps completed - you're finished"), __jsx("div", {
@@ -1166,7 +1280,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159,
+      lineNumber: 160,
       columnNumber: 21
     }
   }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -1175,14 +1289,14 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 160,
+      lineNumber: 161,
       columnNumber: 23
     }
   }, "Reset"))) : __jsx("div", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 166,
+      lineNumber: 167,
       columnNumber: 19
     }
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12__["default"], {
@@ -1190,7 +1304,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 167,
+      lineNumber: 168,
       columnNumber: 21
     }
   }, getStepContent(activeStep)), __jsx("div", {
@@ -1198,7 +1312,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 168,
+      lineNumber: 169,
       columnNumber: 21
     }
   }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -1208,7 +1322,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 169,
+      lineNumber: 170,
       columnNumber: 23
     }
   }, "Back"), activeStep === steps.length - 1 ? __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -1219,7 +1333,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 175,
+      lineNumber: 176,
       columnNumber: 29
     }
   }, "Finish") : __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -1230,7 +1344,7 @@ var CreateDashboard = function CreateDashboard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 184,
+      lineNumber: 185,
       columnNumber: 29
     }
   }, "Next")))))));
@@ -18698,6 +18812,35 @@ var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/crea
 var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
   d: "M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"
 }), 'Dashboard');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/Pages.js":
+/*!**************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Pages.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M3 5v6h5L7 7l4 1V3H5c-1.1 0-2 .9-2 2zm5 8H3v6c0 1.1.9 2 2 2h6v-5l-4 1 1-4zm9 4l-4-1v5h6c1.1 0 2-.9 2-2v-6h-5l1 4zm2-14h-6v5l4-1-1 4h5V5c0-1.1-.9-2-2-2z"
+}), 'Pages');
 
 exports.default = _default;
 
@@ -36726,7 +36869,7 @@ Dashboards.getInitialProps = function _callee(req) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fdashboards&absolutePagePath=%2FUsers%2Fimustafa%2FProjects%2FLoStudio%2Fclient%2Fpages%2Fdashboards%2Findex.tsx&hotRouterUpdates=true ***!
   \************************************************************************************************************************************************************************************/
@@ -36749,5 +36892,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=dashboards.js.map

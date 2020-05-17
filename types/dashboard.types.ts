@@ -7,6 +7,7 @@ export default interface Dashboard {
   description: string;
   userId: string;
   datasourceId: string;
+  isSub: boolean;
   datasource?: Datasource;
   user?: User;
   permissions?: {

@@ -176,7 +176,7 @@ const TableWidget = ({ widgetId }) => {
     <div>
       <div className={classes.widgetActions}>
         <div className={classes.widgetTitle}>
-          <Typography style={{ color: "#FFF" }}>Widget Title</Typography>
+          <Typography style={{ color: "#FFF" }}>{widget && widget.title ? widget.title : 'Widget Title'}</Typography>
         </div>
         <div className={classes.actionButtons}>
           <IconButton onClick={toggleDrawer('export', true)}>

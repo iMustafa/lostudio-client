@@ -40,6 +40,7 @@ const TableWidgetSettingsPanel = ({ widget, handleSettingsClose, isAdding, onWid
   const classes = useStyles()
   const [connectionMethod, setConnectionMethod] = useState(!isAdding ? widget.config.connectionMethod : 'database')
   const [doc, setDoc] = useState(!isAdding ? widget.config.docId : '')
+  const [title, setTitle] = useState(!isAdding ? widget.title : '')
   const [datasource, setDatasource] = useState(!isAdding ? widget.dataSourceId : '')
   const [fields, setFields] = useState(!isAdding ? widget.config.fields : [])
   const [primaryKey, setPrimaryKey] = useState(!isAdding ? widget.config.primaryKey : null)
@@ -57,6 +58,7 @@ const TableWidgetSettingsPanel = ({ widget, handleSettingsClose, isAdding, onWid
     try {
       const data = {
         dataSourceId: datasource,
+        title,
         config: {
           docId: doc,
           fields,
@@ -76,6 +78,7 @@ const TableWidgetSettingsPanel = ({ widget, handleSettingsClose, isAdding, onWid
         },
         type: 'Table'
       }
+      console.log(data)
       if (isAdding) {
         onWidgetAdd(data)
       } else {
@@ -94,7 +97,7 @@ const TableWidgetSettingsPanel = ({ widget, handleSettingsClose, isAdding, onWid
       </h2>
       <FormControl fullWidth className={classes.formControl}>
         <InputLabel id='title'>Title</InputLabel>
-        <Input />
+        <Input value={title} onChange={event => { setTitle(event.target.value) }} />
       </FormControl>
       <div style={{ marginTop: 20 }}>
         <FormControlLabel

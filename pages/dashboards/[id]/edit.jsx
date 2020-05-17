@@ -1,11 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { makeStyles } from '@material-ui/core/styles'
 import GridLayout from 'react-grid-layout'
-import Cookies from 'next-cookies'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
+import Backdrop from '@material-ui/core/Backdrop'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import Typography from '@material-ui/core/Typography'
 import ArrowLeft from '@material-ui/icons/ArrowLeft'
 import SaveIcon from '@material-ui/icons/Save'
 import DashboardIcon from '@material-ui/icons/Dashboard'
@@ -18,22 +20,50 @@ import DashboardSettings from '../../../components/dashboards/settings/dashboard
 import { useRouter } from 'next/router'
 import { decideWidgetSettings, decideWidget } from '../../../helpers/decide-widgets'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   list: {
     width: 500
   },
   fullList: {
     width: 'auto'
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
   }
-})
+}))
 
-const EditDashboard = (WidgetSettings) => {
+const EditDashboard = () => {
   const classes = useStyles()
   const router = useRouter()
-  const { id } = router.query
+  const [id, setId] = useState(router.query.id)
   const [menuState, setMenuState] = useState({ right: false, addWidget: false, settings: false })
-  const [layout, setLayout] = useState(Object.values(WidgetSettings))
+  const [layout, setLayout] = useState([])
   const [addType, setAddType] = useState(null)
+  const [WidgetSettings, setWidgetSettings] = useState([])
+  const [SubDashboards, setSubDashboards] = useState([])
+  const [refresh, setRefresh] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const getProps = async () => {
+      try {
+        setIsLoading(true)
+        const dashboard = await DashboardActions.getDashboardById(id)
+        if (!dashboard.isSub) {
+          const $SubDashboards = await DashboardActions.getSubDashboards({ id })
+          setSubDashboards($SubDashboards)
+        }
+        const $WidgetSettings = await DashboardActions.getWidgetSettings({ id })
+        setLayout($WidgetSettings)
+        setWidgetSettings($WidgetSettings)
+        setIsLoading(false)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    getProps()
+  }, [id, refresh])
 
   const onLayoutChange = async ($event) => {
     try {
@@ -75,14 +105,17 @@ const EditDashboard = (WidgetSettings) => {
       }
       if (widgetSettingsId) {
         delete layoutItem.layout
+        setIsLoading(true)
         const saveWidget = await WidgetSettingsActions.createWidgetSettings(layoutItem)
         const linkWidget = await WidgetSettingsActions.createSubWidget(widgetSettingsId, saveWidget.id)
-        console.log(linkWidget)
+        setIsLoading(false)
       } else {
+        setIsLoading(true)
         const saveWidget = await WidgetSettingsActions.createWidgetSettings(layoutItem)
         const linkWidget = await DashboardActions.addWidgetToDashboard(id, saveWidget.id)
         layoutItem.id = saveWidget.id
         setLayout([...layout, layoutItem])
+        setIsLoading(false)
       }
     } catch (e) {
       console.log(e)
@@ -108,6 +141,9 @@ const EditDashboard = (WidgetSettings) => {
 
   return (
     <div>
+      <Backdrop className={classes.backdrop} open={isLoading}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <Drawer anchor="right" open={menuState.right} onClose={toggleDrawer('right', false)}>
         {sideList()}
       </Drawer>
@@ -117,14 +153,30 @@ const EditDashboard = (WidgetSettings) => {
       </Drawer>
 
       <Drawer anchor="right" open={menuState.settings} onClose={toggleDrawer('settings', false)}>
-        <DashboardSettings id={id} />
+        <DashboardSettings id={id} refresh={refresh} setRefresh={setRefresh} />
       </Drawer>
 
       <Card style={{ display: 'flex', flexDirection: 'row' }}>
-        <div style={{ justifySelf: 'flex-start', display: 'flex', flex: 1 }}>
-          <IconButton aria-label="back" size="medium" style={{ outline: 'none' }}>
-            <ArrowLeft fontSize="default" />
-          </IconButton>
+        <IconButton onClick={() => { router.back() }} aria-label="back" size="medium" style={{ outline: 'none' }}>
+          <ArrowLeft fontSize="default" />
+        </IconButton>
+        <div style={{ display: 'flex', flex: 1, overflowX: 'scroll', alignItems: 'center' }}>
+          <Button onClick={() => { setId(router.query.id) }} style={{ marginLeft: 10 }}>Main</Button>
+          {
+            SubDashboards.map(subDashboard => (
+              <div key={subDashboard.subDashboardId}>
+                <Button
+                  onClick={() => {
+                    setId(subDashboard.subDashboardId)
+                  }}
+                  style={{ marginLeft: 10 }}>
+                  <Typography noWrap style={{ fontWeight: 500, fontSize: '0.875rem', color: 'rgba(0, 0, 0, 0.87)' }}>
+                    {subDashboard.subDashboard.title}
+                  </Typography>
+                </Button>
+              </div>
+            ))
+          }
         </div>
         <div style={{ justifySelf: 'flex-end', display: 'flex', flex: 1, justifyContent: 'flex-end', paddingRight: '10px' }}>
           <Button style={{ outline: 'none' }} size="small" startIcon={<SaveIcon />}>
@@ -148,11 +200,12 @@ const EditDashboard = (WidgetSettings) => {
   )
 };
 
-EditDashboard.getInitialProps = async (req) => {
-  const Authorization = Cookies(req).id
-  const { id } = req.query
-  const WidgetSettings = await DashboardActions.getWidgetSettings({ Authorization, id })
-  return WidgetSettings
-}
+// EditDashboard.getInitialProps = async (req) => {
+//   const Authorization = Cookies(req).id
+//   const { id } = req.query
+//   const WidgetSettings = await DashboardActions.getWidgetSettings({ Authorization, id })
+//   const SubDashboards = await DashboardActions.getSubDashboards({ Authorization, id })
+//   return { WidgetSettings, SubDashboards }
+// }
 
 export default EditDashboard;

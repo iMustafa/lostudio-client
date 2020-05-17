@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -131,16 +131,67 @@ class DashboardActions {
     Authorization,
     query
   }) {
-    console.log(Authorization);
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards`, {
       headers: {
         Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      },
+      params: {
+        filter: {
+          where: {
+            isSub: false
+          }
+        }
       }
     }).then(res => res.data).catch(err => err);
   }
 
-  static async getDashboardById(data) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('', {}).then(res => res.data).catch(err => err.response);
+  static async linkSubDashboard({
+    id,
+    subDashboardId
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(`${API_URL}/Dashboards/${id}/subDashboards`, {
+      dashboardId: id,
+      subDashboardId
+    }, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async unLinkSubDashboard({
+    id,
+    subDashboardId
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete(`${API_URL}/Dashboards/${id}/subDashboards/${subDashboardId}`, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async getSubDashboards({
+    Authorization,
+    id
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards/${id}/subDashboards`, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      },
+      params: {
+        filter: {
+          include: 'subDashboard'
+        }
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async getDashboardById(id) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards/${id}`, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err.response);
   }
 
   static async updateDashboard(id, data) {
@@ -358,10 +409,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/Assessment */ "@material-ui/icons/Assessment");
 /* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
-/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_icons_Pages__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/icons/Pages */ "@material-ui/icons/Pages");
+/* harmony import */ var _material_ui_icons_Pages__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Pages__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11__);
 var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/SideMenu.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -391,8 +445,20 @@ function SideMenu() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25,
+        lineNumber: 26,
         columnNumber: 79
+      }
+    })
+  }, {
+    key: 'webpages',
+    text: 'Web Pages',
+    route: '/webpages',
+    icon: () => __jsx(_material_ui_icons_Pages__WEBPACK_IMPORTED_MODULE_10___default.a, {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27,
+        columnNumber: 76
       }
     })
   }, {
@@ -403,7 +469,7 @@ function SideMenu() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26,
+        lineNumber: 28,
         columnNumber: 85
       }
     })
@@ -415,24 +481,24 @@ function SideMenu() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27,
+        lineNumber: 29,
         columnNumber: 72
       }
     })
   }];
-  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_10___default.a, {
+  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11___default.a, {
     className: classes.list,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 33,
       columnNumber: 5
     }
   }, __jsx(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_3___default.a, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 34,
       columnNumber: 7
     }
   }, routes.map((item, index) => __jsx(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -444,14 +510,14 @@ function SideMenu() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 36,
       columnNumber: 11
     }
   }, __jsx(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5___default.a, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 37,
       columnNumber: 13
     }
   }, item.icon()), __jsx(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -459,7 +525,7 @@ function SideMenu() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 38,
       columnNumber: 13
     }
   })))));
@@ -571,6 +637,7 @@ const CreateDashboard = ({
     title: '',
     description: '',
     datasourceId: '',
+    isSub: false,
     collaborators: []
   });
   const {
@@ -620,7 +687,7 @@ const CreateDashboard = ({
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 75,
+            lineNumber: 76,
             columnNumber: 11
           }
         }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_12___default.a, {
@@ -632,7 +699,7 @@ const CreateDashboard = ({
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 76,
+            lineNumber: 77,
             columnNumber: 13
           }
         }), __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_12___default.a, {
@@ -645,7 +712,7 @@ const CreateDashboard = ({
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 77,
+            lineNumber: 78,
             columnNumber: 13
           }
         }));
@@ -659,7 +726,7 @@ const CreateDashboard = ({
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 82,
+            lineNumber: 83,
             columnNumber: 11
           }
         }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_15___default.a, {
@@ -667,7 +734,7 @@ const CreateDashboard = ({
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83,
+            lineNumber: 84,
             columnNumber: 13
           }
         }, "Default DataSource"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_13___default.a, {
@@ -679,7 +746,7 @@ const CreateDashboard = ({
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 84,
+            lineNumber: 85,
             columnNumber: 13
           }
         }, datasources.map(datasource => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_14___default.a, {
@@ -687,7 +754,7 @@ const CreateDashboard = ({
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 86,
+            lineNumber: 87,
             columnNumber: 17
           }
         }, datasource.title))));
@@ -700,28 +767,28 @@ const CreateDashboard = ({
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 95,
+            lineNumber: 96,
             columnNumber: 11
           }
         }, __jsx("p", {
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 96,
+            lineNumber: 97,
             columnNumber: 13
           }
         }, "Name: ", state.title), __jsx("p", {
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 97,
+            lineNumber: 98,
             columnNumber: 13
           }
         }, "Description: ", state.description), __jsx("p", {
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 98,
+            lineNumber: 99,
             columnNumber: 13
           }
         }, "Datasource: ", state.datasourceId));
@@ -771,7 +838,7 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130,
+      lineNumber: 131,
       columnNumber: 5
     }
   }, __jsx("div", {
@@ -779,7 +846,7 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131,
+      lineNumber: 132,
       columnNumber: 7
     }
   }, "Create new dashboard"), __jsx("div", {
@@ -787,7 +854,7 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132,
+      lineNumber: 133,
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -795,7 +862,7 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
+      lineNumber: 134,
       columnNumber: 9
     }
   }, __jsx(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -803,7 +870,7 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134,
+      lineNumber: 135,
       columnNumber: 11
     }
   }, steps.map((label, index) => {
@@ -816,7 +883,7 @@ const CreateDashboard = ({
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139,
+          lineNumber: 140,
           columnNumber: 39
         }
       }, "Optional");
@@ -832,14 +899,14 @@ const CreateDashboard = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 145,
+        lineNumber: 146,
         columnNumber: 17
       }
     }), __jsx(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_7___default.a, _extends({}, labelProps, {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 146,
+        lineNumber: 147,
         columnNumber: 19
       }
     }), label));
@@ -847,14 +914,14 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151,
+      lineNumber: 152,
       columnNumber: 11
     }
   }, activeStep === steps.length ? __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155,
+      lineNumber: 156,
       columnNumber: 19
     }
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9___default.a, {
@@ -862,7 +929,7 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156,
+      lineNumber: 157,
       columnNumber: 21
     }
   }, "All steps completed - you're finished"), __jsx("div", {
@@ -870,7 +937,7 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159,
+      lineNumber: 160,
       columnNumber: 21
     }
   }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8___default.a, {
@@ -879,14 +946,14 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 160,
+      lineNumber: 161,
       columnNumber: 23
     }
   }, "Reset"))) : __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 166,
+      lineNumber: 167,
       columnNumber: 19
     }
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9___default.a, {
@@ -894,7 +961,7 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 167,
+      lineNumber: 168,
       columnNumber: 21
     }
   }, getStepContent(activeStep)), __jsx("div", {
@@ -902,7 +969,7 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 168,
+      lineNumber: 169,
       columnNumber: 21
     }
   }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8___default.a, {
@@ -912,7 +979,7 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 169,
+      lineNumber: 170,
       columnNumber: 23
     }
   }, "Back"), activeStep === steps.length - 1 ? __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8___default.a, {
@@ -923,7 +990,7 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 175,
+      lineNumber: 176,
       columnNumber: 29
     }
   }, "Finish") : __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8___default.a, {
@@ -934,7 +1001,7 @@ const CreateDashboard = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 184,
+      lineNumber: 185,
       columnNumber: 29
     }
   }, "Next")))))));
@@ -1459,7 +1526,7 @@ Dashboards.getInitialProps = async req => {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************************!*\
   !*** multi ./pages/dashboards/index.tsx ***!
   \******************************************/
@@ -1732,6 +1799,17 @@ module.exports = require("@material-ui/icons/Assessment");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/icons/Dashboard");
+
+/***/ }),
+
+/***/ "@material-ui/icons/Pages":
+/*!*******************************************!*\
+  !*** external "@material-ui/icons/Pages" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Pages");
 
 /***/ }),
 

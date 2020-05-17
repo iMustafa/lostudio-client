@@ -28,7 +28,7 @@ const TableWidget = ({ title, widget, icon, onWidgetClick, addPredefinedWidget }
     <ButtonBase className={classes.root} onClick={widget ? addPredefinedWidget.bind(this, widget) : onWidgetClick.bind(this, title)}>
       <Card className={classes.card}>
         {icon}
-        <Typography style={{ marginTop: 10 }}>{title}</Typography>
+        <Typography style={{ marginTop: 10 }}>{widget ? widget.title : title}</Typography>
       </Card>
     </ButtonBase>
   )
