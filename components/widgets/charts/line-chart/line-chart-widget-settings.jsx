@@ -141,7 +141,7 @@ const saveConfigSettings = async () => {
         func: 'find',
         query: {}
       },
-      type: 'Table'
+      type: 'Line Chart'
     }
     if (isAdding) {
       onWidgetAdd(data)

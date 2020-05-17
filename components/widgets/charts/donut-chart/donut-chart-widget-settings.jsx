@@ -141,7 +141,7 @@ const DonutChartWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWid
           func: 'find',
           query: {}
         },
-        type: 'Table'
+        type: 'Donut Chart'
       }
       if (isAdding) {
         onWidgetAdd(data)
