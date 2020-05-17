@@ -131,16 +131,79 @@ class DashboardActions {
     Authorization,
     query
   }) {
+<<<<<<< HEAD
     console.log(Authorization);
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards`, {
       headers: {
         Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+=======
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards`, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      },
+      params: {
+        filter: {
+          where: {
+            isSub: false
+          }
+        }
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       }
     }).then(res => res.data).catch(err => err);
   }
 
+<<<<<<< HEAD
   static async getDashboardById(data) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('', {}).then(res => res.data).catch(err => err.response);
+=======
+  static async linkSubDashboard({
+    id,
+    subDashboardId
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(`${API_URL}/Dashboards/${id}/subDashboards`, {
+      dashboardId: id,
+      subDashboardId
+    }, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async unLinkSubDashboard({
+    id,
+    subDashboardId
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete(`${API_URL}/Dashboards/${id}/subDashboards/${subDashboardId}`, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async getSubDashboards({
+    Authorization,
+    id
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards/${id}/subDashboards`, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      },
+      params: {
+        filter: {
+          include: 'subDashboard'
+        }
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async getDashboardById(id) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards/${id}`, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err.response);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   }
 
   static async updateDashboard(id, data) {
@@ -351,7 +414,40 @@ const {
   API_URL
 } = next_config__WEBPACK_IMPORTED_MODULE_1___default()().publicRuntimeConfig;
 class WidgetSettingsActions {
+<<<<<<< HEAD
   // TODO
+=======
+  static async addWidgetSettingsDocument(widgetSettingsId, data) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(`${API_URL}/WidgetSettings/${widgetSettingsId}/add-document`, data, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async editWidgetSettingsDocument(widgetSettingsId, data, keyId) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(`${API_URL}/WidgetSettings/${widgetSettingsId}/edit-document`, data, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      },
+      params: {
+        keyId
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async deleteWidgetSettingsDocument(widgetSettingsId, keyId) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete(`${API_URL}/WidgetSettings/${widgetSettingsId}/delete-document`, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      },
+      params: {
+        keyId
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   static async createWidgetSettings(widgetSettings) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(`${API_URL}/WidgetSettings`, widgetSettings, {
       headers: {
@@ -400,8 +496,41 @@ class WidgetSettingsActions {
     }).then(res => res.data).catch(err => err.response);
   }
 
+<<<<<<< HEAD
   static async deleteSubWidget(widgetSettingsId, subWidgetSettingsId) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete(`${API_URL}/WidgetSettings/${widgetSettingsId}/subWidgetSettings/${subWidgetSettingsId}`).then(res => res.data).catch(err => err.response);
+=======
+  static async getWidgetSettingsMeasureConditions(widgetSettingsId) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/WidgetSettings/${widgetSettingsId}/measureConditions`, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async createWidgetSettingsMeasureConditions(widgetSettingsId, measureCondition) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(`${API_URL}/WidgetSettings/${widgetSettingsId}/measureConditions`, measureCondition, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async deleteWidgetSettingsMeasureConditions(widgetSettingsId, measureConditionId) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete(`${API_URL}/WidgetSettings/${widgetSettingsId}/measureConditions/${measureConditionId}`, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async deleteSubWidget(widgetSettingsId, subWidgetSettingsId) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete(`${API_URL}/WidgetSettings/${widgetSettingsId}/subWidgetSettings/${subWidgetSettingsId}`, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
+      }
+    }).then(res => res.data).catch(err => err.response);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   }
 
   static async getFormGroupWidgets() {
@@ -499,7 +628,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_BarChart__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_BarChart__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var _material_ui_icons_ListAlt__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/icons/ListAlt */ "@material-ui/icons/ListAlt");
 /* harmony import */ var _material_ui_icons_ListAlt__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ListAlt__WEBPACK_IMPORTED_MODULE_15__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\dashboards\\my-widgets.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/dashboards/my-widgets.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -787,7 +920,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\dashboards\\settings\\add-new-collaborator.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/dashboards/settings/add-new-collaborator.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -1052,7 +1189,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\dashboards\\settings\\collaborator-card.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/dashboards/settings/collaborator-card.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -1267,9 +1408,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Lock__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Lock__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/icons/Settings */ "@material-ui/icons/Settings");
 /* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_8__);
+<<<<<<< HEAD
 /* harmony import */ var _privacy_settings__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./privacy-settings */ "./components/dashboards/settings/privacy-settings.jsx");
 /* harmony import */ var _general_settings__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./general-settings */ "./components/dashboards/settings/general-settings.jsx");
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\dashboards\\settings\\dashboard-settings.jsx";
+=======
+/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/Dashboard */ "@material-ui/icons/Dashboard");
+/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _privacy_settings__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./privacy-settings */ "./components/dashboards/settings/privacy-settings.jsx");
+/* harmony import */ var _general_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./general-settings */ "./components/dashboards/settings/general-settings.jsx");
+/* harmony import */ var _sub_boards_settings__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./sub-boards-settings */ "./components/dashboards/settings/sub-boards-settings.jsx");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/dashboards/settings/dashboard-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -1291,6 +1443,12 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 const TabPanel = props => {
   const {
     children,
@@ -1309,7 +1467,11 @@ const TabPanel = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 17,
+=======
+      lineNumber: 20,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   }), value === index && __jsx(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -1317,7 +1479,11 @@ const TabPanel = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 25,
+=======
+      lineNumber: 28,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 27
     }
   }, children));
@@ -1337,9 +1503,18 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
 }));
 
 const DashboardSettings = ({
+<<<<<<< HEAD
   id
 }) => {
   const classes = useStyles();
+=======
+  id,
+  refresh,
+  setRefresh
+}) => {
+  const classes = useStyles();
+  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_10__["useRouter"])();
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   const {
     0: value,
     1: setValue
@@ -1354,7 +1529,11 @@ const DashboardSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 52,
+=======
+      lineNumber: 56,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   }, __jsx(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -1363,7 +1542,11 @@ const DashboardSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 53,
+=======
+      lineNumber: 57,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -1376,7 +1559,11 @@ const DashboardSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 54,
+=======
+      lineNumber: 58,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   }, __jsx(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4___default.a, _extends({
@@ -1385,7 +1572,11 @@ const DashboardSettings = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
+<<<<<<< HEAD
         lineNumber: 62,
+=======
+        lineNumber: 66,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         columnNumber: 47
       }
     })
@@ -1393,7 +1584,11 @@ const DashboardSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 62,
+=======
+      lineNumber: 66,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 11
     }
   })), __jsx(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4___default.a, _extends({
@@ -1402,7 +1597,11 @@ const DashboardSettings = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
+<<<<<<< HEAD
         lineNumber: 63,
+=======
+        lineNumber: 67,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         columnNumber: 47
       }
     })
@@ -1410,15 +1609,42 @@ const DashboardSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 63,
       columnNumber: 11
     }
+=======
+      lineNumber: 67,
+      columnNumber: 11
+    }
+  })), id == router.query.id && __jsx(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4___default.a, _extends({
+    label: "Pages Settings",
+    icon: __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 68,
+        columnNumber: 71
+      }
+    })
+  }, a11yProps(2), {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68,
+      columnNumber: 37
+    }
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   })))), __jsx("div", {
     index: value,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 66,
+=======
+      lineNumber: 71,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(TabPanel, {
@@ -1427,6 +1653,7 @@ const DashboardSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 69,
       columnNumber: 9
     }
@@ -1436,6 +1663,19 @@ const DashboardSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 70,
+=======
+      lineNumber: 74,
+      columnNumber: 9
+    }
+  }, __jsx(_general_settings__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    id: id,
+    refresh: refresh,
+    setRefresh: setRefresh,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 11
     }
   })), __jsx(TabPanel, {
@@ -1444,17 +1684,49 @@ const DashboardSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 72,
       columnNumber: 9
     }
   }, __jsx(_privacy_settings__WEBPACK_IMPORTED_MODULE_9__["default"], {
+=======
+      lineNumber: 77,
+      columnNumber: 9
+    }
+  }, __jsx(_privacy_settings__WEBPACK_IMPORTED_MODULE_11__["default"], {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     id: id,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 73,
       columnNumber: 11
     }
+=======
+      lineNumber: 78,
+      columnNumber: 11
+    }
+  })), id == router.query.id && __jsx(TabPanel, {
+    value: value,
+    index: 2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+      columnNumber: 13
+    }
+  }, __jsx(_sub_boards_settings__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    id: id,
+    refresh: refresh,
+    setRefresh: setRefresh,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83,
+      columnNumber: 15
+    }
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   }))));
 };
 
@@ -1475,6 +1747,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
@@ -1485,6 +1758,36 @@ var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\dashboards\\sett
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+=======
+/* harmony import */ var _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/dashboard.actions */ "./actions/dashboard.actions.ts");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "@material-ui/core/CircularProgress");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_8__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/dashboards/settings/general-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -1508,12 +1811,19 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
 }));
 
 const GeneralSettings = ({
+<<<<<<< HEAD
   id
+=======
+  id,
+  refresh,
+  setRefresh
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 }) => {
   const classes = useStyles();
   const {
     0: state,
     1: setState
+<<<<<<< HEAD
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     const getInitialProps = async () => {
@@ -1521,12 +1831,58 @@ const GeneralSettings = ({
         console.log(e);
       }
     };
+=======
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    title: '',
+    description: ''
+  });
+  const {
+    0: isSub,
+    1: setIsSub
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: showDelete,
+    1: setShowDelete
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: isDeleting,
+    1: setIsDeleting
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: isEditing,
+    1: setIsEditing
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: dashboard,
+    1: setDashboard
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getInitialProps = async () => {
+      try {
+        const $dashboard = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_2__["default"].getDashboardById(id);
+        setDashboard($dashboard);
+        setState(_objectSpread({}, state, {
+          title: $dashboard.title,
+          description: dashboard.description
+        }));
+        setIsSub($dashboard.isSub ? true : false);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getInitialProps();
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   }, []);
   return __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 40,
+=======
+      lineNumber: 53,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   }, __jsx("h2", {
@@ -1534,7 +1890,11 @@ const GeneralSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 41,
+=======
+      lineNumber: 54,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx("span", {
@@ -1542,31 +1902,55 @@ const GeneralSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 42,
+=======
+      lineNumber: 55,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   }, "Dashboard Details")), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 44,
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default.a, {
     label: "Title",
+=======
+      lineNumber: 57,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    label: "Title",
+    value: state.title,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     placeholder: "Dashboard Title",
     fullWidth: true,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 45,
       columnNumber: 9
     }
   }), __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default.a, {
+=======
+      lineNumber: 58,
+      columnNumber: 9
+    }
+  }), __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     style: {
       marginTop: 10
     },
     fullWidth: true,
+<<<<<<< HEAD
+=======
+    value: state.description,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     label: "Description",
     placeholder: "Dashboard Description",
     multiline: true,
@@ -1575,10 +1959,17 @@ const GeneralSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 47,
       columnNumber: 9
     }
   }), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4___default.a, {
+=======
+      lineNumber: 60,
+      columnNumber: 9
+    }
+  }), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     style: {
       marginTop: 10
@@ -1586,6 +1977,7 @@ const GeneralSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 57,
       columnNumber: 9
     }
@@ -1652,6 +2044,215 @@ const PrivacySettings = ({
   const {
     0: isAddingCollaborator,
     1: setIsAddingCollaborator
+=======
+      lineNumber: 71,
+      columnNumber: 9
+    }
+  }, "Save Changes")), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75,
+      columnNumber: 9
+    }
+  }, "Delete Project")), showDelete ? __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    style: {
+      marginTop: 10,
+      padding: 15
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79,
+      columnNumber: 11
+    }
+  }, !isSub ? __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    style: {
+      fontSize: 12
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83,
+      columnNumber: 19
+    }
+  }, "Confirm your delete action by typing in the dashboard title below."), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    style: {
+      fontSize: 8,
+      color: '#c0392b'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86,
+      columnNumber: 19
+    }
+  }, "*Deleting this project will result in deleting all of its included pages")) : __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91,
+      columnNumber: 19
+    }
+  }, "Confirm your delete action by typing in the dashboard title below."), __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    label: "Title",
+    placeholder: dashboard.title,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96,
+      columnNumber: 13
+    }
+  }), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    container: true,
+    spacing: 2,
+    style: {
+      marginTop: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    item: true,
+    xs: 6,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 98,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    fullWidth: true,
+    onClick: () => {
+      setShowDelete(false);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 99,
+      columnNumber: 17
+    }
+  }, "Cancel")), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    item: true,
+    xs: 6,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 101,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    fullWidth: true,
+    style: {
+      backgroundColor: '#c0392b',
+      color: '#FFF'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102,
+      columnNumber: 17
+    }
+  }, "Confirm Delete")))) : __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    fullWidth: true,
+    onClick: () => {
+      setShowDelete(true);
+    },
+    style: {
+      marginTop: 10,
+      backgroundColor: '#c0392b',
+      color: "#FFF"
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107,
+      columnNumber: 13
+    }
+  }, "Delete Project"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (GeneralSettings);
+
+/***/ }),
+
+/***/ "./components/dashboards/settings/privacy-settings.jsx":
+/*!*************************************************************!*\
+  !*** ./components/dashboards/settings/privacy-settings.jsx ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/dashboard.actions */ "./actions/dashboard.actions.ts");
+/* harmony import */ var _collaborator_card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./collaborator-card */ "./components/dashboards/settings/collaborator-card.jsx");
+/* harmony import */ var _add_new_collaborator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./add-new-collaborator */ "./components/dashboards/settings/add-new-collaborator.jsx");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/dashboards/settings/privacy-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(() => ({
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  }
+}));
+
+const PrivacySettings = ({
+  id
+}) => {
+  const classes = useStyles();
+  const {
+    0: collaborators,
+    1: setCollaborators
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: isAddingCollaborator,
+    1: setIsAddingCollaborator
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     const getInitialProps = async () => {
@@ -1740,6 +2341,407 @@ const PrivacySettings = ({
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ "./components/dashboards/system-widgets.jsx":
+/*!**************************************************!*\
+  !*** ./components/dashboards/system-widgets.jsx ***!
+  \**************************************************/
+=======
+/***/ "./components/dashboards/settings/sub-boards-settings.jsx":
+/*!****************************************************************!*\
+  !*** ./components/dashboards/settings/sub-boards-settings.jsx ***!
+  \****************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/ExpansionPanel */ "@material-ui/core/ExpansionPanel");
+/* harmony import */ var _material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/ExpansionPanelSummary */ "@material-ui/core/ExpansionPanelSummary");
+/* harmony import */ var _material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/ExpansionPanelDetails */ "@material-ui/core/ExpansionPanelDetails");
+/* harmony import */ var _material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/icons/ExpandMore */ "@material-ui/icons/ExpandMore");
+/* harmony import */ var _material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _widgets_widget_icon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../widgets/widget-icon */ "./components/widgets/widget-icon.jsx");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! uuid */ "uuid");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(uuid__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_icons_TableChart__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/icons/TableChart */ "@material-ui/icons/TableChart");
+/* harmony import */ var _material_ui_icons_TableChart__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_TableChart__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_icons_Timeline__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/icons/Timeline */ "@material-ui/icons/Timeline");
+/* harmony import */ var _material_ui_icons_Timeline__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Timeline__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_icons_BubbleChart__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/icons/BubbleChart */ "@material-ui/icons/BubbleChart");
+/* harmony import */ var _material_ui_icons_BubbleChart__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_BubbleChart__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _material_ui_icons_DonutLarge__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/icons/DonutLarge */ "@material-ui/icons/DonutLarge");
+/* harmony import */ var _material_ui_icons_DonutLarge__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_DonutLarge__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _material_ui_icons_PieChart__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/icons/PieChart */ "@material-ui/icons/PieChart");
+/* harmony import */ var _material_ui_icons_PieChart__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_PieChart__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _material_ui_icons_BarChart__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/icons/BarChart */ "@material-ui/icons/BarChart");
+/* harmony import */ var _material_ui_icons_BarChart__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_BarChart__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _material_ui_icons_ListAlt__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/icons/ListAlt */ "@material-ui/icons/ListAlt");
+/* harmony import */ var _material_ui_icons_ListAlt__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ListAlt__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _material_ui_icons_TextRotationNone__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @material-ui/icons/TextRotationNone */ "@material-ui/icons/TextRotationNone");
+/* harmony import */ var _material_ui_icons_TextRotationNone__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_TextRotationNone__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _material_ui_icons_TouchApp__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @material-ui/icons/TouchApp */ "@material-ui/icons/TouchApp");
+/* harmony import */ var _material_ui_icons_TouchApp__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_TouchApp__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _material_ui_icons_CheckBox__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @material-ui/icons/CheckBox */ "@material-ui/icons/CheckBox");
+/* harmony import */ var _material_ui_icons_CheckBox__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_CheckBox__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _material_ui_icons_DateRange__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @material-ui/icons/DateRange */ "@material-ui/icons/DateRange");
+/* harmony import */ var _material_ui_icons_DateRange__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_DateRange__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _material_ui_icons_FileCopy__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @material-ui/icons/FileCopy */ "@material-ui/icons/FileCopy");
+/* harmony import */ var _material_ui_icons_FileCopy__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_FileCopy__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var _material_ui_icons_Dialpad__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @material-ui/icons/Dialpad */ "@material-ui/icons/Dialpad");
+/* harmony import */ var _material_ui_icons_Dialpad__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Dialpad__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var _material_ui_icons_VisibilityOff__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @material-ui/icons/VisibilityOff */ "@material-ui/icons/VisibilityOff");
+/* harmony import */ var _material_ui_icons_VisibilityOff__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_VisibilityOff__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _material_ui_icons_RadioButtonChecked__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @material-ui/icons/RadioButtonChecked */ "@material-ui/icons/RadioButtonChecked");
+/* harmony import */ var _material_ui_icons_RadioButtonChecked__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_RadioButtonChecked__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var _material_ui_icons_SelectAll__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @material-ui/icons/SelectAll */ "@material-ui/icons/SelectAll");
+/* harmony import */ var _material_ui_icons_SelectAll__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_SelectAll__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var _material_ui_icons_TextFormat__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @material-ui/icons/TextFormat */ "@material-ui/icons/TextFormat");
+/* harmony import */ var _material_ui_icons_TextFormat__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_TextFormat__WEBPACK_IMPORTED_MODULE_26__);
+/* harmony import */ var _material_ui_icons_TextFields__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @material-ui/icons/TextFields */ "@material-ui/icons/TextFields");
+/* harmony import */ var _material_ui_icons_TextFields__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_TextFields__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var _material_ui_icons_GridOn__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @material-ui/icons/GridOn */ "@material-ui/icons/GridOn");
+/* harmony import */ var _material_ui_icons_GridOn__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_GridOn__WEBPACK_IMPORTED_MODULE_28__);
+/* harmony import */ var _material_ui_icons_Receipt__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @material-ui/icons/Receipt */ "@material-ui/icons/Receipt");
+/* harmony import */ var _material_ui_icons_Receipt__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Receipt__WEBPACK_IMPORTED_MODULE_29__);
+/* harmony import */ var _material_ui_icons_Image__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @material-ui/icons/Image */ "@material-ui/icons/Image");
+/* harmony import */ var _material_ui_icons_Image__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Image__WEBPACK_IMPORTED_MODULE_30__);
+/* harmony import */ var _material_ui_icons_List__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @material-ui/icons/List */ "@material-ui/icons/List");
+/* harmony import */ var _material_ui_icons_List__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_List__WEBPACK_IMPORTED_MODULE_31__);
+/* harmony import */ var _material_ui_icons_Subject__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @material-ui/icons/Subject */ "@material-ui/icons/Subject");
+/* harmony import */ var _material_ui_icons_Subject__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Subject__WEBPACK_IMPORTED_MODULE_32__);
+/* harmony import */ var _material_ui_icons_Autorenew__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @material-ui/icons/Autorenew */ "@material-ui/icons/Autorenew");
+/* harmony import */ var _material_ui_icons_Autorenew__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Autorenew__WEBPACK_IMPORTED_MODULE_33__);
+/* harmony import */ var _material_ui_icons_Title__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @material-ui/icons/Title */ "@material-ui/icons/Title");
+/* harmony import */ var _material_ui_icons_Title__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Title__WEBPACK_IMPORTED_MODULE_34__);
+/* harmony import */ var _material_ui_icons_ViewList__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @material-ui/icons/ViewList */ "@material-ui/icons/ViewList");
+/* harmony import */ var _material_ui_icons_ViewList__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ViewList__WEBPACK_IMPORTED_MODULE_35__);
+/* harmony import */ var _material_ui_icons_Reorder__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @material-ui/icons/Reorder */ "@material-ui/icons/Reorder");
+/* harmony import */ var _material_ui_icons_Reorder__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Reorder__WEBPACK_IMPORTED_MODULE_36__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\dashboards\\system-widgets.jsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+=======
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_CardHeader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/CardHeader */ "@material-ui/core/CardHeader");
+/* harmony import */ var _material_ui_core_CardHeader__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CardHeader__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/CardActions */ "@material-ui/core/CardActions");
+/* harmony import */ var _material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/CardContent */ "@material-ui/core/CardContent");
+/* harmony import */ var _material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "@material-ui/core/CircularProgress");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../actions/dashboard.actions */ "./actions/dashboard.actions.ts");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/dashboards/settings/sub-boards-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+const SubDashboardSettings = ({
+  id,
+  refresh,
+  setRefresh
+}) => {
+  const {
+    0: subDashboards,
+    1: setSubDashboards
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: isLoading,
+    1: setIsLoading
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  const {
+    0: update,
+    1: setUpdate
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
+  const {
+    0: isShowingAddFields,
+    1: setIsShowingAddFields
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: isAdding,
+    1: setIsAdding
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: state,
+    1: setState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    title: '',
+    description: '',
+    isSub: true
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getSubDashboards = async () => {
+      try {
+        const $subDashBoards = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getSubDashboards({
+          id
+        });
+        setSubDashboards($subDashBoards);
+        setIsLoading(false);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getSubDashboards();
+  }, [update]);
+
+  const addNewDashboard = async () => {
+    try {
+      setIsAdding(true);
+      const subDashboard = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_10__["default"].createDashboard({
+        dashboard: state
+      });
+      const linkDashboard = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_10__["default"].linkSubDashboard({
+        subDashboardId: subDashboard.id,
+        id
+      });
+      setUpdate(update + 1);
+      setIsShowingAddFields(false);
+      setIsAdding(false);
+      setRefresh(refresh + 1);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const deleteSubDashboard = async subDashboardId => {
+    try {
+      const subDashboard = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_10__["default"].unLinkSubDashboard({
+        id,
+        subDashboardId
+      });
+      setUpdate(update + 1);
+      setRefresh(refresh + 1);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const renderSubDashboardCard = subDashboard => __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    variant: "outlined",
+    key: subDashboard.id,
+    style: {
+      marginTop: 15
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_CardHeader__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    title: subDashboard.subDashboard.title,
+    subheader: subDashboard.subDashboard.createdAt,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61,
+      columnNumber: 7
+    }
+  }), __jsx(_material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66,
+      columnNumber: 9
+    }
+  }, subDashboard.subDashboard.description)), __jsx(_material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    onClick: () => {
+      deleteSubDashboard(subDashboard.id);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69,
+      columnNumber: 9
+    }
+  }, "Delete")));
+
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75,
+      columnNumber: 5
+    }
+  }, isShowingAddFields ? __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    variant: "outlined",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78,
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    label: "Title",
+    fullWidth: true,
+    onChange: event => {
+      setState(_objectSpread({}, state, {
+        title: event.target.value
+      }));
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81,
+      columnNumber: 15
+    }
+  }), __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    style: {
+      marginTop: 10
+    },
+    fullWidth: true,
+    label: "Description",
+    multiline: true,
+    rows: 2,
+    rowsMax: 4,
+    onChange: event => {
+      setState(_objectSpread({}, state, {
+        description: event.target.value
+      }));
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85,
+      columnNumber: 15
+    }
+  })), isAdding ? __jsx(_material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 98,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 99,
+      columnNumber: 19
+    }
+  })) : __jsx(_material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102,
+      columnNumber: 19
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    onClick: addNewDashboard,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103,
+      columnNumber: 21
+    }
+  }, "Add"), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    onClick: () => {
+      setIsShowingAddFields(false);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 21
+    }
+  }, "Cancel"))) : __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    onClick: () => {
+      setIsShowingAddFields(true);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 110,
+      columnNumber: 14
+    }
+  }, "Add New Page"), isLoading ? __jsx("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'center',
+      marginTop: 15
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115,
+      columnNumber: 13
+    }
+  })) : subDashboards.map(subDashboard => renderSubDashboardCard(subDashboard)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SubDashboardSettings);
+
+/***/ }),
+
 /***/ "./components/dashboards/system-widgets.jsx":
 /*!**************************************************!*\
   !*** ./components/dashboards/system-widgets.jsx ***!
@@ -1822,8 +2824,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_ViewList__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ViewList__WEBPACK_IMPORTED_MODULE_35__);
 /* harmony import */ var _material_ui_icons_Reorder__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @material-ui/icons/Reorder */ "@material-ui/icons/Reorder");
 /* harmony import */ var _material_ui_icons_Reorder__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Reorder__WEBPACK_IMPORTED_MODULE_36__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\dashboards\\system-widgets.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/dashboards/system-widgets.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -2043,6 +3046,397 @@ const SystemWidgets = props => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
+<<<<<<< HEAD
+        lineNumber: 68,
+        columnNumber: 33
+      }
+    })
+  }, {
+    title: 'Text Field',
+    icon: __jsx(_material_ui_icons_TextFields__WEBPACK_IMPORTED_MODULE_27___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 69,
+        columnNumber: 34
+      }
+    })
+  }];
+  const HtmlElementWidgets = [{
+    title: 'Accordion',
+    icon: __jsx(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 72,
+        columnNumber: 33
+      }
+    })
+  }, {
+    title: 'Data Grid',
+    icon: __jsx(_material_ui_icons_GridOn__WEBPACK_IMPORTED_MODULE_28___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 73,
+        columnNumber: 33
+      }
+    })
+  }, {
+    title: 'Div',
+    icon: __jsx(_material_ui_icons_Receipt__WEBPACK_IMPORTED_MODULE_29___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 74,
+        columnNumber: 27
+      }
+    })
+  }, {
+    title: 'Image',
+    icon: __jsx(_material_ui_icons_Image__WEBPACK_IMPORTED_MODULE_30___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 75,
+        columnNumber: 29
+      }
+    })
+  }, {
+    title: 'List',
+    icon: __jsx(_material_ui_icons_List__WEBPACK_IMPORTED_MODULE_31___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 76,
+        columnNumber: 28
+      }
+    })
+  }, {
+    title: 'Paragraph',
+    icon: __jsx(_material_ui_icons_Subject__WEBPACK_IMPORTED_MODULE_32___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 77,
+        columnNumber: 33
+      }
+    })
+  }, {
+    title: 'Progress Bar',
+    icon: __jsx(_material_ui_icons_Autorenew__WEBPACK_IMPORTED_MODULE_33___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 78,
+        columnNumber: 36
+      }
+    })
+  }, {
+    title: 'Span',
+    icon: __jsx(_material_ui_icons_Title__WEBPACK_IMPORTED_MODULE_34___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 79,
+        columnNumber: 28
+      }
+    })
+  }, {
+    title: 'Tabs',
+    icon: __jsx(_material_ui_icons_ViewList__WEBPACK_IMPORTED_MODULE_35___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 80,
+        columnNumber: 28
+      }
+    })
+  }];
+  return __jsx("div", {
+    className: classes.root,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 84,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    expandIcon: __jsx(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 88,
+        columnNumber: 23
+      }
+    }),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    className: classes.heading,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90,
+      columnNumber: 11
+    }
+  }, "Tables")), __jsx(_material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 92,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    container: true,
+    spacing: 2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 93,
+      columnNumber: 11
+    }
+  }, TableWidgets.map(chart => __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    item: true,
+    xs: 4,
+    key: Object(uuid__WEBPACK_IMPORTED_MODULE_9__["v4"])(),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95,
+      columnNumber: 15
+    }
+  }, __jsx(_widgets_widget_icon__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    onWidgetClick: props.onWidgetClick,
+    icon: chart.icon,
+    title: chart.title,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96,
+      columnNumber: 17
+    }
+  })))))), __jsx(_material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    expandIcon: __jsx(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 105,
+        columnNumber: 23
+      }
+    }),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    className: classes.heading,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107,
+      columnNumber: 11
+    }
+  }, "Charts")), __jsx(_material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 109,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    container: true,
+    spacing: 2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 110,
+      columnNumber: 11
+    }
+  }, ChartWidgets.map(chart => __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    item: true,
+    xs: 4,
+    key: Object(uuid__WEBPACK_IMPORTED_MODULE_9__["v4"])(),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 112,
+      columnNumber: 15
+    }
+  }, __jsx(_widgets_widget_icon__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    onWidgetClick: props.onWidgetClick,
+    icon: chart.icon,
+    title: chart.title,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113,
+      columnNumber: 17
+    }
+  })))))), __jsx(_material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 120,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    expandIcon: __jsx(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 122,
+        columnNumber: 23
+      }
+    }),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 121,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    className: classes.heading,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 124,
+      columnNumber: 11
+    }
+  }, "HTML Elements")), __jsx(_material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 126,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    container: true,
+    spacing: 2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 127,
+      columnNumber: 11
+    }
+  }, HtmlElementWidgets.map(element => __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    item: true,
+    xs: 4,
+    key: Object(uuid__WEBPACK_IMPORTED_MODULE_9__["v4"])(),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 129,
+      columnNumber: 15
+    }
+  }, __jsx(_widgets_widget_icon__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    onWidgetClick: props.onWidgetClick,
+    icon: element.icon,
+    title: element.title,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 130,
+      columnNumber: 17
+    }
+  })))))), __jsx(_material_ui_core_ExpansionPanel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 137,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_ExpansionPanelSummary__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    expandIcon: __jsx(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 139,
+        columnNumber: 23
+      }
+    }),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 138,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    className: classes.heading,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 141,
+      columnNumber: 11
+    }
+  }, "Form Controls")), __jsx(_material_ui_core_ExpansionPanelDetails__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 143,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    container: true,
+    spacing: 2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 144,
+      columnNumber: 11
+    }
+  }, FormControlsWidgets.map(control => __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    item: true,
+    xs: 4,
+    key: Object(uuid__WEBPACK_IMPORTED_MODULE_9__["v4"])(),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 146,
+      columnNumber: 15
+    }
+  }, __jsx(_widgets_widget_icon__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    onWidgetClick: props.onWidgetClick,
+    icon: control.icon,
+    title: control.title,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 147,
+      columnNumber: 17
+    }
+  })))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SystemWidgets);
+
+/***/ }),
+
+/***/ "./components/dashboards/widgets-menu.jsx":
+/*!************************************************!*\
+  !*** ./components/dashboards/widgets-menu.jsx ***!
+  \************************************************/
+=======
         lineNumber: 68,
         columnNumber: 33
       }
@@ -2453,7 +3847,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _system_widgets__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./system-widgets */ "./components/dashboards/system-widgets.jsx");
 /* harmony import */ var _my_widgets__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./my-widgets */ "./components/dashboards/my-widgets.jsx");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\dashboards\\widgets-menu.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/dashboards/widgets-menu.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2659,7 +4053,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\area-chart\\area-chart-widget-settings.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/charts/area-chart/area-chart-widget-settings.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -3109,7 +4503,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var d3_scale__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(d3_scale__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\area-chart\\area-chart-widget.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/charts/area-chart/area-chart-widget.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -3403,7 +4797,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\bar-chart\\bar-chart-widget-settings.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/charts/bar-chart/bar-chart-widget-settings.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -3835,6 +5229,7 @@ const BarChartWidgetSettings = ({
 /*!******************************************************************!*\
   !*** ./components/widgets/charts/bar-chart/bar-chart-widget.jsx ***!
   \******************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3844,6 +5239,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/AppBar */ "@material-ui/core/AppBar");
+/* harmony import */ var _material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Tabs */ "@material-ui/core/Tabs");
+/* harmony import */ var _material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Tab */ "@material-ui/core/Tab");
+/* harmony import */ var _material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Box */ "@material-ui/core/Box");
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _system_widgets__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./system-widgets */ "./components/dashboards/system-widgets.jsx");
+/* harmony import */ var _my_widgets__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./my-widgets */ "./components/dashboards/my-widgets.jsx");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\dashboards\\widgets-menu.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+=======
 /* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Paper */ "@material-ui/core/Paper");
 /* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @devexpress/dx-react-chart-material-ui */ "@devexpress/dx-react-chart-material-ui");
@@ -3864,7 +5282,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var _bar_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./bar-chart-widget-settings */ "./components/widgets/charts/bar-chart/bar-chart-widget-settings.jsx");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\bar-chart\\bar-chart-widget.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/charts/bar-chart/bar-chart-widget.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -3880,6 +5298,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -3887,6 +5306,169 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+<<<<<<< HEAD
+
+
+
+
+const TabPanel = props => {
+  const {
+    children,
+    value,
+    index
+  } = props,
+        other = _objectWithoutProperties(props, ["children", "value", "index"]);
+
+  return __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, _extends({
+    component: "div",
+    role: "tabpanel",
+    hidden: value !== index,
+    id: `full-width-tabpanel-${index}`,
+    "aria-labelledby": `full-width-tab-${index}`
+  }, other, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 5
+    }
+  }), value === index && __jsx(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    p: 3,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 27
+    }
+  }, children));
+};
+
+const a11yProps = index => {
+  return {
+    id: `full-width-tab-${index}`,
+    'aria-controls': `full-width-tabpanel-${index}`
+  };
+};
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(() => ({}));
+
+const WidgetSidemenu = ({
+  onWidgetClick,
+  widgetSettings,
+  addPredefinedWidget
+}) => {
+  const classes = useStyles();
+  const {
+    0: value,
+    1: setValue
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    position: "static",
+    color: "default",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    value: value,
+    onChange: handleChange,
+    indicatorColor: "primary",
+    textColor: "primary",
+    variant: "fullWidth",
+    "aria-label": "full width tabs example",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4___default.a, _extends({
+    label: "System Widgets"
+  }, a11yProps(0), {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 11
+    }
+  })), __jsx(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4___default.a, _extends({
+    label: "My Widgets"
+  }, a11yProps(1), {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
+      columnNumber: 11
+    }
+  })))), __jsx("div", {
+    index: value,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 7
+    }
+  }, __jsx(TabPanel, {
+    value: value,
+    index: 0,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
+      columnNumber: 9
+    }
+  }, __jsx(_system_widgets__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    onWidgetClick: onWidgetClick,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66,
+      columnNumber: 11
+    }
+  })), __jsx(TabPanel, {
+    value: value,
+    index: 1,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68,
+      columnNumber: 9
+    }
+  }, __jsx(_my_widgets__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    addPredefinedWidget: addPredefinedWidget,
+    widgetSettings: widgetSettings,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69,
+      columnNumber: 11
+    }
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (WidgetSidemenu);
+
+/***/ }),
+
+/***/ "./components/widgets/charts/area-chart/area-chart-widget-settings.jsx":
+/*!*****************************************************************************!*\
+  !*** ./components/widgets/charts/area-chart/area-chart-widget-settings.jsx ***!
+  \*****************************************************************************/
+=======
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
   list: {
     width: 500
@@ -4186,6 +5768,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************************!*\
   !*** ./components/widgets/charts/donut-chart/donut-chart-widget-settings.jsx ***!
   \*******************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4215,7 +5798,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\donut-chart\\donut-chart-widget-settings.jsx";
+<<<<<<< HEAD
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\area-chart\\area-chart-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/charts/donut-chart/donut-chart-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -4258,7 +5845,11 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
   }
 }));
 
+<<<<<<< HEAD
+const AreaChartWidgetSettings = ({
+=======
 const DonutChartWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widget,
   handleSettingsClose,
   isAdding,
@@ -4639,6 +6230,16 @@ const DonutChartWidgetSettings = ({
   }, isAdding ? 'Add' : 'Save')));
 };
 
+<<<<<<< HEAD
+/* harmony default export */ __webpack_exports__["default"] = (AreaChartWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/charts/area-chart/area-chart-widget.jsx":
+/*!********************************************************************!*\
+  !*** ./components/widgets/charts/area-chart/area-chart-widget.jsx ***!
+  \********************************************************************/
+=======
 /* harmony default export */ __webpack_exports__["default"] = (DonutChartWidgetSettings);
 
 /***/ }),
@@ -4647,11 +6248,36 @@ const DonutChartWidgetSettings = ({
 /*!**********************************************************************!*\
   !*** ./components/widgets/charts/donut-chart/donut-chart-widget.jsx ***!
   \**********************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Demo; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Paper */ "@material-ui/core/Paper");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @devexpress/dx-react-chart-material-ui */ "@devexpress/dx-react-chart-material-ui");
+/* harmony import */ var _devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @devexpress/dx-react-chart */ "@devexpress/dx-react-chart");
+/* harmony import */ var _devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var d3_scale__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! d3-scale */ "d3-scale");
+/* harmony import */ var d3_scale__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(d3_scale__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\area-chart\\area-chart-widget.jsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+=======
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
@@ -4676,7 +6302,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var _donut_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./donut-chart-widget-settings */ "./components/widgets/charts/donut-chart/donut-chart-widget-settings.jsx");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\donut-chart\\donut-chart-widget.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/charts/donut-chart/donut-chart-widget.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -4685,12 +6311,245 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
 
 
 
+<<<<<<< HEAD
+const data = [{
+  year: '2010',
+  android: 67225,
+  ios: 46598
+}, {
+  year: '2011',
+  android: 179873,
+  ios: 90560
+}, {
+  year: '2012',
+  android: 310088,
+  ios: 118848
+}, {
+  year: '2015',
+  android: 539318,
+  ios: 189924
+}];
+const chartRootStyles = {
+  chart: {
+    paddingRight: '20px'
+  }
+};
+const legendStyles = {
+  root: {
+    display: 'flex',
+    margin: 'auto',
+    flexDirection: 'row'
+  }
+};
+
+const legendLabelStyles = theme => ({
+  label: {
+    paddingTop: theme.spacing(1)
+  }
+});
+
+const legendItemStyles = {
+  item: {
+    flexDirection: 'column'
+  }
+};
+
+const ChartRootBase = (_ref) => {
+  let {
+    classes
+  } = _ref,
+      restProps = _objectWithoutProperties(_ref, ["classes"]);
+
+  return __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__["Chart"].Root, _extends({}, restProps, {
+    className: classes.chart,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 3
+    }
+  }));
+};
+
+const LegendRootBase = (_ref2) => {
+  let {
+    classes
+  } = _ref2,
+      restProps = _objectWithoutProperties(_ref2, ["classes"]);
+
+  return __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__["Legend"].Root, _extends({}, restProps, {
+    className: classes.root,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 3
+    }
+  }));
+};
+
+const LegendLabelBase = (_ref3) => {
+  let {
+    classes
+  } = _ref3,
+      restProps = _objectWithoutProperties(_ref3, ["classes"]);
+
+  return __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__["Legend"].Label, _extends({}, restProps, {
+    className: classes.label,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 3
+    }
+  }));
+};
+
+const LegendItemBase = (_ref4) => {
+  let {
+    classes
+  } = _ref4,
+      restProps = _objectWithoutProperties(_ref4, ["classes"]);
+
+  return __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__["Legend"].Item, _extends({}, restProps, {
+    className: classes.item,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 3
+    }
+  }));
+};
+
+const ChartRoot = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(chartRootStyles, {
+  name: 'ChartRoot'
+})(ChartRootBase);
+const LegendRoot = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(legendStyles, {
+  name: 'LegendRoot'
+})(LegendRootBase);
+const LegendLabel = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(legendLabelStyles, {
+  name: 'LegendLabel'
+})(LegendLabelBase);
+const LegendItem = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(legendItemStyles, {
+  name: 'LegendItem'
+})(LegendItemBase);
+class Demo extends react__WEBPACK_IMPORTED_MODULE_0__["PureComponent"] {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data
+    };
+  }
+
+  render() {
+    const {
+      data: chartData
+    } = this.state;
+    return __jsx(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 74,
+        columnNumber: 7
+      }
+    }, __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__["Chart"], {
+      data: chartData,
+      rootComponent: ChartRoot,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 75,
+        columnNumber: 9
+      }
+    }, __jsx(_devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_3__["ArgumentScale"], {
+      factory: d3_scale__WEBPACK_IMPORTED_MODULE_4__["scalePoint"],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 79,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__["ArgumentAxis"], {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 80,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__["ValueAxis"], {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 81,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__["AreaSeries"], {
+      name: "Android",
+      valueField: "android",
+      argumentField: "year",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 83,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__["AreaSeries"], {
+      name: "iOS",
+      valueField: "ios",
+      argumentField: "year",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 88,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_3__["Animation"], {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 93,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__["Legend"], {
+      position: "bottom",
+      rootComponent: LegendRoot,
+      itemComponent: LegendItem,
+      labelComponent: LegendLabel,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 94,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_2__["Title"], {
+      text: "Worldwide Sales to End Users by OS",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 100,
+        columnNumber: 11
+      }
+    })));
+  }
+
+}
+
+/***/ }),
+
+/***/ "./components/widgets/charts/area-chart/index.js":
+/*!*******************************************************!*\
+  !*** ./components/widgets/charts/area-chart/index.js ***!
+  \*******************************************************/
+/*! exports provided: AreaChartWidget, AreaChartWidgetSettings */
+=======
 
 
 
@@ -5028,15 +6887,24 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./components/widgets/charts/line-chart/index.js ***!
   \*******************************************************/
 /*! exports provided: LineChartWidget, LineChartWidgetSettings */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+/* harmony import */ var _area_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./area-chart-widget */ "./components/widgets/charts/area-chart/area-chart-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AreaChartWidget", function() { return _area_chart_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _area_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./area-chart-widget-settings */ "./components/widgets/charts/area-chart/area-chart-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AreaChartWidgetSettings", function() { return _area_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+=======
 /* harmony import */ var _line_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./line-chart-widget */ "./components/widgets/charts/line-chart/line-chart-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidget", function() { return _line_chart_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
 /* harmony import */ var _line_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./line-chart-widget-settings */ "./components/widgets/charts/line-chart/line-chart-widget-settings.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidgetSettings", function() { return _line_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -5044,10 +6912,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ "./components/widgets/charts/bar-chart/bar-chart-widget-settings.jsx":
+/*!***************************************************************************!*\
+  !*** ./components/widgets/charts/bar-chart/bar-chart-widget-settings.jsx ***!
+  \***************************************************************************/
+=======
 /***/ "./components/widgets/charts/line-chart/line-chart-widget-settings.jsx":
 /*!*****************************************************************************!*\
   !*** ./components/widgets/charts/line-chart/line-chart-widget-settings.jsx ***!
   \*****************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5077,7 +6952,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\line-chart\\line-chart-widget-settings.jsx";
+<<<<<<< HEAD
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\bar-chart\\bar-chart-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/charts/line-chart/line-chart-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -5120,7 +6999,11 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
   }
 }));
 
+<<<<<<< HEAD
+const BarChartWidgetSettings = ({
+=======
 const LineChartWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widget,
   handleSettingsClose,
   isAdding,
@@ -5501,6 +7384,16 @@ const LineChartWidgetSettings = ({
   }, isAdding ? 'Add' : 'Save')));
 };
 
+<<<<<<< HEAD
+/* harmony default export */ __webpack_exports__["default"] = (BarChartWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/charts/bar-chart/bar-chart-widget.jsx":
+/*!******************************************************************!*\
+  !*** ./components/widgets/charts/bar-chart/bar-chart-widget.jsx ***!
+  \******************************************************************/
+=======
 /* harmony default export */ __webpack_exports__["default"] = (LineChartWidgetSettings);
 
 /***/ }),
@@ -5509,6 +7402,7 @@ const LineChartWidgetSettings = ({
 /*!********************************************************************!*\
   !*** ./components/widgets/charts/line-chart/line-chart-widget.jsx ***!
   \********************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5537,8 +7431,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Drawer */ "@material-ui/core/Drawer");
 /* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+<<<<<<< HEAD
+/* harmony import */ var _bar_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./bar-chart-widget-settings */ "./components/widgets/charts/bar-chart/bar-chart-widget-settings.jsx");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\bar-chart\\bar-chart-widget.jsx";
+=======
 /* harmony import */ var _line_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./line-chart-widget-settings */ "./components/widgets/charts/line-chart/line-chart-widget-settings.jsx");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\line-chart\\line-chart-widget.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/charts/line-chart/line-chart-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -5561,6 +7460,2861 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500
+  },
+  widgetActions: {
+    display: 'flex',
+    backgroundColor: "#3F51B5",
+    borderTopRightRadius: "5px",
+    borderTopLeftRadius: "5px"
+  },
+  widgetTitle: {
+    flex: 1,
+    display: 'flex',
+    alignContent: 'center',
+    alignItems: 'center',
+    paddingLeft: "10px"
+  },
+  actionButtons: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'flex-end'
+  }
+}));
+
+<<<<<<< HEAD
+const BarChartWidget = ({
+=======
+const LineChartWidget = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: data,
+    1: setData
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: isLoadingData,
+    1: setIsLoadingData
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: refresh,
+    1: setRefresh
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+
+  const getWidgetData = async () => {
+    try {
+      const $data = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].executeWidgetQuery(widgetId);
+<<<<<<< HEAD
+      console.log($data, $data);
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      setData($data);
+      return $data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getWidget = async () => {
+    try {
+      const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].getWidgetSettingsById(widgetId);
+<<<<<<< HEAD
+      console.log('$widget', $widget);
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      setWidget($widget);
+      return $widget;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    getWidget();
+    getWidgetData();
+  }, [refresh]);
+
+  const refreshData = async () => {
+    setIsLoadingData(true);
+    getWidget();
+    getWidgetData();
+    setIsLoadingData(false);
+  };
+
+  const handleSettingsClose = () => {
+    setRefresh(refresh + 1);
+    toggleDrawer('right', false);
+  };
+
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) return;
+    setMenuState(_objectSpread({}, menuState, {
+      [side]: open
+    }));
+  };
+
+<<<<<<< HEAD
+  const renderChart = () => {
+=======
+  const renderTable = () => {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    return isLoadingData || !widget ? __jsx(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+<<<<<<< HEAD
+        lineNumber: 99,
+=======
+        lineNumber: 97,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+        columnNumber: 40
+      }
+    }) : __jsx(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+<<<<<<< HEAD
+        lineNumber: 100,
+        columnNumber: 7
+=======
+        lineNumber: 97,
+        columnNumber: 64
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      }
+    }, __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["Chart"], {
+      data: data,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+<<<<<<< HEAD
+        lineNumber: 101,
+        columnNumber: 9
+      }
+    }, __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["ArgumentAxis"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 104,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["ValueAxis"], {
+      max: 7,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 105,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["BarSeries"], {
+      valueField: "total",
+      argumentField: "month",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 107,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["Title"], {
+      text: "World population",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 111,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_4__["Animation"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 112,
+        columnNumber: 11
+=======
+        lineNumber: 98,
+        columnNumber: 7
+      }
+    }, __jsx(_devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_4__["ValueScale"], {
+      name: "total",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 99,
+        columnNumber: 9
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["ArgumentAxis"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 100,
+        columnNumber: 9
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["ValueAxis"], {
+      scaleName: "total",
+      position: "left",
+      showGrid: true,
+      showLine: true,
+      showTicks: true,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 101,
+        columnNumber: 9
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["LineSeries"], {
+      name: "Total Transactions",
+      valueField: "total",
+      argumentField: "month",
+      scaleName: "total",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 102,
+        columnNumber: 9
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["Legend"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 108,
+        columnNumber: 9
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      }
+    })));
+  };
+
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 119,
+=======
+      lineNumber: 114,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: classes.widgetActions,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 120,
+=======
+      lineNumber: 115,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: classes.widgetTitle,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 121,
+=======
+      lineNumber: 116,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    style: {
+      color: "#FFF"
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 122,
+=======
+      lineNumber: 117,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 11
+    }
+  }, "Widget Title")), __jsx("div", {
+    className: classes.actionButtons,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 124,
+=======
+      lineNumber: 119,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    onClick: toggleDrawer('right', true),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 125,
+=======
+      lineNumber: 120,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    style: {
+      color: "#FFF"
+    },
+    fontSize: "small",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 126,
+=======
+      lineNumber: 121,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 13
+    }
+  })), __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    onClick: refreshData,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 128,
+=======
+      lineNumber: 123,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_icons_Refresh__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    style: {
+      color: "#FFF"
+    },
+    fontSize: "small",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 129,
+=======
+      lineNumber: 124,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 13
+    }
+  })))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 133,
+      columnNumber: 7
+    }
+  }, renderChart()), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10___default.a, {
+=======
+      lineNumber: 128,
+      columnNumber: 7
+    }
+  }, renderTable()), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    anchor: "right",
+    open: menuState.right,
+    onClose: toggleDrawer('right', false),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 136,
+      columnNumber: 7
+    }
+  }, __jsx(_bar_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__["default"], {
+=======
+      lineNumber: 131,
+      columnNumber: 7
+    }
+  }, __jsx(_line_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__["default"], {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    widget: widget,
+    handleSettingsClose: handleSettingsClose,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 137,
+=======
+      lineNumber: 132,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  })));
+};
+
+<<<<<<< HEAD
+/* harmony default export */ __webpack_exports__["default"] = (BarChartWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/charts/bar-chart/index.js":
+/*!******************************************************!*\
+  !*** ./components/widgets/charts/bar-chart/index.js ***!
+  \******************************************************/
+/*! exports provided: BarChartWidget, BarChartWidgetSettings */
+=======
+/* harmony default export */ __webpack_exports__["default"] = (LineChartWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/charts/pie-chart/index.js":
+/*!******************************************************!*\
+  !*** ./components/widgets/charts/pie-chart/index.js ***!
+  \******************************************************/
+/*! exports provided: PieChartWidget, PieChartWidgetSettings */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+/* harmony import */ var _bar_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bar-chart-widget */ "./components/widgets/charts/bar-chart/bar-chart-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarChartWidget", function() { return _bar_chart_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _bar_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bar-chart-widget-settings */ "./components/widgets/charts/bar-chart/bar-chart-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarChartWidgetSettings", function() { return _bar_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+=======
+/* harmony import */ var _pie_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pie-chart-widget */ "./components/widgets/charts/pie-chart/pie-chart-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PieChartWidget", function() { return _pie_chart_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _pie_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pie-chart-widget-settings */ "./components/widgets/charts/pie-chart/pie-chart-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PieChartWidgetSettings", function() { return _pie_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+
+
+
+
+/***/ }),
+
+<<<<<<< HEAD
+/***/ "./components/widgets/charts/donut-chart/donut-chart-widget-settings.jsx":
+/*!*******************************************************************************!*\
+  !*** ./components/widgets/charts/donut-chart/donut-chart-widget-settings.jsx ***!
+  \*******************************************************************************/
+=======
+/***/ "./components/widgets/charts/pie-chart/pie-chart-widget-settings.jsx":
+/*!***************************************************************************!*\
+  !*** ./components/widgets/charts/pie-chart/pie-chart-widget-settings.jsx ***!
+  \***************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
+<<<<<<< HEAD
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\donut-chart\\donut-chart-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/charts/pie-chart/pie-chart-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+<<<<<<< HEAD
+const DonutChartWidgetSettings = ({
+=======
+const PieChartWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  const {
+    0: datasources,
+    1: setDatasources
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: datasource,
+    1: setDatasource
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.dataSourceId : '');
+  const {
+    0: docList,
+    1: setDocList
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: doc,
+    1: setDoc
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.docId : '');
+  const {
+    0: fieldList,
+    1: setFieldList
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: fields,
+    1: setFields
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.fields : []);
+  const {
+    0: query,
+    1: setQuery
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
+
+  const getDatasources = async () => {
+    try {
+      const $datasources = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getDatasources({});
+
+      if (!isAdding) {
+        const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getDocList(datasource);
+        const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getFieldList(datasource, doc);
+        setDocList($docList);
+        setFieldList($fieldList);
+      }
+
+      setDatasources($datasources);
+      return $datasources;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getDocList = async id => {
+    try {
+      setDatasource(id);
+      const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getDocList(id);
+      setDocList($docList);
+      return $docList;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getFieldList = async (id, docId) => {
+    try {
+      setDoc(docId);
+      const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getFieldList(id, docId);
+      setFieldList($fieldList);
+      return $fieldList;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleDatasourceChange = async event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setFieldList([]);
+    setFields([]);
+    await getDocList(value);
+  };
+
+  const handleDocChange = async event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setFieldList([]);
+    setFields([]);
+    await getFieldList(datasource, value);
+  };
+
+  const handleFieldChange = name => event => {
+    const {
+      checked
+    } = event.target;
+    checked ? setFields([...fields, name]) : setFields(fields.filter(field => field != name));
+  };
+
+  const renderFieldSettings = () => fieldList.length ? __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 109,
+      columnNumber: 57
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 110,
+      columnNumber: 5
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 111,
+      columnNumber: 7
+    }
+  }, "Fields Settings")), fieldList.map(field => __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    key: field,
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      checked: fields.includes(field),
+      onChange: handleFieldChange(field),
+      value: field,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 117,
+        columnNumber: 9
+      }
+    }),
+    label: field,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 30
+    }
+  }))) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 121,
+      columnNumber: 13
+    }
+  });
+
+  const renderQuerySettings = () => fields.length ? __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 123,
+      columnNumber: 54
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 124,
+      columnNumber: 5
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 125,
+      columnNumber: 7
+    }
+  }, "Query Settings")), fields.map(field => __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 128,
+      columnNumber: 27
+    }
+  }))) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 131,
+      columnNumber: 13
+    }
+  });
+
+  const saveConfigSettings = async () => {
+    try {
+      const data = {
+        dataSourceId: datasource,
+        config: {
+          docId: doc,
+          fields,
+          type: 'simple',
+          func: 'find',
+          query: {}
+        },
+        type: 'Table'
+      };
+
+      if (isAdding) {
+        onWidgetAdd(data);
+      } else {
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].updateWidgetSettings(widget.id, data);
+        handleSettingsClose(update);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    getDatasources();
+  }, []);
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 162,
+      columnNumber: 5
+    }
+<<<<<<< HEAD
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 163,
+      columnNumber: 7
+    }
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 164,
+      columnNumber: 9
+=======
+      lineNumber: 163,
+      columnNumber: 7
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 165,
+      columnNumber: 11
+=======
+      lineNumber: 164,
+      columnNumber: 9
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 167,
+      columnNumber: 9
+=======
+      lineNumber: 166,
+      columnNumber: 7
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    id: "title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 168,
+      columnNumber: 11
+=======
+      lineNumber: 167,
+      columnNumber: 9
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    __self: undefined,
+    __source: {
+<<<<<<< HEAD
+      fileName: _jsxFileName,
+      lineNumber: 169,
+      columnNumber: 11
+=======
+      fileName: _jsxFileName,
+      lineNumber: 168,
+      columnNumber: 9
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  })), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 171,
+      columnNumber: 9
+=======
+      lineNumber: 170,
+      columnNumber: 7
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 172,
+      columnNumber: 11
+=======
+      lineNumber: 171,
+      columnNumber: 9
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, "Connection Settings")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 174,
+      columnNumber: 9
+=======
+      lineNumber: 173,
+      columnNumber: 7
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    id: "data-source",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 175,
+      columnNumber: 11
+=======
+      lineNumber: 174,
+      columnNumber: 9
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, "Data Source"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    name: "datasource",
+    labelId: "data-source",
+    value: datasource,
+    onChange: handleDatasourceChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 176,
+      columnNumber: 11
+=======
+      lineNumber: 175,
+      columnNumber: 9
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, datasources.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    key: item.id,
+    value: item.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 182,
+      columnNumber: 39
+=======
+      lineNumber: 181,
+      columnNumber: 37
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, item.title)))), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    disabled: datasource ? false : true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 186,
+      columnNumber: 9
+=======
+      lineNumber: 185,
+      columnNumber: 7
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    id: "doc-list",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 187,
+      columnNumber: 11
+=======
+      lineNumber: 186,
+      columnNumber: 9
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, "Table/Collection"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    name: "docList",
+    labelId: "doc-list",
+    value: doc,
+    onChange: handleDocChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 188,
+      columnNumber: 11
+=======
+      lineNumber: 187,
+      columnNumber: 9
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, docList.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    key: item,
+    value: item,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 194,
+      columnNumber: 35
+=======
+      lineNumber: 193,
+      columnNumber: 33
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, item)))), renderFieldSettings(), renderQuerySettings(), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    onClick: saveConfigSettings,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 202,
+      columnNumber: 9
+    }
+  }, isAdding ? 'Add' : 'Save')));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DonutChartWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/charts/donut-chart/donut-chart-widget.jsx":
+/*!**********************************************************************!*\
+  !*** ./components/widgets/charts/donut-chart/donut-chart-widget.jsx ***!
+  \**********************************************************************/
+=======
+      lineNumber: 201,
+      columnNumber: 7
+    }
+  }, isAdding ? 'Add' : 'Save'));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PieChartWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/charts/pie-chart/pie-chart-widget.jsx":
+/*!******************************************************************!*\
+  !*** ./components/widgets/charts/pie-chart/pie-chart-widget.jsx ***!
+  \******************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Paper */ "@material-ui/core/Paper");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @devexpress/dx-react-chart-material-ui */ "@devexpress/dx-react-chart-material-ui");
+/* harmony import */ var _devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @devexpress/dx-react-chart */ "@devexpress/dx-react-chart");
+/* harmony import */ var _devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "@material-ui/core/CircularProgress");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/IconButton */ "@material-ui/core/IconButton");
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_icons_Refresh__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/icons/Refresh */ "@material-ui/icons/Refresh");
+/* harmony import */ var _material_ui_icons_Refresh__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Refresh__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/Settings */ "@material-ui/icons/Settings");
+/* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Drawer */ "@material-ui/core/Drawer");
+/* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+<<<<<<< HEAD
+/* harmony import */ var _donut_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./donut-chart-widget-settings */ "./components/widgets/charts/donut-chart/donut-chart-widget-settings.jsx");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\donut-chart\\donut-chart-widget.jsx";
+=======
+/* harmony import */ var _pie_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pie-chart-widget-settings */ "./components/widgets/charts/pie-chart/pie-chart-widget-settings.jsx");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/charts/pie-chart/pie-chart-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500
+  },
+  widgetActions: {
+    display: 'flex',
+    backgroundColor: "#3F51B5",
+    borderTopRightRadius: "5px",
+    borderTopLeftRadius: "5px"
+  },
+  widgetTitle: {
+    flex: 1,
+    display: 'flex',
+    alignContent: 'center',
+    alignItems: 'center',
+    paddingLeft: "10px"
+  },
+  actionButtons: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'flex-end'
+  }
+}));
+
+<<<<<<< HEAD
+const DonutChartWidget = ({
+=======
+const PieChartWidget = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: data,
+    1: setData
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: isLoadingData,
+    1: setIsLoadingData
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: refresh,
+    1: setRefresh
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+
+  const getWidgetData = async () => {
+    try {
+      const $data = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].executeWidgetQuery(widgetId);
+      console.log($data, $data);
+      setData($data);
+      return $data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getWidget = async () => {
+    try {
+      const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].getWidgetSettingsById(widgetId);
+      console.log('$widget', $widget);
+      setWidget($widget);
+      return $widget;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    getWidget();
+    getWidgetData();
+  }, [refresh]);
+
+  const refreshData = async () => {
+    setIsLoadingData(true);
+    getWidget();
+    getWidgetData();
+    setIsLoadingData(false);
+  };
+
+  const handleSettingsClose = () => {
+    setRefresh(refresh + 1);
+    toggleDrawer('right', false);
+  };
+
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) return;
+    setMenuState(_objectSpread({}, menuState, {
+      [side]: open
+    }));
+  };
+
+  const renderChart = () => {
+    return isLoadingData || !widget ? __jsx(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 97,
+        columnNumber: 40
+      }
+    }) : __jsx(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 98,
+        columnNumber: 7
+      }
+    }, __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["Chart"], {
+      data: data,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 99,
+        columnNumber: 9
+      }
+    }, __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["PieSeries"], {
+      valueField: "total",
+      argumentField: "month",
+<<<<<<< HEAD
+      innerRadius: 0.6,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 100,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["Title"], {
+      text: "The Population of Continents and Regions",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 105,
+=======
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 102,
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__["Title"], {
+      text: "Area of Countries",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 106,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+        columnNumber: 11
+      }
+    }), __jsx(_devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_4__["Animation"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+<<<<<<< HEAD
+        lineNumber: 108,
+=======
+        lineNumber: 109,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+        columnNumber: 11
+      }
+    })));
+  };
+
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 115,
+=======
+      lineNumber: 116,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: classes.widgetActions,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 116,
+=======
+      lineNumber: 117,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: classes.widgetTitle,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 117,
+=======
+      lineNumber: 118,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    style: {
+      color: "#FFF"
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 118,
+=======
+      lineNumber: 119,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 11
+    }
+  }, "Widget Title")), __jsx("div", {
+    className: classes.actionButtons,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 120,
+=======
+      lineNumber: 121,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    onClick: toggleDrawer('right', true),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 121,
+=======
+      lineNumber: 122,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    style: {
+      color: "#FFF"
+    },
+    fontSize: "small",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 122,
+=======
+      lineNumber: 123,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 13
+    }
+  })), __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    onClick: refreshData,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 124,
+=======
+      lineNumber: 125,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_icons_Refresh__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    style: {
+      color: "#FFF"
+    },
+    fontSize: "small",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 125,
+=======
+      lineNumber: 126,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 13
+    }
+  })))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 129,
+=======
+      lineNumber: 130,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, renderChart()), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    anchor: "right",
+    open: menuState.right,
+    onClose: toggleDrawer('right', false),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 132,
+      columnNumber: 7
+    }
+  }, __jsx(_donut_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__["default"], {
+=======
+      lineNumber: 133,
+      columnNumber: 7
+    }
+  }, __jsx(_pie_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__["default"], {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    widget: widget,
+    handleSettingsClose: handleSettingsClose,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 133,
+=======
+      lineNumber: 134,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  })));
+};
+
+<<<<<<< HEAD
+/* harmony default export */ __webpack_exports__["default"] = (DonutChartWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/charts/donut-chart/index.js":
+/*!********************************************************!*\
+  !*** ./components/widgets/charts/donut-chart/index.js ***!
+  \********************************************************/
+/*! exports provided: DonutChartWidget, DonutChartWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _donut_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./donut-chart-widget */ "./components/widgets/charts/donut-chart/donut-chart-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DonutChartWidget", function() { return _donut_chart_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _donut_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./donut-chart-widget-settings */ "./components/widgets/charts/donut-chart/donut-chart-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DonutChartWidgetSettings", function() { return _donut_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/charts/index.js":
+/*!********************************************!*\
+  !*** ./components/widgets/charts/index.js ***!
+  \********************************************/
+/*! exports provided: AreaChartWidget, AreaChartWidgetSettings, BarChartWidget, BarChartWidgetSettings, DonutChartWidget, DonutChartWidgetSettings, LineChartWidget, LineChartWidgetSettings, PieChartWidget, PieChartWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _area_chart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./area-chart */ "./components/widgets/charts/area-chart/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AreaChartWidget", function() { return _area_chart__WEBPACK_IMPORTED_MODULE_0__["AreaChartWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AreaChartWidgetSettings", function() { return _area_chart__WEBPACK_IMPORTED_MODULE_0__["AreaChartWidgetSettings"]; });
+
+/* harmony import */ var _bar_chart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bar-chart */ "./components/widgets/charts/bar-chart/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarChartWidget", function() { return _bar_chart__WEBPACK_IMPORTED_MODULE_1__["BarChartWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarChartWidgetSettings", function() { return _bar_chart__WEBPACK_IMPORTED_MODULE_1__["BarChartWidgetSettings"]; });
+
+/* harmony import */ var _donut_chart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./donut-chart */ "./components/widgets/charts/donut-chart/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DonutChartWidget", function() { return _donut_chart__WEBPACK_IMPORTED_MODULE_2__["DonutChartWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DonutChartWidgetSettings", function() { return _donut_chart__WEBPACK_IMPORTED_MODULE_2__["DonutChartWidgetSettings"]; });
+
+/* harmony import */ var _line_chart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./line-chart */ "./components/widgets/charts/line-chart/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidget", function() { return _line_chart__WEBPACK_IMPORTED_MODULE_3__["LineChartWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidgetSettings", function() { return _line_chart__WEBPACK_IMPORTED_MODULE_3__["LineChartWidgetSettings"]; });
+
+/* harmony import */ var _pie_chart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pie-chart */ "./components/widgets/charts/pie-chart/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PieChartWidget", function() { return _pie_chart__WEBPACK_IMPORTED_MODULE_4__["PieChartWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PieChartWidgetSettings", function() { return _pie_chart__WEBPACK_IMPORTED_MODULE_4__["PieChartWidgetSettings"]; });
+
+
+
+ // export * from './gantt-chart'
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/charts/line-chart/index.js":
+/*!*******************************************************!*\
+  !*** ./components/widgets/charts/line-chart/index.js ***!
+  \*******************************************************/
+/*! exports provided: LineChartWidget, LineChartWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _line_chart_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./line-chart-widget */ "./components/widgets/charts/line-chart/line-chart-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidget", function() { return _line_chart_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _line_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./line-chart-widget-settings */ "./components/widgets/charts/line-chart/line-chart-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LineChartWidgetSettings", function() { return _line_chart_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/charts/line-chart/line-chart-widget-settings.jsx":
+/*!*****************************************************************************!*\
+  !*** ./components/widgets/charts/line-chart/line-chart-widget-settings.jsx ***!
+  \*****************************************************************************/
+=======
+/* harmony default export */ __webpack_exports__["default"] = (PieChartWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/autocomplete/autocomplete-widget-settings.jsx":
+/*!****************************************************************************************!*\
+  !*** ./components/widgets/form-controls/autocomplete/autocomplete-widget-settings.jsx ***!
+  \****************************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\line-chart\\line-chart-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+=======
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormGroup */ "@material-ui/core/FormGroup");
+/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Radio */ "@material-ui/core/Radio");
+/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/RadioGroup */ "@material-ui/core/RadioGroup");
+/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/autocomplete/autocomplete-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+<<<<<<< HEAD
+const LineChartWidgetSettings = ({
+=======
+const AutoCompleteWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  const {
+<<<<<<< HEAD
+=======
+    0: linkToFormGroup,
+    1: setLinkToFormGroup
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: formGroups,
+    1: setFormGroups
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: selectedFormGroup,
+    1: setSelectedFormGroup
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: selectionOption,
+    1: setSelectionOption
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('datasource');
+  const {
+    0: properties,
+    1: setProperties
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    label: '',
+    id: '',
+    name: '',
+    placeholder: '',
+    className: '',
+    value: ''
+  });
+  const {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    0: datasources,
+    1: setDatasources
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: datasource,
+    1: setDatasource
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.dataSourceId : '');
+  const {
+    0: docList,
+    1: setDocList
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: doc,
+    1: setDoc
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.docId : '');
+  const {
+    0: fieldList,
+    1: setFieldList
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: fields,
+    1: setFields
+<<<<<<< HEAD
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.fields : []);
+  const {
+    0: query,
+    1: setQuery
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
+
+  const getDatasources = async () => {
+    try {
+      const $datasources = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getDatasources({});
+
+      if (!isAdding) {
+        const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getDocList(datasource);
+        const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getFieldList(datasource, doc);
+=======
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.fields : '');
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getFormGroups = async () => {
+      try {
+        const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__["default"].getFormGroupWidgets();
+        setFormGroups($formGroups);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getFormGroups();
+  }, []);
+
+  const handleSelectFormGroup = event => {
+    const {
+      value
+    } = event.target;
+    setSelectedFormGroup(value);
+  };
+
+  const handleLinkToFormGroup = event => {
+    const {
+      checked
+    } = event.target;
+    if (!checked) setSelectedFormGroup(null);
+    setLinkToFormGroup(checked);
+  };
+
+  const renderFormGroupSelection = _ => linkToFormGroup ? __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 88,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    id: "form-group-title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89,
+      columnNumber: 7
+    }
+  }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    fullWidth: true,
+    labelId: "form-group-title",
+    value: selectedFormGroup,
+    onChange: handleSelectFormGroup,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90,
+      columnNumber: 7
+    }
+  }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    value: formGroup.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 98,
+      columnNumber: 13
+    }
+  }, formGroup.properties.name)))) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 7
+    }
+  });
+
+  const getDatasources = async () => {
+    try {
+      const $datasources = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDatasources({});
+
+      if (!isAdding) {
+        const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDocList(datasource);
+        const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getFieldList(datasource, doc);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+        setDocList($docList);
+        setFieldList($fieldList);
+      }
+
+      setDatasources($datasources);
+      return $datasources;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getDocList = async id => {
+    try {
+      setDatasource(id);
+<<<<<<< HEAD
+      const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getDocList(id);
+=======
+      const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDocList(id);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      setDocList($docList);
+      return $docList;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getFieldList = async (id, docId) => {
+    try {
+      setDoc(docId);
+<<<<<<< HEAD
+      const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getFieldList(id, docId);
+=======
+      const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getFieldList(id, docId);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      setFieldList($fieldList);
+      return $fieldList;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleDatasourceChange = async event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setFieldList([]);
+    setFields([]);
+    await getDocList(value);
+  };
+
+  const handleDocChange = async event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setFieldList([]);
+    setFields([]);
+    await getFieldList(datasource, value);
+  };
+
+<<<<<<< HEAD
+  const handleFieldChange = name => event => {
+    const {
+      checked
+    } = event.target;
+    checked ? setFields([...fields, name]) : setFields(fields.filter(field => field != name));
+=======
+  const handleFieldChange = event => {
+    const {
+      value
+    } = event.target;
+    setFields(value);
+  };
+
+  const handlePropertiesChange = event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setProperties(_objectSpread({}, properties, {
+      [name]: value
+    }));
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    getDatasources();
+  }, []);
+
+  const handleSourceChange = event => {
+    const {
+      value
+    } = event.target;
+    setSelectionOption(value);
+  };
+
+  const saveConfigData = async () => {
+    try {
+      const data = {
+        dataSourceId: datasource,
+        config: {
+          docId: doc,
+          fields: [fields],
+          type: selectionOption == 'datasource' ? 'simple' : 'constant',
+          func: 'find',
+          query: {},
+          values: selectionOption == 'datasource' ? [] : []
+        },
+        properties,
+        type: 'Auto Complete'
+      };
+
+      if (isAdding) {
+        onWidgetAdd(data, true, selectedFormGroup);
+      } else {
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__["default"].updateWidgetSettings(widget.id, data);
+        handleSettingsClose(update);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  };
+
+  const renderFieldSettings = () => fieldList.length ? __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 109,
+      columnNumber: 57
+    }
+  }, __jsx("h2", {
+=======
+      lineNumber: 206,
+      columnNumber: 7
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 207,
+      columnNumber: 9
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 208,
+      columnNumber: 11
+    }
+  }, "Fields Settings")), __jsx(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    onChange: handleFieldChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 210,
+      columnNumber: 9
+    }
+  }, fieldList.map(field => __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    key: field,
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      value: field,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 215,
+        columnNumber: 26
+      }
+    }),
+    label: field,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 213,
+      columnNumber: 15
+    }
+  }))), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__["Typography"], {
+    style: {
+      fontSize: 12,
+      color: '#F00',
+      marginTop: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 220,
+      columnNumber: 9
+    }
+  }, "* You can only select one field in an autocomplete textfield.")) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 225,
+      columnNumber: 7
+    }
+  });
+
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 231,
+      columnNumber: 5
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 232,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 233,
+      columnNumber: 9
+    }
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 235,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 236,
+      columnNumber: 9
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 237,
+      columnNumber: 9
+    }
+  })), __jsx("h2", {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 110,
+      columnNumber: 5
+=======
+      lineNumber: 240,
+      columnNumber: 7
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 111,
+      columnNumber: 7
+    }
+  }, "Fields Settings")), fieldList.map(field => __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    key: field,
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      checked: fields.includes(field),
+      onChange: handleFieldChange(field),
+      value: field,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 117,
+        columnNumber: 9
+      }
+    }),
+    label: field,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 30
+    }
+  }))) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 121,
+      columnNumber: 13
+    }
+  });
+
+  const renderQuerySettings = () => fields.length ? __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 123,
+      columnNumber: 54
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 124,
+      columnNumber: 5
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 125,
+      columnNumber: 7
+    }
+  }, "Query Settings")), fields.map(field => __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 128,
+      columnNumber: 27
+    }
+  }))) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 131,
+      columnNumber: 13
+    }
+  });
+
+  const saveConfigSettings = async () => {
+    try {
+      const data = {
+        dataSourceId: datasource,
+        config: {
+          docId: doc,
+          fields,
+          type: 'simple',
+          func: 'find',
+          query: {}
+        },
+        type: 'Table'
+      };
+
+      if (isAdding) {
+        onWidgetAdd(data);
+      } else {
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].updateWidgetSettings(widget.id, data);
+        handleSettingsClose(update);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    getDatasources();
+  }, []);
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 162,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 163,
+      columnNumber: 7
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 164,
+      columnNumber: 9
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 165,
+      columnNumber: 11
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 241,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 243,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 244,
+      columnNumber: 9
+    }
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    name: "label",
+    onChange: handlePropertiesChange,
+    value: properties.label,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 245,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 248,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 249,
+      columnNumber: 9
+    }
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    name: "id",
+    onChange: handlePropertiesChange,
+    value: properties.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 250,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 253,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 254,
+      columnNumber: 9
+    }
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    name: "name",
+    onChange: handlePropertiesChange,
+    value: properties.name,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 255,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 258,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 259,
+      columnNumber: 9
+    }
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    name: "placeholder",
+    onChange: handlePropertiesChange,
+    value: properties.placeholder,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 260,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 263,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 264,
+      columnNumber: 9
+    }
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    name: "className",
+    onChange: handlePropertiesChange,
+    value: properties.className,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 265,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 167,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    id: "title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 168,
+      columnNumber: 11
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 169,
+      columnNumber: 11
+    }
+  })), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 171,
+      columnNumber: 9
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 172,
+      columnNumber: 11
+    }
+  }, "Connection Settings")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 268,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default.a, {
+      checked: linkToFormGroup,
+      onChange: handleLinkToFormGroup,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 270,
+        columnNumber: 20
+      }
+    }),
+    label: "Link To Form Group?",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 269,
+      columnNumber: 9
+    }
+  })), renderFormGroupSelection(), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 277,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 278,
+      columnNumber: 9
+    }
+  }, "Unique Properties")), __jsx(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    row: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 280,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    onChange: handleSourceChange,
+    value: selectionOption,
+    style: {
+      justifyContent: 'space-evenly',
+      width: '100%',
+      flexDirection: 'row'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 281,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    value: "datasource",
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 282,
+        columnNumber: 57
+      }
+    }),
+    label: "From Data Source",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 282,
+      columnNumber: 11
+    }
+  }), __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    value: "fixed",
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 283,
+        columnNumber: 52
+      }
+    }),
+    label: "Fixed Values",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 283,
+      columnNumber: 11
+    }
+  }))), selectionOption == 'datasource' ? __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 288,
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 174,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default.a, {
+=======
+      lineNumber: 289,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    id: "data-source",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 175,
+      columnNumber: 11
+    }
+  }, "Data Source"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default.a, {
+=======
+      lineNumber: 290,
+      columnNumber: 15
+    }
+  }, "Data Source"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    name: "datasource",
+    labelId: "data-source",
+    value: datasource,
+    onChange: handleDatasourceChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 176,
+      columnNumber: 11
+    }
+  }, datasources.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4___default.a, {
+=======
+      lineNumber: 291,
+      columnNumber: 15
+    }
+  }, datasources.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    key: item.id,
+    value: item.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 182,
+      columnNumber: 39
+    }
+  }, item.title)))), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 297,
+      columnNumber: 43
+    }
+  }, item.title)))), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    className: classes.formControl,
+    disabled: datasource ? false : true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 186,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default.a, {
+=======
+      lineNumber: 301,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    id: "doc-list",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 187,
+      columnNumber: 11
+    }
+  }, "Table/Collection"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default.a, {
+=======
+      lineNumber: 302,
+      columnNumber: 15
+    }
+  }, "Table/Collection"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    name: "docList",
+    labelId: "doc-list",
+    value: doc,
+    onChange: handleDocChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 188,
+      columnNumber: 11
+    }
+  }, docList.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4___default.a, {
+=======
+      lineNumber: 303,
+      columnNumber: 15
+    }
+  }, docList.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    key: item,
+    value: item,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 194,
+      columnNumber: 35
+    }
+  }, item)))), renderFieldSettings(), renderQuerySettings(), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    onClick: saveConfigSettings,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 202,
+      columnNumber: 9
+    }
+  }, isAdding ? 'Add' : 'Save')));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (LineChartWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/charts/line-chart/line-chart-widget.jsx":
+/*!********************************************************************!*\
+  !*** ./components/widgets/charts/line-chart/line-chart-widget.jsx ***!
+  \********************************************************************/
+=======
+      lineNumber: 309,
+      columnNumber: 39
+    }
+  }, item)))), renderFieldSettings()) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 315,
+      columnNumber: 13
+    }
+  }), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    onClick: saveConfigData,
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    style: {
+      marginBottom: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 320,
+      columnNumber: 7
+    }
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AutoCompleteWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/autocomplete/autocomplete-widget.jsx":
+/*!*******************************************************************************!*\
+  !*** ./components/widgets/form-controls/autocomplete/autocomplete-widget.jsx ***!
+  \*******************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Paper */ "@material-ui/core/Paper");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @devexpress/dx-react-chart-material-ui */ "@devexpress/dx-react-chart-material-ui");
+/* harmony import */ var _devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_devexpress_dx_react_chart_material_ui__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @devexpress/dx-react-chart */ "@devexpress/dx-react-chart");
+/* harmony import */ var _devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_devexpress_dx_react_chart__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "@material-ui/core/CircularProgress");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/IconButton */ "@material-ui/core/IconButton");
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_icons_Refresh__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/icons/Refresh */ "@material-ui/icons/Refresh");
+/* harmony import */ var _material_ui_icons_Refresh__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Refresh__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/Settings */ "@material-ui/icons/Settings");
+/* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Drawer */ "@material-ui/core/Drawer");
+/* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _line_chart_widget_settings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./line-chart-widget-settings */ "./components/widgets/charts/line-chart/line-chart-widget-settings.jsx");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\line-chart\\line-chart-widget.jsx";
+=======
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/lab/Autocomplete */ "@material-ui/lab/Autocomplete");
+/* harmony import */ var _material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/autocomplete/autocomplete-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const AutoCompleteWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    properties: {},
+    config: {
+      fields: []
+    }
+  });
+  const {
+    0: data,
+    1: setData
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__["default"].getWidgetSettingsById(widgetId);
+        const $data = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__["default"].executeWidgetQuery(widgetId);
+        setWidget($widget);
+        setData($data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    id: widget.properties.id,
+    placeholder: widget.properties.placeholder,
+    className: widget.properties.className,
+    value: widget.properties.value,
+    options: data,
+    getOptionLabel: option => option[widget.config.fields[0]],
+    fullWidth: true,
+    renderInput: params => __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a, _extends({
+      fullWidth: true,
+      name: widget.properties.name
+    }, params, {
+      label: widget.properties.label,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41,
+        columnNumber: 9
+      }
+    })),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
+      columnNumber: 5
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AutoCompleteWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/autocomplete/index.js":
+/*!****************************************************************!*\
+  !*** ./components/widgets/form-controls/autocomplete/index.js ***!
+  \****************************************************************/
+/*! exports provided: AutoCompleteWidget, AutoCompleteWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _autocomplete_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./autocomplete-widget */ "./components/widgets/form-controls/autocomplete/autocomplete-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidget", function() { return _autocomplete_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _autocomplete_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./autocomplete-widget-settings */ "./components/widgets/form-controls/autocomplete/autocomplete-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidgetSettings", function() { return _autocomplete_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/button/button-widget-settings.jsx":
+/*!****************************************************************************!*\
+  !*** ./components/widgets/form-controls/button/button-widget-settings.jsx ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var react_simple_code_editor__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-simple-code-editor */ "react-simple-code-editor");
+/* harmony import */ var react_simple_code_editor__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_simple_code_editor__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! prismjs/components/prism-core */ "prismjs/components/prism-core");
+/* harmony import */ var prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var prismjs_components_prism_clike__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! prismjs/components/prism-clike */ "prismjs/components/prism-clike");
+/* harmony import */ var prismjs_components_prism_clike__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_clike__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! prismjs/components/prism-javascript */ "prismjs/components/prism-javascript");
+/* harmony import */ var prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_17__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/button/button-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<< HEAD
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
   list: {
     width: 500
@@ -5864,6 +10618,406 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************************!*\
   !*** ./components/widgets/charts/pie-chart/pie-chart-widget-settings.jsx ***!
   \***************************************************************************/
+=======
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const ButtonWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  const {
+    0: linkToFormGroup,
+    1: setLinkToFormGroup
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: formGroups,
+    1: setFormGroups
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: selectedFormGroup,
+    1: setSelectedFormGroup
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: properties,
+    1: setProperties
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    label: '',
+    id: '',
+    className: ''
+  });
+  const {
+    0: code,
+    1: setCode
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(`function (a, b) {
+    alert(a + b)
+  }`);
+
+  const handlePropertiesChange = event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setProperties(_objectSpread({}, properties, {
+      [name]: value
+    }));
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getFormGroups = async () => {
+      try {
+        const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_12__["default"].getFormGroupWidgets();
+        setFormGroups($formGroups);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getFormGroups();
+  }, []);
+
+  const handleSelectFormGroup = event => {
+    const {
+      value
+    } = event.target;
+    setSelectedFormGroup(value);
+  };
+
+  const handleLinkToFormGroup = event => {
+    const {
+      checked
+    } = event.target;
+    if (!checked) setSelectedFormGroup(null);
+    setLinkToFormGroup(checked);
+  };
+
+  const renderFormGroupSelection = _ => linkToFormGroup ? __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    id: "form-group-title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90,
+      columnNumber: 7
+    }
+  }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    fullWidth: true,
+    labelId: "form-group-title",
+    value: selectedFormGroup,
+    onChange: handleSelectFormGroup,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91,
+      columnNumber: 7
+    }
+  }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    value: formGroup.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 99,
+      columnNumber: 13
+    }
+  }, formGroup.properties.name)))) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105,
+      columnNumber: 7
+    }
+  });
+
+  const saveConfigData = async () => {
+    try {
+      const data = {
+        properties: _objectSpread({}, properties, {
+          code
+        }),
+        type: 'Button'
+      };
+
+      if (isAdding) {
+        onWidgetAdd(data, true, selectedFormGroup);
+      } else {
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_12__["default"].updateWidgetSettings(widget.id, data);
+        handleSettingsClose(update);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 129,
+      columnNumber: 5
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 130,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 131,
+      columnNumber: 9
+    }
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 133,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 134,
+      columnNumber: 9
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 135,
+      columnNumber: 9
+    }
+  })), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 138,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 139,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 141,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 142,
+      columnNumber: 9
+    }
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "label",
+    onChange: handlePropertiesChange,
+    value: properties.label,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 143,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 146,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 147,
+      columnNumber: 9
+    }
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "id",
+    onChange: handlePropertiesChange,
+    value: properties.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 148,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 151,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 152,
+      columnNumber: 9
+    }
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "className",
+    onChange: handlePropertiesChange,
+    value: properties.className,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 153,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 156,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default.a, {
+      checked: linkToFormGroup,
+      onChange: handleLinkToFormGroup,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 158,
+        columnNumber: 20
+      }
+    }),
+    label: "Link To Form Group?",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 157,
+      columnNumber: 9
+    }
+  })), renderFormGroupSelection(), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 165,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 166,
+      columnNumber: 9
+    }
+  }, "Unique Properties")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 168,
+      columnNumber: 7
+    }
+  }, "OnClick Event"), __jsx(react_simple_code_editor__WEBPACK_IMPORTED_MODULE_14___default.a, {
+    value: code,
+    onValueChange: code => setCode(code),
+    highlight: code => Object(prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15__["highlight"])(code, prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15__["languages"].javascript),
+    padding: 10,
+    style: {
+      fontFamily: '"Fira code", "Fira Mono", monospace',
+      fontSize: 12,
+      border: '1px solid #DEDEDE'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 169,
+      columnNumber: 7
+    }
+  }), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    onClick: saveConfigData,
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 181,
+      columnNumber: 7
+    }
+  }, "Save"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ButtonWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/button/button-widget.jsx":
+/*!*******************************************************************!*\
+  !*** ./components/widgets/form-controls/button/button-widget.jsx ***!
+  \*******************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5875,6 +11029,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+<<<<<<< HEAD
 /* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
 /* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
@@ -5894,12 +11049,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\charts\\pie-chart\\pie-chart-widget-settings.jsx";
+=======
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/button/button-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -6158,13 +11318,164 @@ const PieChartWidgetSettings = ({
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     getDatasources();
   }, []);
+=======
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const ButtonWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    properties: {}
+  });
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__["default"].getWidgetSettingsById(widgetId);
+        console.log($widget.properties.code);
+        Function($widget.properties.code)();
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: widget.properties.className,
+    id: widget.properties.id,
+    onClick: Function(widget.properties.code)(),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 5
+    }
+  }, widget.properties.label);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ButtonWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/button/index.js":
+/*!**********************************************************!*\
+  !*** ./components/widgets/form-controls/button/index.js ***!
+  \**********************************************************/
+/*! exports provided: ButtonWidget, ButtonWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _button_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button-widget */ "./components/widgets/form-controls/button/button-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidget", function() { return _button_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _button_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./button-widget-settings */ "./components/widgets/form-controls/button/button-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidgetSettings", function() { return _button_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/checkbox/checkbox-widget-settings.jsx":
+/*!********************************************************************************!*\
+  !*** ./components/widgets/form-controls/checkbox/checkbox-widget-settings.jsx ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/checkbox/checkbox-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const CheckboxWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   return __jsx("div", {
     className: classes.list,
     role: "presentation",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 162,
+=======
+      lineNumber: 43,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   }, __jsx("h2", {
@@ -6172,7 +11483,11 @@ const PieChartWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 163,
+=======
+      lineNumber: 44,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx("span", {
@@ -6180,15 +11495,23 @@ const PieChartWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 164,
       columnNumber: 9
     }
   }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 45,
+      columnNumber: 9
+    }
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 166,
       columnNumber: 7
     }
@@ -6205,6 +11528,23 @@ const PieChartWidgetSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 168,
+=======
+      lineNumber: 47,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 9
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx("h2", {
@@ -6212,7 +11552,11 @@ const PieChartWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 170,
+=======
+      lineNumber: 52,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx("span", {
@@ -6220,15 +11564,23 @@ const PieChartWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 171,
       columnNumber: 9
     }
   }, "Connection Settings")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 53,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 173,
       columnNumber: 7
     }
@@ -6633,1637 +11985,7 @@ const PieChartWidget = ({
 /*!****************************************************************************************!*\
   !*** ./components/widgets/form-controls/autocomplete/autocomplete-widget-settings.jsx ***!
   \****************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
-/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
-/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
-/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
-/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormGroup */ "@material-ui/core/FormGroup");
-/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
-/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Radio */ "@material-ui/core/Radio");
-/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
-/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/RadioGroup */ "@material-ui/core/RadioGroup");
-/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
-/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\autocomplete\\autocomplete-widget-settings.jsx";
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
-  list: {
-    width: 500,
-    paddingLeft: "15px",
-    paddingRight: "15px",
-    paddingTop: "15px"
-  },
-  h2: {
-    width: '100%',
-    textAlign: 'center',
-    borderBottom: '1px solid #000',
-    lineHeight: '0.1em',
-    marginTop: "20px",
-    marginBottom: "20px",
-    fontFamily: 'Roboto',
-    fontSize: '13px',
-    color: "#3F51B5"
-  },
-  span: {
-    background: '#fff',
-    padding: '0 10px'
-  },
-  formControl: {
-    marginTop: "15px"
-  }
-}));
-
-const AutoCompleteWidgetSettings = ({
-  widget,
-  handleSettingsClose,
-  isAdding,
-  onWidgetAdd
-}) => {
-  const classes = useStyles();
-  const {
-    0: linkToFormGroup,
-    1: setLinkToFormGroup
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
-  const {
-    0: formGroups,
-    1: setFormGroups
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
-  const {
-    0: selectedFormGroup,
-    1: setSelectedFormGroup
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
-  const {
-    0: selectionOption,
-    1: setSelectionOption
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('datasource');
-  const {
-    0: properties,
-    1: setProperties
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    label: '',
-    id: '',
-    name: '',
-    placeholder: '',
-    className: '',
-    value: ''
-  });
-  const {
-    0: datasources,
-    1: setDatasources
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
-  const {
-    0: datasource,
-    1: setDatasource
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.dataSourceId : '');
-  const {
-    0: docList,
-    1: setDocList
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
-  const {
-    0: doc,
-    1: setDoc
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.docId : '');
-  const {
-    0: fieldList,
-    1: setFieldList
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
-  const {
-    0: fields,
-    1: setFields
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.fields : '');
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    const getFormGroups = async () => {
-      try {
-        const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__["default"].getFormGroupWidgets();
-        setFormGroups($formGroups);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    getFormGroups();
-  }, []);
-
-  const handleSelectFormGroup = event => {
-    const {
-      value
-    } = event.target;
-    setSelectedFormGroup(value);
-  };
-
-  const handleLinkToFormGroup = event => {
-    const {
-      checked
-    } = event.target;
-    if (!checked) setSelectedFormGroup(null);
-    setLinkToFormGroup(checked);
-  };
-
-  const renderFormGroupSelection = _ => linkToFormGroup ? __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    fullWidth: true,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 88,
-      columnNumber: 5
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    id: "form-group-title",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 89,
-      columnNumber: 7
-    }
-  }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
-    fullWidth: true,
-    labelId: "form-group-title",
-    value: selectedFormGroup,
-    onChange: handleSelectFormGroup,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 90,
-      columnNumber: 7
-    }
-  }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    value: formGroup.id,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 98,
-      columnNumber: 13
-    }
-  }, formGroup.properties.name)))) : __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 104,
-      columnNumber: 7
-    }
-  });
-
-  const getDatasources = async () => {
-    try {
-      const $datasources = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDatasources({});
-
-      if (!isAdding) {
-        const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDocList(datasource);
-        const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getFieldList(datasource, doc);
-        setDocList($docList);
-        setFieldList($fieldList);
-      }
-
-      setDatasources($datasources);
-      return $datasources;
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const getDocList = async id => {
-    try {
-      setDatasource(id);
-      const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDocList(id);
-      setDocList($docList);
-      return $docList;
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const getFieldList = async (id, docId) => {
-    try {
-      setDoc(docId);
-      const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getFieldList(id, docId);
-      setFieldList($fieldList);
-      return $fieldList;
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const handleDatasourceChange = async event => {
-    const {
-      name,
-      value
-    } = event.target;
-    setFieldList([]);
-    setFields([]);
-    await getDocList(value);
-  };
-
-  const handleDocChange = async event => {
-    const {
-      name,
-      value
-    } = event.target;
-    setFieldList([]);
-    setFields([]);
-    await getFieldList(datasource, value);
-  };
-
-  const handleFieldChange = event => {
-    const {
-      value
-    } = event.target;
-    setFields(value);
-  };
-
-  const handlePropertiesChange = event => {
-    const {
-      name,
-      value
-    } = event.target;
-    setProperties(_objectSpread({}, properties, {
-      [name]: value
-    }));
-  };
-
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    getDatasources();
-  }, []);
-
-  const handleSourceChange = event => {
-    const {
-      value
-    } = event.target;
-    setSelectionOption(value);
-  };
-
-  const saveConfigData = async () => {
-    try {
-      const data = {
-        dataSourceId: datasource,
-        config: {
-          docId: doc,
-          fields: [fields],
-          type: selectionOption == 'datasource' ? 'simple' : 'constant',
-          func: 'find',
-          query: {},
-          values: selectionOption == 'datasource' ? [] : []
-        },
-        properties,
-        type: 'Auto Complete'
-      };
-
-      if (isAdding) {
-        onWidgetAdd(data, true, selectedFormGroup);
-      } else {
-        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__["default"].updateWidgetSettings(widget.id, data);
-        handleSettingsClose(update);
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const renderFieldSettings = () => fieldList.length ? __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 206,
-      columnNumber: 7
-    }
-  }, __jsx("h2", {
-    className: classes.h2,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 207,
-      columnNumber: 9
-    }
-  }, __jsx("span", {
-    className: classes.span,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 208,
-      columnNumber: 11
-    }
-  }, "Fields Settings")), __jsx(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default.a, {
-    onChange: handleFieldChange,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 210,
-      columnNumber: 9
-    }
-  }, fieldList.map(field => __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    key: field,
-    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
-      value: field,
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 215,
-        columnNumber: 26
-      }
-    }),
-    label: field,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 213,
-      columnNumber: 15
-    }
-  }))), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__["Typography"], {
-    style: {
-      fontSize: 12,
-      color: '#F00',
-      marginTop: 10
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 220,
-      columnNumber: 9
-    }
-  }, "* You can only select one field in an autocomplete textfield.")) : __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 225,
-      columnNumber: 7
-    }
-  });
-
-  return __jsx("div", {
-    className: classes.list,
-    role: "presentation",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 231,
-      columnNumber: 5
-    }
-  }, __jsx("h2", {
-    className: classes.h2,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 232,
-      columnNumber: 7
-    }
-  }, __jsx("span", {
-    className: classes.span,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 233,
-      columnNumber: 9
-    }
-  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 235,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 236,
-      columnNumber: 9
-    }
-  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 237,
-      columnNumber: 9
-    }
-  })), __jsx("h2", {
-    className: classes.h2,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 240,
-      columnNumber: 7
-    }
-  }, __jsx("span", {
-    className: classes.span,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 241,
-      columnNumber: 9
-    }
-  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 243,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 244,
-      columnNumber: 9
-    }
-  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    name: "label",
-    onChange: handlePropertiesChange,
-    value: properties.label,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 245,
-      columnNumber: 9
-    }
-  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 248,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 249,
-      columnNumber: 9
-    }
-  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    name: "id",
-    onChange: handlePropertiesChange,
-    value: properties.id,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 250,
-      columnNumber: 9
-    }
-  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 253,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 254,
-      columnNumber: 9
-    }
-  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    name: "name",
-    onChange: handlePropertiesChange,
-    value: properties.name,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 255,
-      columnNumber: 9
-    }
-  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 258,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 259,
-      columnNumber: 9
-    }
-  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    name: "placeholder",
-    onChange: handlePropertiesChange,
-    value: properties.placeholder,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 260,
-      columnNumber: 9
-    }
-  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 263,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 264,
-      columnNumber: 9
-    }
-  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    name: "className",
-    onChange: handlePropertiesChange,
-    value: properties.className,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 265,
-      columnNumber: 9
-    }
-  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 268,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default.a, {
-      checked: linkToFormGroup,
-      onChange: handleLinkToFormGroup,
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 270,
-        columnNumber: 20
-      }
-    }),
-    label: "Link To Form Group?",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 269,
-      columnNumber: 9
-    }
-  })), renderFormGroupSelection(), __jsx("h2", {
-    className: classes.h2,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 277,
-      columnNumber: 7
-    }
-  }, __jsx("span", {
-    className: classes.span,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 278,
-      columnNumber: 9
-    }
-  }, "Unique Properties")), __jsx(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7___default.a, {
-    row: true,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 280,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default.a, {
-    onChange: handleSourceChange,
-    value: selectionOption,
-    style: {
-      justifyContent: 'space-evenly',
-      width: '100%',
-      flexDirection: 'row'
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 281,
-      columnNumber: 9
-    }
-  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    value: "datasource",
-    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 282,
-        columnNumber: 57
-      }
-    }),
-    label: "From Data Source",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 282,
-      columnNumber: 11
-    }
-  }), __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    value: "fixed",
-    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 283,
-        columnNumber: 52
-      }
-    }),
-    label: "Fixed Values",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 283,
-      columnNumber: 11
-    }
-  }))), selectionOption == 'datasource' ? __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 288,
-      columnNumber: 11
-    }
-  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 289,
-      columnNumber: 13
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    id: "data-source",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 290,
-      columnNumber: 15
-    }
-  }, "Data Source"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
-    name: "datasource",
-    labelId: "data-source",
-    value: datasource,
-    onChange: handleDatasourceChange,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 291,
-      columnNumber: 15
-    }
-  }, datasources.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    key: item.id,
-    value: item.id,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 297,
-      columnNumber: 43
-    }
-  }, item.title)))), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    disabled: datasource ? false : true,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 301,
-      columnNumber: 13
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    id: "doc-list",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 302,
-      columnNumber: 15
-    }
-  }, "Table/Collection"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
-    name: "docList",
-    labelId: "doc-list",
-    value: doc,
-    onChange: handleDocChange,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 303,
-      columnNumber: 15
-    }
-  }, docList.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    key: item,
-    value: item,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 309,
-      columnNumber: 39
-    }
-  }, item)))), renderFieldSettings()) : __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 315,
-      columnNumber: 13
-    }
-  }), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    onClick: saveConfigData,
-    fullWidth: true,
-    color: "primary",
-    className: classes.formControl,
-    style: {
-      marginBottom: 10
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 320,
-      columnNumber: 7
-    }
-  }, "Save"));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (AutoCompleteWidgetSettings);
-
-/***/ }),
-
-/***/ "./components/widgets/form-controls/autocomplete/autocomplete-widget.jsx":
-/*!*******************************************************************************!*\
-  !*** ./components/widgets/form-controls/autocomplete/autocomplete-widget.jsx ***!
-  \*******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
-/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/lab/Autocomplete */ "@material-ui/lab/Autocomplete");
-/* harmony import */ var _material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\autocomplete\\autocomplete-widget.jsx";
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-
-
-
-
-
-const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
-
-const AutoCompleteWidget = ({
-  widgetId
-}) => {
-  const classes = useStyles();
-  const {
-    0: widget,
-    1: setWidget
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    properties: {},
-    config: {
-      fields: []
-    }
-  });
-  const {
-    0: data,
-    1: setData
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
-  const {
-    0: menuState,
-    1: setMenuState
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    right: false
-  });
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    const getData = async () => {
-      try {
-        const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__["default"].getWidgetSettingsById(widgetId);
-        const $data = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__["default"].executeWidgetQuery(widgetId);
-        setWidget($widget);
-        setData($data);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    getData();
-  }, []);
-  return __jsx(_material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    id: widget.properties.id,
-    placeholder: widget.properties.placeholder,
-    className: widget.properties.className,
-    value: widget.properties.value,
-    options: data,
-    getOptionLabel: option => option[widget.config.fields[0]],
-    style: {
-      width: '100%'
-    },
-    renderInput: params => __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a, _extends({
-      fullWidth: true,
-      name: widget.properties.name
-    }, params, {
-      label: widget.properties.label,
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 41,
-        columnNumber: 9
-      }
-    })),
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 32,
-      columnNumber: 5
-    }
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (AutoCompleteWidget);
-
-/***/ }),
-
-/***/ "./components/widgets/form-controls/autocomplete/index.js":
-/*!****************************************************************!*\
-  !*** ./components/widgets/form-controls/autocomplete/index.js ***!
-  \****************************************************************/
-/*! exports provided: AutoCompleteWidget, AutoCompleteWidgetSettings */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _autocomplete_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./autocomplete-widget */ "./components/widgets/form-controls/autocomplete/autocomplete-widget.jsx");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidget", function() { return _autocomplete_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-/* harmony import */ var _autocomplete_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./autocomplete-widget-settings */ "./components/widgets/form-controls/autocomplete/autocomplete-widget-settings.jsx");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidgetSettings", function() { return _autocomplete_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
-
-
-
-
-
-/***/ }),
-
-/***/ "./components/widgets/form-controls/button/button-widget-settings.jsx":
-/*!****************************************************************************!*\
-  !*** ./components/widgets/form-controls/button/button-widget-settings.jsx ***!
-  \****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
-/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
-/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
-/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
-/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
-/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
-/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
-/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var react_simple_code_editor__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-simple-code-editor */ "react-simple-code-editor");
-/* harmony import */ var react_simple_code_editor__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_simple_code_editor__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! prismjs/components/prism-core */ "prismjs/components/prism-core");
-/* harmony import */ var prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var prismjs_components_prism_clike__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! prismjs/components/prism-clike */ "prismjs/components/prism-clike");
-/* harmony import */ var prismjs_components_prism_clike__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_clike__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! prismjs/components/prism-javascript */ "prismjs/components/prism-javascript");
-/* harmony import */ var prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_17__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\button\\button-widget-settings.jsx";
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
-  list: {
-    width: 500,
-    paddingLeft: "15px",
-    paddingRight: "15px",
-    paddingTop: "15px"
-  },
-  h2: {
-    width: '100%',
-    textAlign: 'center',
-    borderBottom: '1px solid #000',
-    lineHeight: '0.1em',
-    marginTop: "20px",
-    marginBottom: "20px",
-    fontFamily: 'Roboto',
-    fontSize: '13px',
-    color: "#3F51B5"
-  },
-  span: {
-    background: '#fff',
-    padding: '0 10px'
-  },
-  formControl: {
-    marginTop: "15px"
-  }
-}));
-
-const ButtonWidgetSettings = ({
-  widget,
-  handleSettingsClose,
-  isAdding,
-  onWidgetAdd
-}) => {
-  const classes = useStyles();
-  const {
-    0: linkToFormGroup,
-    1: setLinkToFormGroup
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
-  const {
-    0: formGroups,
-    1: setFormGroups
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
-  const {
-    0: selectedFormGroup,
-    1: setSelectedFormGroup
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
-  const {
-    0: properties,
-    1: setProperties
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    label: '',
-    id: '',
-    className: ''
-  });
-  const {
-    0: code,
-    1: setCode
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(`function (a, b) {
-    alert(a + b)
-  }`);
-
-  const handlePropertiesChange = event => {
-    const {
-      name,
-      value
-    } = event.target;
-    setProperties(_objectSpread({}, properties, {
-      [name]: value
-    }));
-  };
-
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    const getFormGroups = async () => {
-      try {
-        const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_12__["default"].getFormGroupWidgets();
-        setFormGroups($formGroups);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    getFormGroups();
-  }, []);
-
-  const handleSelectFormGroup = event => {
-    const {
-      value
-    } = event.target;
-    setSelectedFormGroup(value);
-  };
-
-  const handleLinkToFormGroup = event => {
-    const {
-      checked
-    } = event.target;
-    if (!checked) setSelectedFormGroup(null);
-    setLinkToFormGroup(checked);
-  };
-
-  const renderFormGroupSelection = _ => linkToFormGroup ? __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    fullWidth: true,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 89,
-      columnNumber: 5
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    id: "form-group-title",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 90,
-      columnNumber: 7
-    }
-  }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default.a, {
-    fullWidth: true,
-    labelId: "form-group-title",
-    value: selectedFormGroup,
-    onChange: handleSelectFormGroup,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 91,
-      columnNumber: 7
-    }
-  }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    value: formGroup.id,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 99,
-      columnNumber: 13
-    }
-  }, formGroup.properties.name)))) : __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 105,
-      columnNumber: 7
-    }
-  });
-
-  const saveConfigData = async () => {
-    try {
-      const data = {
-        properties: _objectSpread({}, properties, {
-          code
-        }),
-        type: 'Button'
-      };
-
-      if (isAdding) {
-        onWidgetAdd(data, true, selectedFormGroup);
-      } else {
-        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_12__["default"].updateWidgetSettings(widget.id, data);
-        handleSettingsClose(update);
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  return __jsx("div", {
-    className: classes.list,
-    role: "presentation",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 129,
-      columnNumber: 5
-    }
-  }, __jsx("h2", {
-    className: classes.h2,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 130,
-      columnNumber: 7
-    }
-  }, __jsx("span", {
-    className: classes.span,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 131,
-      columnNumber: 9
-    }
-  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 133,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 134,
-      columnNumber: 9
-    }
-  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 135,
-      columnNumber: 9
-    }
-  })), __jsx("h2", {
-    className: classes.h2,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 138,
-      columnNumber: 7
-    }
-  }, __jsx("span", {
-    className: classes.span,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 139,
-      columnNumber: 9
-    }
-  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 141,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 142,
-      columnNumber: 9
-    }
-  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    name: "label",
-    onChange: handlePropertiesChange,
-    value: properties.label,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 143,
-      columnNumber: 9
-    }
-  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 146,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 147,
-      columnNumber: 9
-    }
-  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    name: "id",
-    onChange: handlePropertiesChange,
-    value: properties.id,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 148,
-      columnNumber: 9
-    }
-  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 151,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 152,
-      columnNumber: 9
-    }
-  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    name: "className",
-    onChange: handlePropertiesChange,
-    value: properties.className,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 153,
-      columnNumber: 9
-    }
-  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 156,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_9___default.a, {
-    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default.a, {
-      checked: linkToFormGroup,
-      onChange: handleLinkToFormGroup,
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 158,
-        columnNumber: 20
-      }
-    }),
-    label: "Link To Form Group?",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 157,
-      columnNumber: 9
-    }
-  })), renderFormGroupSelection(), __jsx("h2", {
-    className: classes.h2,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 165,
-      columnNumber: 7
-    }
-  }, __jsx("span", {
-    className: classes.span,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 166,
-      columnNumber: 9
-    }
-  }, "Unique Properties")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 168,
-      columnNumber: 7
-    }
-  }, "OnClick Event"), __jsx(react_simple_code_editor__WEBPACK_IMPORTED_MODULE_14___default.a, {
-    value: code,
-    onValueChange: code => setCode(code),
-    highlight: code => Object(prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15__["highlight"])(code, prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15__["languages"].javascript),
-    padding: 10,
-    style: {
-      fontFamily: '"Fira code", "Fira Mono", monospace',
-      fontSize: 12,
-      border: '1px solid #DEDEDE'
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 169,
-      columnNumber: 7
-    }
-  }), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    onClick: saveConfigData,
-    fullWidth: true,
-    color: "primary",
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 181,
-      columnNumber: 7
-    }
-  }, "Save"));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (ButtonWidgetSettings);
-
-/***/ }),
-
-/***/ "./components/widgets/form-controls/button/button-widget.jsx":
-/*!*******************************************************************!*\
-  !*** ./components/widgets/form-controls/button/button-widget.jsx ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\button\\button-widget.jsx";
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-
-const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
-
-const ButtonWidget = ({
-  widgetId
-}) => {
-  const classes = useStyles();
-  const {
-    0: widget,
-    1: setWidget
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    properties: {}
-  });
-  const {
-    0: menuState,
-    1: setMenuState
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    right: false
-  });
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    const getData = async () => {
-      try {
-        const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__["default"].getWidgetSettingsById(widgetId);
-        console.log($widget.properties.code);
-        Function($widget.properties.code)();
-        setWidget($widget);
-        return $widget;
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    getData();
-  }, []);
-  return __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    className: widget.properties.className,
-    id: widget.properties.id,
-    onClick: Function(widget.properties.code)(),
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31,
-      columnNumber: 5
-    }
-  }, widget.properties.label);
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (ButtonWidget);
-
-/***/ }),
-
-/***/ "./components/widgets/form-controls/button/index.js":
-/*!**********************************************************!*\
-  !*** ./components/widgets/form-controls/button/index.js ***!
-  \**********************************************************/
-/*! exports provided: ButtonWidget, ButtonWidgetSettings */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _button_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button-widget */ "./components/widgets/form-controls/button/button-widget.jsx");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidget", function() { return _button_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-/* harmony import */ var _button_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./button-widget-settings */ "./components/widgets/form-controls/button/button-widget-settings.jsx");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidgetSettings", function() { return _button_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
-
-
-
-
-
-/***/ }),
-
-/***/ "./components/widgets/form-controls/checkbox/checkbox-widget-settings.jsx":
-/*!********************************************************************************!*\
-  !*** ./components/widgets/form-controls/checkbox/checkbox-widget-settings.jsx ***!
-  \********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
-/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
-/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
-/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
-/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
-/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\checkbox\\checkbox-widget-settings.jsx";
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-
-
-
-
-
-
-
-const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
-  list: {
-    width: 500,
-    paddingLeft: "15px",
-    paddingRight: "15px",
-    paddingTop: "15px"
-  },
-  h2: {
-    width: '100%',
-    textAlign: 'center',
-    borderBottom: '1px solid #000',
-    lineHeight: '0.1em',
-    marginTop: "20px",
-    marginBottom: "20px",
-    fontFamily: 'Roboto',
-    fontSize: '13px',
-    color: "#3F51B5"
-  },
-  span: {
-    background: '#fff',
-    padding: '0 10px'
-  },
-  formControl: {
-    marginTop: "15px"
-  }
-}));
-
-const CheckboxWidgetSettings = ({
-  widget,
-  handleSettingsClose,
-  isAdding,
-  onWidgetAdd
-}) => {
-  const classes = useStyles();
-  return __jsx("div", {
-    className: classes.list,
-    role: "presentation",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 43,
-      columnNumber: 5
-    }
-  }, __jsx("h2", {
-    className: classes.h2,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 44,
-      columnNumber: 7
-    }
-  }, __jsx("span", {
-    className: classes.span,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 45,
-      columnNumber: 9
-    }
-  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 47,
-      columnNumber: 7
-    }
-  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 48,
-      columnNumber: 9
-    }
-  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 49,
-      columnNumber: 9
-    }
-  })), __jsx("h2", {
-    className: classes.h2,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 52,
-      columnNumber: 7
-    }
-  }, __jsx("span", {
-    className: classes.span,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 53,
-      columnNumber: 9
-    }
-  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    fullWidth: true,
-    className: classes.formControl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
+=======
       lineNumber: 55,
       columnNumber: 7
     }
@@ -8451,7 +12173,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\checkbox\\checkbox-widget.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/checkbox/checkbox-widget.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -8534,6 +12256,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************************************!*\
   !*** ./components/widgets/form-controls/date-time/datetime-widget-settings.jsx ***!
   \*********************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -8545,6 +12268,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormGroup */ "@material-ui/core/FormGroup");
+/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Radio */ "@material-ui/core/Radio");
+/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/RadioGroup */ "@material-ui/core/RadioGroup");
+/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\autocomplete\\autocomplete-widget-settings.jsx";
+=======
 /* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
 /* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
@@ -8563,7 +12315,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\date-time\\datetime-widget-settings.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/date-time/datetime-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -8586,6 +12339,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+<<<<<<< HEAD
+
+
+
+
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
   list: {
     width: 500,
@@ -8613,7 +12373,11 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
   }
 }));
 
+<<<<<<< HEAD
+const AutoCompleteWidgetSettings = ({
+=======
 const DateTimeWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widget,
   handleSettingsClose,
   isAdding,
@@ -8633,12 +12397,53 @@ const DateTimeWidgetSettings = ({
     1: setSelectedFormGroup
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const {
+<<<<<<< HEAD
+    0: selectionOption,
+    1: setSelectionOption
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('datasource');
+  const {
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     0: properties,
     1: setProperties
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
     label: '',
     id: '',
     name: '',
+<<<<<<< HEAD
+    placeholder: '',
+    className: '',
+    value: ''
+  });
+  const {
+    0: datasources,
+    1: setDatasources
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: datasource,
+    1: setDatasource
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.dataSourceId : '');
+  const {
+    0: docList,
+    1: setDocList
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: doc,
+    1: setDoc
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.docId : '');
+  const {
+    0: fieldList,
+    1: setFieldList
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: fields,
+    1: setFields
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.fields : '');
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getFormGroups = async () => {
+      try {
+        const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__["default"].getFormGroupWidgets();
+=======
     className: ''
   });
 
@@ -8656,6 +12461,7 @@ const DateTimeWidgetSettings = ({
     const getFormGroups = async () => {
       try {
         const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].getFormGroupWidgets();
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         setFormGroups($formGroups);
       } catch (e) {
         console.log(e);
@@ -8680,23 +12486,41 @@ const DateTimeWidgetSettings = ({
     setLinkToFormGroup(checked);
   };
 
+<<<<<<< HEAD
+  const renderFormGroupSelection = _ => linkToFormGroup ? __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+=======
   const renderFormGroupSelection = _ => linkToFormGroup ? __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 88,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
       lineNumber: 81,
       columnNumber: 5
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     id: "form-group-title",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 89,
+      columnNumber: 7
+    }
+  }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
+=======
       lineNumber: 82,
       columnNumber: 7
     }
   }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     labelId: "form-group-title",
     value: selectedFormGroup,
@@ -8704,44 +12528,166 @@ const DateTimeWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 90,
+      columnNumber: 7
+    }
+  }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+=======
       lineNumber: 83,
       columnNumber: 7
     }
   }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     value: formGroup.id,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 98,
+=======
       lineNumber: 91,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 13
     }
   }, formGroup.properties.name)))) : __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 104,
+=======
       lineNumber: 97,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   });
 
+<<<<<<< HEAD
+  const getDatasources = async () => {
+    try {
+      const $datasources = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDatasources({});
+
+      if (!isAdding) {
+        const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDocList(datasource);
+        const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getFieldList(datasource, doc);
+        setDocList($docList);
+        setFieldList($fieldList);
+      }
+
+      setDatasources($datasources);
+      return $datasources;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getDocList = async id => {
+    try {
+      setDatasource(id);
+      const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDocList(id);
+      setDocList($docList);
+      return $docList;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getFieldList = async (id, docId) => {
+    try {
+      setDoc(docId);
+      const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getFieldList(id, docId);
+      setFieldList($fieldList);
+      return $fieldList;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleDatasourceChange = async event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setFieldList([]);
+    setFields([]);
+    await getDocList(value);
+  };
+
+  const handleDocChange = async event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setFieldList([]);
+    setFields([]);
+    await getFieldList(datasource, value);
+  };
+
+  const handleFieldChange = event => {
+    const {
+      value
+    } = event.target;
+    setFields(value);
+  };
+
+  const handlePropertiesChange = event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setProperties(_objectSpread({}, properties, {
+      [name]: value
+    }));
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    getDatasources();
+  }, []);
+
+  const handleSourceChange = event => {
+    const {
+      value
+    } = event.target;
+    setSelectionOption(value);
+=======
   const handleFieldChange = name => event => {
     const {
       checked
     } = event.target;
     checked ? setSelectedFileFormats([...selectedFileFormats, name]) : setSelectedFileFormats(selectedFileFormats.filter(format => format != name));
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   };
 
   const saveConfigData = async () => {
     try {
       const data = {
+<<<<<<< HEAD
+        dataSourceId: datasource,
+        config: {
+          docId: doc,
+          fields: [fields],
+          type: selectionOption == 'datasource' ? 'simple' : 'constant',
+          func: 'find',
+          query: {},
+          values: selectionOption == 'datasource' ? [] : []
+        },
+        properties,
+        type: 'Auto Complete'
+=======
         properties,
         type: 'Date Time'
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       };
 
       if (isAdding) {
         onWidgetAdd(data, true, selectedFormGroup);
       } else {
+<<<<<<< HEAD
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__["default"].updateWidgetSettings(widget.id, data);
+=======
         const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].updateWidgetSettings(widget.id, data);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         handleSettingsClose(update);
       }
     } catch (e) {
@@ -8749,12 +12695,172 @@ const DateTimeWidgetSettings = ({
     }
   };
 
+<<<<<<< HEAD
+  const renderFieldSettings = () => fieldList.length ? __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 206,
+      columnNumber: 7
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 207,
+      columnNumber: 9
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 208,
+      columnNumber: 11
+    }
+  }, "Fields Settings")), __jsx(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    onChange: handleFieldChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 210,
+      columnNumber: 9
+    }
+  }, fieldList.map(field => __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    key: field,
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      value: field,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 215,
+        columnNumber: 26
+      }
+    }),
+    label: field,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 213,
+      columnNumber: 15
+    }
+  }))), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__["Typography"], {
+    style: {
+      fontSize: 12,
+      color: '#F00',
+      marginTop: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 220,
+      columnNumber: 9
+    }
+  }, "* You can only select one field in an autocomplete textfield.")) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 225,
+      columnNumber: 7
+    }
+  });
+
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   return __jsx("div", {
     className: classes.list,
     role: "presentation",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 231,
+      columnNumber: 5
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 232,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 233,
+      columnNumber: 9
+    }
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 235,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 236,
+      columnNumber: 9
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 237,
+      columnNumber: 9
+    }
+  })), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 240,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 241,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 243,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 244,
+      columnNumber: 9
+    }
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    name: "label",
+    onChange: handlePropertiesChange,
+    value: properties.label,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 245,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+=======
       lineNumber: 123,
       columnNumber: 5
     }
@@ -8775,11 +12881,61 @@ const DateTimeWidgetSettings = ({
       columnNumber: 9
     }
   }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 248,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 249,
+      columnNumber: 9
+    }
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    name: "id",
+    onChange: handlePropertiesChange,
+    value: properties.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 250,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 253,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 254,
+      columnNumber: 9
+    }
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    name: "name",
+    onChange: handlePropertiesChange,
+    value: properties.name,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 255,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+=======
       lineNumber: 127,
       columnNumber: 7
     }
@@ -8814,11 +12970,35 @@ const DateTimeWidgetSettings = ({
       columnNumber: 9
     }
   }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 258,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 259,
+      columnNumber: 9
+    }
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    name: "placeholder",
+    onChange: handlePropertiesChange,
+    value: properties.placeholder,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 260,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+=======
       lineNumber: 135,
       columnNumber: 7
     }
@@ -8840,11 +13020,35 @@ const DateTimeWidgetSettings = ({
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 263,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 264,
+      columnNumber: 9
+    }
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    name: "className",
+    onChange: handlePropertiesChange,
+    value: properties.className,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 265,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+=======
       lineNumber: 140,
       columnNumber: 7
     }
@@ -8866,11 +13070,115 @@ const DateTimeWidgetSettings = ({
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 268,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default.a, {
+      checked: linkToFormGroup,
+      onChange: handleLinkToFormGroup,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 270,
+        columnNumber: 20
+      }
+    }),
+    label: "Link To Form Group?",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 269,
+      columnNumber: 9
+    }
+  })), renderFormGroupSelection(), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 277,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 278,
+      columnNumber: 9
+    }
+  }, "Unique Properties")), __jsx(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    row: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 280,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    onChange: handleSourceChange,
+    value: selectionOption,
+    style: {
+      justifyContent: 'space-evenly',
+      width: '100%',
+      flexDirection: 'row'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 281,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    value: "datasource",
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 282,
+        columnNumber: 57
+      }
+    }),
+    label: "From Data Source",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 282,
+      columnNumber: 11
+    }
+  }), __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    value: "fixed",
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 283,
+        columnNumber: 52
+      }
+    }),
+    label: "Fixed Values",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 283,
+      columnNumber: 11
+    }
+  }))), selectionOption == 'datasource' ? __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 288,
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+=======
       lineNumber: 145,
       columnNumber: 7
     }
@@ -8892,11 +13200,91 @@ const DateTimeWidgetSettings = ({
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 289,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    id: "data-source",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 290,
+      columnNumber: 15
+    }
+  }, "Data Source"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    name: "datasource",
+    labelId: "data-source",
+    value: datasource,
+    onChange: handleDatasourceChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 291,
+      columnNumber: 15
+    }
+  }, datasources.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    key: item.id,
+    value: item.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 297,
+      columnNumber: 43
+    }
+  }, item.title)))), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    disabled: datasource ? false : true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 301,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    id: "doc-list",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 302,
+      columnNumber: 15
+    }
+  }, "Table/Collection"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    name: "docList",
+    labelId: "doc-list",
+    value: doc,
+    onChange: handleDocChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 303,
+      columnNumber: 15
+    }
+  }, docList.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    key: item,
+    value: item,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 309,
+      columnNumber: 39
+    }
+  }, item)))), renderFieldSettings()) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 315,
+      columnNumber: 13
+    }
+  }), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+=======
       lineNumber: 150,
       columnNumber: 7
     }
@@ -8945,19 +13333,40 @@ const DateTimeWidgetSettings = ({
       columnNumber: 9
     }
   })), renderFormGroupSelection(), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     onClick: saveConfigData,
     fullWidth: true,
     color: "primary",
     className: classes.formControl,
+<<<<<<< HEAD
+    style: {
+      marginBottom: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 320,
+=======
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 164,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, "Save"));
 };
 
+<<<<<<< HEAD
+/* harmony default export */ __webpack_exports__["default"] = (AutoCompleteWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/autocomplete/autocomplete-widget.jsx":
+/*!*******************************************************************************!*\
+  !*** ./components/widgets/form-controls/autocomplete/autocomplete-widget.jsx ***!
+  \*******************************************************************************/
+=======
 /* harmony default export */ __webpack_exports__["default"] = (DateTimeWidgetSettings);
 
 /***/ }),
@@ -8966,6 +13375,7 @@ const DateTimeWidgetSettings = ({
 /*!************************************************************************!*\
   !*** ./components/widgets/form-controls/date-time/datetime-widget.jsx ***!
   \************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -8975,22 +13385,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/lab/Autocomplete */ "@material-ui/lab/Autocomplete");
+/* harmony import */ var _material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\autocomplete\\autocomplete-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+=======
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var _date_io_date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @date-io/date-fns */ "@date-io/date-fns");
 /* harmony import */ var _date_io_date_fns__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_date_io_date_fns__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _material_ui_pickers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/pickers */ "@material-ui/pickers");
 /* harmony import */ var _material_ui_pickers__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_pickers__WEBPACK_IMPORTED_MODULE_4__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\date-time\\datetime-widget.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/date-time/datetime-widget.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
 
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
 
+<<<<<<< HEAD
+const AutoCompleteWidget = ({
+=======
 const DateTimeWidget = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widgetId
 }) => {
   const classes = useStyles();
@@ -8998,14 +13427,36 @@ const DateTimeWidget = ({
     0: widget,
     1: setWidget
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+<<<<<<< HEAD
+    properties: {},
+    config: {
+      fields: []
+    }
+  });
+  const {
+    0: data,
+    1: setData
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+=======
     properties: {}
   });
   const {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     0: menuState,
     1: setMenuState
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
     right: false
   });
+<<<<<<< HEAD
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__["default"].getWidgetSettingsById(widgetId);
+        const $data = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__["default"].executeWidgetQuery(widgetId);
+        setWidget($widget);
+        setData($data);
+=======
   const {
     0: selectedDate,
     1: setSelectedDate
@@ -9017,6 +13468,7 @@ const DateTimeWidget = ({
         console.log($widget);
         setWidget($widget);
         return $widget;
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       } catch (e) {
         console.log(e);
       }
@@ -9024,6 +13476,48 @@ const DateTimeWidget = ({
 
     getData();
   }, []);
+<<<<<<< HEAD
+  return __jsx(_material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    id: widget.properties.id,
+    placeholder: widget.properties.placeholder,
+    className: widget.properties.className,
+    value: widget.properties.value,
+    options: data,
+    getOptionLabel: option => option[widget.config.fields[0]],
+    style: {
+      width: '100%'
+    },
+    renderInput: params => __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a, _extends({
+      fullWidth: true,
+      name: widget.properties.name
+    }, params, {
+      label: widget.properties.label,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41,
+        columnNumber: 9
+      }
+    })),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
+      columnNumber: 5
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AutoCompleteWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/autocomplete/index.js":
+/*!****************************************************************!*\
+  !*** ./components/widgets/form-controls/autocomplete/index.js ***!
+  \****************************************************************/
+/*! exports provided: AutoCompleteWidget, AutoCompleteWidgetSettings */
+=======
 
   const handleDateChange = date => {
     setSelectedDate(date);
@@ -9069,15 +13563,24 @@ const DateTimeWidget = ({
   !*** ./components/widgets/form-controls/date-time/index.js ***!
   \*************************************************************/
 /*! exports provided: DateTimeWidget, DateTimeWidgetSettings */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+/* harmony import */ var _autocomplete_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./autocomplete-widget */ "./components/widgets/form-controls/autocomplete/autocomplete-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidget", function() { return _autocomplete_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _autocomplete_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./autocomplete-widget-settings */ "./components/widgets/form-controls/autocomplete/autocomplete-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidgetSettings", function() { return _autocomplete_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+=======
 /* harmony import */ var _datetime_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datetime-widget */ "./components/widgets/form-controls/date-time/datetime-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DateTimeWidget", function() { return _datetime_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
 /* harmony import */ var _datetime_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datetime-widget-settings */ "./components/widgets/form-controls/date-time/datetime-widget-settings.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DateTimeWidgetSettings", function() { return _datetime_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -9085,10 +13588,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ "./components/widgets/form-controls/button/button-widget-settings.jsx":
+/*!****************************************************************************!*\
+  !*** ./components/widgets/form-controls/button/button-widget-settings.jsx ***!
+  \****************************************************************************/
+=======
 /***/ "./components/widgets/form-controls/file/file-widget-settings.jsx":
 /*!************************************************************************!*\
   !*** ./components/widgets/form-controls/file/file-widget-settings.jsx ***!
   \************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9106,12 +13616,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
 /* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__);
+=======
 /* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
 /* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
 /* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
 /* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var react_simple_code_editor__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-simple-code-editor */ "react-simple-code-editor");
+/* harmony import */ var react_simple_code_editor__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_simple_code_editor__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! prismjs/components/prism-core */ "prismjs/components/prism-core");
+/* harmony import */ var prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var prismjs_components_prism_clike__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! prismjs/components/prism-clike */ "prismjs/components/prism-clike");
+/* harmony import */ var prismjs_components_prism_clike__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_clike__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! prismjs/components/prism-javascript */ "prismjs/components/prism-javascript");
+/* harmony import */ var prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_17__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\button\\button-widget-settings.jsx";
+=======
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
@@ -9119,7 +13653,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\file\\file-widget-settings.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/file/file-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -9142,6 +13677,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+<<<<<<< HEAD
+
+
+
+
+
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
   list: {
     width: 500,
@@ -9168,9 +13711,14 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
     marginTop: "15px"
   }
 }));
+<<<<<<< HEAD
+
+const ButtonWidgetSettings = ({
+=======
 const acceptedFileFormats = ["text/plain", "application/pdf", "image/png", "image/tiff", "image/webp", "image/gif", "image/jpeg", "application/json", "audio/mpeg", "audio/wav", "audio/webm", "video/mpeg", "video/ogg", "video/mp2t", "video/webm", "video/3gpp", "video/3gpp2", "application/xml", "text/csv"];
 
 const FileWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widget,
   handleSettingsClose,
   isAdding,
@@ -9193,6 +13741,18 @@ const FileWidgetSettings = ({
     0: properties,
     1: setProperties
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+<<<<<<< HEAD
+    label: '',
+    id: '',
+    className: ''
+  });
+  const {
+    0: code,
+    1: setCode
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(`function (a, b) {
+    alert(a + b)
+  }`);
+=======
     id: '',
     name: '',
     className: ''
@@ -9201,6 +13761,7 @@ const FileWidgetSettings = ({
     0: selectedFileFormats,
     1: setSelectedFileFormats
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
   const handlePropertiesChange = event => {
     const {
@@ -9215,7 +13776,11 @@ const FileWidgetSettings = ({
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     const getFormGroups = async () => {
       try {
+<<<<<<< HEAD
+        const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_12__["default"].getFormGroupWidgets();
+=======
         const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getFormGroupWidgets();
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         setFormGroups($formGroups);
       } catch (e) {
         console.log(e);
@@ -9245,7 +13810,11 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 89,
+=======
       lineNumber: 88,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -9253,7 +13822,11 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 90,
+=======
       lineNumber: 89,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -9264,7 +13837,11 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 91,
+=======
       lineNumber: 90,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
@@ -9272,18 +13849,28 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 99,
+=======
       lineNumber: 98,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 13
     }
   }, formGroup.properties.name)))) : __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 105,
+=======
       lineNumber: 104,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   });
 
+<<<<<<< HEAD
+=======
   const handleFieldChange = name => event => {
     const {
       checked
@@ -9291,19 +13878,30 @@ const FileWidgetSettings = ({
     checked ? setSelectedFileFormats([...selectedFileFormats, name]) : setSelectedFileFormats(selectedFileFormats.filter(format => format != name));
   };
 
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   const saveConfigData = async () => {
     try {
       const data = {
         properties: _objectSpread({}, properties, {
+<<<<<<< HEAD
+          code
+        }),
+        type: 'Button'
+=======
           acceptedFileFormats: selectedFileFormats
         }),
         type: 'File'
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       };
 
       if (isAdding) {
         onWidgetAdd(data, true, selectedFormGroup);
       } else {
+<<<<<<< HEAD
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_12__["default"].updateWidgetSettings(widget.id, data);
+=======
         const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_10__["default"].updateWidgetSettings(widget.id, data);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         handleSettingsClose(update);
       }
     } catch (e) {
@@ -9317,7 +13915,11 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 129,
+=======
       lineNumber: 133,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   }, __jsx("h2", {
@@ -9325,7 +13927,11 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 130,
+=======
       lineNumber: 134,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx("span", {
@@ -9333,7 +13939,11 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 131,
+=======
       lineNumber: 135,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -9342,21 +13952,33 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 133,
+=======
       lineNumber: 137,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 134,
+=======
       lineNumber: 138,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 135,
+=======
       lineNumber: 139,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx("h2", {
@@ -9364,7 +13986,11 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 138,
+=======
       lineNumber: 142,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx("span", {
@@ -9372,7 +13998,11 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 139,
+=======
       lineNumber: 143,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -9381,13 +14011,30 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 141,
+=======
       lineNumber: 145,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 142,
+      columnNumber: 9
+    }
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "label",
+    onChange: handlePropertiesChange,
+    value: properties.label,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 143,
+=======
       lineNumber: 146,
       columnNumber: 9
     }
@@ -9399,6 +14046,7 @@ const FileWidgetSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 147,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -9407,13 +14055,30 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 146,
+=======
       lineNumber: 150,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 147,
+      columnNumber: 9
+    }
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "id",
+    onChange: handlePropertiesChange,
+    value: properties.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 148,
+=======
       lineNumber: 151,
       columnNumber: 9
     }
@@ -9425,6 +14090,7 @@ const FileWidgetSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 152,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -9433,14 +14099,22 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 151,
+=======
       lineNumber: 155,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 152,
+=======
       lineNumber: 156,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -9450,7 +14124,11 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 153,
+=======
       lineNumber: 157,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -9459,17 +14137,29 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 156,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default.a, {
+=======
       lineNumber: 160,
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default.a, {
     control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       checked: linkToFormGroup,
       onChange: handleLinkToFormGroup,
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
+<<<<<<< HEAD
+        lineNumber: 158,
+=======
         lineNumber: 162,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         columnNumber: 20
       }
     }),
@@ -9477,7 +14167,11 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 157,
+=======
       lineNumber: 161,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), renderFormGroupSelection(), __jsx("h2", {
@@ -9485,7 +14179,11 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 165,
+=======
       lineNumber: 169,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx("span", {
@@ -9493,6 +14191,27 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 166,
+      columnNumber: 9
+    }
+  }, "Unique Properties")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 168,
+      columnNumber: 7
+    }
+  }, "OnClick Event"), __jsx(react_simple_code_editor__WEBPACK_IMPORTED_MODULE_14___default.a, {
+    value: code,
+    onValueChange: code => setCode(code),
+    highlight: code => Object(prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15__["highlight"])(code, prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_15__["languages"].javascript),
+    padding: 10,
+    style: {
+      fontFamily: '"Fira code", "Fira Mono", monospace',
+      fontSize: 12,
+      border: '1px solid #DEDEDE'
+=======
       lineNumber: 170,
       columnNumber: 9
     }
@@ -9507,10 +14226,17 @@ const FileWidgetSettings = ({
     style: {
       color: "#F00",
       fontSize: 10
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 169,
+      columnNumber: 7
+    }
+  }), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+=======
       lineNumber: 173,
       columnNumber: 7
     }
@@ -9535,6 +14261,7 @@ const FileWidgetSettings = ({
       columnNumber: 43
     }
   })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     onClick: saveConfigData,
     fullWidth: true,
     color: "primary",
@@ -9542,12 +14269,26 @@ const FileWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 181,
+=======
       lineNumber: 182,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, "Save"));
 };
 
+<<<<<<< HEAD
+/* harmony default export */ __webpack_exports__["default"] = (ButtonWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/button/button-widget.jsx":
+/*!*******************************************************************!*\
+  !*** ./components/widgets/form-controls/button/button-widget.jsx ***!
+  \*******************************************************************/
+=======
 /* harmony default export */ __webpack_exports__["default"] = (FileWidgetSettings);
 
 /***/ }),
@@ -9556,6 +14297,7 @@ const FileWidgetSettings = ({
 /*!***************************************************************!*\
   !*** ./components/widgets/form-controls/file/file-widget.jsx ***!
   \***************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9565,10 +14307,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\button\\button-widget.jsx";
+=======
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\file\\file-widget.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/file/file-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -9577,7 +14326,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
 
+<<<<<<< HEAD
+const ButtonWidget = ({
+=======
 const FileWidget = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widgetId
 }) => {
   const classes = useStyles();
@@ -9585,9 +14338,13 @@ const FileWidget = ({
     0: widget,
     1: setWidget
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+<<<<<<< HEAD
+    properties: {}
+=======
     properties: {
       acceptedFileFormats: []
     }
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   });
   const {
     0: menuState,
@@ -9599,6 +14356,11 @@ const FileWidget = ({
     const getData = async () => {
       try {
         const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__["default"].getWidgetSettingsById(widgetId);
+<<<<<<< HEAD
+        console.log($widget.properties.code);
+        Function($widget.properties.code)();
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         setWidget($widget);
         return $widget;
       } catch (e) {
@@ -9608,6 +14370,30 @@ const FileWidget = ({
 
     getData();
   }, []);
+<<<<<<< HEAD
+  return __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    className: widget.properties.className,
+    id: widget.properties.id,
+    onClick: Function(widget.properties.code)(),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 5
+    }
+  }, widget.properties.label);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ButtonWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/button/index.js":
+/*!**********************************************************!*\
+  !*** ./components/widgets/form-controls/button/index.js ***!
+  \**********************************************************/
+/*! exports provided: ButtonWidget, ButtonWidgetSettings */
+=======
   return __jsx("input", {
     type: "file",
     id: widget.properties.id,
@@ -9632,15 +14418,24 @@ const FileWidget = ({
   !*** ./components/widgets/form-controls/file/index.js ***!
   \********************************************************/
 /*! exports provided: FileWidget, FileWidgetSettings */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+/* harmony import */ var _button_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button-widget */ "./components/widgets/form-controls/button/button-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidget", function() { return _button_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _button_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./button-widget-settings */ "./components/widgets/form-controls/button/button-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidgetSettings", function() { return _button_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+=======
 /* harmony import */ var _file_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./file-widget */ "./components/widgets/form-controls/file/file-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileWidget", function() { return _file_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
 /* harmony import */ var _file_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./file-widget-settings */ "./components/widgets/form-controls/file/file-widget-settings.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileWidgetSettings", function() { return _file_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -9648,10 +14443,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ "./components/widgets/form-controls/checkbox/checkbox-widget-settings.jsx":
+/*!********************************************************************************!*\
+  !*** ./components/widgets/form-controls/checkbox/checkbox-widget-settings.jsx ***!
+  \********************************************************************************/
+=======
 /***/ "./components/widgets/form-controls/form-group/form-group-widget-settings.jsx":
 /*!************************************************************************************!*\
   !*** ./components/widgets/form-controls/form-group/form-group-widget-settings.jsx ***!
   \************************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9675,7 +14477,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\form-group\\form-group-widget-settings.jsx";
+<<<<<<< HEAD
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\checkbox\\checkbox-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/form-group/form-group-widget-settings.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -9686,6 +14494,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -9722,13 +14531,19 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
   }
 }));
 
+<<<<<<< HEAD
+const CheckboxWidgetSettings = ({
+=======
 const FormGroupWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widget,
   handleSettingsClose,
   isAdding,
   onWidgetAdd
 }) => {
   const classes = useStyles();
+<<<<<<< HEAD
+=======
   const {
     0: properties,
     1: setProperties
@@ -9762,12 +14577,120 @@ const FormGroupWidgetSettings = ({
     }
   };
 
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   return __jsx("div", {
     className: classes.list,
     role: "presentation",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 43,
+      columnNumber: 5
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 9
+    }
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 9
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 9
+    }
+  })), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 9
+    }
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61,
+      columnNumber: 9
+    }
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
       lineNumber: 66,
       columnNumber: 5
     }
@@ -9788,6 +14711,35 @@ const FormGroupWidgetSettings = ({
       columnNumber: 9
     }
   }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 65,
+=======
+      lineNumber: 70,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 66,
+      columnNumber: 9
+    }
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
@@ -9800,6 +14752,18 @@ const FormGroupWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+      lineNumber: 71,
+      columnNumber: 9
+    }
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
       lineNumber: 71,
       columnNumber: 9
     }
@@ -9827,18 +14791,33 @@ const FormGroupWidgetSettings = ({
       columnNumber: 9
     }
   }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 75,
+=======
       lineNumber: 78,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 76,
+      columnNumber: 9
+    }
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77,
+=======
       lineNumber: 79,
       columnNumber: 9
     }
@@ -9850,6 +14829,7 @@ const FormGroupWidgetSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 80,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -9858,13 +14838,27 @@ const FormGroupWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 80,
+=======
       lineNumber: 83,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 81,
+      columnNumber: 9
+    }
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+=======
       lineNumber: 84,
       columnNumber: 9
     }
@@ -9876,6 +14870,7 @@ const FormGroupWidgetSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 85,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -9884,13 +14879,30 @@ const FormGroupWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 85,
+=======
       lineNumber: 88,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 86,
+      columnNumber: 9
+    }
+  }, "Type"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+=======
       lineNumber: 89,
       columnNumber: 9
     }
@@ -9906,18 +14918,107 @@ const FormGroupWidgetSettings = ({
     }
   })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
     onClick: saveConfigData,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     color: "primary",
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 90,
+=======
       lineNumber: 93,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, "Save"));
 };
 
+<<<<<<< HEAD
+/* harmony default export */ __webpack_exports__["default"] = (CheckboxWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/checkbox/checkbox-widget.jsx":
+/*!***********************************************************************!*\
+  !*** ./components/widgets/form-controls/checkbox/checkbox-widget.jsx ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\checkbox\\checkbox-widget.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const CheckboxWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        console.log($widget);
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
+  // id={widget.config.id || ''}
+  // placeholder={widget.config.placeholder || ''}
+  // className={widget.config.className || ''}
+  // styles={widget.config.styles || {}}
+  // name={widget.config.name || ''}
+  // value={widget.config.value || ''}
+  // type={widget.config.type || 'text'}
+  , {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 5
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CheckboxWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/checkbox/index.js":
+/*!************************************************************!*\
+  !*** ./components/widgets/form-controls/checkbox/index.js ***!
+  \************************************************************/
+/*! exports provided: CheckboxWidget, CheckboxWidgetSettings */
+=======
 /* harmony default export */ __webpack_exports__["default"] = (FormGroupWidgetSettings);
 
 /***/ }),
@@ -9941,7 +15042,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_decide_widgets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../helpers/decide-widgets */ "./helpers/decide-widgets.jsx");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\form-group\\form-group-widget.jsx";
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/form-group/form-group-widget.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -10143,15 +15244,24 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./components/widgets/form-controls/number/index.js ***!
   \**********************************************************/
 /*! exports provided: NumberWidget, NumberWidgetSettings */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+/* harmony import */ var _checkbox_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./checkbox-widget */ "./components/widgets/form-controls/checkbox/checkbox-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckboxWidget", function() { return _checkbox_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _checkbox_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./checkbox-widget-settings */ "./components/widgets/form-controls/checkbox/checkbox-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckboxWidgetSettings", function() { return _checkbox_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+=======
 /* harmony import */ var _number_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./number-widget */ "./components/widgets/form-controls/number/number-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NumberWidget", function() { return _number_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
 /* harmony import */ var _number_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./number-widget-settings */ "./components/widgets/form-controls/number/number-widget-settings.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NumberWidgetSettings", function() { return _number_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -10159,10 +15269,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ "./components/widgets/form-controls/date-time/datetime-widget-settings.jsx":
+/*!*********************************************************************************!*\
+  !*** ./components/widgets/form-controls/date-time/datetime-widget-settings.jsx ***!
+  \*********************************************************************************/
+=======
 /***/ "./components/widgets/form-controls/number/number-widget-settings.jsx":
 /*!****************************************************************************!*\
   !*** ./components/widgets/form-controls/number/number-widget-settings.jsx ***!
   \****************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -10178,6 +15295,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
 /* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__);
+=======
 /* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
 /* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
@@ -10188,11 +15317,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
 /* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_9__);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
-var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\number\\number-widget-settings.jsx";
+<<<<<<< HEAD
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\date-time\\datetime-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/number/number-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -10242,7 +15376,11 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
   }
 }));
 
+<<<<<<< HEAD
+const DateTimeWidgetSettings = ({
+=======
 const NumberWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widget,
   handleSettingsClose,
   isAdding,
@@ -10268,9 +15406,25 @@ const NumberWidgetSettings = ({
     label: '',
     id: '',
     name: '',
+<<<<<<< HEAD
+    className: ''
+  });
+
+  const handlePropertiesChange = event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setProperties(_objectSpread({}, properties, {
+      [name]: value
+    }));
+  };
+
+=======
     placeholder: '',
     className: ''
   });
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     const getFormGroups = async () => {
       try {
@@ -10299,12 +15453,20 @@ const NumberWidgetSettings = ({
     setLinkToFormGroup(checked);
   };
 
+<<<<<<< HEAD
+  const renderFormGroupSelection = _ => linkToFormGroup ? __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
   const renderFormGroupSelection = _ => linkToFormGroup ? __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 81,
+=======
       lineNumber: 76,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -10312,10 +15474,17 @@ const NumberWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 82,
+      columnNumber: 7
+    }
+  }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8___default.a, {
+=======
       lineNumber: 77,
       columnNumber: 7
     }
   }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_9___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     labelId: "form-group-title",
     value: selectedFormGroup,
@@ -10323,6 +15492,2627 @@ const NumberWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 83,
+      columnNumber: 7
+    }
+  }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9___default.a, {
+=======
+      lineNumber: 78,
+      columnNumber: 7
+    }
+  }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    value: formGroup.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 91,
+=======
+      lineNumber: 86,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 13
+    }
+  }, formGroup.properties.name)))) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 97,
+=======
+      lineNumber: 92,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  });
+
+<<<<<<< HEAD
+  const handleFieldChange = name => event => {
+    const {
+      checked
+    } = event.target;
+    checked ? setSelectedFileFormats([...selectedFileFormats, name]) : setSelectedFileFormats(selectedFileFormats.filter(format => format != name));
+  };
+
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  const saveConfigData = async () => {
+    try {
+      const data = {
+        properties,
+<<<<<<< HEAD
+        type: 'Date Time'
+=======
+        type: 'Number'
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      };
+
+      if (isAdding) {
+        onWidgetAdd(data, true, selectedFormGroup);
+      } else {
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].updateWidgetSettings(widget.id, data);
+        handleSettingsClose(update);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+<<<<<<< HEAD
+=======
+  const handlePropertiesChange = event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setProperties(_objectSpread({}, properties, {
+      [name]: value
+    }));
+  };
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 123,
+=======
+      lineNumber: 118,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 5
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 124,
+=======
+      lineNumber: 119,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 125,
+      columnNumber: 9
+    }
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 120,
+      columnNumber: 9
+    }
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 127,
+=======
+      lineNumber: 122,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 128,
+=======
+      lineNumber: 123,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 129,
+=======
+      lineNumber: 124,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  })), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 132,
+=======
+      lineNumber: 127,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 133,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 128,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 135,
+=======
+      lineNumber: 130,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 136,
+=======
+      lineNumber: 131,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "label",
+    onChange: handlePropertiesChange,
+    value: properties.label,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 137,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 132,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 140,
+=======
+      lineNumber: 135,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 141,
+=======
+      lineNumber: 136,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "id",
+    onChange: handlePropertiesChange,
+    value: properties.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 142,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 137,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 145,
+=======
+      lineNumber: 140,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 146,
+=======
+      lineNumber: 141,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "name",
+    onChange: handlePropertiesChange,
+    value: properties.name,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 147,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 142,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 145,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 146,
+      columnNumber: 9
+    }
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "placeholder",
+    onChange: handlePropertiesChange,
+    value: properties.placeholder,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 147,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 150,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 151,
+      columnNumber: 9
+    }
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "className",
+    onChange: handlePropertiesChange,
+    value: properties.className,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 152,
+      columnNumber: 9
+    }
+<<<<<<< HEAD
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 155,
+      columnNumber: 7
+    }
+<<<<<<< HEAD
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7___default.a, {
+=======
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_6___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      checked: linkToFormGroup,
+      onChange: handleLinkToFormGroup,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 157,
+        columnNumber: 20
+      }
+    }),
+    label: "Link To Form Group?",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 156,
+      columnNumber: 9
+    }
+  })), renderFormGroupSelection(), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    onClick: saveConfigData,
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 164,
+      columnNumber: 7
+    }
+  }, "Save"));
+};
+
+<<<<<<< HEAD
+/* harmony default export */ __webpack_exports__["default"] = (DateTimeWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/date-time/datetime-widget.jsx":
+/*!************************************************************************!*\
+  !*** ./components/widgets/form-controls/date-time/datetime-widget.jsx ***!
+  \************************************************************************/
+=======
+/* harmony default export */ __webpack_exports__["default"] = (NumberWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/number/number-widget.jsx":
+/*!*******************************************************************!*\
+  !*** ./components/widgets/form-controls/number/number-widget.jsx ***!
+  \*******************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+<<<<<<< HEAD
+/* harmony import */ var _date_io_date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @date-io/date-fns */ "@date-io/date-fns");
+/* harmony import */ var _date_io_date_fns__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_date_io_date_fns__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_pickers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/pickers */ "@material-ui/pickers");
+/* harmony import */ var _material_ui_pickers__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_pickers__WEBPACK_IMPORTED_MODULE_4__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\date-time\\datetime-widget.jsx";
+=======
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/number/number-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+<<<<<<< HEAD
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const DateTimeWidget = ({
+=======
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const NumberWidget = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    properties: {}
+  });
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+<<<<<<< HEAD
+  const {
+    0: selectedDate,
+    1: setSelectedDate
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(new Date());
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__["default"].getWidgetSettingsById(widgetId);
+<<<<<<< HEAD
+        console.log($widget);
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+        setWidget($widget);
+        return $widget;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+<<<<<<< HEAD
+
+  const handleDateChange = date => {
+    setSelectedDate(date);
+  };
+
+  return __jsx(_material_ui_pickers__WEBPACK_IMPORTED_MODULE_4__["MuiPickersUtilsProvider"], {
+    utils: _date_io_date_fns__WEBPACK_IMPORTED_MODULE_3___default.a,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_pickers__WEBPACK_IMPORTED_MODULE_4__["KeyboardDatePicker"], {
+    disableToolbar: true,
+    fullWidth: true,
+    name: widget.properties.name,
+    variant: "inline",
+    format: "MM/dd/yyyy",
+    margin: "normal",
+    id: widget.properties.id,
+    label: widget.properties.label,
+    value: selectedDate,
+    onChange: handleDateChange,
+    KeyboardButtonProps: {
+      'aria-label': 'change date'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 7
+    }
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DateTimeWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/date-time/index.js":
+/*!*************************************************************!*\
+  !*** ./components/widgets/form-controls/date-time/index.js ***!
+  \*************************************************************/
+/*! exports provided: DateTimeWidget, DateTimeWidgetSettings */
+=======
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    fullWidth: true,
+    type: "number",
+    label: widget.properties.label,
+    id: widget.properties.id,
+    placeholder: widget.properties.placeholder,
+    className: widget.properties.className,
+    value: widget.properties.value,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 5
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NumberWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/password/index.js":
+/*!************************************************************!*\
+  !*** ./components/widgets/form-controls/password/index.js ***!
+  \************************************************************/
+/*! exports provided: PasswordWidget, PasswordWidgetSettings */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+/* harmony import */ var _datetime_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datetime-widget */ "./components/widgets/form-controls/date-time/datetime-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DateTimeWidget", function() { return _datetime_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _datetime_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datetime-widget-settings */ "./components/widgets/form-controls/date-time/datetime-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DateTimeWidgetSettings", function() { return _datetime_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+=======
+/* harmony import */ var _password_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./password-widget */ "./components/widgets/form-controls/password/password-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PasswordWidget", function() { return _password_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _password_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./password-widget-settings */ "./components/widgets/form-controls/password/password-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PasswordWidgetSettings", function() { return _password_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+
+
+
+
+/***/ }),
+
+<<<<<<< HEAD
+/***/ "./components/widgets/form-controls/file/file-widget-settings.jsx":
+/*!************************************************************************!*\
+  !*** ./components/widgets/form-controls/file/file-widget-settings.jsx ***!
+  \************************************************************************/
+=======
+/***/ "./components/widgets/form-controls/password/password-widget-settings.jsx":
+/*!********************************************************************************!*\
+  !*** ./components/widgets/form-controls/password/password-widget-settings.jsx ***!
+  \********************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\file\\file-widget-settings.jsx";
+=======
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/password/password-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+<<<<<<< HEAD
+const acceptedFileFormats = ["text/plain", "application/pdf", "image/png", "image/tiff", "image/webp", "image/gif", "image/jpeg", "application/json", "audio/mpeg", "audio/wav", "audio/webm", "video/mpeg", "video/ogg", "video/mp2t", "video/webm", "video/3gpp", "video/3gpp2", "application/xml", "text/csv"];
+
+const FileWidgetSettings = ({
+=======
+
+const PasswordWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  const {
+    0: linkToFormGroup,
+    1: setLinkToFormGroup
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: formGroups,
+    1: setFormGroups
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: selectedFormGroup,
+    1: setSelectedFormGroup
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: properties,
+    1: setProperties
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+<<<<<<< HEAD
+=======
+    label: '',
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    id: '',
+    name: '',
+    className: ''
+  });
+<<<<<<< HEAD
+  const {
+    0: selectedFileFormats,
+    1: setSelectedFileFormats
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+  const handlePropertiesChange = event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setProperties(_objectSpread({}, properties, {
+      [name]: value
+    }));
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getFormGroups = async () => {
+      try {
+<<<<<<< HEAD
+        const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getFormGroupWidgets();
+=======
+        const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].getFormGroupWidgets();
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+        setFormGroups($formGroups);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getFormGroups();
+  }, []);
+
+  const handleSelectFormGroup = event => {
+    const {
+      value
+    } = event.target;
+    setSelectedFormGroup(value);
+  };
+
+  const handleLinkToFormGroup = event => {
+    const {
+      checked
+    } = event.target;
+    if (!checked) setSelectedFormGroup(null);
+    setLinkToFormGroup(checked);
+  };
+
+  const renderFormGroupSelection = _ => linkToFormGroup ? __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 88,
+=======
+      lineNumber: 81,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    id: "form-group-title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 89,
+      columnNumber: 7
+    }
+  }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_7___default.a, {
+=======
+      lineNumber: 82,
+      columnNumber: 7
+    }
+  }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    labelId: "form-group-title",
+    value: selectedFormGroup,
+    onChange: handleSelectFormGroup,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 90,
+      columnNumber: 7
+    }
+  }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_8___default.a, {
+=======
+      lineNumber: 83,
+      columnNumber: 7
+    }
+  }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    value: formGroup.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 98,
+=======
+      lineNumber: 91,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 13
+    }
+  }, formGroup.properties.name)))) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 104,
+=======
+      lineNumber: 97,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  });
+
+<<<<<<< HEAD
+  const handleFieldChange = name => event => {
+    const {
+      checked
+    } = event.target;
+    checked ? setSelectedFileFormats([...selectedFileFormats, name]) : setSelectedFileFormats(selectedFileFormats.filter(format => format != name));
+  };
+
+  const saveConfigData = async () => {
+    try {
+      const data = {
+        properties: _objectSpread({}, properties, {
+          acceptedFileFormats: selectedFileFormats
+        }),
+        type: 'File'
+=======
+  const saveConfigData = async () => {
+    try {
+      const data = {
+        properties,
+        type: 'Password'
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      };
+
+      if (isAdding) {
+        onWidgetAdd(data, true, selectedFormGroup);
+      } else {
+<<<<<<< HEAD
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_10__["default"].updateWidgetSettings(widget.id, data);
+=======
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].updateWidgetSettings(widget.id, data);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+        handleSettingsClose(update);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 133,
+=======
+      lineNumber: 118,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 5
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 134,
+=======
+      lineNumber: 119,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 135,
+=======
+      lineNumber: 120,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 137,
+=======
+      lineNumber: 122,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 138,
+=======
+      lineNumber: 123,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 139,
+=======
+      lineNumber: 124,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  })), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 142,
+=======
+      lineNumber: 127,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 143,
+=======
+      lineNumber: 128,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 145,
+=======
+      lineNumber: 130,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 146,
+      columnNumber: 9
+    }
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "id",
+    onChange: handlePropertiesChange,
+    value: properties.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 147,
+=======
+      lineNumber: 131,
+      columnNumber: 9
+    }
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "label",
+    onChange: handlePropertiesChange,
+    value: properties.label,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 132,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 150,
+=======
+      lineNumber: 135,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 151,
+      columnNumber: 9
+    }
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "name",
+    onChange: handlePropertiesChange,
+    value: properties.name,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 152,
+=======
+      lineNumber: 136,
+      columnNumber: 9
+    }
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "id",
+    onChange: handlePropertiesChange,
+    value: properties.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 137,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 155,
+=======
+      lineNumber: 140,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 156,
+      columnNumber: 9
+    }
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "className",
+    onChange: handlePropertiesChange,
+    value: properties.className,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 157,
+=======
+      lineNumber: 141,
+      columnNumber: 9
+    }
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "name",
+    onChange: handlePropertiesChange,
+    value: properties.name,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 142,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 160,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      checked: linkToFormGroup,
+      onChange: handleLinkToFormGroup,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 162,
+        columnNumber: 20
+      }
+    }),
+    label: "Link To Form Group?",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 161,
+      columnNumber: 9
+    }
+  })), renderFormGroupSelection(), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 169,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 170,
+      columnNumber: 9
+    }
+  }, "Unique Properties")), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__["Typography"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 172,
+      columnNumber: 7
+    }
+  }, "Accepted File Formats"), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__["Typography"], {
+    style: {
+      color: "#F00",
+      fontSize: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 173,
+      columnNumber: 7
+    }
+  }, "*Leave blank to accept all file types."), acceptedFileFormats.map(format => __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    key: format,
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      checked: selectedFileFormats.includes(format),
+      onChange: handleFieldChange(format),
+      value: format,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 177,
+        columnNumber: 11
+      }
+    }),
+    label: format,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 174,
+      columnNumber: 43
+    }
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+=======
+      lineNumber: 145,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 146,
+      columnNumber: 9
+    }
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "className",
+    onChange: handlePropertiesChange,
+    value: properties.className,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 147,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 150,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_8___default.a, {
+      checked: linkToFormGroup,
+      onChange: handleLinkToFormGroup,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 152,
+        columnNumber: 20
+      }
+    }),
+    label: "Link To Form Group?",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 151,
+      columnNumber: 9
+    }
+  })), renderFormGroupSelection(), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    onClick: saveConfigData,
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 182,
+=======
+      lineNumber: 159,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, "Save"));
+};
+
+<<<<<<< HEAD
+/* harmony default export */ __webpack_exports__["default"] = (FileWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/file/file-widget.jsx":
+/*!***************************************************************!*\
+  !*** ./components/widgets/form-controls/file/file-widget.jsx ***!
+  \***************************************************************/
+=======
+/* harmony default export */ __webpack_exports__["default"] = (PasswordWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/password/password-widget.jsx":
+/*!***********************************************************************!*\
+  !*** ./components/widgets/form-controls/password/password-widget.jsx ***!
+  \***********************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\file\\file-widget.jsx";
+=======
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/password/password-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+<<<<<<< HEAD
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const FileWidget = ({
+=======
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const PasswordWidget = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+<<<<<<< HEAD
+    properties: {
+      acceptedFileFormats: []
+    }
+=======
+    properties: {}
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  });
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+<<<<<<< HEAD
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__["default"].getWidgetSettingsById(widgetId);
+        setWidget($widget);
+        return $widget;
+=======
+  const {
+    0: value,
+    1: setValue
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
+
+  const handleChange = event => {
+    const {
+      value
+    } = event.target;
+    setValue(value);
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__["default"].getWidgetSettingsById(widgetId);
+        setWidget($widget);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+<<<<<<< HEAD
+  return __jsx("input", {
+    type: "file",
+    id: widget.properties.id,
+    name: widget.properties.name,
+    className: widget.properties.className,
+    accept: widget.properties.acceptedFileFormats.join(','),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+=======
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: widget.properties.name,
+    label: widget.properties.label,
+    id: widget.properties.id,
+    fullWidth: true,
+    onChange: handleChange,
+    className: widget.properties.className,
+    value: value,
+    type: 'password',
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 5
+    }
+  });
+};
+
+<<<<<<< HEAD
+/* harmony default export */ __webpack_exports__["default"] = (FileWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/file/index.js":
+/*!********************************************************!*\
+  !*** ./components/widgets/form-controls/file/index.js ***!
+  \********************************************************/
+/*! exports provided: FileWidget, FileWidgetSettings */
+=======
+/* harmony default export */ __webpack_exports__["default"] = (PasswordWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/radio/index.js":
+/*!*********************************************************!*\
+  !*** ./components/widgets/form-controls/radio/index.js ***!
+  \*********************************************************/
+/*! exports provided: RadioWidget, RadioWidgetSettings */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+/* harmony import */ var _file_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./file-widget */ "./components/widgets/form-controls/file/file-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileWidget", function() { return _file_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _file_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./file-widget-settings */ "./components/widgets/form-controls/file/file-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileWidgetSettings", function() { return _file_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+=======
+/* harmony import */ var _radio_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./radio-widget */ "./components/widgets/form-controls/radio/radio-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioWidget", function() { return _radio_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _radio_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./radio-widget-settings */ "./components/widgets/form-controls/radio/radio-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioWidgetSettings", function() { return _radio_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+
+
+
+
+/***/ }),
+
+<<<<<<< HEAD
+/***/ "./components/widgets/form-controls/form-group/form-group-widget-settings.jsx":
+/*!************************************************************************************!*\
+  !*** ./components/widgets/form-controls/form-group/form-group-widget-settings.jsx ***!
+  \************************************************************************************/
+=======
+/***/ "./components/widgets/form-controls/radio/radio-widget-settings.jsx":
+/*!**************************************************************************!*\
+  !*** ./components/widgets/form-controls/radio/radio-widget-settings.jsx ***!
+  \**************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+<<<<<<< HEAD
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\form-group\\form-group-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/radio/radio-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+<<<<<<< HEAD
+const FormGroupWidgetSettings = ({
+=======
+const RadioWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+<<<<<<< HEAD
+  const {
+    0: properties,
+    1: setProperties
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
+
+  const handlePropertiesChange = event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setProperties(_objectSpread({}, properties, {
+      [name]: value
+    }));
+  };
+
+  const saveConfigData = async () => {
+    try {
+      const data = {
+        properties,
+        type: 'Form Group'
+      };
+
+      if (isAdding) {
+        onWidgetAdd(data);
+      } else {
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__["default"].updateWidgetSettings(widget.id, data);
+        handleSettingsClose(update);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 66,
+=======
+      lineNumber: 43,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 5
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 67,
+=======
+      lineNumber: 44,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 68,
+=======
+      lineNumber: 45,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 70,
+=======
+      lineNumber: 47,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 71,
+=======
+      lineNumber: 48,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 72,
+=======
+      lineNumber: 49,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  })), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 75,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 52,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 9
+    }
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61,
+      columnNumber: 9
+    }
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66,
+      columnNumber: 9
+    }
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71,
+      columnNumber: 9
+    }
+  }, "Placeholder"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 78,
+=======
+      lineNumber: 75,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 79,
+      columnNumber: 9
+    }
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "label",
+    onChange: handlePropertiesChange,
+    value: properties.label,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80,
+=======
+      lineNumber: 76,
+      columnNumber: 9
+    }
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 83,
+=======
+      lineNumber: 80,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 84,
+      columnNumber: 9
+    }
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "id",
+    onChange: handlePropertiesChange,
+    value: properties.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85,
+=======
+      lineNumber: 81,
+      columnNumber: 9
+    }
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 88,
+=======
+      lineNumber: 85,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 89,
+      columnNumber: 9
+    }
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "name",
+    onChange: handlePropertiesChange,
+    value: properties.name,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    onClick: saveConfigData,
+=======
+      lineNumber: 86,
+      columnNumber: 9
+    }
+  }, "Type"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    color: "primary",
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 93,
+=======
+      lineNumber: 90,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      columnNumber: 7
+    }
+  }, "Save"));
+};
+
+<<<<<<< HEAD
+/* harmony default export */ __webpack_exports__["default"] = (FormGroupWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/form-group/form-group-widget.jsx":
+/*!***************************************************************************!*\
+  !*** ./components/widgets/form-controls/form-group/form-group-widget.jsx ***!
+  \***************************************************************************/
+=======
+/* harmony default export */ __webpack_exports__["default"] = (RadioWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/radio/radio-widget.jsx":
+/*!*****************************************************************!*\
+  !*** ./components/widgets/form-controls/radio/radio-widget.jsx ***!
+  \*****************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/FormGroup */ "@material-ui/core/FormGroup");
+/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _helpers_decide_widgets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../helpers/decide-widgets */ "./helpers/decide-widgets.jsx");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\form-group\\form-group-widget.jsx";
+=======
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/radio/radio-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+<<<<<<< HEAD
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+const FormGroupWidget = ({
+=======
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const RadioWidget = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  widgetId
+}) => {
+  const classes = useStyles();
+  const {
+    0: widget,
+    1: setWidget
+<<<<<<< HEAD
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    properties: {}
+  });
+  const {
+    0: subWidgets,
+    1: setSubWidgets
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+=======
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  const {
+    0: menuState,
+    1: setMenuState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    right: false
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+<<<<<<< HEAD
+        const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__["default"].getWidgetSettingsById(widgetId);
+        const $subWidgets = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__["default"].getSubWidgets(widgetId);
+        setWidget($widget);
+        setSubWidgets($subWidgets);
+=======
+        const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
+        console.log($widget);
+        setWidget($widget);
+        return $widget;
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
+  }, []);
+<<<<<<< HEAD
+  return __jsx(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 5
+    }
+  }, subWidgets.map(subWidget => __jsx("div", {
+    key: subWidget.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
+      columnNumber: 11
+    }
+  }, Object(_helpers_decide_widgets__WEBPACK_IMPORTED_MODULE_4__["decideWidget"])(subWidget.subWidgetSettings))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FormGroupWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/form-group/index.js":
+/*!**************************************************************!*\
+  !*** ./components/widgets/form-controls/form-group/index.js ***!
+  \**************************************************************/
+/*! exports provided: FormGroupWidget, FormGroupWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _form_group_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form-group-widget */ "./components/widgets/form-controls/form-group/form-group-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormGroupWidget", function() { return _form_group_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _form_group_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form-group-widget-settings */ "./components/widgets/form-controls/form-group/form-group-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormGroupWidgetSettings", function() { return _form_group_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/index.js":
+/*!***************************************************!*\
+  !*** ./components/widgets/form-controls/index.js ***!
+  \***************************************************/
+/*! exports provided: AutoCompleteWidget, AutoCompleteWidgetSettings, ButtonWidget, ButtonWidgetSettings, CheckboxWidget, CheckboxWidgetSettings, DateTimeWidget, DateTimeWidgetSettings, FileWidget, FileWidgetSettings, NumberWidget, NumberWidgetSettings, PasswordWidget, PasswordWidgetSettings, RadioWidget, RadioWidgetSettings, SelectWidget, SelectWidgetSettings, TextAreaWidget, TextAreaWidgetSettings, TextFieldWidget, TextFieldWidgetSettings, FormGroupWidget, FormGroupWidgetSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _autocomplete__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./autocomplete */ "./components/widgets/form-controls/autocomplete/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidget", function() { return _autocomplete__WEBPACK_IMPORTED_MODULE_0__["AutoCompleteWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutoCompleteWidgetSettings", function() { return _autocomplete__WEBPACK_IMPORTED_MODULE_0__["AutoCompleteWidgetSettings"]; });
+
+/* harmony import */ var _button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./button */ "./components/widgets/form-controls/button/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidget", function() { return _button__WEBPACK_IMPORTED_MODULE_1__["ButtonWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonWidgetSettings", function() { return _button__WEBPACK_IMPORTED_MODULE_1__["ButtonWidgetSettings"]; });
+
+/* harmony import */ var _checkbox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./checkbox */ "./components/widgets/form-controls/checkbox/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckboxWidget", function() { return _checkbox__WEBPACK_IMPORTED_MODULE_2__["CheckboxWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckboxWidgetSettings", function() { return _checkbox__WEBPACK_IMPORTED_MODULE_2__["CheckboxWidgetSettings"]; });
+
+/* harmony import */ var _date_time__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./date-time */ "./components/widgets/form-controls/date-time/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DateTimeWidget", function() { return _date_time__WEBPACK_IMPORTED_MODULE_3__["DateTimeWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DateTimeWidgetSettings", function() { return _date_time__WEBPACK_IMPORTED_MODULE_3__["DateTimeWidgetSettings"]; });
+
+/* harmony import */ var _file__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./file */ "./components/widgets/form-controls/file/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileWidget", function() { return _file__WEBPACK_IMPORTED_MODULE_4__["FileWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileWidgetSettings", function() { return _file__WEBPACK_IMPORTED_MODULE_4__["FileWidgetSettings"]; });
+
+/* harmony import */ var _number__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./number */ "./components/widgets/form-controls/number/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NumberWidget", function() { return _number__WEBPACK_IMPORTED_MODULE_5__["NumberWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NumberWidgetSettings", function() { return _number__WEBPACK_IMPORTED_MODULE_5__["NumberWidgetSettings"]; });
+
+/* harmony import */ var _password__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./password */ "./components/widgets/form-controls/password/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PasswordWidget", function() { return _password__WEBPACK_IMPORTED_MODULE_6__["PasswordWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PasswordWidgetSettings", function() { return _password__WEBPACK_IMPORTED_MODULE_6__["PasswordWidgetSettings"]; });
+
+/* harmony import */ var _radio__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./radio */ "./components/widgets/form-controls/radio/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioWidget", function() { return _radio__WEBPACK_IMPORTED_MODULE_7__["RadioWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioWidgetSettings", function() { return _radio__WEBPACK_IMPORTED_MODULE_7__["RadioWidgetSettings"]; });
+
+/* harmony import */ var _select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./select */ "./components/widgets/form-controls/select/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectWidget", function() { return _select__WEBPACK_IMPORTED_MODULE_8__["SelectWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectWidgetSettings", function() { return _select__WEBPACK_IMPORTED_MODULE_8__["SelectWidgetSettings"]; });
+
+/* harmony import */ var _textarea__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./textarea */ "./components/widgets/form-controls/textarea/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextAreaWidget", function() { return _textarea__WEBPACK_IMPORTED_MODULE_9__["TextAreaWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextAreaWidgetSettings", function() { return _textarea__WEBPACK_IMPORTED_MODULE_9__["TextAreaWidgetSettings"]; });
+
+/* harmony import */ var _textfield__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./textfield */ "./components/widgets/form-controls/textfield/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextFieldWidget", function() { return _textfield__WEBPACK_IMPORTED_MODULE_10__["TextFieldWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextFieldWidgetSettings", function() { return _textfield__WEBPACK_IMPORTED_MODULE_10__["TextFieldWidgetSettings"]; });
+
+/* harmony import */ var _form_group__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./form-group */ "./components/widgets/form-controls/form-group/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormGroupWidget", function() { return _form_group__WEBPACK_IMPORTED_MODULE_11__["FormGroupWidget"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormGroupWidgetSettings", function() { return _form_group__WEBPACK_IMPORTED_MODULE_11__["FormGroupWidgetSettings"]; });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/number/index.js":
+/*!**********************************************************!*\
+  !*** ./components/widgets/form-controls/number/index.js ***!
+  \**********************************************************/
+/*! exports provided: NumberWidget, NumberWidgetSettings */
+=======
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
+  // id={widget.config.id || ''}
+  // placeholder={widget.config.placeholder || ''}
+  // className={widget.config.className || ''}
+  // styles={widget.config.styles || {}}
+  // name={widget.config.name || ''}
+  // value={widget.config.value || ''}
+  // type={widget.config.type || 'text'}
+  , {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 5
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RadioWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/select/index.js":
+/*!**********************************************************!*\
+  !*** ./components/widgets/form-controls/select/index.js ***!
+  \**********************************************************/
+/*! exports provided: SelectWidget, SelectWidgetSettings */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+/* harmony import */ var _number_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./number-widget */ "./components/widgets/form-controls/number/number-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NumberWidget", function() { return _number_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _number_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./number-widget-settings */ "./components/widgets/form-controls/number/number-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NumberWidgetSettings", function() { return _number_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+=======
+/* harmony import */ var _select_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./select-widget */ "./components/widgets/form-controls/select/select-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectWidget", function() { return _select_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _select_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./select-widget-settings */ "./components/widgets/form-controls/select/select-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectWidgetSettings", function() { return _select_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+
+
+
+
+/***/ }),
+
+<<<<<<< HEAD
+/***/ "./components/widgets/form-controls/number/number-widget-settings.jsx":
+/*!****************************************************************************!*\
+  !*** ./components/widgets/form-controls/number/number-widget-settings.jsx ***!
+=======
+/***/ "./components/widgets/form-controls/select/select-widget-settings.jsx":
+/*!****************************************************************************!*\
+  !*** ./components/widgets/form-controls/select/select-widget-settings.jsx ***!
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+<<<<<<< HEAD
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
+var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\number\\number-widget-settings.jsx";
+=======
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormGroup */ "@material-ui/core/FormGroup");
+/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Radio */ "@material-ui/core/Radio");
+/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/RadioGroup */ "@material-ui/core/RadioGroup");
+/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/select/select-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+}));
+
+<<<<<<< HEAD
+const NumberWidgetSettings = ({
+=======
+const SelectWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  const {
+<<<<<<< HEAD
+=======
+    0: properties,
+    1: setProperties
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    label: '',
+    id: '',
+    name: '',
+    className: ''
+  });
+  const {
+    0: selectionOption,
+    1: setSelectionOption
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('datasource');
+  const {
+    0: datasources,
+    1: setDatasources
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: datasource,
+    1: setDatasource
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.dataSourceId : '');
+  const {
+    0: docList,
+    1: setDocList
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: doc,
+    1: setDoc
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.docId : '');
+  const {
+    0: fieldList,
+    1: setFieldList
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: fields,
+    1: setFields
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.fields : '');
+  const {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    0: linkToFormGroup,
+    1: setLinkToFormGroup
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: formGroups,
+    1: setFormGroups
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: selectedFormGroup,
+    1: setSelectedFormGroup
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+<<<<<<< HEAD
+  const {
+    0: properties,
+    1: setProperties
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    label: '',
+    id: '',
+    name: '',
+    placeholder: '',
+    className: ''
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getFormGroups = async () => {
+      try {
+        const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].getFormGroupWidgets();
+=======
+
+  const getDatasources = async () => {
+    try {
+      const $datasources = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDatasources({});
+
+      if (!isAdding) {
+        const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDocList(datasource);
+        const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getFieldList(datasource, doc);
+        setDocList($docList);
+        setFieldList($fieldList);
+      }
+
+      setDatasources($datasources);
+      return $datasources;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getDocList = async id => {
+    try {
+      setDatasource(id);
+      const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDocList(id);
+      setDocList($docList);
+      return $docList;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getFieldList = async (id, docId) => {
+    try {
+      setDoc(docId);
+      const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getFieldList(id, docId);
+      setFieldList($fieldList);
+      return $fieldList;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleDatasourceChange = async event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setFieldList([]);
+    setFields([]);
+    await getDocList(value);
+  };
+
+  const handleDocChange = async event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setFieldList([]);
+    setFields([]);
+    await getFieldList(datasource, value);
+  };
+
+  const handleFieldChange = event => {
+    const {
+      value
+    } = event.target;
+    setFields(value);
+  };
+
+  const handlePropertiesChange = event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setProperties(_objectSpread({}, properties, {
+      [name]: value
+    }));
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    getDatasources();
+  }, []);
+
+  const handleSourceChange = event => {
+    const {
+      value
+    } = event.target;
+    setSelectionOption(value);
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getFormGroups = async () => {
+      try {
+        const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__["default"].getFormGroupWidgets();
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+        setFormGroups($formGroups);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getFormGroups();
+  }, []);
+
+  const handleSelectFormGroup = event => {
+    const {
+      value
+    } = event.target;
+    setSelectedFormGroup(value);
+  };
+
+  const handleLinkToFormGroup = event => {
+    const {
+      checked
+    } = event.target;
+    if (!checked) setSelectedFormGroup(null);
+    setLinkToFormGroup(checked);
+  };
+
+<<<<<<< HEAD
+  const renderFormGroupSelection = _ => linkToFormGroup ? __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+=======
+  const renderFormGroupSelection = _ => linkToFormGroup ? __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 76,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+=======
+      lineNumber: 158,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    id: "form-group-title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 77,
+      columnNumber: 7
+    }
+  }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_9___default.a, {
+=======
+      lineNumber: 159,
+      columnNumber: 7
+    }
+  }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    fullWidth: true,
+    labelId: "form-group-title",
+    value: selectedFormGroup,
+    onChange: handleSelectFormGroup,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 78,
       columnNumber: 7
     }
@@ -10339,6 +18129,94 @@ const NumberWidgetSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 92,
+=======
+      lineNumber: 160,
+      columnNumber: 7
+    }
+  }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    value: formGroup.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 168,
+      columnNumber: 13
+    }
+  }, formGroup.properties.name)))) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 174,
+      columnNumber: 7
+    }
+  });
+
+  const renderFieldSettings = () => fieldList.length ? __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 179,
+      columnNumber: 7
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 180,
+      columnNumber: 9
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 181,
+      columnNumber: 11
+    }
+  }, "Fields Settings")), __jsx(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    onChange: handleFieldChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 183,
+      columnNumber: 9
+    }
+  }, fieldList.map(field => __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    key: field,
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      value: field,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 188,
+        columnNumber: 26
+      }
+    }),
+    label: field,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 186,
+      columnNumber: 15
+    }
+  }))), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__["Typography"], {
+    style: {
+      fontSize: 12,
+      color: '#F00',
+      marginTop: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 193,
+      columnNumber: 9
+    }
+  }, "* You can only select one field in a select field.")) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 198,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   });
@@ -10346,14 +18224,32 @@ const NumberWidgetSettings = ({
   const saveConfigData = async () => {
     try {
       const data = {
+<<<<<<< HEAD
         properties,
         type: 'Number'
+=======
+        dataSourceId: datasource,
+        config: {
+          docId: doc,
+          fields: [fields],
+          type: selectionOption == 'datasource' ? 'simple' : 'constant',
+          func: 'find',
+          query: {},
+          values: selectionOption == 'datasource' ? [] : []
+        },
+        properties,
+        type: 'Select'
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       };
 
       if (isAdding) {
         onWidgetAdd(data, true, selectedFormGroup);
       } else {
+<<<<<<< HEAD
         const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].updateWidgetSettings(widget.id, data);
+=======
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__["default"].updateWidgetSettings(widget.id, data);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         handleSettingsClose(update);
       }
     } catch (e) {
@@ -10361,6 +18257,7 @@ const NumberWidgetSettings = ({
     }
   };
 
+<<<<<<< HEAD
   const handlePropertiesChange = event => {
     const {
       name,
@@ -10371,13 +18268,19 @@ const NumberWidgetSettings = ({
     }));
   };
 
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   return __jsx("div", {
     className: classes.list,
     role: "presentation",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 118,
+=======
+      lineNumber: 230,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   }, __jsx("h2", {
@@ -10385,7 +18288,11 @@ const NumberWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 119,
+=======
+      lineNumber: 231,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx("span", {
@@ -10393,15 +18300,23 @@ const NumberWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 120,
       columnNumber: 9
     }
   }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+=======
+      lineNumber: 232,
+      columnNumber: 9
+    }
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 122,
       columnNumber: 7
     }
@@ -10417,6 +18332,23 @@ const NumberWidgetSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 124,
+=======
+      lineNumber: 234,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 235,
+      columnNumber: 9
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 236,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx("h2", {
@@ -10424,7 +18356,11 @@ const NumberWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 127,
+=======
+      lineNumber: 239,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx("span", {
@@ -10432,15 +18368,23 @@ const NumberWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 128,
       columnNumber: 9
     }
   }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+=======
+      lineNumber: 240,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 130,
       columnNumber: 7
     }
@@ -10452,21 +18396,42 @@ const NumberWidgetSettings = ({
       columnNumber: 9
     }
   }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+=======
+      lineNumber: 242,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 243,
+      columnNumber: 9
+    }
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     name: "label",
     onChange: handlePropertiesChange,
     value: properties.label,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 132,
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+=======
+      lineNumber: 244,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 135,
       columnNumber: 7
     }
@@ -10478,21 +18443,42 @@ const NumberWidgetSettings = ({
       columnNumber: 9
     }
   }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+=======
+      lineNumber: 247,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 248,
+      columnNumber: 9
+    }
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     name: "id",
     onChange: handlePropertiesChange,
     value: properties.id,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 137,
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+=======
+      lineNumber: 249,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 140,
       columnNumber: 7
     }
@@ -10504,21 +18490,42 @@ const NumberWidgetSettings = ({
       columnNumber: 9
     }
   }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+=======
+      lineNumber: 252,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 253,
+      columnNumber: 9
+    }
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     name: "name",
     onChange: handlePropertiesChange,
     value: properties.name,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 142,
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8___default.a, {
+=======
+      lineNumber: 254,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 145,
       columnNumber: 7
     }
@@ -10593,6 +18600,217 @@ const NumberWidgetSettings = ({
       columnNumber: 9
     }
   })), renderFormGroupSelection(), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+=======
+      lineNumber: 257,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 258,
+      columnNumber: 9
+    }
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    name: "className",
+    onChange: handlePropertiesChange,
+    value: properties.className,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 259,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 262,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default.a, {
+      checked: linkToFormGroup,
+      onChange: handleLinkToFormGroup,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 264,
+        columnNumber: 20
+      }
+    }),
+    label: "Link To Form Group?",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 263,
+      columnNumber: 9
+    }
+  })), renderFormGroupSelection(), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 271,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 272,
+      columnNumber: 9
+    }
+  }, "Unique Properties")), __jsx(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    row: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 274,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    onChange: handleSourceChange,
+    value: selectionOption,
+    style: {
+      justifyContent: 'space-evenly',
+      width: '100%',
+      flexDirection: 'row'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 275,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    value: "datasource",
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 276,
+        columnNumber: 57
+      }
+    }),
+    label: "From Data Source",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 276,
+      columnNumber: 11
+    }
+  }), __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    value: "fixed",
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 277,
+        columnNumber: 52
+      }
+    }),
+    label: "Fixed Values",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 277,
+      columnNumber: 11
+    }
+  }))), selectionOption == 'datasource' ? __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 282,
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 283,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    id: "data-source",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 284,
+      columnNumber: 15
+    }
+  }, "Data Source"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    name: "datasource",
+    labelId: "data-source",
+    value: datasource,
+    onChange: handleDatasourceChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 285,
+      columnNumber: 15
+    }
+  }, datasources.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    key: item.id,
+    value: item.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 291,
+      columnNumber: 43
+    }
+  }, item.title)))), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    disabled: datasource ? false : true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 295,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    id: "doc-list",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 296,
+      columnNumber: 15
+    }
+  }, "Table/Collection"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    name: "docList",
+    labelId: "doc-list",
+    value: doc,
+    onChange: handleDocChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 297,
+      columnNumber: 15
+    }
+  }, docList.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    key: item,
+    value: item,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 303,
+      columnNumber: 39
+    }
+  }, item)))), renderFieldSettings()) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 309,
+      columnNumber: 13
+    }
+  }), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     onClick: saveConfigData,
     fullWidth: true,
     color: "primary",
@@ -10600,12 +18818,17 @@ const NumberWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 164,
+=======
+      lineNumber: 315,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, "Save"));
 };
 
+<<<<<<< HEAD
 /* harmony default export */ __webpack_exports__["default"] = (NumberWidgetSettings);
 
 /***/ }),
@@ -10613,6 +18836,15 @@ const NumberWidgetSettings = ({
 /***/ "./components/widgets/form-controls/number/number-widget.jsx":
 /*!*******************************************************************!*\
   !*** ./components/widgets/form-controls/number/number-widget.jsx ***!
+=======
+/* harmony default export */ __webpack_exports__["default"] = (SelectWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/select/select-widget.jsx":
+/*!*******************************************************************!*\
+  !*** ./components/widgets/form-controls/select/select-widget.jsx ***!
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   \*******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10623,39 +18855,98 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\number\\number-widget.jsx";
+=======
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! uuid */ "uuid");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(uuid__WEBPACK_IMPORTED_MODULE_7__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/select/select-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
+<<<<<<< HEAD
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
 
 const NumberWidget = ({
   widgetId
 }) => {
   const classes = useStyles();
+=======
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const SelectWidget = ({
+  widgetId
+}) => {
+  const classes = useStyles();
+  const labelId = Object(uuid__WEBPACK_IMPORTED_MODULE_7__["v4"])();
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   const {
     0: widget,
     1: setWidget
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+<<<<<<< HEAD
     properties: {}
   });
   const {
+=======
+    config: {},
+    properties: {}
+  });
+  const {
+    0: data,
+    1: setData
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     0: menuState,
     1: setMenuState
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
     right: false
   });
+<<<<<<< HEAD
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     const getData = async () => {
       try {
         const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__["default"].getWidgetSettingsById(widgetId);
         setWidget($widget);
+=======
+  const {
+    0: value,
+    1: setValue
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+
+  const handleChange = event => {
+    setValue(event.target.value);
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_6__["default"].getWidgetSettingsById(widgetId);
+        const $data = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_6__["default"].executeWidgetQuery(widgetId);
+        setWidget($widget);
+        setData($data);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         return $widget;
       } catch (e) {
         console.log(e);
@@ -10664,6 +18955,7 @@ const NumberWidget = ({
 
     getData();
   }, []);
+<<<<<<< HEAD
   return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default.a, {
     fullWidth: true,
     type: "number",
@@ -10690,15 +18982,76 @@ const NumberWidget = ({
   !*** ./components/widgets/form-controls/password/index.js ***!
   \************************************************************/
 /*! exports provided: PasswordWidget, PasswordWidgetSettings */
+=======
+  return __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    id: labelId,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 7
+    }
+  }, widget.properties.label), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    labelId: labelId,
+    id: widget.properties.id,
+    name: widget.properties.name,
+    value: value,
+    onChange: handleChange,
+    className: widget.properties.className,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 7
+    }
+  }, data.map(option => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    value: option[widget.config.fields[0]],
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 13
+    }
+  }, option[widget.config.fields[0]]))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SelectWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/textarea/index.js":
+/*!************************************************************!*\
+  !*** ./components/widgets/form-controls/textarea/index.js ***!
+  \************************************************************/
+/*! exports provided: TextAreaWidget, TextAreaWidgetSettings */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony import */ var _password_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./password-widget */ "./components/widgets/form-controls/password/password-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PasswordWidget", function() { return _password_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
 /* harmony import */ var _password_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./password-widget-settings */ "./components/widgets/form-controls/password/password-widget-settings.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PasswordWidgetSettings", function() { return _password_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+=======
+/* harmony import */ var _textarea_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./textarea-widget */ "./components/widgets/form-controls/textarea/textarea-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextAreaWidget", function() { return _textarea_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _textarea_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./textarea-widget-settings */ "./components/widgets/form-controls/textarea/textarea-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextAreaWidgetSettings", function() { return _textarea_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -10706,9 +19059,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./components/widgets/form-controls/password/password-widget-settings.jsx":
 /*!********************************************************************************!*\
   !*** ./components/widgets/form-controls/password/password-widget-settings.jsx ***!
+=======
+/***/ "./components/widgets/form-controls/textarea/textarea-widget-settings.jsx":
+/*!********************************************************************************!*\
+  !*** ./components/widgets/form-controls/textarea/textarea-widget-settings.jsx ***!
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   \********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10739,7 +19098,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\password\\password-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/textarea/textarea-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -10789,7 +19152,11 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
   }
 }));
 
+<<<<<<< HEAD
 const PasswordWidgetSettings = ({
+=======
+const TextAreaWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widget,
   handleSettingsClose,
   isAdding,
@@ -10904,7 +19271,11 @@ const PasswordWidgetSettings = ({
     try {
       const data = {
         properties,
+<<<<<<< HEAD
         type: 'Password'
+=======
+        type: 'Text Area'
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       };
 
       if (isAdding) {
@@ -11127,6 +19498,7 @@ const PasswordWidgetSettings = ({
   }, "Save"));
 };
 
+<<<<<<< HEAD
 /* harmony default export */ __webpack_exports__["default"] = (PasswordWidgetSettings);
 
 /***/ }),
@@ -11134,6 +19506,15 @@ const PasswordWidgetSettings = ({
 /***/ "./components/widgets/form-controls/password/password-widget.jsx":
 /*!***********************************************************************!*\
   !*** ./components/widgets/form-controls/password/password-widget.jsx ***!
+=======
+/* harmony default export */ __webpack_exports__["default"] = (TextAreaWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/textarea/textarea-widget.jsx":
+/*!***********************************************************************!*\
+  !*** ./components/widgets/form-controls/textarea/textarea-widget.jsx ***!
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   \***********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -11147,19 +19528,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__);
+<<<<<<< HEAD
 /* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
 /* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\password\\password-widget.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/textarea/textarea-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
+<<<<<<< HEAD
 
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
 
 const PasswordWidget = ({
+=======
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const TextAreaWidget = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widgetId
 }) => {
   const classes = useStyles();
@@ -11207,16 +19598,25 @@ const PasswordWidget = ({
     onChange: handleChange,
     className: widget.properties.className,
     value: value,
+<<<<<<< HEAD
     type: 'password',
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 35,
+=======
+    multiline: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   });
 };
 
+<<<<<<< HEAD
 /* harmony default export */ __webpack_exports__["default"] = (PasswordWidget);
 
 /***/ }),
@@ -11226,15 +19626,34 @@ const PasswordWidget = ({
   !*** ./components/widgets/form-controls/radio/index.js ***!
   \*********************************************************/
 /*! exports provided: RadioWidget, RadioWidgetSettings */
+=======
+/* harmony default export */ __webpack_exports__["default"] = (TextAreaWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/textfield/index.js":
+/*!*************************************************************!*\
+  !*** ./components/widgets/form-controls/textfield/index.js ***!
+  \*************************************************************/
+/*! exports provided: TextFieldWidget, TextFieldWidgetSettings */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony import */ var _radio_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./radio-widget */ "./components/widgets/form-controls/radio/radio-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioWidget", function() { return _radio_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
 /* harmony import */ var _radio_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./radio-widget-settings */ "./components/widgets/form-controls/radio/radio-widget-settings.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioWidgetSettings", function() { return _radio_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+=======
+/* harmony import */ var _text_field_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./text-field-widget */ "./components/widgets/form-controls/textfield/text-field-widget.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextFieldWidget", function() { return _text_field_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _text_field_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./text-field-widget-settings */ "./components/widgets/form-controls/textfield/text-field-widget-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextFieldWidgetSettings", function() { return _text_field_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -11242,10 +19661,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./components/widgets/form-controls/radio/radio-widget-settings.jsx":
 /*!**************************************************************************!*\
   !*** ./components/widgets/form-controls/radio/radio-widget-settings.jsx ***!
   \**************************************************************************/
+=======
+/***/ "./components/widgets/form-controls/textfield/text-field-widget-settings.jsx":
+/*!***********************************************************************************!*\
+  !*** ./components/widgets/form-controls/textfield/text-field-widget-settings.jsx ***!
+  \***********************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11263,6 +19689,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
 /* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+<<<<<<< HEAD
 /* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
 /* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
@@ -11272,6 +19699,33 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\radio\\radio-widget-settings.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+=======
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/textfield/text-field-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -11309,13 +19763,18 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
   }
 }));
 
+<<<<<<< HEAD
 const RadioWidgetSettings = ({
+=======
+const TextFieldWidgetSettings = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widget,
   handleSettingsClose,
   isAdding,
   onWidgetAdd
 }) => {
   const classes = useStyles();
+<<<<<<< HEAD
   return __jsx("div", {
     className: classes.list,
     role: "presentation",
@@ -11365,11 +19824,149 @@ const RadioWidgetSettings = ({
       columnNumber: 9
     }
   })), __jsx("h2", {
+=======
+  const {
+    0: linkToFormGroup,
+    1: setLinkToFormGroup
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: formGroups,
+    1: setFormGroups
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: selectedFormGroup,
+    1: setSelectedFormGroup
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: properties,
+    1: setProperties
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    label: '',
+    id: '',
+    name: '',
+    className: ''
+  });
+
+  const handlePropertiesChange = event => {
+    const {
+      name,
+      value
+    } = event.target;
+    setProperties(_objectSpread({}, properties, {
+      [name]: value
+    }));
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getFormGroups = async () => {
+      try {
+        const $formGroups = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].getFormGroupWidgets();
+        setFormGroups($formGroups);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getFormGroups();
+  }, []);
+
+  const handleSelectFormGroup = event => {
+    const {
+      value
+    } = event.target;
+    setSelectedFormGroup(value);
+  };
+
+  const handleLinkToFormGroup = event => {
+    const {
+      checked
+    } = event.target;
+    if (!checked) setSelectedFormGroup(null);
+    setLinkToFormGroup(checked);
+  };
+
+  const renderFormGroupSelection = _ => linkToFormGroup ? __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    id: "form-group-title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+      columnNumber: 7
+    }
+  }, "Form Group"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    fullWidth: true,
+    labelId: "form-group-title",
+    value: selectedFormGroup,
+    onChange: handleSelectFormGroup,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83,
+      columnNumber: 7
+    }
+  }, formGroups.map(formGroup => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    value: formGroup.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91,
+      columnNumber: 13
+    }
+  }, formGroup.properties.name)))) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97,
+      columnNumber: 7
+    }
+  });
+
+  const saveConfigData = async () => {
+    try {
+      const data = {
+        properties,
+        type: 'Text Field'
+      };
+
+      if (isAdding) {
+        onWidgetAdd(data, true, selectedFormGroup);
+      } else {
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].updateWidgetSettings(widget.id, data);
+        handleSettingsClose(update);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118,
+      columnNumber: 5
+    }
+  }, __jsx("h2", {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     className: classes.h2,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 52,
+=======
+      lineNumber: 119,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx("span", {
@@ -11377,22 +19974,34 @@ const RadioWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 53,
       columnNumber: 9
     }
   }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 120,
+      columnNumber: 9
+    }
+  }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 55,
+=======
+      lineNumber: 122,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 56,
       columnNumber: 9
     }
@@ -11427,18 +20036,52 @@ const RadioWidgetSettings = ({
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+=======
+      lineNumber: 123,
+      columnNumber: 9
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 124,
+      columnNumber: 9
+    }
+  })), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 127,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 128,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 65,
+=======
+      lineNumber: 130,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 66,
       columnNumber: 9
     }
@@ -11447,6 +20090,19 @@ const RadioWidgetSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 67,
+=======
+      lineNumber: 131,
+      columnNumber: 9
+    }
+  }, "Label"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "label",
+    onChange: handlePropertiesChange,
+    value: properties.label,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 132,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -11455,13 +20111,18 @@ const RadioWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 70,
+=======
+      lineNumber: 135,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 71,
       columnNumber: 9
     }
@@ -11470,6 +20131,19 @@ const RadioWidgetSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 72,
+=======
+      lineNumber: 136,
+      columnNumber: 9
+    }
+  }, "ID"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "id",
+    onChange: handlePropertiesChange,
+    value: properties.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 137,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -11478,13 +20152,18 @@ const RadioWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 75,
+=======
+      lineNumber: 140,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 76,
       columnNumber: 9
     }
@@ -11493,6 +20172,19 @@ const RadioWidgetSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 77,
+=======
+      lineNumber: 141,
+      columnNumber: 9
+    }
+  }, "Name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "name",
+    onChange: handlePropertiesChange,
+    value: properties.name,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 142,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -11501,13 +20193,18 @@ const RadioWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 80,
+=======
+      lineNumber: 145,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 81,
       columnNumber: 9
     }
@@ -11516,6 +20213,19 @@ const RadioWidgetSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 82,
+=======
+      lineNumber: 146,
+      columnNumber: 9
+    }
+  }, "Class name"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: "className",
+    onChange: handlePropertiesChange,
+    value: properties.className,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 147,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -11524,6 +20234,7 @@ const RadioWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 85,
       columnNumber: 7
     }
@@ -11542,18 +20253,48 @@ const RadioWidgetSettings = ({
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+=======
+      lineNumber: 150,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7___default.a, {
+      checked: linkToFormGroup,
+      onChange: handleLinkToFormGroup,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 152,
+        columnNumber: 20
+      }
+    }),
+    label: "Link To Form Group?",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 151,
+      columnNumber: 9
+    }
+  })), renderFormGroupSelection(), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    onClick: saveConfigData,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     color: "primary",
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 90,
+=======
+      lineNumber: 159,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, "Save"));
 };
 
+<<<<<<< HEAD
 /* harmony default export */ __webpack_exports__["default"] = (RadioWidgetSettings);
 
 /***/ }),
@@ -11562,6 +20303,16 @@ const RadioWidgetSettings = ({
 /*!*****************************************************************!*\
   !*** ./components/widgets/form-controls/radio/radio-widget.jsx ***!
   \*****************************************************************/
+=======
+/* harmony default export */ __webpack_exports__["default"] = (TextFieldWidgetSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/form-controls/textfield/text-field-widget.jsx":
+/*!**************************************************************************!*\
+  !*** ./components/widgets/form-controls/textfield/text-field-widget.jsx ***!
+  \**************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11571,30 +20322,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\radio\\radio-widget.jsx";
+=======
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/form-controls/textfield/text-field-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+<<<<<<< HEAD
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
 
 const RadioWidget = ({
+=======
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
+
+const TextFieldWidget = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widgetId
 }) => {
   const classes = useStyles();
   const {
     0: widget,
     1: setWidget
+<<<<<<< HEAD
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+=======
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    properties: {}
+  });
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   const {
     0: menuState,
     1: setMenuState
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
     right: false
   });
+<<<<<<< HEAD
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     const getData = async () => {
       try {
@@ -11602,6 +20374,25 @@ const RadioWidget = ({
         console.log($widget);
         setWidget($widget);
         return $widget;
+=======
+  const {
+    0: value,
+    1: setValue
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
+
+  const handleChange = event => {
+    const {
+      value
+    } = event.target;
+    setValue(value);
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getData = async () => {
+      try {
+        const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__["default"].getWidgetSettingsById(widgetId);
+        setWidget($widget);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       } catch (e) {
         console.log(e);
       }
@@ -11609,6 +20400,7 @@ const RadioWidget = ({
 
     getData();
   }, []);
+<<<<<<< HEAD
   return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2___default.a // label={widget.config.label || ''}
   // id={widget.config.id || ''}
   // placeholder={widget.config.placeholder || ''}
@@ -11622,11 +20414,26 @@ const RadioWidget = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 29,
+=======
+  return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    name: widget.properties.name,
+    label: widget.properties.label,
+    id: widget.properties.id,
+    fullWidth: true,
+    onChange: handleChange,
+    className: widget.properties.className,
+    value: value,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   });
 };
 
+<<<<<<< HEAD
 /* harmony default export */ __webpack_exports__["default"] = (RadioWidget);
 
 /***/ }),
@@ -11636,10 +20443,22 @@ const RadioWidget = ({
   !*** ./components/widgets/form-controls/select/index.js ***!
   \**********************************************************/
 /*! exports provided: SelectWidget, SelectWidgetSettings */
+=======
+/* harmony default export */ __webpack_exports__["default"] = (TextFieldWidget);
+
+/***/ }),
+
+/***/ "./components/widgets/helpers/connection-settings/connection-settings.jsx":
+/*!********************************************************************************!*\
+  !*** ./components/widgets/helpers/connection-settings/connection-settings.jsx ***!
+  \********************************************************************************/
+/*! exports provided: default */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony import */ var _select_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./select-widget */ "./components/widgets/form-controls/select/select-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectWidget", function() { return _select_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
@@ -11656,6 +20475,205 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************************************!*\
   !*** ./components/widgets/form-controls/select/select-widget-settings.jsx ***!
   \****************************************************************************/
+=======
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Radio */ "@material-ui/core/Radio");
+/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/RadioGroup */ "@material-ui/core/RadioGroup");
+/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormLabel */ "@material-ui/core/FormLabel");
+/* harmony import */ var _material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _database_connection__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./database-connection */ "./components/widgets/helpers/connection-settings/database-connection.jsx");
+/* harmony import */ var _http_connection__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./http-connection */ "./components/widgets/helpers/connection-settings/http-connection.jsx");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/helpers/connection-settings/connection-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])({
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  }
+});
+
+const ConnectionSettings = ({
+  connectionMethod,
+  setConnectionMethod,
+  isAdding,
+  setDoc,
+  setDatasource,
+  setFields,
+  doc,
+  datasource,
+  fields,
+  primaryKey,
+  setPrimaryKey,
+  url,
+  setURL,
+  headers,
+  setHeaders,
+  method,
+  setMethod,
+  body,
+  setBody,
+  query,
+  setQuery
+}) => {
+  const classes = useStyles();
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 5
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 9
+    }
+  }, "Connection Settings")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54,
+      columnNumber: 9
+    }
+  }, "Connection Method"), __jsx(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    style: {
+      display: 'flex',
+      flexDirection: 'row'
+    },
+    value: connectionMethod,
+    onChange: event => setConnectionMethod(event.target.value),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    value: "database",
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 60,
+        columnNumber: 55
+      }
+    }),
+    label: "Database",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60,
+      columnNumber: 11
+    }
+  }), __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    value: "http",
+    control: __jsx(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 61,
+        columnNumber: 51
+      }
+    }),
+    label: "HTTP",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61,
+      columnNumber: 11
+    }
+  }))), connectionMethod == 'database' ? __jsx(_database_connection__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    isAdding: isAdding,
+    setDoc: setDoc,
+    setDatasource: setDatasource,
+    setFields: setFields,
+    doc: doc,
+    datasource: datasource,
+    fields: fields,
+    primaryKey: primaryKey,
+    setPrimaryKey: setPrimaryKey,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66,
+      columnNumber: 11
+    }
+  }) : __jsx(_http_connection__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    url: url,
+    setURL: setURL,
+    headers: headers,
+    setHeaders: setHeaders,
+    method: method,
+    setMethod: setMethod,
+    body: body,
+    setBody: setBody,
+    query: query,
+    setQuery: setQuery,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78,
+      columnNumber: 13
+    }
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ConnectionSettings);
+
+/***/ }),
+
+/***/ "./components/widgets/helpers/connection-settings/database-connection.jsx":
+/*!********************************************************************************!*\
+  !*** ./components/widgets/helpers/connection-settings/database-connection.jsx ***!
+  \********************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11665,6 +20683,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
@@ -11712,6 +20731,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+=======
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/datasource.actions */ "./actions/datasource.actions.ts");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/helpers/connection-settings/database-connection.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -11747,6 +20785,7 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
   }
 }));
 
+<<<<<<< HEAD
 const SelectWidgetSettings = ({
   widget,
   handleSettingsClose,
@@ -11775,19 +20814,41 @@ const SelectWidgetSettings = ({
     0: datasource,
     1: setDatasource
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.dataSourceId : '');
+=======
+const DatabaseConnection = ({
+  isAdding,
+  setDoc,
+  setDatasource,
+  setFields,
+  doc,
+  datasource,
+  fields,
+  primaryKey,
+  setPrimaryKey
+}) => {
+  const classes = useStyles();
+  const {
+    0: datasources,
+    1: setDatasources
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   const {
     0: docList,
     1: setDocList
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const {
+<<<<<<< HEAD
     0: doc,
     1: setDoc
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.docId : '');
   const {
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     0: fieldList,
     1: setFieldList
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const {
+<<<<<<< HEAD
     0: fields,
     1: setFields
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.fields : '');
@@ -11811,6 +20872,19 @@ const SelectWidgetSettings = ({
       if (!isAdding) {
         const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDocList(datasource);
         const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getFieldList(datasource, doc);
+=======
+    0: query,
+    1: setQuery
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
+
+  const getDatasources = async () => {
+    try {
+      const $datasources = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_8__["default"].getDatasources({});
+
+      if (!isAdding) {
+        const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_8__["default"].getDocList(datasource);
+        const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_8__["default"].getFieldList(datasource, doc);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         setDocList($docList);
         setFieldList($fieldList);
       }
@@ -11825,7 +20899,11 @@ const SelectWidgetSettings = ({
   const getDocList = async id => {
     try {
       setDatasource(id);
+<<<<<<< HEAD
       const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getDocList(id);
+=======
+      const $docList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_8__["default"].getDocList(id);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       setDocList($docList);
       return $docList;
     } catch (e) {
@@ -11836,7 +20914,11 @@ const SelectWidgetSettings = ({
   const getFieldList = async (id, docId) => {
     try {
       setDoc(docId);
+<<<<<<< HEAD
       const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_13__["default"].getFieldList(id, docId);
+=======
+      const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_8__["default"].getFieldList(id, docId);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       setFieldList($fieldList);
       return $fieldList;
     } catch (e) {
@@ -11846,7 +20928,10 @@ const SelectWidgetSettings = ({
 
   const handleDatasourceChange = async event => {
     const {
+<<<<<<< HEAD
       name,
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       value
     } = event.target;
     setFieldList([]);
@@ -11856,7 +20941,10 @@ const SelectWidgetSettings = ({
 
   const handleDocChange = async event => {
     const {
+<<<<<<< HEAD
       name,
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       value
     } = event.target;
     setFieldList([]);
@@ -11864,6 +20952,7 @@ const SelectWidgetSettings = ({
     await getFieldList(datasource, value);
   };
 
+<<<<<<< HEAD
   const handleFieldChange = event => {
     const {
       value
@@ -12152,11 +21241,440 @@ const SelectWidgetSettings = ({
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_6___default.a, {
+=======
+  const handleFieldChange = name => event => {
+    const {
+      checked
+    } = event.target;
+    checked ? setFields([...fields, name]) : setFields(fields.filter(field => field != name));
+  };
+
+  const renderFieldSettings = () => fieldList.length ? __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 112,
+      columnNumber: 57
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113,
+      columnNumber: 5
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 7
+    }
+  }, "Fields Settings")), fieldList.map(field => __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    key: field,
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7___default.a, {
+      checked: fields.includes(field),
+      onChange: handleFieldChange(field),
+      value: field,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 120,
+        columnNumber: 9
+      }
+    }),
+    label: field,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117,
+      columnNumber: 30
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 125,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    id: "primary-key",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 126,
+      columnNumber: 7
+    }
+  }, "Primary Key"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    name: "primaryKey",
+    labelId: "primary-key",
+    value: primaryKey,
+    onChange: event => setPrimaryKey(event.target.value),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 127,
+      columnNumber: 7
+    }
+  }, fields.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    key: item,
+    value: item,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 133,
+      columnNumber: 30
+    }
+  }, item))))) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 136,
+      columnNumber: 13
+    }
+  });
+
+  const renderQuerySettings = () => fields.length ? __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 138,
+      columnNumber: 54
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 139,
+      columnNumber: 5
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 140,
+      columnNumber: 7
+    }
+  }, "Query Settings")), fields.map(field => __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 143,
+      columnNumber: 27
+    }
+  }))) : __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 146,
+      columnNumber: 13
+    }
+  });
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    getDatasources();
+  }, []);
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 153,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 154,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    id: "data-source",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 155,
+      columnNumber: 9
+    }
+  }, "Data Source"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    name: "datasource",
+    labelId: "data-source",
+    value: datasource,
+    onChange: handleDatasourceChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 156,
+      columnNumber: 9
+    }
+  }, datasources.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    key: item.id,
+    value: item.id,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 162,
+      columnNumber: 37
+    }
+  }, item.title)))), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    disabled: datasource ? false : true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 166,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    id: "doc-list",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 167,
+      columnNumber: 9
+    }
+  }, "Table/Collection"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    name: "docList",
+    labelId: "doc-list",
+    value: doc,
+    onChange: handleDocChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 168,
+      columnNumber: 9
+    }
+  }, docList.map(item => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    key: item,
+    value: item,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 174,
+      columnNumber: 33
+    }
+  }, item)))), renderFieldSettings(), renderQuerySettings());
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DatabaseConnection);
+
+/***/ }),
+
+/***/ "./components/widgets/helpers/connection-settings/http-connection.jsx":
+/*!****************************************************************************!*\
+  !*** ./components/widgets/helpers/connection-settings/http-connection.jsx ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/icons/Save */ "@material-ui/icons/Save");
+/* harmony import */ var _material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _material_ui_icons_Cancel__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/icons/Cancel */ "@material-ui/icons/Cancel");
+/* harmony import */ var _material_ui_icons_Cancel__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Cancel__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "@material-ui/core/CircularProgress");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_15__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/helpers/connection-settings/http-connection.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  },
+  formControl: {
+    marginTop: "15px"
+  }
+});
+const httpMethods = [{
+  value: 'get',
+  title: 'Get'
+}, {
+  value: 'post',
+  title: 'Post'
+}, {
+  value: 'put',
+  title: 'Put'
+}, {
+  value: 'patch',
+  title: 'Patch'
+}, {
+  value: 'head',
+  title: 'Head'
+}, {
+  value: 'delete',
+  title: 'Delete'
+}];
+
+const HTTPConnection = ({
+  url,
+  setURL,
+  method,
+  setMethod,
+  headers,
+  setHeaders,
+  body,
+  setBody,
+  query,
+  setQuery
+}) => {
+  const classes = useStyles();
+  const {
+    0: requestHeader,
+    1: setRequestHeader
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    key: '',
+    value: ''
+  });
+  const {
+    0: isAddingRequestHeader,
+    1: setIsAddingRequestHeader
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: queryParam,
+    1: setQueryParam
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    key: '',
+    value: ''
+  });
+  const {
+    0: isAddingRequestQueryParam,
+    1: setIsAddingQueryParam
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: bodyParam,
+    1: setBodyParam
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    key: '',
+    value: ''
+  });
+  const {
+    0: isAddingRequestBodyParam,
+    1: setIsAddingRequestBodyParam
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+
+  const renderRequestHeader = header => {};
+
+  const renderQueryParameter = queryParameter => {};
+
+  const renderBodyParameter = bodyParameter => {};
+
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    id: "title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 84,
+      columnNumber: 9
+    }
+  }, "Request URL"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    value: url,
+    onChange: event => {
+      setURL(event.target.value);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_3___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 247,
       columnNumber: 7
     }
@@ -12520,10 +22038,374 @@ const SelectWidget = ({
   }, []);
   return __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_2___default.a, {
     fullWidth: true,
+=======
+      lineNumber: 88,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    id: "http-method-label",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89,
+      columnNumber: 9
+    }
+  }, "Request Method"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    value: method,
+    onChange: event => {
+      setMethod(event.target.value);
+    },
+    labelId: "http-method-label",
+    fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+      lineNumber: 90,
+      columnNumber: 9
+    }
+  }, httpMethods.map(m => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    value: m.value,
+    key: m.value,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91,
+      columnNumber: 34
+    }
+  }, m.title)))), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96,
+      columnNumber: 9
+    }
+  }, "Request Headers")), isAddingRequestHeader ? __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    style: {
+      padding: 15,
+      marginBottom: 15
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 100,
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    container: true,
+    spacing: 0,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 101,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    item: true,
+    xs: 6,
+    style: {
+      paddingLeft: 10,
+      paddingRight: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 19
+    }
+  }, "Key"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    onChange: event => {
+      setRequestHeader(_objectSpread({}, requestHeader, {
+        key: event.target.value
+      }));
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105,
+      columnNumber: 19
+    }
+  }))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    item: true,
+    xs: 6,
+    style: {
+      paddingLeft: 10,
+      paddingRight: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 110,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 111,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 112,
+      columnNumber: 19
+    }
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    onChange: event => {
+      setRequestHeader(_objectSpread({}, requestHeader, {
+        value: event.target.value
+      }));
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113,
+      columnNumber: 19
+    }
+  })))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    container: true,
+    spacing: 0,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 119,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    item: true,
+    xs: 6,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 120,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    fullWidth: true,
+    onClick: () => {
+      setIsAddingRequestHeader(false);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 121,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_icons_Cancel__WEBPACK_IMPORTED_MODULE_14___default.a, {
+    style: {
+      color: "#F00"
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 122,
+      columnNumber: 19
+    }
+  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 123,
+      columnNumber: 19
+    }
+  }, "Cancel"))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    item: true,
+    xs: 6,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 126,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 127,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_13___default.a, {
+    style: {
+      color: "#3F51B5"
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 128,
+      columnNumber: 19
+    }
+  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 129,
+      columnNumber: 19
+    }
+  }, "Save"))))) : __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    fullWidth: true,
+    onClick: () => {
+      setIsAddingRequestHeader(true);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 135,
+      columnNumber: 13
+    }
+  }, "Add"), __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 139,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 140,
+      columnNumber: 9
+    }
+  }, "Request Query Parameters")), isAddingRequestQueryParam ? __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    style: {
+      padding: 15,
+      marginBottom: 15
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 144,
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    container: true,
+    spacing: 0,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 145,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    item: true,
+    xs: 6,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 146,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    fullWidth: true,
+    style: {
+      paddingLeft: 10,
+      paddingRight: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 147,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 148,
+      columnNumber: 19
+    }
+  }, "Key"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    onChange: event => {
+      setQueryParam(_objectSpread({}, queryParam, {
+        key: event.target.value
+      }));
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 149,
+      columnNumber: 19
+    }
+  }))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    item: true,
+    xs: 6,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 154,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    fullWidth: true,
+    style: {
+      paddingLeft: 10,
+      paddingRight: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 155,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 156,
+      columnNumber: 19
+    }
+  }, "Value"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    onChange: event => {
+      setQueryParam(_objectSpread({}, queryParam, {
+        value: event.target.value
+      }));
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 157,
+      columnNumber: 19
+    }
+  })))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    container: true,
+    spacing: 0,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 42,
       columnNumber: 5
     }
@@ -12569,10 +22451,110 @@ const SelectWidget = ({
   !*** ./components/widgets/form-controls/textarea/index.js ***!
   \************************************************************/
 /*! exports provided: TextAreaWidget, TextAreaWidgetSettings */
+=======
+      lineNumber: 163,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    item: true,
+    xs: 6,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 164,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    fullWidth: true,
+    onClick: () => {
+      setIsAddingQueryParam(false);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 165,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_icons_Cancel__WEBPACK_IMPORTED_MODULE_14___default.a, {
+    style: {
+      color: "#F00"
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 166,
+      columnNumber: 19
+    }
+  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 167,
+      columnNumber: 19
+    }
+  }, "Cancel"))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    item: true,
+    xs: 6,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 170,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 171,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_13___default.a, {
+    style: {
+      color: "#3F51B5"
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 172,
+      columnNumber: 19
+    }
+  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 173,
+      columnNumber: 19
+    }
+  }, "Save"))))) : __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    fullWidth: true,
+    onClick: () => {
+      setIsAddingQueryParam(true);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 179,
+      columnNumber: 13
+    }
+  }, "Add"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (HTTPConnection);
+
+/***/ }),
+
+/***/ "./components/widgets/helpers/connection-settings/index.js":
+/*!*****************************************************************!*\
+  !*** ./components/widgets/helpers/connection-settings/index.js ***!
+  \*****************************************************************/
+/*! exports provided: ConnectionSettings */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony import */ var _textarea_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./textarea-widget */ "./components/widgets/form-controls/textarea/textarea-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextAreaWidget", function() { return _textarea_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
@@ -12581,14 +22563,51 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+=======
+/* harmony import */ var _connection_settings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./connection-settings */ "./components/widgets/helpers/connection-settings/connection-settings.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ConnectionSettings", function() { return _connection_settings__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
 
 
 /***/ }),
 
+/***/ "./components/widgets/helpers/index.js":
+/*!*********************************************!*\
+  !*** ./components/widgets/helpers/index.js ***!
+  \*********************************************/
+/*! exports provided: MeasureConditionItem, ListMeasureCondition, AddMeasureCondition, ConnectionSettings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _measure_conditions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./measure-conditions */ "./components/widgets/helpers/measure-conditions/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasureConditionItem", function() { return _measure_conditions__WEBPACK_IMPORTED_MODULE_0__["MeasureConditionItem"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ListMeasureCondition", function() { return _measure_conditions__WEBPACK_IMPORTED_MODULE_0__["ListMeasureCondition"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AddMeasureCondition", function() { return _measure_conditions__WEBPACK_IMPORTED_MODULE_0__["AddMeasureCondition"]; });
+
+/* harmony import */ var _connection_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./connection-settings */ "./components/widgets/helpers/connection-settings/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ConnectionSettings", function() { return _connection_settings__WEBPACK_IMPORTED_MODULE_1__["ConnectionSettings"]; });
+
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+
+
+/***/ }),
+
+<<<<<<< HEAD
 /***/ "./components/widgets/form-controls/textarea/textarea-widget-settings.jsx":
 /*!********************************************************************************!*\
   !*** ./components/widgets/form-controls/textarea/textarea-widget-settings.jsx ***!
   \********************************************************************************/
+=======
+/***/ "./components/widgets/helpers/measure-conditions/add-measure-condition.jsx":
+/*!*********************************************************************************!*\
+  !*** ./components/widgets/helpers/measure-conditions/add-measure-condition.jsx ***!
+  \*********************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12596,6 +22615,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
@@ -12622,6 +22642,43 @@ var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-co
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+=======
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/icons/Save */ "@material-ui/icons/Save");
+/* harmony import */ var _material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_icons_Cancel__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/icons/Cancel */ "@material-ui/icons/Cancel");
+/* harmony import */ var _material_ui_icons_Cancel__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Cancel__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "@material-ui/core/CircularProgress");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _helpers_css_colors__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../helpers/css-colors */ "./helpers/css-colors.js");
+/* harmony import */ var _material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/lab/Autocomplete */ "@material-ui/lab/Autocomplete");
+/* harmony import */ var _material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _helpers_measure_conditions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../../helpers/measure-conditions */ "./helpers/measure-conditions.js");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/helpers/measure-conditions/add-measure-condition.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -12641,6 +22698,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+<<<<<<< HEAD
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
   list: {
     width: 500,
@@ -13102,15 +23160,403 @@ const TextAreaWidget = ({
   !*** ./components/widgets/form-controls/textfield/index.js ***!
   \*************************************************************/
 /*! exports provided: TextFieldWidget, TextFieldWidgetSettings */
+=======
+
+
+
+
+
+const AddMeasureCondition = ({
+  widget,
+  setIsAddingMeasureCondition,
+  setRefresh,
+  refresh
+}) => {
+  const {
+    0: measureConditionsFields,
+    1: updateMeasureConditionsFields
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
+  const {
+    0: fields,
+    1: setFields
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(widget.config.fields);
+  const {
+    0: showSpinner,
+    1: setShowSpinner
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+
+  const handleChange = event => {
+    const {
+      name,
+      value
+    } = event.target;
+    updateMeasureConditionsFields(_objectSpread({}, measureConditionsFields, {
+      [name]: value
+    }));
+  };
+
+  const addMeasureCondition = async () => {
+    try {
+      setShowSpinner(true);
+      const measureCondition = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_15__["default"].createWidgetSettingsMeasureConditions(widget.id, measureConditionsFields);
+      setShowSpinner(false);
+      setIsAddingMeasureCondition(false);
+      setRefresh(refresh + 1);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    style: {
+      padding: 15,
+      marginBottom: 15
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    container: true,
+    spacing: 0,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    item: true,
+    xs: 4,
+    style: {
+      paddingLeft: 5,
+      paddingRight: 5
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    id: "field-select-label",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 13
+    }
+  }, "Field"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    labelId: "field-select-label",
+    value: measureConditionsFields.field,
+    onChange: handleChange,
+    name: "field",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 13
+    }
+  }, fields.map(field => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    key: field,
+    value: field,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54,
+      columnNumber: 36
+    }
+  }, field))))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    item: true,
+    xs: 4,
+    style: {
+      paddingLeft: 5,
+      paddingRight: 5
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    id: "expression-select-label",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60,
+      columnNumber: 13
+    }
+  }, "Expression"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
+    labelId: "expression-select-label",
+    value: measureConditionsFields.expression,
+    onChange: handleChange,
+    name: "expression",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61,
+      columnNumber: 13
+    }
+  }, _helpers_measure_conditions__WEBPACK_IMPORTED_MODULE_16__["conditionCases"].map(conditionCase => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    key: conditionCase.title,
+    value: conditionCase.title,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68,
+      columnNumber: 52
+    }
+  }, conditionCase.friendlyName))))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    item: true,
+    xs: 4,
+    style: {
+      paddingLeft: 5,
+      paddingRight: 5
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_lab_Autocomplete__WEBPACK_IMPORTED_MODULE_14___default.a, {
+    fullWidth: true,
+    options: _helpers_css_colors__WEBPACK_IMPORTED_MODULE_13__["default"],
+    renderInput: params => __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_8___default.a, _extends({
+      fullWidth: true,
+      name: "color"
+    }, params, {
+      label: "Color",
+      onChange: handleChange,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 77,
+        columnNumber: 15
+      }
+    })),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 73,
+      columnNumber: 11
+    }
+  }))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    container: true,
+    spacing: 0,
+    style: {
+      marginTop: 15
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    item: true,
+    xs: 6,
+    style: {
+      paddingLeft: 5,
+      paddingRight: 5
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    fullWidth: true,
+    type: "number",
+    label: "Minimum Value",
+    onChange: handleChange,
+    name: "minValue",
+    value: measureConditionsFields.minValue,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 84,
+      columnNumber: 11
+    }
+  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    item: true,
+    xs: 6,
+    style: {
+      paddingLeft: 5,
+      paddingRight: 5
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 93,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    fullWidth: true,
+    type: "number",
+    name: "maxValue",
+    onChange: handleChange,
+    label: "Maximum Value",
+    value: measureConditionsFields.maxValue,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94,
+      columnNumber: 11
+    }
+  }))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    container: true,
+    spacing: 0,
+    style: {
+      marginTop: 15
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    item: true,
+    xs: 6,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    fullWidth: true,
+    onClick: () => {
+      setIsAddingMeasureCondition(false);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 106,
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_icons_Cancel__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    style: {
+      color: '#F00'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107,
+      columnNumber: 13
+    }
+  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    style: {
+      marginLeft: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 108,
+      columnNumber: 13
+    }
+  }, "Cancel"))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    item: true,
+    xs: 6,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 111,
+      columnNumber: 9
+    }
+  }, showSpinner ? __jsx(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_12___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115,
+      columnNumber: 17
+    }
+  }) : __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    fullWidth: true,
+    onClick: addMeasureCondition,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    style: {
+      color: '#3F51B5'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118,
+      columnNumber: 19
+    }
+  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    style: {
+      marginLeft: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 119,
+      columnNumber: 19
+    }
+  }, "Save")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AddMeasureCondition);
+
+/***/ }),
+
+/***/ "./components/widgets/helpers/measure-conditions/index.js":
+/*!****************************************************************!*\
+  !*** ./components/widgets/helpers/measure-conditions/index.js ***!
+  \****************************************************************/
+/*! exports provided: MeasureConditionItem, ListMeasureCondition, AddMeasureCondition */
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony import */ var _text_field_widget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./text-field-widget */ "./components/widgets/form-controls/textfield/text-field-widget.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextFieldWidget", function() { return _text_field_widget__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
 /* harmony import */ var _text_field_widget_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./text-field-widget-settings */ "./components/widgets/form-controls/textfield/text-field-widget-settings.jsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextFieldWidgetSettings", function() { return _text_field_widget_settings__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+=======
+/* harmony import */ var _measure_conditions_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./measure-conditions-item */ "./components/widgets/helpers/measure-conditions/measure-conditions-item.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasureConditionItem", function() { return _measure_conditions_item__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _measure_conditions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./measure-conditions */ "./components/widgets/helpers/measure-conditions/measure-conditions.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ListMeasureCondition", function() { return _measure_conditions__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _add_measure_condition__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./add-measure-condition */ "./components/widgets/helpers/measure-conditions/add-measure-condition.jsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AddMeasureCondition", function() { return _add_measure_condition__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -13118,9 +23564,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./components/widgets/form-controls/textfield/text-field-widget-settings.jsx":
 /*!***********************************************************************************!*\
   !*** ./components/widgets/form-controls/textfield/text-field-widget-settings.jsx ***!
+=======
+/***/ "./components/widgets/helpers/measure-conditions/measure-conditions-item.jsx":
+/*!***********************************************************************************!*\
+  !*** ./components/widgets/helpers/measure-conditions/measure-conditions-item.jsx ***!
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   \***********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -13131,6 +23583,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
@@ -13162,6 +23615,31 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+=======
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_icons_ArrowUpward__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/icons/ArrowUpward */ "@material-ui/icons/ArrowUpward");
+/* harmony import */ var _material_ui_icons_ArrowUpward__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ArrowUpward__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_icons_ArrowDownward__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/icons/ArrowDownward */ "@material-ui/icons/ArrowDownward");
+/* harmony import */ var _material_ui_icons_ArrowDownward__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ArrowDownward__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/icons/Edit */ "@material-ui/icons/Edit");
+/* harmony import */ var _material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/icons/Delete */ "@material-ui/icons/Delete");
+/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "@material-ui/core/CircularProgress");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/helpers/measure-conditions/measure-conditions-item.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -13173,6 +23651,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+<<<<<<< HEAD
 
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
   list: {
@@ -13547,6 +24026,307 @@ const TextFieldWidgetSettings = ({
 /*!**************************************************************************!*\
   !*** ./components/widgets/form-controls/textfield/text-field-widget.jsx ***!
   \**************************************************************************/
+=======
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])({
+  measureConditionFieldTitle: {
+    fontSize: 12,
+    fontWeight: 'bold'
+  }
+});
+
+const MeasureConditionItem = ({
+  widget,
+  measureCondition,
+  key,
+  setRefresh,
+  refresh
+}) => {
+  const classes = useStyles();
+  const {
+    0: showSpinner,
+    1: setShowSpinner
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+
+  const removeMeasureCondition = async () => {
+    try {
+      setShowSpinner(true);
+      const $measureCondition = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__["default"].deleteWidgetSettingsMeasureConditions(widget.id, measureCondition.id);
+      setShowSpinner(false);
+      setRefresh(refresh + 1);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    style: {
+      padding: 15,
+      marginBottom: 15
+    },
+    key: key,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    container: true,
+    spacing: 0,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    item: true,
+    xs: 4,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    className: classes.measureConditionFieldTitle,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 11
+    }
+  }, "Field"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 11
+    }
+  }, measureCondition.field)), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    item: true,
+    xs: 4,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    className: classes.measureConditionFieldTitle,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 11
+    }
+  }, "Expression"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 11
+    }
+  }, measureCondition.expression)), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    item: true,
+    xs: 4,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    className: classes.measureConditionFieldTitle,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 11
+    }
+  }, "Color"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 11
+    }
+  }, measureCondition.color))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    container: true,
+    spacing: 0,
+    style: {
+      marginTop: 15
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    item: true,
+    xs: 6,
+    style: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignContent: 'center',
+      alignItems: 'center'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_icons_ArrowUpward__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54,
+      columnNumber: 11
+    }
+  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 11
+    }
+  }, measureCondition.minValue)), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    item: true,
+    xs: 6,
+    style: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignContent: 'center',
+      alignItems: 'center'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_icons_ArrowDownward__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 11
+    }
+  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
+      columnNumber: 11
+    }
+  }, measureCondition.maxValue))), showSpinner ? __jsx(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
+      columnNumber: 13
+    }
+  }) : __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    container: true,
+    spacing: 0,
+    style: {
+      marginTop: 15
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    item: true,
+    xs: 6,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    fullWidth: true,
+    onClick: removeMeasureCondition,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    style: {
+      color: '#F00'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70,
+      columnNumber: 19
+    }
+  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    style: {
+      marginLeft: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71,
+      columnNumber: 19
+    }
+  }, "Delete"))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    item: true,
+    xs: 6,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    fullWidth: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    style: {
+      color: '#3F51B5'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
+      columnNumber: 19
+    }
+  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    style: {
+      marginLeft: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77,
+      columnNumber: 19
+    }
+  }, "Edit")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MeasureConditionItem);
+
+/***/ }),
+
+/***/ "./components/widgets/helpers/measure-conditions/measure-conditions.jsx":
+/*!******************************************************************************!*\
+  !*** ./components/widgets/helpers/measure-conditions/measure-conditions.jsx ***!
+  \******************************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13556,16 +24336,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\form-controls\\textfield\\text-field-widget.jsx";
+=======
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _measure_conditions_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./measure-conditions-item */ "./components/widgets/helpers/measure-conditions/measure-conditions-item.jsx");
+/* harmony import */ var _add_measure_condition__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./add-measure-condition */ "./components/widgets/helpers/measure-conditions/add-measure-condition.jsx");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/helpers/measure-conditions/measure-conditions.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
+<<<<<<< HEAD
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
 
 const TextFieldWidget = ({
@@ -13601,11 +24391,58 @@ const TextFieldWidget = ({
       try {
         const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__["default"].getWidgetSettingsById(widgetId);
         setWidget($widget);
+=======
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])({
+  h2: {
+    width: '100%',
+    textAlign: 'center',
+    borderBottom: '1px solid #000',
+    lineHeight: '0.1em',
+    marginTop: "20px",
+    marginBottom: "20px",
+    fontFamily: 'Roboto',
+    fontSize: '13px',
+    color: "#3F51B5"
+  },
+  span: {
+    background: '#fff',
+    padding: '0 10px'
+  }
+});
+
+const ListMeasureConditions = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  const {
+    0: isAddingMeasureCondition,
+    1: setIsAddingMeasureCondition
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: measureConditions,
+    1: setMeasureConditions
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: refresh,
+    1: setRefresh
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getMeasureConditions = async () => {
+      try {
+        const $measureConditions = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_3__["default"].getWidgetSettingsMeasureConditions(widget.id);
+        setMeasureConditions($measureConditions);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       } catch (e) {
         console.log(e);
       }
     };
 
+<<<<<<< HEAD
     getData();
   }, []);
   return __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -13626,6 +24463,74 @@ const TextFieldWidget = ({
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TextFieldWidget);
+=======
+    getMeasureConditions();
+  }, [refresh]);
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 5
+    }
+  }, __jsx("h2", {
+    className: classes.h2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 7
+    }
+  }, __jsx("span", {
+    className: classes.span,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 9
+    }
+  }, "Measure Conditions")), isAddingMeasureCondition ? __jsx(_add_measure_condition__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    setRefresh: setRefresh,
+    refresh: refresh,
+    widget: widget,
+    setIsAddingMeasureCondition: setIsAddingMeasureCondition,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 11
+    }
+  }) : __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    style: {
+      marginBottom: 15
+    },
+    onClick: () => {
+      setIsAddingMeasureCondition(true);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 13
+    }
+  }, "Add Measure Condition"), measureConditions.map(measureCondition => __jsx(_measure_conditions_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    setRefresh: setRefresh,
+    refresh: refresh,
+    widget: widget,
+    key: measureCondition.id,
+    measureCondition: measureCondition,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68,
+      columnNumber: 11
+    }
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ListMeasureConditions);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 /***/ }),
 
@@ -13656,7 +24561,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\accordion\\accordion-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/accordion/accordion-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -13807,7 +24716,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/icons/ExpandMore */ "@material-ui/icons/ExpandMore");
 /* harmony import */ var _material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\accordion\\accordion-widget.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/accordion/accordion-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -13991,7 +24904,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\data-grid\\data-grid-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/data-grid/data-grid-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -14132,7 +25049,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\data-grid\\data-grid-widget.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/data-grid/data-grid-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -14228,7 +25149,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\div\\div-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/div/div-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -14369,7 +25294,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\div\\div-widget.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/div/div-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -14465,10 +25394,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\image\\image-widget-settings.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/image/image-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 
@@ -14512,13 +25455,50 @@ const ImageWidgetSettings = ({
   onWidgetAdd
 }) => {
   const classes = useStyles();
+<<<<<<< HEAD
+=======
+  const {
+    0: state,
+    1: setState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
+
+  const saveConfigData = async () => {
+    try {
+      const {
+        url,
+        title
+      } = state;
+      const data = {
+        title,
+        type: 'Image',
+        config: {
+          url
+        }
+      };
+
+      if (isAdding) {
+        onWidgetAdd(data);
+      } else {
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__["default"].updateWidgetSettings(widget.id, data);
+        handleSettingsClose(update);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   return __jsx("div", {
     className: classes.list,
     role: "presentation",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 43,
+=======
+      lineNumber: 65,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   }, __jsx("h2", {
@@ -14526,7 +25506,11 @@ const ImageWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 44,
+=======
+      lineNumber: 66,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx("span", {
@@ -14534,7 +25518,11 @@ const ImageWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 45,
+=======
+      lineNumber: 67,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   }, "Widget Info")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -14543,13 +25531,18 @@ const ImageWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 47,
+=======
+      lineNumber: 69,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 48,
       columnNumber: 9
     }
@@ -14558,6 +25551,21 @@ const ImageWidgetSettings = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 49,
+=======
+      lineNumber: 70,
+      columnNumber: 9
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    onChange: event => {
+      setState(_objectSpread({}, state, {
+        title: event.target.value
+      }));
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx("h2", {
@@ -14565,7 +25573,11 @@ const ImageWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 52,
+=======
+      lineNumber: 74,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx("span", {
@@ -14573,17 +25585,59 @@ const ImageWidgetSettings = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 53,
       columnNumber: 9
     }
   }, "Widget Properties")), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
     fullWidth: true,
     color: "primary",
+=======
+      lineNumber: 75,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    fullWidth: true,
     className: classes.formControl,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+      lineNumber: 77,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78,
+      columnNumber: 9
+    }
+  }, "Image URL"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    onChange: event => {
+      setState(_objectSpread({}, state, {
+        url: event.target.value
+      }));
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    color: "primary",
+    onClick: saveConfigData,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 57,
+=======
+      lineNumber: 83,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, "Save"));
@@ -14606,11 +25660,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\image\\image-widget.jsx";
+=======
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/image/image-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({}));
 
 const ImageWidget = ({
@@ -14620,7 +25683,11 @@ const ImageWidget = ({
   const {
     0: widget,
     1: setWidget
+<<<<<<< HEAD
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+=======
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   const {
     0: menuState,
     1: setMenuState
@@ -14630,8 +25697,14 @@ const ImageWidget = ({
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     const getData = async () => {
       try {
+<<<<<<< HEAD
         const $widget = await WidgetSettingsActions.getWidgetSettingsById(widgetId);
         setWidget($widget);
+=======
+        const $widget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_2__["default"].getWidgetSettingsById(widgetId);
+        setWidget($widget);
+        console.log($widget);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         return $widget;
       } catch (e) {
         console.log(e);
@@ -14641,10 +25714,22 @@ const ImageWidget = ({
     getData();
   }, []);
   return __jsx("div", {
+<<<<<<< HEAD
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 27,
+=======
+    style: {
+      backgroundImage: widget.config ? `url('${widget.config.url}')` : '',
+      width: '100%',
+      height: '100%'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   });
@@ -14789,7 +25874,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\list\\list-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/list/list-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -14930,7 +26019,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\list\\list-widget.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/list/list-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -15026,7 +26119,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\paragraph\\paragraph-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/paragraph/paragraph-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -15167,7 +26264,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\paragraph\\paragraph-widget.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/paragraph/paragraph-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -15263,7 +26364,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\progress-bar\\progress-bar-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/progress-bar/progress-bar-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -15404,7 +26509,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\progress-bar\\progress-bar-widget.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/progress-bar/progress-bar-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -15500,7 +26609,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\span\\span-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/span/span-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -15641,7 +26754,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\span\\span-widget.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/span/span-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -15737,7 +26854,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\tabs\\tabs-widget-settings.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/tabs/tabs-widget-settings.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -15878,7 +26999,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\html-elements\\tabs\\tabs-widget.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/html-elements/tabs/tabs-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -16086,7 +27211,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
 /* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\table\\export-table-data.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/table/export-table-data.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -16377,10 +27506,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./components/widgets/table/table-widget-settings.jsx":
 /*!************************************************************!*\
   !*** ./components/widgets/table/table-widget-settings.jsx ***!
   \************************************************************/
+=======
+/***/ "./components/widgets/table/table-widget-settings-panel.jsx":
+/*!******************************************************************!*\
+  !*** ./components/widgets/table/table-widget-settings-panel.jsx ***!
+  \******************************************************************/
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -16394,6 +27530,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
 /* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3__);
+<<<<<<< HEAD
 /* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
 /* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
@@ -16411,6 +27548,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_12__);
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\table\\table-widget-settings.jsx";
+=======
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Input */ "@material-ui/core/Input");
+/* harmony import */ var _material_ui_core_Input__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "@material-ui/core/Checkbox");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../helpers */ "./components/widgets/helpers/index.js");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/table/table-widget-settings-panel.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -16423,9 +27573,12 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
   list: {
     width: 500,
@@ -16453,7 +27606,11 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
   }
 }));
 
+<<<<<<< HEAD
 const TableWidgetSettings = ({
+=======
+const TableWidgetSettingsPanel = ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   widget,
   handleSettingsClose,
   isAdding,
@@ -16461,6 +27618,7 @@ const TableWidgetSettings = ({
 }) => {
   const classes = useStyles();
   const {
+<<<<<<< HEAD
     0: datasources,
     1: setDatasources
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
@@ -16472,19 +27630,35 @@ const TableWidgetSettings = ({
     0: docList,
     1: setDocList
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+=======
+    0: connectionMethod,
+    1: setConnectionMethod
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.connectionMethod : 'database');
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   const {
     0: doc,
     1: setDoc
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.docId : '');
   const {
+<<<<<<< HEAD
     0: fieldList,
     1: setFieldList
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+=======
+    0: title,
+    1: setTitle
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.title : '');
+  const {
+    0: datasource,
+    1: setDatasource
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.dataSourceId : '');
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   const {
     0: fields,
     1: setFields
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.fields : []);
   const {
+<<<<<<< HEAD
     0: query,
     1: setQuery
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
@@ -16524,11 +27698,82 @@ const TableWidgetSettings = ({
       const $fieldList = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_10__["default"].getFieldList(id, docId);
       setFieldList($fieldList);
       return $fieldList;
+=======
+    0: primaryKey,
+    1: setPrimaryKey
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(!isAdding ? widget.config.primaryKey : null);
+  const {
+    0: isEditable,
+    1: setIsEditable
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(isAdding ? false : widget.config.isEditable);
+  const {
+    0: isDeletable,
+    1: setIsDeletable
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(isAdding ? false : widget.config.isDeletable);
+  const {
+    0: isAddable,
+    1: setIsAddable
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(isAdding ? false : widget.config.isAddable);
+  const {
+    0: url,
+    1: setURL
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(isAdding ? '' : widget.config.url);
+  const {
+    0: headers,
+    1: setHeaders
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(isAdding ? {} : widget.config.headers || {});
+  const {
+    0: method,
+    1: setMethod
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(isAdding ? '' : widget.config.method);
+  const {
+    0: body,
+    1: setBody
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(isAdding ? {} : widget.config.body || {});
+  const {
+    0: query,
+    1: setQuery
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(isAdding ? {} : widget.config.query || {});
+
+  const saveConfigSettings = async () => {
+    try {
+      const data = {
+        dataSourceId: datasource,
+        title,
+        config: {
+          docId: doc,
+          fields,
+          type: 'simple',
+          func: 'find',
+          query: {},
+          isEditable,
+          isDeletable,
+          isAddable,
+          primaryKey,
+          connectionMethod,
+          url,
+          headers,
+          method,
+          body,
+          query
+        },
+        type: 'Table'
+      };
+      console.log(data);
+
+      if (isAdding) {
+        onWidgetAdd(data);
+      } else {
+        const update = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_8__["default"].updateWidgetSettings(widget.id, data);
+        handleSettingsClose(update);
+      }
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     } catch (e) {
       console.log(e);
     }
   };
 
+<<<<<<< HEAD
   const handleDatasourceChange = async event => {
     const {
       name,
@@ -16562,20 +27807,34 @@ const TableWidgetSettings = ({
       fileName: _jsxFileName,
       lineNumber: 109,
       columnNumber: 57
+=======
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94,
+      columnNumber: 5
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     }
   }, __jsx("h2", {
     className: classes.h2,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 110,
       columnNumber: 5
+=======
+      lineNumber: 95,
+      columnNumber: 7
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     }
   }, __jsx("span", {
     className: classes.span,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 111,
       columnNumber: 7
     }
@@ -16825,6 +28084,380 @@ const TableWidgetSettings = ({
       columnNumber: 7
     }
   }, isAdding ? 'Add' : 'Save'));
+=======
+      lineNumber: 96,
+      columnNumber: 9
+    }
+  }, "Widget Properties")), __jsx(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 98,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    id: "title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 99,
+      columnNumber: 9
+    }
+  }, "Title"), __jsx(_material_ui_core_Input__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    value: title,
+    onChange: event => {
+      setTitle(event.target.value);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 100,
+      columnNumber: 9
+    }
+  })), __jsx("div", {
+    style: {
+      marginTop: 20
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7___default.a, {
+      checked: isEditable,
+      onChange: event => {
+        setIsEditable(event.target.checked);
+      },
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 105,
+        columnNumber: 13
+      }
+    }),
+    label: "Allow Edit?",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103,
+      columnNumber: 9
+    }
+  }), __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7___default.a, {
+      checked: isDeletable,
+      onChange: event => {
+        setIsDeletable(event.target.checked);
+      },
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 111,
+        columnNumber: 13
+      }
+    }),
+    label: "Allow Delete?",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 109,
+      columnNumber: 9
+    }
+  }), __jsx(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    control: __jsx(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_7___default.a, {
+      checked: isAddable,
+      onChange: event => {
+        setIsAddable(event.target.checked);
+      },
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 117,
+        columnNumber: 13
+      }
+    }),
+    label: "Allow Add?",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115,
+      columnNumber: 9
+    }
+  })), __jsx(_helpers__WEBPACK_IMPORTED_MODULE_9__["ConnectionSettings"], {
+    isAdding: isAdding,
+    connectionMethod: connectionMethod,
+    setConnectionMethod: setConnectionMethod,
+    setDoc: setDoc,
+    setDatasource: setDatasource,
+    setFields: setFields,
+    doc: doc,
+    datasource: datasource,
+    fields: fields,
+    primaryKey: primaryKey,
+    setPrimaryKey: setPrimaryKey,
+    url: url,
+    setURL: setURL,
+    headers: headers,
+    setHeaders: setHeaders,
+    method: method,
+    setMethod: setMethod,
+    body: body,
+    setBody: setBody,
+    query: query,
+    setQuery: setQuery,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 123,
+      columnNumber: 7
+    }
+  }), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fullWidth: true,
+    className: classes.formControl,
+    onClick: saveConfigSettings,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 142,
+      columnNumber: 7
+    }
+  }, isAdding ? 'Add' : 'Save'));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TableWidgetSettingsPanel);
+
+/***/ }),
+
+/***/ "./components/widgets/table/table-widget-settings.jsx":
+/*!************************************************************!*\
+  !*** ./components/widgets/table/table-widget-settings.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/icons/Settings */ "@material-ui/icons/Settings");
+/* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/icons/Assessment */ "@material-ui/icons/Assessment");
+/* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/AppBar */ "@material-ui/core/AppBar");
+/* harmony import */ var _material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Tabs */ "@material-ui/core/Tabs");
+/* harmony import */ var _material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Tab */ "@material-ui/core/Tab");
+/* harmony import */ var _material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Box */ "@material-ui/core/Box");
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _table_widget_settings_panel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./table-widget-settings-panel */ "./components/widgets/table/table-widget-settings-panel.jsx");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../helpers */ "./components/widgets/helpers/index.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! sweetalert2 */ "sweetalert2");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_11__);
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/table/table-widget-settings.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+function TabPanel(props) {
+  const {
+    children,
+    value,
+    index
+  } = props,
+        other = _objectWithoutProperties(props, ["children", "value", "index"]);
+
+  return __jsx("div", _extends({
+    role: "tabpanel",
+    hidden: value !== index,
+    id: `simple-tabpanel-${index}`,
+    "aria-labelledby": `simple-tab-${index}`
+  }, other, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 5
+    }
+  }), value === index && __jsx(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    p: 3,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 11
+    }
+  }, children)));
+}
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`
+  };
+}
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  list: {
+    width: 500,
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingTop: "15px"
+  },
+  panel: {
+    backgroundColor: "#FFF",
+    color: "#000"
+  }
+}));
+
+const TableWidgetSettings = ({
+  widget,
+  handleSettingsClose,
+  isAdding,
+  onWidgetAdd
+}) => {
+  const classes = useStyles();
+  const [value, setValue] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return __jsx("div", {
+    className: classes.list,
+    role: "presentation",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    position: "static",
+    className: classes.panel,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    value: value,
+    onChange: handleChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_6___default.a, _extends({
+    icon: __jsx(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 66,
+        columnNumber: 22
+      }
+    }),
+    label: "Widget Settings"
+  }, a11yProps(0), {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66,
+      columnNumber: 11
+    }
+  })), __jsx(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_6___default.a, _extends({
+    icon: __jsx(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 67,
+        columnNumber: 22
+      }
+    }),
+    label: "Measure Conditions"
+  }, a11yProps(1), {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 11
+    }
+  })))), __jsx(TabPanel, {
+    value: value,
+    index: 0,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71,
+      columnNumber: 7
+    }
+  }, __jsx(_table_widget_settings_panel__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    widget: widget,
+    handleSettingsClose: handleSettingsClose,
+    isAdding: isAdding,
+    onWidgetAdd: onWidgetAdd,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72,
+      columnNumber: 9
+    }
+  })), __jsx(TabPanel, {
+    value: value,
+    index: 1,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75,
+      columnNumber: 7
+    }
+  }, __jsx(_helpers__WEBPACK_IMPORTED_MODULE_10__["ListMeasureCondition"], {
+    widget: widget,
+    handleSettingsClose: handleSettingsClose,
+    isAdding: isAdding,
+    onWidgetAdd: onWidgetAdd,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
+      columnNumber: 9
+    }
+  })));
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TableWidgetSettings);
@@ -16863,7 +28496,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Share__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Share__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _table_widget_settings__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./table-widget-settings */ "./components/widgets/table/table-widget-settings.jsx");
 /* harmony import */ var _export_table_data__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./export-table-data */ "./components/widgets/table/export-table-data.jsx");
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\table\\table-widget.jsx";
+=======
+/* harmony import */ var _helpers_measure_conditions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../helpers/measure-conditions */ "./helpers/measure-conditions.js");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/table/table-widget.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -16886,6 +28524,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
   list: {
     width: 500
@@ -16937,6 +28579,30 @@ const TableWidget = ({
     right: false,
     export: false
   });
+<<<<<<< HEAD
+=======
+  const {
+    0: measureConditions,
+    1: setMeasureConditions
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: measureConditionsFields,
+    1: setMeasureConditionsFields
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getMeasureConditions = async () => {
+      try {
+        const $measureConditions = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__["default"].getWidgetSettingsMeasureConditions(widgetId);
+        setMeasureConditions($measureConditions);
+        setMeasureConditionsFields($measureConditions.map(condition => condition.field));
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getMeasureConditions();
+  }, []);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
   const getWidgetData = async () => {
     try {
@@ -16975,17 +28641,70 @@ const TableWidget = ({
     toggleDrawer('right', false);
   };
 
+<<<<<<< HEAD
+=======
+  const onRowAdd = async newData => {
+    try {
+      const $data = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__["default"].addWidgetSettingsDocument(widgetId, newData);
+      getWidgetData();
+      return $data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const onRowUpdate = async (newData, oldData) => {
+    try {
+      const keyId = oldData[widget.config.primaryKey];
+      const $data = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__["default"].editWidgetSettingsDocument(widgetId, newData, keyId);
+      getWidgetData();
+      return $data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const onRowDelete = async oldData => {
+    try {
+      const keyId = oldData[widget.config.primaryKey];
+      const $data = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_4__["default"].deleteWidgetSettingsDocument(widgetId, keyId);
+      getWidgetData();
+      return $data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const editable = () => {
+    const {
+      isEditable,
+      isDeletable,
+      isAddable
+    } = widget.config;
+    const obj = {};
+    if (isEditable) obj.onRowUpdate = onRowUpdate;
+    if (isDeletable) obj.onRowDelete = onRowDelete;
+    if (isAddable) obj.onRowAdd = onRowAdd;
+    return obj;
+  };
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   const renderTable = () => {
     return isLoadingData || !widget ? __jsx(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_6___default.a, {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
+<<<<<<< HEAD
         lineNumber: 85,
+=======
+        lineNumber: 142,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         columnNumber: 40
       }
     }) : __jsx(material_table__WEBPACK_IMPORTED_MODULE_2___default.a, {
       columns: widget.config.fields.map(field => ({
         field,
+<<<<<<< HEAD
         title: field
       })),
       data: data,
@@ -16995,6 +28714,53 @@ const TableWidget = ({
         fileName: _jsxFileName,
         lineNumber: 85,
         columnNumber: 65
+=======
+        title: field,
+        render: rowData => {
+          const doesHaveCondition = measureConditionsFields.includes(field);
+
+          if (doesHaveCondition) {
+            const condition = measureConditions.filter(c => c.field == field)[0];
+            const isConditionMet = Object(_helpers_measure_conditions__WEBPACK_IMPORTED_MODULE_13__["measureConditionResult"])(condition, rowData[field]);
+            return isConditionMet ? __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+              style: {
+                backgroundColor: condition.color
+              },
+              __self: undefined,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 154,
+                columnNumber: 19
+              }
+            }, rowData[field]) : __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+              __self: undefined,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 155,
+                columnNumber: 21
+              }
+            }, rowData[field]);
+          } else {
+            return __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
+              __self: undefined,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 157,
+                columnNumber: 24
+              }
+            }, rowData[field]);
+          }
+        }
+      })),
+      data: data,
+      title: widget.title || '',
+      editable: editable(),
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 143,
+        columnNumber: 7
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       }
     });
   };
@@ -17010,7 +28776,11 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 99,
+=======
+      lineNumber: 176,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 5
     }
   }, __jsx("div", {
@@ -17018,7 +28788,11 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 100,
+=======
+      lineNumber: 177,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -17026,7 +28800,11 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 101,
+=======
+      lineNumber: 178,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -17036,15 +28814,26 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 102,
       columnNumber: 11
     }
   }, "Widget Title")), __jsx("div", {
+=======
+      lineNumber: 179,
+      columnNumber: 11
+    }
+  }, widget && widget.title ? widget.title : 'Widget Title')), __jsx("div", {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     className: classes.actionButtons,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 104,
+=======
+      lineNumber: 181,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -17052,7 +28841,11 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 105,
+=======
+      lineNumber: 182,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 11
     }
   }, __jsx(_material_ui_icons_Share__WEBPACK_IMPORTED_MODULE_10___default.a, {
@@ -17063,7 +28856,11 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 106,
+=======
+      lineNumber: 183,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 13
     }
   })), __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -17071,7 +28868,11 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 108,
+=======
+      lineNumber: 185,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 11
     }
   }, __jsx(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_9___default.a, {
@@ -17082,7 +28883,11 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 109,
+=======
+      lineNumber: 186,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 13
     }
   })), __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -17090,7 +28895,11 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 111,
+=======
+      lineNumber: 188,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 11
     }
   }, __jsx(_material_ui_icons_Refresh__WEBPACK_IMPORTED_MODULE_8___default.a, {
@@ -17101,14 +28910,22 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 112,
+=======
+      lineNumber: 189,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 13
     }
   })))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 116,
+=======
+      lineNumber: 193,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, renderTable()), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -17118,7 +28935,11 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 119,
+=======
+      lineNumber: 196,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_table_widget_settings__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -17127,7 +28948,11 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 120,
+=======
+      lineNumber: 197,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -17137,7 +28962,11 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 122,
+=======
+      lineNumber: 199,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(_export_table_data__WEBPACK_IMPORTED_MODULE_12__["default"], {
@@ -17146,7 +28975,11 @@ const TableWidget = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 123,
+=======
+      lineNumber: 200,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 9
     }
   })));
@@ -17175,7 +29008,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _material_ui_core_ButtonBase__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/ButtonBase */ "@material-ui/core/ButtonBase");
 /* harmony import */ var _material_ui_core_ButtonBase__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ButtonBase__WEBPACK_IMPORTED_MODULE_4__);
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\components\\widgets\\widget-icon.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/widgets/widget-icon.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -17235,10 +29072,31 @@ const TableWidget = ({
       lineNumber: 31,
       columnNumber: 9
     }
+<<<<<<< HEAD
   }, title)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TableWidget);
+=======
+  }, widget ? widget.title : title)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TableWidget);
+
+/***/ }),
+
+/***/ "./helpers/css-colors.js":
+/*!*******************************!*\
+  !*** ./helpers/css-colors.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const CSS_COLOR_NAMES = ["AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "DarkOrange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Grey", "Green", "GreenYellow", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey", "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "RebeccaPurple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"];
+/* harmony default export */ __webpack_exports__["default"] = (CSS_COLOR_NAMES);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 /***/ }),
 
@@ -17256,7 +29114,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_widgets__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/widgets */ "./components/widgets/index.js");
+<<<<<<< HEAD
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\helpers\\decide-widgets.jsx";
+=======
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/helpers/decide-widgets.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -17915,6 +29777,75 @@ const decideWidget = widget => {
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "./helpers/measure-conditions.js":
+/*!***************************************!*\
+  !*** ./helpers/measure-conditions.js ***!
+  \***************************************/
+/*! exports provided: measureConditionResult, conditionCases */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "measureConditionResult", function() { return measureConditionResult; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "conditionCases", function() { return conditionCases; });
+const conditionCases = [{
+  title: 'equals',
+  friendlyName: 'Equals'
+}, {
+  title: 'does_not_equal',
+  friendlyName: 'Does Not Equal'
+}, {
+  title: 'is_less_than',
+  friendlyName: 'Is Less Than'
+}, {
+  title: 'is_greater_than',
+  friendlyName: 'Is Greater Than'
+}, {
+  title: 'is_between',
+  friendlyName: 'Is Between'
+}, {
+  title: 'is_not_between',
+  friendlyName: 'Is Not Between'
+}];
+
+const measureConditionResult = (measureCondition, value) => {
+  const {
+    expression,
+    minValue,
+    maxValue
+  } = measureCondition;
+
+  switch (expression) {
+    case 'equals':
+      return value == minValue ? true : false;
+
+    case 'does_not_equal':
+      return value != minValue ? true : false;
+
+    case 'is_less_than':
+      return value < minValue ? true : false;
+
+    case 'is_greater_than':
+      return value > minValue ? true : false;
+
+    case 'is_between':
+      return value > minValue && value < maxValue ? true : false;
+
+    case 'is_not_between':
+      return value < minValue || value > maxValue ? true : false;
+
+    default:
+      return false;
+  }
+};
+
+
+
+/***/ }),
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ "./pages/dashboards/[id]/edit.jsx":
 /*!****************************************!*\
   !*** ./pages/dashboards/[id]/edit.jsx ***!
@@ -17932,6 +29863,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_grid_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-grid-layout */ "react-grid-layout");
 /* harmony import */ var react_grid_layout__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_grid_layout__WEBPACK_IMPORTED_MODULE_3__);
+<<<<<<< HEAD
 /* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next-cookies */ "next-cookies");
 /* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_cookies__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/IconButton */ "@material-ui/core/IconButton");
@@ -17958,6 +29890,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_17__);
 /* harmony import */ var _helpers_decide_widgets__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../../helpers/decide-widgets */ "./helpers/decide-widgets.jsx");
 var _jsxFileName = "F:\\Projects\\LoStudio\\client\\pages\\dashboards\\[id]\\edit.jsx";
+=======
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/IconButton */ "@material-ui/core/IconButton");
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Backdrop__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Backdrop */ "@material-ui/core/Backdrop");
+/* harmony import */ var _material_ui_core_Backdrop__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Backdrop__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "@material-ui/core/CircularProgress");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _material_ui_icons_ArrowLeft__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/icons/ArrowLeft */ "@material-ui/icons/ArrowLeft");
+/* harmony import */ var _material_ui_icons_ArrowLeft__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ArrowLeft__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/icons/Save */ "@material-ui/icons/Save");
+/* harmony import */ var _material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/icons/Dashboard */ "@material-ui/icons/Dashboard");
+/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/icons/Settings */ "@material-ui/icons/Settings");
+/* harmony import */ var _material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core/Drawer */ "@material-ui/core/Drawer");
+/* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../actions/dashboard.actions */ "./actions/dashboard.actions.ts");
+/* harmony import */ var _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../actions/widgetSettings.actions */ "./actions/widgetSettings.actions.ts");
+/* harmony import */ var _components_dashboards_widgets_menu__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../components/dashboards/widgets-menu */ "./components/dashboards/widgets-menu.jsx");
+/* harmony import */ var _components_dashboards_settings_dashboard_settings__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../../components/dashboards/settings/dashboard-settings */ "./components/dashboards/settings/dashboard-settings.jsx");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _helpers_decide_widgets__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../../helpers/decide-widgets */ "./helpers/decide-widgets.jsx");
+var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/pages/dashboards/[id]/edit.jsx";
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -17986,12 +29950,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+<<<<<<< HEAD
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])({
+=======
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(theme => ({
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   list: {
     width: 500
   },
   fullList: {
     width: 'auto'
+<<<<<<< HEAD
   }
 });
 
@@ -18001,6 +29972,22 @@ const EditDashboard = WidgetSettings => {
   const {
     id
   } = router.query;
+=======
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff'
+  }
+}));
+
+const EditDashboard = () => {
+  const classes = useStyles();
+  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_19__["useRouter"])();
+  const {
+    0: id,
+    1: setId
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(router.query.id);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   const {
     0: menuState,
     1: setMenuState
@@ -18012,11 +29999,60 @@ const EditDashboard = WidgetSettings => {
   const {
     0: layout,
     1: setLayout
+<<<<<<< HEAD
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(Object.values(WidgetSettings));
+=======
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
   const {
     0: addType,
     1: setAddType
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+<<<<<<< HEAD
+=======
+  const {
+    0: WidgetSettings,
+    1: setWidgetSettings
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: SubDashboards,
+    1: setSubDashboards
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: refresh,
+    1: setRefresh
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
+  const {
+    0: isLoading,
+    1: setIsLoading
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const getProps = async () => {
+      try {
+        setIsLoading(true);
+        const dashboard = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_15__["default"].getDashboardById(id);
+
+        if (!dashboard.isSub) {
+          const $SubDashboards = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_15__["default"].getSubDashboards({
+            id
+          });
+          setSubDashboards($SubDashboards);
+        }
+
+        const $WidgetSettings = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_15__["default"].getWidgetSettings({
+          id
+        });
+        setLayout($WidgetSettings);
+        setWidgetSettings($WidgetSettings);
+        setIsLoading(false);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getProps();
+  }, [id, refresh]);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
   const onLayoutChange = async $event => {
     try {
@@ -18026,7 +30062,11 @@ const EditDashboard = WidgetSettings => {
           layout: $eventItem
         });
       });
+<<<<<<< HEAD
       await Promise.all(layouts.map(item => _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__["default"].updateWidgetSettings(item.id, item)));
+=======
+      await Promise.all(layouts.map(item => _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_16__["default"].updateWidgetSettings(item.id, item)));
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     } catch (err) {
       console.log(err);
     }
@@ -18046,8 +30086,13 @@ const EditDashboard = WidgetSettings => {
       delete $widget.id;
       delete $widget.icon;
       $widget.layout.i = Object(uuid__WEBPACK_IMPORTED_MODULE_1__["v4"])();
+<<<<<<< HEAD
       const saveWidget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__["default"].createWidgetSettings($widget);
       await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_13__["default"].addWidgetToDashboard(id, saveWidget.id);
+=======
+      const saveWidget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_16__["default"].createWidgetSettings($widget);
+      await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_15__["default"].addWidgetToDashboard(id, saveWidget.id);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       setLayout([...layout, {
         layout: $widget.layout,
         type: $widget.type
@@ -18074,6 +30119,7 @@ const EditDashboard = WidgetSettings => {
 
       if (widgetSettingsId) {
         delete layoutItem.layout;
+<<<<<<< HEAD
         const saveWidget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__["default"].createWidgetSettings(layoutItem);
         const linkWidget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_14__["default"].createSubWidget(widgetSettingsId, saveWidget.id);
         console.log(linkWidget);
@@ -18082,6 +30128,19 @@ const EditDashboard = WidgetSettings => {
         const linkWidget = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_13__["default"].addWidgetToDashboard(id, saveWidget.id);
         layoutItem.id = saveWidget.id;
         setLayout([...layout, layoutItem]);
+=======
+        setIsLoading(true);
+        const saveWidget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_16__["default"].createWidgetSettings(layoutItem);
+        const linkWidget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_16__["default"].createSubWidget(widgetSettingsId, saveWidget.id);
+        setIsLoading(false);
+      } else {
+        setIsLoading(true);
+        const saveWidget = await _actions_widgetSettings_actions__WEBPACK_IMPORTED_MODULE_16__["default"].createWidgetSettings(layoutItem);
+        const linkWidget = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_15__["default"].addWidgetToDashboard(id, saveWidget.id);
+        layoutItem.id = saveWidget.id;
+        setLayout([...layout, layoutItem]);
+        setIsLoading(false);
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       }
     } catch (e) {
       console.log(e);
@@ -18102,17 +30161,28 @@ const EditDashboard = WidgetSettings => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 98,
       columnNumber: 5
     }
   }, __jsx(_components_dashboards_widgets_menu__WEBPACK_IMPORTED_MODULE_15__["default"], {
+=======
+      lineNumber: 131,
+      columnNumber: 5
+    }
+  }, __jsx(_components_dashboards_widgets_menu__WEBPACK_IMPORTED_MODULE_17__["default"], {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     onWidgetClick: addWidget,
     addPredefinedWidget: addPredefinedWidget,
     widgetSettings: Object.values(WidgetSettings),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 99,
+=======
+      lineNumber: 132,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }));
@@ -18122,45 +30192,91 @@ const EditDashboard = WidgetSettings => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 104,
       columnNumber: 5
     }
   }, Object(_helpers_decide_widgets__WEBPACK_IMPORTED_MODULE_18__["decideWidget"])(item)));
+=======
+      lineNumber: 137,
+      columnNumber: 5
+    }
+  }, Object(_helpers_decide_widgets__WEBPACK_IMPORTED_MODULE_20__["decideWidget"])(item)));
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
   return __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 110,
       columnNumber: 5
     }
   }, __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_12___default.a, {
+=======
+      lineNumber: 143,
+      columnNumber: 5
+    }
+  }, __jsx(_material_ui_core_Backdrop__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    className: classes.backdrop,
+    open: isLoading,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 144,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    color: "inherit",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 145,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_14___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     anchor: "right",
     open: menuState.right,
     onClose: toggleDrawer('right', false),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 111,
       columnNumber: 7
     }
   }, sideList()), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_12___default.a, {
+=======
+      lineNumber: 147,
+      columnNumber: 7
+    }
+  }, sideList()), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_14___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     anchor: "right",
     open: menuState.addWidget,
     onClose: toggleDrawer('addWidget', false),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 115,
       columnNumber: 7
     }
   }, Object(_helpers_decide_widgets__WEBPACK_IMPORTED_MODULE_18__["decideWidgetSettings"])(addType, onWidgetAdd)), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_12___default.a, {
+=======
+      lineNumber: 151,
+      columnNumber: 7
+    }
+  }, Object(_helpers_decide_widgets__WEBPACK_IMPORTED_MODULE_20__["decideWidgetSettings"])(addType, onWidgetAdd)), __jsx(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_14___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     anchor: "right",
     open: menuState.settings,
     onClose: toggleDrawer('settings', false),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 119,
       columnNumber: 7
     }
@@ -18173,6 +30289,22 @@ const EditDashboard = WidgetSettings => {
       columnNumber: 9
     }
   })), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_7___default.a, {
+=======
+      lineNumber: 155,
+      columnNumber: 7
+    }
+  }, __jsx(_components_dashboards_settings_dashboard_settings__WEBPACK_IMPORTED_MODULE_18__["default"], {
+    id: id,
+    refresh: refresh,
+    setRefresh: setRefresh,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 156,
+      columnNumber: 9
+    }
+  })), __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_6___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     style: {
       display: 'flex',
       flexDirection: 'row'
@@ -18180,6 +30312,7 @@ const EditDashboard = WidgetSettings => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 123,
       columnNumber: 7
     }
@@ -18188,14 +30321,14 @@ const EditDashboard = WidgetSettings => {
       justifySelf: 'flex-start',
       display: 'flex',
       flex: 1
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 124,
-      columnNumber: 9
+=======
+      lineNumber: 159,
+      columnNumber: 7
     }
-  }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
+  }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    onClick: () => {
+      router.back();
+    },
     "aria-label": "back",
     size: "medium",
     style: {
@@ -18204,6 +30337,53 @@ const EditDashboard = WidgetSettings => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+      lineNumber: 160,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_icons_ArrowLeft__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    fontSize: "default",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 161,
+      columnNumber: 11
+    }
+  })), __jsx("div", {
+    style: {
+      display: 'flex',
+      flex: 1,
+      overflowX: 'scroll',
+      alignItems: 'center'
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
+      lineNumber: 124,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    "aria-label": "back",
+    size: "medium",
+    style: {
+      outline: 'none'
+=======
+      lineNumber: 163,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    onClick: () => {
+      setId(router.query.id);
+    },
+    style: {
+      marginLeft: 10
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 125,
       columnNumber: 11
     }
@@ -18216,6 +30396,46 @@ const EditDashboard = WidgetSettings => {
       columnNumber: 13
     }
   }))), __jsx("div", {
+=======
+      lineNumber: 164,
+      columnNumber: 11
+    }
+  }, "Main"), SubDashboards.map(subDashboard => __jsx("div", {
+    key: subDashboard.subDashboardId,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 167,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    onClick: () => {
+      setId(subDashboard.subDashboardId);
+    },
+    style: {
+      marginLeft: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 168,
+      columnNumber: 17
+    }
+  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    noWrap: true,
+    style: {
+      fontWeight: 500,
+      fontSize: '0.875rem',
+      color: 'rgba(0, 0, 0, 0.87)'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 173,
+      columnNumber: 19
+    }
+  }, subDashboard.subDashboard.title))))), __jsx("div", {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     style: {
       justifySelf: 'flex-end',
       display: 'flex',
@@ -18226,68 +30446,117 @@ const EditDashboard = WidgetSettings => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 129,
       columnNumber: 9
     }
   }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6___default.a, {
+=======
+      lineNumber: 181,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     style: {
       outline: 'none'
     },
     size: "small",
+<<<<<<< HEAD
     startIcon: __jsx(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_9___default.a, {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 130,
+=======
+    startIcon: __jsx(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_11___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 182,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         columnNumber: 71
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 130,
       columnNumber: 11
     }
   }, "Save"), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6___default.a, {
+=======
+      lineNumber: 182,
+      columnNumber: 11
+    }
+  }, "Save"), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     style: {
       marginLeft: '10px',
       outline: 'none'
     },
     size: "small",
     onClick: toggleDrawer('right', true),
+<<<<<<< HEAD
     startIcon: __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_10___default.a, {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 133,
+=======
+    startIcon: __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_12___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 185,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         columnNumber: 129
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 133,
       columnNumber: 11
     }
   }, "Widgets"), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6___default.a, {
+=======
+      lineNumber: 185,
+      columnNumber: 11
+    }
+  }, "Widgets"), __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5___default.a, {
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
     style: {
       marginLeft: '10px',
       outline: 'none'
     },
     size: "small",
     onClick: toggleDrawer('settings', true),
+<<<<<<< HEAD
     startIcon: __jsx(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_11___default.a, {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 136,
+=======
+    startIcon: __jsx(_material_ui_icons_Settings__WEBPACK_IMPORTED_MODULE_13___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 188,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
         columnNumber: 132
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 136,
+=======
+      lineNumber: 188,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 11
     }
   }, "Settings"))), __jsx("div", {
@@ -18297,7 +30566,11 @@ const EditDashboard = WidgetSettings => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 142,
+=======
+      lineNumber: 194,
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
       columnNumber: 7
     }
   }, __jsx(react_grid_layout__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -18310,6 +30583,7 @@ const EditDashboard = WidgetSettings => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 143,
       columnNumber: 9
     }
@@ -18327,6 +30601,20 @@ EditDashboard.getInitialProps = async req => {
   });
   return WidgetSettings;
 };
+=======
+      lineNumber: 195,
+      columnNumber: 9
+    }
+  }, renderWidgets())));
+}; // EditDashboard.getInitialProps = async (req) => {
+//   const Authorization = Cookies(req).id
+//   const { id } = req.query
+//   const WidgetSettings = await DashboardActions.getWidgetSettings({ Authorization, id })
+//   const SubDashboards = await DashboardActions.getSubDashboards({ Authorization, id })
+//   return { WidgetSettings, SubDashboards }
+// }
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 /* harmony default export */ __webpack_exports__["default"] = (EditDashboard);
 
@@ -18339,7 +30627,11 @@ EditDashboard.getInitialProps = async req => {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! F:\Projects\LoStudio\client\pages\dashboards\[id]\edit.jsx */"./pages/dashboards/[id]/edit.jsx");
+=======
+module.exports = __webpack_require__(/*! /Users/imustafa/Projects/LoStudio/client/pages/dashboards/[id]/edit.jsx */"./pages/dashboards/[id]/edit.jsx");
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 
 
 /***/ }),
@@ -18399,6 +30691,20 @@ module.exports = require("@material-ui/core/AppBar");
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "@material-ui/core/Backdrop":
+/*!*********************************************!*\
+  !*** external "@material-ui/core/Backdrop" ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Backdrop");
+
+/***/ }),
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ "@material-ui/core/Box":
 /*!****************************************!*\
   !*** external "@material-ui/core/Box" ***!
@@ -18443,6 +30749,42 @@ module.exports = require("@material-ui/core/Card");
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "@material-ui/core/CardActions":
+/*!************************************************!*\
+  !*** external "@material-ui/core/CardActions" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/CardActions");
+
+/***/ }),
+
+/***/ "@material-ui/core/CardContent":
+/*!************************************************!*\
+  !*** external "@material-ui/core/CardContent" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/CardContent");
+
+/***/ }),
+
+/***/ "@material-ui/core/CardHeader":
+/*!***********************************************!*\
+  !*** external "@material-ui/core/CardHeader" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/CardHeader");
+
+/***/ }),
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ "@material-ui/core/Checkbox":
 /*!*********************************************!*\
   !*** external "@material-ui/core/Checkbox" ***!
@@ -18542,6 +30884,20 @@ module.exports = require("@material-ui/core/FormGroup");
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "@material-ui/core/FormLabel":
+/*!**********************************************!*\
+  !*** external "@material-ui/core/FormLabel" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/FormLabel");
+
+/***/ }),
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ "@material-ui/core/Grid":
 /*!*****************************************!*\
   !*** external "@material-ui/core/Grid" ***!
@@ -18696,6 +31052,20 @@ module.exports = require("@material-ui/core/styles");
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "@material-ui/icons/ArrowDownward":
+/*!***************************************************!*\
+  !*** external "@material-ui/icons/ArrowDownward" ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/ArrowDownward");
+
+/***/ }),
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ "@material-ui/icons/ArrowLeft":
 /*!***********************************************!*\
   !*** external "@material-ui/icons/ArrowLeft" ***!
@@ -18707,6 +31077,31 @@ module.exports = require("@material-ui/icons/ArrowLeft");
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "@material-ui/icons/ArrowUpward":
+/*!*************************************************!*\
+  !*** external "@material-ui/icons/ArrowUpward" ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/ArrowUpward");
+
+/***/ }),
+
+/***/ "@material-ui/icons/Assessment":
+/*!************************************************!*\
+  !*** external "@material-ui/icons/Assessment" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Assessment");
+
+/***/ }),
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ "@material-ui/icons/Autorenew":
 /*!***********************************************!*\
   !*** external "@material-ui/icons/Autorenew" ***!
@@ -18740,6 +31135,20 @@ module.exports = require("@material-ui/icons/BubbleChart");
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "@material-ui/icons/Cancel":
+/*!********************************************!*\
+  !*** external "@material-ui/icons/Cancel" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Cancel");
+
+/***/ }),
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ "@material-ui/icons/CheckBox":
 /*!**********************************************!*\
   !*** external "@material-ui/icons/CheckBox" ***!
@@ -18806,6 +31215,20 @@ module.exports = require("@material-ui/icons/DonutLarge");
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "@material-ui/icons/Edit":
+/*!******************************************!*\
+  !*** external "@material-ui/icons/Edit" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Edit");
+
+/***/ }),
+
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ "@material-ui/icons/ExpandMore":
 /*!************************************************!*\
   !*** external "@material-ui/icons/ExpandMore" ***!
@@ -19158,6 +31581,7 @@ module.exports = require("material-table");
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "next-cookies":
 /*!*******************************!*\
   !*** external "next-cookies" ***!
@@ -19169,6 +31593,8 @@ module.exports = require("next-cookies");
 
 /***/ }),
 
+=======
+>>>>>>> 561f0ed2e908d18d36907a820ea1f6c75bedf2a0
 /***/ "next/config":
 /*!******************************!*\
   !*** external "next/config" ***!

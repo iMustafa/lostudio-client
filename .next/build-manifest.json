@@ -26,7 +26,15 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/signup": [
+    "/dashboards/[id]/edit": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/datasources": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/webpages": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

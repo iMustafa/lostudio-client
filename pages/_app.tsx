@@ -8,6 +8,7 @@ import redirectTo from '../components/redirectTo'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import 'dhtmlx-gantt/codebase/dhtmlxgantt.css'
+import 'grapesjs/dist/css/grapes.min.css'
 
 const theme = {
   primary: 'green'
