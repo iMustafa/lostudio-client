@@ -1,16 +1,20 @@
+import { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
-
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import Select from '@material-ui/core/Select';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+import Input from '@material-ui/core/Input'
+import IconButton from '@material-ui/core/IconButton'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import InputLabel from '@material-ui/core/InputLabel'
+import MenuItem from '@material-ui/core/MenuItem'
+import FormControl from '@material-ui/core/FormControl'
+import Select from '@material-ui/core/Select'
+import Visibility from '@material-ui/icons/Visibility'
+import VisibilityOff from '@material-ui/icons/VisibilityOff'
+import { Button } from '@material-ui/core'
+import DatasourceActions from '../../../actions/datasource.actions'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,6 +56,72 @@ const useStyles = makeStyles(theme => ({
 
 const AddMsSQLDataSource = () => {
   const classes = useStyles();
+  const [values, setValues] = useState({ showPassword: false, useAuth: 0, isLoading: false })
+  const [attempts, setAttempts] = useState(0)
+  const [state, setState] = useState({
+    title: '',
+    type: 'mssql',
+    force: false,
+    description: '',
+    config: {
+      port: 27017,
+      server: '',
+      db: '',
+      user: '',
+      password: ''
+    }
+  })
+
+  const handleSubmitData = async () => {
+    try {
+      setValues({ ...values, isLoading: true })
+      const res = await DatasourceActions.createDatasource(state)
+      setValues({ ...values, isLoading: false })
+    } catch (e) {
+      if (e.error.message == 'Connection Failed') {
+        setState({ ...state, force: true })
+        setAttempts(1)
+      }
+    }
+  }
+
+  const handleInputChange = (event) => {
+    const { value, name } = event.target
+    setState({ ...state, [name]: value })
+    setAttempts(0)
+  }
+
+  const handleAuthChange = (event) => {
+    const { value, name } = event.target
+    setState({ ...state, config: { ...state.config, [name]: value } })
+  }
+
+  const handleMouseDownPassword = event => {
+    event.preventDefault()
+  }
+
+  const renderSubmitButtons = () => {
+    return values.isLoading ? (
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress />
+      </div>
+    ) : attempts >= 1 ? (
+      <div>
+        <div className="alert alert-info" style={{ display: 'flex', justifyContent: 'center' }}>
+          <p style={{ fontFamily: 'Roboto', margin: '0' }}>Connection failed to this database, would you like to save it anyway?</p>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Button>Cancel</Button>
+          <Button>Save</Button>
+        </div>
+      </div>
+    ) : (
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Button>Cancel</Button>
+            <Button onClick={handleSubmitData}>Save</Button>
+          </div>
+        )
+  }
 
   return (
     <Card>
@@ -62,41 +132,32 @@ const AddMsSQLDataSource = () => {
 
         <Card className={classes.card}>
           <h2 className={classes.h2}>
+            <span className={classes.span}>Basic</span>
+          </h2>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField onChange={handleInputChange.bind(this)} fullWidth id="name" name="title" label="Name" />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField onChange={handleInputChange.bind(this)} fullWidth id="description" name="description" label="Description" />
+            </Grid>
+          </Grid>
+        </Card>
+
+        <Card className={classes.card}>
+          <h2 className={classes.h2}>
             <span className={classes.span}>Database Properties</span>
           </h2>
           <Grid container spacing={2}>
             <Grid item xs={8}>
-              <TextField fullWidth id="server" name="server" label="Server" />
+              <TextField onChange={handleAuthChange.bind(this)} fullWidth id="server" name="server" label="Server" />
             </Grid>
             <Grid item xs={4}>
-              <TextField fullWidth id="port" name="port" label="Port" />
+              <TextField onChange={handleAuthChange.bind(this)} fullWidth id="port" name="port" label="Port" />
             </Grid>
             <Grid item xs={4}>
-              <TextField fullWidth id="database" name="database" label="Database" />
+              <TextField onChange={handleAuthChange.bind(this)} fullWidth id="database" name="database" label="Database" />
             </Grid>
-          </Grid>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <FormControlLabel
-                value="start"
-                control={<Checkbox color="primary" />}
-                label="Encrypt"
-                labelPlacement="end"
-              />
-            </Grid>
-            <div>
-              <Grid item xs={12}>
-                <TextField fullWidth id="ca_certificate" name="ca_certificate" label="CA Certificate" />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  value="start"
-                  control={<Checkbox color="primary" />}
-                  label="Trust Server Certificate"
-                  labelPlacement="end"
-                />
-              </Grid>
-            </div>
           </Grid>
         </Card>
 
@@ -106,38 +167,15 @@ const AddMsSQLDataSource = () => {
           </h2>
           <Grid container spacing={2}>
             <Grid item xs={6}>
-              <TextField fullWidth id="username" name="username" label="Username" />
+              <TextField onChange={handleAuthChange.bind(this)} fullWidth id="username" name="user" label="Username" />
             </Grid>
             <Grid item xs={6}>
-              <TextField fullWidth id="password" name="password" label="Password" />
+              <TextField onChange={handleAuthChange.bind(this)} fullWidth id="password" name="password" label="Password" />
             </Grid>
           </Grid>
         </Card>
 
-        <Card className={classes.card}>
-          <h2 className={classes.h2}>
-            <span className={classes.span}>Miscellaneous</span>
-          </h2>
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <TextField fullWidth id="timeout" name="timeout" label="Query Timeout" />
-            </Grid>
-          </Grid>
-        </Card>
-
-        <Card className={classes.card}>
-          <h2 className={classes.h2}>
-            <span className={classes.span}>Advanced</span>
-          </h2>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField fullWidth id="name" name="name" label="Name" />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField fullWidth id="description" name="description" label="Description" />
-            </Grid>
-          </Grid>
-        </Card>
+        {renderSubmitButtons()}
 
       </Card>
     </Card>
