@@ -86,7 +86,8 @@ const LoginPage: NextPage<{}> = () => {
     try {
       const loginInfo: LoginResponse = await login(data)
       saveLoginData(loginInfo)
-      Router.push('/')
+      Router.push('/dashboards')
+        .then(_ => { location.reload() })
     } catch (e) {
       switch (e.status) {
         case 401:

@@ -22,10 +22,7 @@ const Datasources: NextPage<Array<Datasource>> = (Datasources: Array<Datasource>
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={2} style={{ position: 'relative' }}>
-        <SideMenu />
-      </Grid>
-      <Grid item xs={10}>
+      <Grid item xs={12}>
         <div className={'container'} style={{ margin: "25px auto 0 auto" }}>
           <AddDataSource />
           <ListDatasource datasources={Datasources} />

@@ -40,6 +40,7 @@ const ListDashboards = ({ dashboards, title, type }) => {
         dashboards.length ? (
           <div className={classes.cardBody}>
             <Grid container spacing={2}>
+              
               {dashboards.map((dashboard, index) => {
                 const { title, description, id, permissions } = dashboard
                 return (

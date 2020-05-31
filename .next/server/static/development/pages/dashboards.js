@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -268,746 +268,6 @@ class DashboardActions {
   }
 
 }
-
-/***/ }),
-
-/***/ "./actions/datasource.actions.ts":
-/*!***************************************!*\
-  !*** ./actions/datasource.actions.ts ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DatasourceActions; });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/config */ "next/config");
-/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_config__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-cookie */ "js-cookie");
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_2__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-const {
-  API_URL
-} = next_config__WEBPACK_IMPORTED_MODULE_1___default()().publicRuntimeConfig;
-class DatasourceActions {
-  static async createDatasource(data) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(`${API_URL}/DataSources`, data, {
-      headers: {
-        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
-      }
-    }).then(res => res.data).catch(err => err);
-  }
-
-  static async updateDatasource(id, data) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch(`${API_URL}/DataSources/${id}`, data, {
-      headers: {
-        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
-      }
-    }).then(res => res.data).catch(err => err.response);
-  }
-
-  static async getDatasources({
-    Authorization,
-    query
-  }) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/DataSources`, {
-      headers: {
-        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
-      }
-    }).then(res => res.data).catch(err => err);
-  }
-
-  static async getUserDatasources(id, query) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/users/${id}/dataSrouces`, {
-      headers: {
-        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
-      },
-      params: _objectSpread({}, query)
-    }).then(res => res.data).catch(err => err.response);
-  }
-
-  static async getDatasourceById(id) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/DataSources/${id}`, {
-      headers: {
-        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
-      }
-    }).then(res => res.data).catch(err => err.response);
-  }
-
-  static async removeDatasource(id) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete(`${API_URL}/DataSources/${id}`, {
-      headers: {
-        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
-      }
-    }).then(res => res.data).catch(err => err.response);
-  }
-
-  static async getDocList(id) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/DataSources/${id}/doc-list`, {
-      headers: {
-        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
-      }
-    }).then(res => res.data).catch(err => err.response);
-  }
-
-  static async getFieldList(id, docId) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/DataSources/${id}/field-list`, {
-      headers: {
-        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get('id')
-      },
-      params: {
-        docId
-      }
-    }).then(res => res.data).catch(err => err.response);
-  }
-
-  static async queryDatasource(query) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('', {}).then(res => res.data).catch(err => err.response);
-  }
-
-}
-
-/***/ }),
-
-/***/ "./components/SideMenu.jsx":
-/*!*********************************!*\
-  !*** ./components/SideMenu.jsx ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SideMenu; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_List__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/List */ "@material-ui/core/List");
-/* harmony import */ var _material_ui_core_List__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/ListItem */ "@material-ui/core/ListItem");
-/* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/ListItemIcon */ "@material-ui/core/ListItemIcon");
-/* harmony import */ var _material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/ListItemText */ "@material-ui/core/ListItemText");
-/* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/icons/Dashboard */ "@material-ui/icons/Dashboard");
-/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/icons/Storage */ "@material-ui/icons/Storage");
-/* harmony import */ var _material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/Assessment */ "@material-ui/icons/Assessment");
-/* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _material_ui_icons_Pages__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/icons/Pages */ "@material-ui/icons/Pages");
-/* harmony import */ var _material_ui_icons_Pages__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Pages__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
-/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11__);
-var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/SideMenu.jsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-
-
-
-
-
-
-
-
-
-const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])({
-  list: {
-    position: 'absolute',
-    width: '100%',
-    height: 'calc(100vh - 82px)',
-    borderRadius: 'none'
-  }
-});
-function SideMenu() {
-  const classes = useStyles();
-  const routes = [{
-    key: 'dashboards',
-    text: 'Projects',
-    route: '/dashboards',
-    icon: () => __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7___default.a, {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 26,
-        columnNumber: 79
-      }
-    })
-  }, {
-    key: 'webpages',
-    text: 'Web Pages',
-    route: '/webpages',
-    icon: () => __jsx(_material_ui_icons_Pages__WEBPACK_IMPORTED_MODULE_10___default.a, {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 27,
-        columnNumber: 76
-      }
-    })
-  }, {
-    key: 'datasources',
-    text: 'Data Sources',
-    route: '/datasources',
-    icon: () => __jsx(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_8___default.a, {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 28,
-        columnNumber: 85
-      }
-    })
-  }, {
-    key: 'widgets',
-    text: 'Widgets',
-    route: '/widgets',
-    icon: () => __jsx(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_9___default.a, {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 29,
-        columnNumber: 72
-      }
-    })
-  }];
-  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_11___default.a, {
-    className: classes.list,
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33,
-      columnNumber: 5
-    }
-  }, __jsx(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34,
-      columnNumber: 7
-    }
-  }, routes.map((item, index) => __jsx(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    button: true,
-    key: item.key,
-    onClick: () => {
-      next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push(item.route);
-    },
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36,
-      columnNumber: 11
-    }
-  }, __jsx(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37,
-      columnNumber: 13
-    }
-  }, item.icon()), __jsx(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    primary: item.text,
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 38,
-      columnNumber: 13
-    }
-  })))));
-}
-
-/***/ }),
-
-/***/ "./components/dashboards/create-dashboard.jsx":
-/*!****************************************************!*\
-  !*** ./components/dashboards/create-dashboard.jsx ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/datasource.actions */ "./actions/datasource.actions.ts");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Card */ "@material-ui/core/Card");
-/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Stepper */ "@material-ui/core/Stepper");
-/* harmony import */ var _material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _material_ui_core_Step__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Step */ "@material-ui/core/Step");
-/* harmony import */ var _material_ui_core_Step__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Step__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/StepLabel */ "@material-ui/core/StepLabel");
-/* harmony import */ var _material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/FormGroup */ "@material-ui/core/FormGroup");
-/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
-/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/TextField */ "@material-ui/core/TextField");
-/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/Select */ "@material-ui/core/Select");
-/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "@material-ui/core/MenuItem");
-/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "@material-ui/core/InputLabel");
-/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../actions/dashboard.actions */ "./actions/dashboard.actions.ts");
-var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/dashboards/create-dashboard.jsx";
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(theme => ({
-  root: {
-    marginTop: '25px'
-  },
-  cardBody: {
-    padding: '10px'
-  },
-  cardTitle: {
-    fontSize: '12px',
-    backgroundColor: '#3F51B5',
-    padding: '3px 3px 3px 6px',
-    color: '#FFF',
-    fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"]
-  },
-  actionButtons: {
-    display: 'flex',
-    justifyContent: 'center'
-  }
-}));
-
-const getSteps = () => ['Dashboard Settings', 'Datasource Settings', 'Add Collaborators', 'Confirmation'];
-
-const CreateDashboard = ({
-  setRefresh,
-  refresh
-}) => {
-  const classes = useStyles();
-  const {
-    0: state,
-    1: setState
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    title: '',
-    description: '',
-    datasourceId: '',
-    isSub: false,
-    collaborators: []
-  });
-  const {
-    0: activeStep,
-    1: setActiveStep
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
-  const {
-    0: datasources,
-    1: setDatasources
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
-  const {
-    0: skipped,
-    1: setSkipped
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(new Set());
-  const steps = getSteps();
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    const getDataSources = async () => {
-      try {
-        const data = await _actions_datasource_actions__WEBPACK_IMPORTED_MODULE_1__["default"].getDatasources({});
-        setDatasources(data);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    getDataSources();
-  }, []);
-
-  const handleChange = event => {
-    const {
-      name,
-      value
-    } = event.target;
-    setState(_objectSpread({}, state, {
-      [name]: value
-    }));
-  };
-
-  const getStepContent = step => {
-    switch (step) {
-      case 0:
-        return __jsx(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_10___default.a, {
-          row: true,
-          style: {
-            marginBottom: 15
-          },
-          __self: undefined,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 76,
-            columnNumber: 11
-          }
-        }, __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_12___default.a, {
-          onChange: handleChange,
-          fullWidth: true,
-          label: "Title",
-          type: "text",
-          name: "title",
-          __self: undefined,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 77,
-            columnNumber: 13
-          }
-        }), __jsx(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_12___default.a, {
-          onChange: handleChange,
-          fullWidth: true,
-          label: "Description",
-          multiline: true,
-          type: "text",
-          name: "description",
-          __self: undefined,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 78,
-            columnNumber: 13
-          }
-        }));
-
-      case 1:
-        return __jsx(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_10___default.a, {
-          row: true,
-          style: {
-            marginBottom: 15
-          },
-          __self: undefined,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 83,
-            columnNumber: 11
-          }
-        }, __jsx(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_15___default.a, {
-          id: "datasource-label",
-          __self: undefined,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 84,
-            columnNumber: 13
-          }
-        }, "Default DataSource"), __jsx(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_13___default.a, {
-          value: state.datasourceId,
-          onChange: handleChange,
-          name: "datasourceId",
-          fullWidth: true,
-          labelId: "datasource-label",
-          __self: undefined,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 85,
-            columnNumber: 13
-          }
-        }, datasources.map(datasource => __jsx(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_14___default.a, {
-          value: datasource.id,
-          __self: undefined,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 87,
-            columnNumber: 17
-          }
-        }, datasource.title))));
-
-      case 2:
-        return 'Allow people to help you build your dashboard!';
-
-      case 3:
-        return __jsx("div", {
-          __self: undefined,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 96,
-            columnNumber: 11
-          }
-        }, __jsx("p", {
-          __self: undefined,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 97,
-            columnNumber: 13
-          }
-        }, "Name: ", state.title), __jsx("p", {
-          __self: undefined,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 98,
-            columnNumber: 13
-          }
-        }, "Description: ", state.description), __jsx("p", {
-          __self: undefined,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 99,
-            columnNumber: 13
-          }
-        }, "Datasource: ", state.datasourceId));
-
-      default:
-        return 'Unknown step';
-    }
-  };
-
-  const isStepOptional = step => step === 2;
-
-  const isStepSkipped = step => skipped.has(step);
-
-  const handleNext = () => {
-    let newSkipped = skipped;
-
-    if (isStepSkipped(activeStep)) {
-      newSkipped = new Set(newSkipped.values());
-      newSkipped.delete(activeStep);
-    }
-
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
-    setSkipped(newSkipped);
-  };
-
-  const handleBack = () => {
-    setActiveStep(prevActiveStep => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
-  const submitData = async () => {
-    try {
-      const dashboard = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_16__["default"].createDashboard({
-        dashboard: state
-      });
-      setRefresh(refresh + 1);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  return __jsx(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    className: classes.root,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 131,
-      columnNumber: 5
-    }
-  }, __jsx("div", {
-    className: classes.cardTitle,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 132,
-      columnNumber: 7
-    }
-  }, "Create new dashboard"), __jsx("div", {
-    className: classes.cardBody,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 133,
-      columnNumber: 7
-    }
-  }, __jsx("div", {
-    className: classes.root,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 134,
-      columnNumber: 9
-    }
-  }, __jsx(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    activeStep: activeStep,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 135,
-      columnNumber: 11
-    }
-  }, steps.map((label, index) => {
-    const stepProps = {};
-    const labelProps = {};
-
-    if (isStepOptional(index)) {
-      labelProps.optional = __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9___default.a, {
-        variant: "caption",
-        __self: undefined,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 140,
-          columnNumber: 39
-        }
-      }, "Optional");
-    }
-
-    if (isStepSkipped(index)) {
-      stepProps.completed = false;
-    }
-
-    return __jsx(_material_ui_core_Step__WEBPACK_IMPORTED_MODULE_6___default.a, _extends({
-      key: label
-    }, stepProps, {
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 146,
-        columnNumber: 17
-      }
-    }), __jsx(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_7___default.a, _extends({}, labelProps, {
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 147,
-        columnNumber: 19
-      }
-    }), label));
-  })), __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 152,
-      columnNumber: 11
-    }
-  }, activeStep === steps.length ? __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 156,
-      columnNumber: 19
-    }
-  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9___default.a, {
-    className: classes.instructions,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 157,
-      columnNumber: 21
-    }
-  }, "All steps completed - you're finished"), __jsx("div", {
-    className: classes.actionButtons,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 160,
-      columnNumber: 21
-    }
-  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    onClick: handleReset,
-    className: classes.button,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 161,
-      columnNumber: 23
-    }
-  }, "Reset"))) : __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 167,
-      columnNumber: 19
-    }
-  }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9___default.a, {
-    className: classes.instructions,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 168,
-      columnNumber: 21
-    }
-  }, getStepContent(activeStep)), __jsx("div", {
-    className: classes.actionButtons,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 169,
-      columnNumber: 21
-    }
-  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    disabled: activeStep === 0,
-    onClick: handleBack,
-    className: classes.button,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 170,
-      columnNumber: 23
-    }
-  }, "Back"), activeStep === steps.length - 1 ? __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    variant: "contained",
-    color: "primary",
-    onClick: submitData,
-    className: classes.button,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 176,
-      columnNumber: 29
-    }
-  }, "Finish") : __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    variant: "contained",
-    color: "primary",
-    onClick: handleNext,
-    className: classes.button,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 185,
-      columnNumber: 29
-    }
-  }, "Next")))))));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (CreateDashboard);
 
 /***/ }),
 
@@ -1305,7 +565,7 @@ const ListDashboards = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46,
+        lineNumber: 47,
         columnNumber: 19
       }
     }, __jsx(_dashboard_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -1316,7 +576,7 @@ const ListDashboards = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47,
+        lineNumber: 48,
         columnNumber: 21
       }
     }));
@@ -1325,7 +585,7 @@ const ListDashboards = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 55,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -1338,7 +598,7 @@ const ListDashboards = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 56,
       columnNumber: 15
     }
   }, __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -1349,7 +609,7 @@ const ListDashboards = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 62,
       columnNumber: 17
     }
   }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -1360,7 +620,7 @@ const ListDashboards = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 63,
       columnNumber: 17
     }
   }, "No dashboards found.")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -1371,7 +631,7 @@ const ListDashboards = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 65,
       columnNumber: 15
     }
   }, type == "personal" ? "Create a new dashboard to be displayed here." : "When a corporation adds you to collaborate on their dashboards, they will appear here.")));
@@ -1395,16 +655,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next-cookies */ "next-cookies");
 /* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_cookies__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/dashboard.actions */ "./actions/dashboard.actions.ts");
-/* harmony import */ var _components_dashboards_create_dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/dashboards/create-dashboard */ "./components/dashboards/create-dashboard.jsx");
-/* harmony import */ var _components_dashboards_list_dashboards__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/dashboards/list-dashboards */ "./components/dashboards/list-dashboards.jsx");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _components_SideMenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/SideMenu */ "./components/SideMenu.jsx");
+/* harmony import */ var _components_dashboards_list_dashboards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/dashboards/list-dashboards */ "./components/dashboards/list-dashboards.jsx");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Grid */ "@material-ui/core/Grid");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/pages/dashboards/index.tsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
 
 
 
@@ -1421,7 +677,7 @@ const Dashboards = ({
     0: refresh,
     1: setRefresh
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
-  return __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5___default.a, {
+  return __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default.a, {
     container: true,
     spacing: 2,
     __self: undefined,
@@ -1430,28 +686,9 @@ const Dashboards = ({
       lineNumber: 18,
       columnNumber: 5
     }
-  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5___default.a, {
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4___default.a, {
     item: true,
-    xs: 2,
-    style: {
-      position: 'relative'
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19,
-      columnNumber: 7
-    }
-  }, __jsx(_components_SideMenu__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20,
-      columnNumber: 9
-    }
-  })), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    item: true,
-    xs: 10,
+    xs: 12,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -1469,16 +706,7 @@ const Dashboards = ({
       lineNumber: 23,
       columnNumber: 9
     }
-  }, __jsx(_components_dashboards_create_dashboard__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    refresh: refresh,
-    setRefresh: setRefresh,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 24,
-      columnNumber: 11
-    }
-  }), __jsx(_components_dashboards_list_dashboards__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, __jsx(_components_dashboards_list_dashboards__WEBPACK_IMPORTED_MODULE_3__["default"], {
     dashboards: dashboards,
     title: "My Dashboards",
     type: "personal",
@@ -1488,7 +716,7 @@ const Dashboards = ({
       lineNumber: 25,
       columnNumber: 11
     }
-  }), __jsx(_components_dashboards_list_dashboards__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), __jsx(_components_dashboards_list_dashboards__WEBPACK_IMPORTED_MODULE_3__["default"], {
     dashboards: collaborations,
     title: "My Collaborations",
     type: "collaborations",
@@ -1526,7 +754,7 @@ Dashboards.getInitialProps = async req => {
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!******************************************!*\
   !*** multi ./pages/dashboards/index.tsx ***!
   \******************************************/
@@ -1604,28 +832,6 @@ module.exports = require("@material-ui/core/CardMedia");
 
 /***/ }),
 
-/***/ "@material-ui/core/FormControl":
-/*!************************************************!*\
-  !*** external "@material-ui/core/FormControl" ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/FormControl");
-
-/***/ }),
-
-/***/ "@material-ui/core/FormGroup":
-/*!**********************************************!*\
-  !*** external "@material-ui/core/FormGroup" ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/FormGroup");
-
-/***/ }),
-
 /***/ "@material-ui/core/Grid":
 /*!*****************************************!*\
   !*** external "@material-ui/core/Grid" ***!
@@ -1634,127 +840,6 @@ module.exports = require("@material-ui/core/FormGroup");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/core/Grid");
-
-/***/ }),
-
-/***/ "@material-ui/core/InputLabel":
-/*!***********************************************!*\
-  !*** external "@material-ui/core/InputLabel" ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/InputLabel");
-
-/***/ }),
-
-/***/ "@material-ui/core/List":
-/*!*****************************************!*\
-  !*** external "@material-ui/core/List" ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/List");
-
-/***/ }),
-
-/***/ "@material-ui/core/ListItem":
-/*!*********************************************!*\
-  !*** external "@material-ui/core/ListItem" ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/ListItem");
-
-/***/ }),
-
-/***/ "@material-ui/core/ListItemIcon":
-/*!*************************************************!*\
-  !*** external "@material-ui/core/ListItemIcon" ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/ListItemIcon");
-
-/***/ }),
-
-/***/ "@material-ui/core/ListItemText":
-/*!*************************************************!*\
-  !*** external "@material-ui/core/ListItemText" ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/ListItemText");
-
-/***/ }),
-
-/***/ "@material-ui/core/MenuItem":
-/*!*********************************************!*\
-  !*** external "@material-ui/core/MenuItem" ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/MenuItem");
-
-/***/ }),
-
-/***/ "@material-ui/core/Select":
-/*!*******************************************!*\
-  !*** external "@material-ui/core/Select" ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/Select");
-
-/***/ }),
-
-/***/ "@material-ui/core/Step":
-/*!*****************************************!*\
-  !*** external "@material-ui/core/Step" ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/Step");
-
-/***/ }),
-
-/***/ "@material-ui/core/StepLabel":
-/*!**********************************************!*\
-  !*** external "@material-ui/core/StepLabel" ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/StepLabel");
-
-/***/ }),
-
-/***/ "@material-ui/core/Stepper":
-/*!********************************************!*\
-  !*** external "@material-ui/core/Stepper" ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/Stepper");
-
-/***/ }),
-
-/***/ "@material-ui/core/TextField":
-/*!**********************************************!*\
-  !*** external "@material-ui/core/TextField" ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/TextField");
 
 /***/ }),
 
@@ -1780,17 +865,6 @@ module.exports = require("@material-ui/core/styles");
 
 /***/ }),
 
-/***/ "@material-ui/icons/Assessment":
-/*!************************************************!*\
-  !*** external "@material-ui/icons/Assessment" ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/icons/Assessment");
-
-/***/ }),
-
 /***/ "@material-ui/icons/Dashboard":
 /*!***********************************************!*\
   !*** external "@material-ui/icons/Dashboard" ***!
@@ -1799,28 +873,6 @@ module.exports = require("@material-ui/icons/Assessment");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/icons/Dashboard");
-
-/***/ }),
-
-/***/ "@material-ui/icons/Pages":
-/*!*******************************************!*\
-  !*** external "@material-ui/icons/Pages" ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/icons/Pages");
-
-/***/ }),
-
-/***/ "@material-ui/icons/Storage":
-/*!*********************************************!*\
-  !*** external "@material-ui/icons/Storage" ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/icons/Storage");
 
 /***/ }),
 

@@ -11,7 +11,7 @@ const Widgets: NextPage<{ WidgetSettings: any, Result: any }> = ({ WidgetSetting
   return (
     <div>
       <div className="gantt-container">
-        {/* <Gantt /> */}
+        <Gantt />
       </div>
     </div>
   )

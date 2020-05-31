@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
@@ -18,6 +19,9 @@ import Drawer from '@material-ui/core/Drawer'
 import SideMenu from './SideMenu'
 import NotificationsActions from '../actions/notifications.actions'
 import NotificationsMenu from './notifications/NotificationsMenu'
+import Cookie from 'js-cookie'
+import { useRouter } from 'next/router'
+import { deleteCookie } from '../actions/auth.actions'
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -83,6 +87,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
+  const router = useRouter();
   const [state, setState] = useState({
     left: false
   });
@@ -96,6 +101,13 @@ export default function PrimarySearchAppBar() {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const [isAuthenticated, setIsAuthenticated] = useState(!!(Cookie.get('id')))
+
+  const logout = () => {
+    deleteCookie()
+    handleMenuClose()
+    location.reload()
+  }
 
   useEffect(() => {
     const getNotificationsCount = async () => {
@@ -147,6 +159,7 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={logout}>Logout</MenuItem>
     </Menu>
   );
 
@@ -211,6 +224,25 @@ export default function PrimarySearchAppBar() {
           <Typography className={classes.title} variant="h6" noWrap>
             LoStudio
           </Typography>
+          {
+            isAuthenticated ? (
+              <div className={classes.grow} style={{ paddingLeft: 35 }}>
+                <Button style={{ color: "#FFF" }} onClick={() => { router.push('/dashboards') }}>
+                  Dashboards
+                </Button>
+                <Button style={{ color: "#FFF" }} onClick={() => { router.push('/webpages') }}>
+                  Web Pages
+                </Button>
+                <Button style={{ color: "#FFF" }} onClick={() => { router.push('/datasources') }}>
+                  Data Sources
+                </Button>
+                <Button style={{ color: "#FFF" }} onClick={() => { router.push('/widgets') }}>
+                  Widgets
+                </Button>
+              </div>
+            ) : <div className={classes.grow}></div>
+          }
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -224,15 +256,8 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          <div className={classes.grow} />
+
           <div className={classes.sectionDesktop}>
-
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-
             <div>
               <IconButton color="inherit" onClick={openNotificationsMenu}>
                 {notificationsCount ?
@@ -282,9 +307,9 @@ export default function PrimarySearchAppBar() {
         <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
           {SideMenu()}
         </Drawer>
-      </AppBar>
+      </AppBar >
       {renderMobileMenu}
       {renderMenu}
-    </div>
+    </div >
   );
 }

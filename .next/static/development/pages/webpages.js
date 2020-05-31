@@ -944,7 +944,7 @@ var Page = function Page() {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!********************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fwebpages&absolutePagePath=%2FUsers%2Fimustafa%2FProjects%2FLoStudio%2Fclient%2Fpages%2Fwebpages%2Findex.jsx&hotRouterUpdates=true ***!
   \********************************************************************************************************************************************************************************/
@@ -967,5 +967,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js"]]]);
+},[[5,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=webpages.js.map

@@ -23,11 +23,12 @@ export default class LoStudio extends App {
     if (Component.getInitialProps)
       pageProps = await Component.getInitialProps(ctx)
 
+    console.log(c.id)
     if (typeof c.id == 'undefined') {
       if (ctx.pathname == "/login" || ctx.pathname == "/forgot-password" || ctx.pathname == '/signup') return { pageProps }
       else redirectTo('/login', { res: ctx.res, status: 301 })
     } else {
-      if (ctx.pathname == "/") {
+      if (ctx.pathname == "/login" || ctx.pathname == "/forgot-password" || ctx.pathname == '/signup') {
         redirectTo('/dashboards', { res: ctx.res, status: 301 })
       }
     }
