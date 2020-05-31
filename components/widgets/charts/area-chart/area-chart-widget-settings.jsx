@@ -141,7 +141,7 @@ const AreaChartWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidg
           func: 'find',
           query: {}
         },
-        type: 'Table'
+        type: 'Area Chart'
       }
       if (isAdding) {
         onWidgetAdd(data)

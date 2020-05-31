@@ -141,7 +141,7 @@ const BarChartWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidge
           func: 'find',
           query: {}
         },
-        type: 'Table'
+        type: 'Bar Chart'
       }
       if (isAdding) {
         onWidgetAdd(data)

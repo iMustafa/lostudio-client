@@ -141,7 +141,7 @@ const PieChartWidgetSettings = ({ widget, handleSettingsClose, isAdding, onWidge
           func: 'find',
           query: {}
         },
-        type: 'Table'
+        type: 'Pie Chart'
       }
       if (isAdding) {
         onWidgetAdd(data)
