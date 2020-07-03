@@ -1,0 +1,1 @@
+{"ast":null,"code":"import CheckboxWidget from './checkbox-widget';\nimport CheckboxWidgetSettings from './checkbox-widget-settings';\nexport { CheckboxWidget, CheckboxWidgetSettings };","map":null,"metadata":{},"sourceType":"module"}

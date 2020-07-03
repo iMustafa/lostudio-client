@@ -43,9 +43,10 @@ const ListDashboards = ({ dashboards, title, type }) => {
               
               {dashboards.map((dashboard, index) => {
                 const { title, description, id, permissions } = dashboard
+                const $type = dashboard.type
                 return (
                   <Grid item xs={3} key={index}>
-                    <DashbordItem title={title} description={description} id={id} permissions={permissions} />
+                    <DashbordItem type={$type} title={title} description={description} id={id} permissions={permissions} />
                   </Grid>
                 )
               })}
