@@ -1,0 +1,1 @@
+{"ast":null,"code":"import TabsWidget from './tabs-widget';\nimport TabsWidgetSettings from './tabs-widget-settings';\nexport { TabsWidget, TabsWidgetSettings };","map":null,"metadata":{},"sourceType":"module"}

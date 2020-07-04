@@ -16,12 +16,8 @@ const Dashboards: NextPage<{ Collaborations, Dashboards }> = ({ Collaborations, 
 
   return (
     <Grid container spacing={2}>
-      {/* <Grid item xs={2} style={{ position: 'relative' }}> */}
-        {/* <SideMenu /> */}
-      {/* </Grid> */}
       <Grid item xs={12}>
         <div className="container" style={{ margin: "25px auto 25px auto" }}>
-          {/* <CreateDashboard refresh={refresh} setRefresh={setRefresh} /> */}
           <ListDashboards dashboards={dashboards} title="My Dashboards" type="personal"></ListDashboards>
           <ListDashboards dashboards={collaborations} title="My Collaborations" type="collaborations"></ListDashboards>
         </div>

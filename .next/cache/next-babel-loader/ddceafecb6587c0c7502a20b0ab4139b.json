@@ -1,0 +1,1 @@
+{"ast":null,"code":"import TableWidget from './table-widget';\nimport TableWidgetSettings from './table-widget-settings';\nexport { TableWidget, TableWidgetSettings };","map":null,"metadata":{},"sourceType":"module"}

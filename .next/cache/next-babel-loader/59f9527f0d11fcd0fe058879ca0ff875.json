@@ -1,0 +1,1 @@
+{"ast":null,"code":"import FileWidget from './file-widget';\nimport FileWidgetSettings from './file-widget-settings';\nexport { FileWidget, FileWidgetSettings };","map":null,"metadata":{},"sourceType":"module"}

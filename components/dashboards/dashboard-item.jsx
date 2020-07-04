@@ -14,20 +14,27 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DashbordItem = ({ title, description, id, permissions }) => {
+const DashbordItem = ({ title = '', description, id, permissions, type }) => {
   const classes = useStyles()
+
+  const navigateToBoard = () => {
+    if (type == 'webpage')
+      router.push(`/webpages/${id}/edit`)
+    else
+      router.push(`/dashboards/${id}/edit`)
+  }
 
   const renderButtons = () => {
     return !permissions ?
       (
         <CardActions>
-          <Button size="small" color="primary" onClick={() => router.push(`/dashboards/${id}/edit`)}>Edit</Button>
+          <Button size="small" color="primary" onClick={() => navigateToBoard()}>Edit</Button>
           <Button size="small" color="primary">View</Button>
         </CardActions>
       ) : permissions.editor ?
         (
           <CardActions>
-            <Button size="small" color="primary" onClick={() => router.push(`/dashboards/${id}/edit`)}>Edit</Button>
+            <Button size="small" color="primary" onClick={() => navigateToBoard()}>Edit</Button>
             <Button size="small" color="primary">View</Button>
           </CardActions>
         ) :
