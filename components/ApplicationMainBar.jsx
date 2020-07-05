@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
@@ -17,11 +16,6 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Drawer from '@material-ui/core/Drawer'
 import SideMenu from './SideMenu'
-import NotificationsActions from '../actions/notifications.actions'
-import NotificationsMenu from './notifications/NotificationsMenu'
-import Cookie from 'js-cookie'
-import { useRouter } from 'next/router'
-import { deleteCookie } from '../actions/auth.actions'
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -87,39 +81,14 @@ const useStyles = makeStyles(theme => ({
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
-  const router = useRouter();
-  const [state, setState] = useState({
+  const [state, setState] = React.useState({
     left: false
   });
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
-  const [notificationsCount, setNotificationsCount] = useState(0)
-
-  const [notificationsMenuState, setNotificationsMenuState] = React.useState(null)
-  const openNotificationsMenu = (event) => { setNotificationsMenuState(event.currentTarget) }
-  const closeNotificationsMenu = () => { setNotificationsMenuState(null) }
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const [isAuthenticated, setIsAuthenticated] = useState(!!(Cookie.get('id')))
-
-  const logout = () => {
-    deleteCookie()
-    handleMenuClose()
-    location.reload()
-  }
-
-  useEffect(() => {
-    const getNotificationsCount = async () => {
-      try {
-        const $notificationsCount = await NotificationsActions.getMyNotificationsCount({})
-        setNotificationsCount($notificationsCount.count)
-      } catch (e) {
-        console.log(e)
-      }
-    }
-    getNotificationsCount()
-  }, [])
 
   const toggleDrawer = (side, open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -159,7 +128,6 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem onClick={logout}>Logout</MenuItem>
     </Menu>
   );
 
@@ -182,18 +150,14 @@ export default function PrimarySearchAppBar() {
         </IconButton>
         <p>Messages</p>
       </MenuItem>
-
       <MenuItem>
-        <IconButton color="inherit">
-          {notificationsCount ? (
-            <Badge badgeContent={notificationsCount} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          ) : null}
+        <IconButton aria-label="show 11 new notifications" color="inherit">
+          <Badge badgeContent={11} color="secondary">
+            <NotificationsIcon />
+          </Badge>
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
-
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -212,7 +176,7 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          {/* <IconButton
+          <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -220,29 +184,10 @@ export default function PrimarySearchAppBar() {
             onClick={toggleDrawer('left', true)}
           >
             <MenuIcon />
-          </IconButton> */}
+          </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             LoStudio
           </Typography>
-          {
-            isAuthenticated ? (
-              <div className={classes.grow} style={{ paddingLeft: 35 }}>
-                <Button style={{ color: "#FFF" }} onClick={() => { router.push('/dashboards') }}>
-                  Dashboards
-                </Button>
-                <Button style={{ color: "#FFF" }} onClick={() => { router.push('/webpages') }}>
-                  Web Pages
-                </Button>
-                <Button style={{ color: "#FFF" }} onClick={() => { router.push('/datasources') }}>
-                  Data Sources
-                </Button>
-                <Button style={{ color: "#FFF" }} onClick={() => { router.push('/widgets') }}>
-                  Widgets
-                </Button>
-              </div>
-            ) : <div className={classes.grow}></div>
-          }
-
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -256,30 +201,18 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-
+          <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <div>
-              <IconButton color="inherit" onClick={openNotificationsMenu}>
-                {notificationsCount ?
-                  (
-                    <Badge badgeContent={notificationsCount} color="secondary">
-                      <NotificationsIcon />
-                    </Badge>
-                  ) :
-                  (
-                    <NotificationsIcon />
-                  )
-                }
-              </IconButton>
-              <NotificationsMenu
-                anchorEl={notificationsMenuState}
-                keepMounted
-                style={{ top: 50 }}
-                open={Boolean(notificationsMenuState)}
-                onClose={closeNotificationsMenu}
-              />
-            </div>
-
+            <IconButton aria-label="show 4 new mails" color="inherit">
+              <Badge badgeContent={4} color="secondary">
+                <MailIcon />
+              </Badge>
+            </IconButton>
+            <IconButton aria-label="show 17 new notifications" color="inherit">
+              <Badge badgeContent={17} color="secondary">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -290,7 +223,6 @@ export default function PrimarySearchAppBar() {
             >
               <AccountCircle />
             </IconButton>
-
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
@@ -307,9 +239,9 @@ export default function PrimarySearchAppBar() {
         <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
           {SideMenu()}
         </Drawer>
-      </AppBar >
+      </AppBar>
       {renderMobileMenu}
       {renderMenu}
-    </div >
+    </div>
   );
 }

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const TableRef = 'table';\nexport const nwTableRef = 'ttable';\nexport const TablePluginRef = 'Table-Plugin';\nexport const loadHtmltemplate = 'load-html-template';","map":null,"metadata":{},"sourceType":"module"}

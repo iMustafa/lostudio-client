@@ -1,0 +1,1 @@
+{"ast":null,"code":"import ParagraphWidget from './paragraph-widget';\nimport ParagraphWidgetSettings from './paragraph-widget-settings';\nexport { ParagraphWidget, ParagraphWidgetSettings };","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import SpanWidget from './span-widget';\nimport SpanWidgetSettings from './span-widget-settings';\nexport { SpanWidget, SpanWidgetSettings };","map":null,"metadata":{},"sourceType":"module"}

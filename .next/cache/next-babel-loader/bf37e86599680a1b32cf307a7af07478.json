@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const ChartRef = 'Chart';\nexport const ChartPluginRef = 'Chart-Plugin';\nexport const loadHtmltemplate = 'load-html-template';","map":null,"metadata":{},"sourceType":"module"}
