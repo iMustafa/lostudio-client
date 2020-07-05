@@ -35,7 +35,9 @@ export default class DashboardActions {
     return axios
       .get(`${API_URL}/Dashboards`, {
         headers: { Authorization: Authorization || Cookie.get("id") },
-        params: { filter: { where: { isSub: false } } },
+        params: {
+          filter: { where: { or: [{ isSub: false }, { type: "dashboard" }] } },
+        },
       })
       .then((res) => res.data)
       .catch((err) => err);
@@ -44,7 +46,7 @@ export default class DashboardActions {
   public static async getWebpages({
     Authorization,
   }: {
-    Authorization: string;
+    Authorization?: string;
   }): Promise<Array<Dashboard>> {
     return axios
       .get(`${API_URL}/Dashboards`, {

@@ -8,8 +8,17 @@ import Grid from '@material-ui/core/Grid'
 import ListDashboards from '../../components/dashboards/list-dashboards'
 
 const WebPages: NextPage<{ WebPages }> = ({ WebPages }) => {
-  const $WebPages: Array<Dashboard> = Object.values(WebPages);
+  const [$WebPages, setWebPages] = useState(Object.values(WebPages));
   const [refresh, setRefresh] = useState(0);
+
+  const reloadChanges = async () => {
+    try {
+      const GetWebPages = await DashboardActions.getWebpages({})
+      setWebPages(GetWebPages)
+    } catch(e) {
+      console.log(e)
+    }
+  }
 
   return (
     <Grid container spacing={2}>
@@ -17,6 +26,8 @@ const WebPages: NextPage<{ WebPages }> = ({ WebPages }) => {
         <div className="container" style={{ margin: "25px auto 25px auto" }}>
           <ListDashboards
             dashboards={$WebPages}
+            reloadChanges={reloadChanges}
+            dashboardType="webpage"
             title="My Webpages"
             type="personal"
           ></ListDashboards>

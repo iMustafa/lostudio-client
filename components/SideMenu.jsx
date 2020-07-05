@@ -1,36 +1,39 @@
-import React from 'react';
+  import React from 'react';
 import Router from 'next/router'
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import DashboardIcon from '@material-ui/icons/Dashboard'
-import StorageIcon from '@material-ui/icons/Storage'
-import AssessmentIcon from '@material-ui/icons/Assessment'
-import PagesIcon from '@material-ui/icons/Pages'
-import Card from '@material-ui/core/Card'
+import Divider from '@material-ui/core/Divider'
+import WebIcon from '@material-ui/icons/Web';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import StorageIcon from '@material-ui/icons/Storage';
+import AssessmentIcon from '@material-ui/icons/Assessment';
 
 const useStyles = makeStyles({
   list: {
-    position: 'absolute',
-    width: '100%',
-    height: 'calc(100vh - 82px)',
-    borderRadius: 'none'
-  }
+    width: 250,
+  },
+  fullList: {
+    width: 'auto',
+  },
 });
 
 export default function SideMenu() {
   const classes = useStyles();
   const routes = [
-    { key: 'dashboards', text: 'Projects', route: '/dashboards', icon: () => (<DashboardIcon />) },
-    { key: 'webpages', text: 'Web Pages', route: '/webpages', icon: () => (<PagesIcon />) },
+    { key: 'dashboards', text: 'Dashboards', route: '/dashboards', icon: () => (<DashboardIcon />) },
     { key: 'datasources', text: 'Data Sources', route: '/datasources', icon: () => (<StorageIcon />) },
+    { key: 'webpages', text: 'Web Pages', route: '/webpages', icon: () => (<WebIcon />) },
     { key: 'widgets', text: 'Widgets', route: '/widgets', icon: () => (<AssessmentIcon />) },
   ]
 
   return (
-    <Card className={classes.list}>
+    <div
+      className={classes.list}
+      role="presentation"
+    >
       <List>
         {routes.map((item, index) => (
           <ListItem button key={item.key} onClick={() => { Router.push(item.route) }}>
@@ -39,6 +42,6 @@ export default function SideMenu() {
           </ListItem>
         ))}
       </List>
-    </Card>
+    </div>
   )
 }
