@@ -34610,7 +34610,7 @@ Dashboards.getInitialProps = function _callee(req) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 3:
 /*!************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fdashboards&absolutePagePath=%2FUsers%2Fimustafa%2FProjects%2FLoStudio%2Fclient%2Fpages%2Fdashboards%2Findex.tsx&hotRouterUpdates=true ***!
   \************************************************************************************************************************************************************************************/
@@ -34633,5 +34633,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=dashboards.js.map

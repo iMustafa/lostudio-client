@@ -26,11 +26,7 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/dashboards/[id]/edit": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/login": [
+    "/webpages/[id]/edit": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
