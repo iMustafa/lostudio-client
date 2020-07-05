@@ -60197,7 +60197,7 @@ var LoginPage = function LoginPage() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!******************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Flogin&absolutePagePath=%2FUsers%2Fimustafa%2FProjects%2FLoStudio%2Fclient%2Fpages%2Flogin.tsx&hotRouterUpdates=true ***!
   \******************************************************************************************************************************************************************/
@@ -60220,5 +60220,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=login.js.map

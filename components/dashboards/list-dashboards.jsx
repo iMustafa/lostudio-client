@@ -2,6 +2,7 @@ import { useState } from "react";
 import { makeStyles, fade } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
+import Button from "@material-ui/core/Button";
 import DashbordItem from "./dashboard-item";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import Typography from "@material-ui/core/Typography";
@@ -72,9 +73,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ListDashboards = ({ dashboards, title, type, dashboardType, reloadChanges }) => {
+const ListDashboards = ({
+  dashboards,
+  title,
+  type,
+  dashboardType,
+  reloadChanges,
+}) => {
   const classes = useStyles();
   const [searchValue, setSearchValue] = useState(null);
+  const [showAddDashbaord, setShowAddDialog] = useState(false);
 
   const handleChange = (event) => {
     setSearchValue(event.target.value);
@@ -102,12 +110,15 @@ const ListDashboards = ({ dashboards, title, type, dashboardType, reloadChanges 
         <div className={classes.cardBody}>
           <Grid container spacing={2}>
             <Grid item xs={3}>
-              <AddDashboardCard type={dashboardType} reloadChanges={reloadChanges} />
+              <AddDashboardCard
+                type={dashboardType}
+                reloadChanges={reloadChanges}
+              />
             </Grid>
             {dashboards
               .filter((dashboard) => {
                 const regex = new RegExp(searchValue, "g");
-                return searchValue ? regex.test(dashboard.title) : true
+                return searchValue ? regex.test(dashboard.title) : true;
               })
               .map((dashboard, index) => {
                 const { title, description, id, permissions } = dashboard;
@@ -126,6 +137,19 @@ const ListDashboards = ({ dashboards, title, type, dashboardType, reloadChanges 
               })}
           </Grid>
         </div>
+      ) : showAddDashbaord ? (
+        <Grid
+          container
+          spacing={2}
+          style={{ justifyContent: "center", marginBottom: 15 }}
+        >
+          <Grid item xs={3}>
+            <AddDashboardCard
+              type={dashboardType}
+              reloadChanges={reloadChanges}
+            />
+          </Grid>
+        </Grid>
       ) : (
         <div className={classes.emptyCardBody}>
           <div
@@ -146,6 +170,17 @@ const ListDashboards = ({ dashboards, title, type, dashboardType, reloadChanges 
               ? "Create a new dashboard to be displayed here."
               : "When a corporation adds you to collaborate on their dashboards, they will appear here."}
           </Typography>
+          {type == "personal" && (
+            <div style={{ marginTop: 5 }}>
+              <Button
+                onClick={() => {
+                  setShowAddDialog(true);
+                }}
+              >
+                Get Started
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </Card>

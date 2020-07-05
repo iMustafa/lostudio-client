@@ -882,14 +882,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 /* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
-/* harmony import */ var _dashboard_item__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dashboard-item */ "./components/dashboards/dashboard-item.jsx");
-/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/icons/Dashboard */ "./node_modules/@material-ui/icons/Dashboard.js");
-/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
-/* harmony import */ var _add_dashboard_card__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./add-dashboard-card */ "./components/dashboards/add-dashboard-card.jsx");
-/* harmony import */ var _material_ui_icons_Search__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/Search */ "./node_modules/@material-ui/icons/Search.js");
-/* harmony import */ var _material_ui_icons_Search__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Search__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _material_ui_core_InputBase__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/InputBase */ "./node_modules/@material-ui/core/esm/InputBase/index.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+/* harmony import */ var _dashboard_item__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dashboard-item */ "./components/dashboards/dashboard-item.jsx");
+/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/icons/Dashboard */ "./node_modules/@material-ui/icons/Dashboard.js");
+/* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
+/* harmony import */ var _add_dashboard_card__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./add-dashboard-card */ "./components/dashboards/add-dashboard-card.jsx");
+/* harmony import */ var _material_ui_icons_Search__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/icons/Search */ "./node_modules/@material-ui/icons/Search.js");
+/* harmony import */ var _material_ui_icons_Search__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Search__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_InputBase__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/InputBase */ "./node_modules/@material-ui/core/esm/InputBase/index.js");
 
 
 var _this = undefined,
@@ -897,6 +898,7 @@ var _this = undefined,
 
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
 
 
 
@@ -981,6 +983,10 @@ var ListDashboards = function ListDashboards(_ref) {
       searchValue = _useState[0],
       setSearchValue = _useState[1];
 
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
+      showAddDashbaord = _useState2[0],
+      setShowAddDialog = _useState2[1];
+
   var handleChange = function handleChange(event) {
     setSearchValue(event.target.value);
   };
@@ -990,7 +996,7 @@ var ListDashboards = function ListDashboards(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 92,
       columnNumber: 5
     }
   }, __jsx("div", {
@@ -998,7 +1004,7 @@ var ListDashboards = function ListDashboards(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 93,
       columnNumber: 7
     }
   }, title), __jsx("div", {
@@ -1006,7 +1012,7 @@ var ListDashboards = function ListDashboards(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 94,
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -1014,17 +1020,17 @@ var ListDashboards = function ListDashboards(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 95,
       columnNumber: 9
     }
-  }, __jsx(_material_ui_icons_Search__WEBPACK_IMPORTED_MODULE_9___default.a, {
+  }, __jsx(_material_ui_icons_Search__WEBPACK_IMPORTED_MODULE_10___default.a, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 96,
       columnNumber: 11
     }
-  })), __jsx(_material_ui_core_InputBase__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  })), __jsx(_material_ui_core_InputBase__WEBPACK_IMPORTED_MODULE_11__["default"], {
     fullWidth: true,
     placeholder: "Search\u2026",
     onChange: handleChange,
@@ -1038,7 +1044,7 @@ var ListDashboards = function ListDashboards(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 98,
       columnNumber: 9
     }
   })), dashboards.length ? __jsx("div", {
@@ -1046,7 +1052,7 @@ var ListDashboards = function ListDashboards(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 110,
       columnNumber: 9
     }
   }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -1055,7 +1061,7 @@ var ListDashboards = function ListDashboards(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103,
+      lineNumber: 111,
       columnNumber: 11
     }
   }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -1064,16 +1070,16 @@ var ListDashboards = function ListDashboards(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104,
+      lineNumber: 112,
       columnNumber: 13
     }
-  }, __jsx(_add_dashboard_card__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, __jsx(_add_dashboard_card__WEBPACK_IMPORTED_MODULE_9__["default"], {
     type: dashboardType,
     reloadChanges: reloadChanges,
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105,
+      lineNumber: 113,
       columnNumber: 15
     }
   })), dashboards.filter(function (dashboard) {
@@ -1092,10 +1098,10 @@ var ListDashboards = function ListDashboards(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 116,
+        lineNumber: 127,
         columnNumber: 19
       }
-    }, __jsx(_dashboard_item__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }, __jsx(_dashboard_item__WEBPACK_IMPORTED_MODULE_6__["default"], {
       type: $type,
       title: title,
       description: description,
@@ -1104,16 +1110,47 @@ var ListDashboards = function ListDashboards(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 117,
+        lineNumber: 128,
         columnNumber: 21
       }
     }));
+  }))) : showAddDashbaord ? __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    container: true,
+    spacing: 2,
+    style: {
+      justifyContent: "center",
+      marginBottom: 15
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 141,
+      columnNumber: 9
+    }
+  }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    item: true,
+    xs: 3,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 146,
+      columnNumber: 11
+    }
+  }, __jsx(_add_dashboard_card__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    type: dashboardType,
+    reloadChanges: reloadChanges,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 147,
+      columnNumber: 13
+    }
   }))) : __jsx("div", {
     className: classes.emptyCardBody,
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130,
+      lineNumber: 154,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -1126,10 +1163,10 @@ var ListDashboards = function ListDashboards(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131,
+      lineNumber: 155,
       columnNumber: 11
     }
-  }, __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_6___default.a, {
+  }, __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_7___default.a, {
     style: {
       color: "#DDD",
       fontSize: 128
@@ -1137,10 +1174,10 @@ var ListDashboards = function ListDashboards(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139,
+      lineNumber: 163,
       columnNumber: 13
     }
-  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__["default"], {
     style: {
       color: "#DDD",
       fontSize: 32
@@ -1148,10 +1185,10 @@ var ListDashboards = function ListDashboards(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140,
+      lineNumber: 164,
       columnNumber: 13
     }
-  }, "No dashboards found.")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, "No dashboards found.")), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__["default"], {
     style: {
       color: "#DDD",
       fontSize: 18
@@ -1159,10 +1196,30 @@ var ListDashboards = function ListDashboards(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 144,
+      lineNumber: 168,
       columnNumber: 11
     }
-  }, type == "personal" ? "Create a new dashboard to be displayed here." : "When a corporation adds you to collaborate on their dashboards, they will appear here.")));
+  }, type == "personal" ? "Create a new dashboard to be displayed here." : "When a corporation adds you to collaborate on their dashboards, they will appear here."), type == "personal" && __jsx("div", {
+    style: {
+      marginTop: 5
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 174,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    onClick: function onClick() {
+      setShowAddDialog(true);
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 175,
+      columnNumber: 15
+    }
+  }, "Get Started"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ListDashboards);
@@ -34553,7 +34610,7 @@ Dashboards.getInitialProps = function _callee(req) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fdashboards&absolutePagePath=%2FUsers%2Fimustafa%2FProjects%2FLoStudio%2Fclient%2Fpages%2Fdashboards%2Findex.tsx&hotRouterUpdates=true ***!
   \************************************************************************************************************************************************************************************/
@@ -34576,5 +34633,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=dashboards.js.map
