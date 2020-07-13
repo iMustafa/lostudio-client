@@ -1,5 +1,6 @@
 import { useEffect, useState, Fragment } from "react";
 import Router from "next/router";
+import Cookie from "js-cookie";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -30,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
 
 const SideMenu = () => {
   const classes = useStyles();
-  const [dashboards, setDashboards] = useState(null);
-  const [webPages, setWebPages] = useState(null);
+  const [dashboards, setDashboards] = useState([]);
+  const [webPages, setWebPages] = useState([]);
   const [refresh, setRefresh] = useState(0);
   const [routes, setRoutes] = useState([
     {
@@ -64,14 +65,14 @@ const SideMenu = () => {
         const GetDashboards = await DashboardActions.getDashboards({});
         const GetWebPages = await DashboardActions.getWebpages({});
         const $routes = [...routes];
-        $routes[0].list = GetDashboards;
-        $routes[1].list = GetWebPages;
+        $routes[0].list = GetDashboards || [];
+        $routes[1].list = GetWebPages || [];
         setRoutes([...$routes]);
       } catch (e) {
         console.log(e);
       }
     };
-    udpateView();
+    if (Cookie.get("id")) udpateView();
   }, [refresh]);
 
   const handleChange = (index) => {
@@ -111,7 +112,7 @@ const SideMenu = () => {
                         key={e.title + i}
                         button
                         onClick={() => {
-                          Router.push(`${item.route}/${e.id}/edit`)
+                          Router.push(`${item.route}/${e.id}/edit`);
                         }}
                         className={classes.nested}
                       >
