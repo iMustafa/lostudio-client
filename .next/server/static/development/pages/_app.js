@@ -104,6 +104,213 @@ module.exports = require("next/dist/next-server/lib/utils.js");
 
 /***/ }),
 
+/***/ "./actions/dashboard.actions.ts":
+/*!**************************************!*\
+  !*** ./actions/dashboard.actions.ts ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DashboardActions; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/config */ "next/config");
+/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_config__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-cookie */ "js-cookie");
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const {
+  API_URL
+} = next_config__WEBPACK_IMPORTED_MODULE_1___default()().publicRuntimeConfig;
+class DashboardActions {
+  static async createDashboard({
+    Authorization,
+    dashboard
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(`${API_URL}/Dashboards`, dashboard, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async getDashboards({
+    Authorization,
+    query
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards`, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      },
+      params: {
+        filter: {
+          where: {
+            or: [{
+              isSub: false
+            }, {
+              type: "dashboard"
+            }]
+          }
+        }
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async getWebpages({
+    Authorization
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards`, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      },
+      params: {
+        filter: {
+          where: {
+            type: "webpage"
+          }
+        }
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async linkSubDashboard({
+    id,
+    subDashboardId
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(`${API_URL}/Dashboards/${id}/subDashboards`, {
+      dashboardId: id,
+      subDashboardId
+    }, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async unLinkSubDashboard({
+    id,
+    subDashboardId
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete(`${API_URL}/Dashboards/${id}/subDashboards/${subDashboardId}`, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async getSubDashboards({
+    Authorization,
+    id
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards/${id}/subDashboards`, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      },
+      params: {
+        filter: {
+          include: "subDashboard"
+        }
+      }
+    }).then(res => res.data).catch(err => err);
+  }
+
+  static async getDashboardById(id) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards/${id}`, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async updateDashboard(id, data) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch(`${API_URL}/Dashboards/${id}`, data).then(res => res.data).catch(err => err.response);
+  }
+
+  static async deleteDashboard(data) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("", {}).then(res => res.data).catch(err => err.response);
+  }
+
+  static async getWidgetSettings({
+    Authorization,
+    id
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards/${id}/widgetSettings`, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async getCollaborators({
+    Authorization,
+    id
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards/${id}/collaborators`, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async getCollaboratorations({
+    Authorization
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`${API_URL}/Dashboards/collaborations`, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async addCollaborator({
+    Authorization,
+    email,
+    id,
+    editor,
+    viewer
+  }) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(`${API_URL}/Dashboards/${id}/dashboardRoleMappings`, {
+      email,
+      editor,
+      viewer
+    }, {
+      headers: {
+        Authorization: Authorization || js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async addWidgetToDashboard(id, fk) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(`${API_URL}/Dashboards/${id}/widgetSettings/rel/${fk}`, {
+      dashboardId: id,
+      widgetSettingsId: fk
+    }, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async createWidgetInDashboard(id, widgetData) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(`${API_URL}/Dashboards/${id}/widgetSettings`, widgetData, {
+      headers: {
+        Authorization: js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")
+      }
+    }).then(res => res.data).catch(err => err.response);
+  }
+
+  static async removeWidgetFromDashboard(data) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("", {}).then(res => res.data).catch(err => err.response);
+  }
+
+}
+
+/***/ }),
+
 /***/ "./components/ApplicationMainBar.jsx":
 /*!*******************************************!*\
   !*** ./components/ApplicationMainBar.jsx ***!
@@ -675,23 +882,22 @@ function PrimarySearchAppBar() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SideMenu; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_List__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/List */ "@material-ui/core/List");
-/* harmony import */ var _material_ui_core_List__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/ListItem */ "@material-ui/core/ListItem");
-/* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/ListItemIcon */ "@material-ui/core/ListItemIcon");
-/* harmony import */ var _material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/ListItemText */ "@material-ui/core/ListItemText");
-/* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Divider */ "@material-ui/core/Divider");
-/* harmony import */ var _material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Divider__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-cookie */ "js-cookie");
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_List__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/List */ "@material-ui/core/List");
+/* harmony import */ var _material_ui_core_List__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/ListItem */ "@material-ui/core/ListItem");
+/* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/ListItemIcon */ "@material-ui/core/ListItemIcon");
+/* harmony import */ var _material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/ListItemText */ "@material-ui/core/ListItemText");
+/* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _material_ui_icons_Web__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/icons/Web */ "@material-ui/icons/Web");
 /* harmony import */ var _material_ui_icons_Web__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Web__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/Dashboard */ "@material-ui/icons/Dashboard");
@@ -700,7 +906,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/icons/Assessment */ "@material-ui/icons/Assessment");
 /* harmony import */ var _material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../actions/dashboard.actions */ "./actions/dashboard.actions.ts");
+/* harmony import */ var _material_ui_icons_ExpandLess__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/icons/ExpandLess */ "@material-ui/icons/ExpandLess");
+/* harmony import */ var _material_ui_icons_ExpandLess__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ExpandLess__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/icons/ExpandMore */ "@material-ui/icons/ExpandMore");
+/* harmony import */ var _material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _material_ui_icons_StarBorder__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/icons/StarBorder */ "@material-ui/icons/StarBorder");
+/* harmony import */ var _material_ui_icons_StarBorder__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_StarBorder__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _material_ui_core_Collapse__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/core/Collapse */ "@material-ui/core/Collapse");
+/* harmony import */ var _material_ui_core_Collapse__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Collapse__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _material_ui_icons_Book__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @material-ui/icons/Book */ "@material-ui/icons/Book");
+/* harmony import */ var _material_ui_icons_Book__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Book__WEBPACK_IMPORTED_MODULE_17__);
 var _jsxFileName = "/Users/imustafa/Projects/LoStudio/client/components/SideMenu.jsx";
+
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -714,110 +932,259 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])({
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(theme => ({
   list: {
     width: 250
   },
   fullList: {
-    width: 'auto'
+    width: "auto"
+  },
+  nested: {
+    paddingLeft: theme.spacing(4)
   }
-});
-function SideMenu() {
+}));
+
+const SideMenu = () => {
   const classes = useStyles();
-  const routes = [{
-    key: 'dashboards',
-    text: 'Dashboards',
-    route: '/dashboards',
+  const {
+    0: dashboards,
+    1: setDashboards
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: webPages,
+    1: setWebPages
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: refresh,
+    1: setRefresh
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
+  const {
+    0: routes,
+    1: setRoutes
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
+    key: "dashboards",
+    text: "Dashboards",
+    route: "/dashboards",
     icon: () => __jsx(_material_ui_icons_Dashboard__WEBPACK_IMPORTED_MODULE_9___default.a, {
-      __self: this,
+      __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26,
-        columnNumber: 81
+        lineNumber: 42,
+        columnNumber: 19
       }
-    })
+    }),
+    list: dashboards,
+    open: false
   }, {
-    key: 'datasources',
-    text: 'Data Sources',
-    route: '/datasources',
-    icon: () => __jsx(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_10___default.a, {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 27,
-        columnNumber: 85
-      }
-    })
-  }, {
-    key: 'webpages',
-    text: 'Web Pages',
-    route: '/webpages',
+    key: "webpages",
+    text: "Web Pages",
+    route: "/webpages",
     icon: () => __jsx(_material_ui_icons_Web__WEBPACK_IMPORTED_MODULE_8___default.a, {
-      __self: this,
+      __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28,
-        columnNumber: 76
+        lineNumber: 50,
+        columnNumber: 19
       }
-    })
+    }),
+    list: webPages,
+    open: false
   }, {
-    key: 'widgets',
-    text: 'Widgets',
-    route: '/widgets',
-    icon: () => __jsx(_material_ui_icons_Assessment__WEBPACK_IMPORTED_MODULE_11___default.a, {
-      __self: this,
+    key: "datasources",
+    text: "Data Sources",
+    route: "/datasources",
+    icon: () => __jsx(_material_ui_icons_Storage__WEBPACK_IMPORTED_MODULE_10___default.a, {
+      __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29,
-        columnNumber: 72
+        lineNumber: 58,
+        columnNumber: 19
       }
     })
-  }];
+  }]);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const udpateView = async () => {
+      try {
+        const GetDashboards = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_12__["default"].getDashboards({});
+        const GetWebPages = await _actions_dashboard_actions__WEBPACK_IMPORTED_MODULE_12__["default"].getWebpages({});
+        const $routes = [...routes];
+        $routes[0].list = GetDashboards || [];
+        $routes[1].list = GetWebPages || [];
+        setRoutes([...$routes]);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    if (js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.get("id")) udpateView();
+  }, [refresh]);
+
+  const handleChange = index => {
+    const $routes = [...routes];
+    $routes[index].open = !$routes[index].open;
+    setRoutes([...$routes]);
+  };
+
   return __jsx("div", {
     className: classes.list,
     role: "presentation",
-    __self: this,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 85,
       columnNumber: 5
     }
-  }, __jsx(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    __self: this,
+  }, __jsx(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 86,
       columnNumber: 7
     }
-  }, routes.map((item, index) => __jsx(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_4___default.a, {
+  }, routes.map((item, index) => item.list ? __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89,
+      columnNumber: 13
+    }
+  }, __jsx(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    key: item.key,
+    button: true,
+    onClick: () => {
+      handleChange(index);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97,
+      columnNumber: 17
+    }
+  }, item.icon()), __jsx(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    onClick: () => {
+      next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push(item.route);
+    },
+    primary: item.text,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 98,
+      columnNumber: 17
+    }
+  }), item.open ? __jsx(_material_ui_icons_ExpandLess__WEBPACK_IMPORTED_MODULE_13___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 30
+    }
+  }) : __jsx(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_14___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 47
+    }
+  })), __jsx(_material_ui_core_Collapse__WEBPACK_IMPORTED_MODULE_16___default.a, {
+    in: item.open,
+    timeout: "auto",
+    unmountOnExit: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107,
+      columnNumber: 15
+    }
+  }, __jsx(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    component: "div",
+    disablePadding: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 108,
+      columnNumber: 17
+    }
+  }, item.list.map((e, i) => {
+    return __jsx(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_5___default.a, {
+      key: e.title + i,
+      button: true,
+      onClick: () => {
+        next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push(`${item.route}/${e.id}/edit`);
+      },
+      className: classes.nested,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 111,
+        columnNumber: 23
+      }
+    }, __jsx(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 119,
+        columnNumber: 25
+      }
+    }, __jsx(_material_ui_icons_Book__WEBPACK_IMPORTED_MODULE_17___default.a, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 120,
+        columnNumber: 27
+      }
+    })), __jsx(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_7___default.a, {
+      primary: e.title,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 122,
+        columnNumber: 25
+      }
+    }));
+  })))) : __jsx(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_5___default.a, {
     button: true,
     key: item.key,
     onClick: () => {
       next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push(item.route);
     },
-    __self: this,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 11
-    }
-  }, __jsx(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 130,
       columnNumber: 13
     }
-  }, item.icon()), __jsx(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_6___default.a, {
+  }, __jsx(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_6___default.a, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 137,
+      columnNumber: 15
+    }
+  }, item.icon()), __jsx(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_7___default.a, {
     primary: item.text,
-    __self: this,
+    __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
-      columnNumber: 13
+      lineNumber: 138,
+      columnNumber: 15
     }
   })))));
-}
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SideMenu);
 
 /***/ }),
 
@@ -1260,14 +1627,14 @@ module.exports = require("@material-ui/core/Badge");
 
 /***/ }),
 
-/***/ "@material-ui/core/Divider":
-/*!********************************************!*\
-  !*** external "@material-ui/core/Divider" ***!
-  \********************************************/
+/***/ "@material-ui/core/Collapse":
+/*!*********************************************!*\
+  !*** external "@material-ui/core/Collapse" ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("@material-ui/core/Divider");
+module.exports = require("@material-ui/core/Collapse");
 
 /***/ }),
 
@@ -1425,6 +1792,17 @@ module.exports = require("@material-ui/icons/Assessment");
 
 /***/ }),
 
+/***/ "@material-ui/icons/Book":
+/*!******************************************!*\
+  !*** external "@material-ui/icons/Book" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/Book");
+
+/***/ }),
+
 /***/ "@material-ui/icons/Dashboard":
 /*!***********************************************!*\
   !*** external "@material-ui/icons/Dashboard" ***!
@@ -1433,6 +1811,28 @@ module.exports = require("@material-ui/icons/Assessment");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/icons/Dashboard");
+
+/***/ }),
+
+/***/ "@material-ui/icons/ExpandLess":
+/*!************************************************!*\
+  !*** external "@material-ui/icons/ExpandLess" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/ExpandLess");
+
+/***/ }),
+
+/***/ "@material-ui/icons/ExpandMore":
+/*!************************************************!*\
+  !*** external "@material-ui/icons/ExpandMore" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/ExpandMore");
 
 /***/ }),
 
@@ -1491,6 +1891,17 @@ module.exports = require("@material-ui/icons/Search");
 
 /***/ }),
 
+/***/ "@material-ui/icons/StarBorder":
+/*!************************************************!*\
+  !*** external "@material-ui/icons/StarBorder" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons/StarBorder");
+
+/***/ }),
+
 /***/ "@material-ui/icons/Storage":
 /*!*********************************************!*\
   !*** external "@material-ui/icons/Storage" ***!
@@ -1513,6 +1924,28 @@ module.exports = require("@material-ui/icons/Web");
 
 /***/ }),
 
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
+
+/***/ }),
+
+/***/ "js-cookie":
+/*!****************************!*\
+  !*** external "js-cookie" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("js-cookie");
+
+/***/ }),
+
 /***/ "next-cookies":
 /*!*******************************!*\
   !*** external "next-cookies" ***!
@@ -1521,6 +1954,17 @@ module.exports = require("@material-ui/icons/Web");
 /***/ (function(module, exports) {
 
 module.exports = require("next-cookies");
+
+/***/ }),
+
+/***/ "next/config":
+/*!******************************!*\
+  !*** external "next/config" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/config");
 
 /***/ }),
 
